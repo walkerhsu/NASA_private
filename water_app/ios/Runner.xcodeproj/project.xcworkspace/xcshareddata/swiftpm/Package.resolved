@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "mapbox-common-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mapbox/mapbox-common-ios.git",
+      "state" : {
+        "revision" : "419bbceb7016eb6f8ca9f575d45508d9d948af30",
+        "version" : "23.8.0"
+      }
+    },
+    {
+      "identity" : "mapbox-core-maps-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mapbox/mapbox-core-maps-ios.git",
+      "state" : {
+        "revision" : "d47a6e081b9ae736003033b971bfa641e650e08e",
+        "version" : "10.16.0"
+      }
+    },
+    {
+      "identity" : "mapbox-maps-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mapbox/mapbox-maps-ios.git",
+      "state" : {
+        "revision" : "41c6ed63c77100371a54f5bf74cfffd3fc9f57fa",
+        "version" : "10.16.0"
+      }
+    },
+    {
+      "identity" : "turf-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mapbox/turf-swift.git",
+      "state" : {
+        "revision" : "f0afe204b4266337066a436becab62fdd2b32378",
+        "version" : "2.7.0"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -26,6 +26,8 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1Ijoid2Fsa2VyaHN1IiwiYSI6ImNsbXd6N2FkdTBsdGEybHBoM2Riajh3aXcifQ.u2DBinAPW6TC9kdS-lJW8A</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
