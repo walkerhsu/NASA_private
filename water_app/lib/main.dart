@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 33, 32, 32),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 255),
         title: const Text('Flutter MapBox'),
       ),
       body: Stack(
