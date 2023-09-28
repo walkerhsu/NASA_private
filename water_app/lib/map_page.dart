@@ -8,24 +8,22 @@ import 'package:water_app/testData/map_consts.dart';
 import 'package:water_app/testData/map_markers.dart';
 import 'package:water_app/map_data.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MapPage extends StatefulWidget {
+  const MapPage({super.key});
 
-  final String title;
 
   // ignore: constant_identifier_names
   static const String ACCESS_TOKEN = String.fromEnvironment("ACCESS_TOKEN");
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MapPage> createState() => _MapPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late final PageController pageController;
   int selectedIndex = 0;
   LatLng currentLocation = MapConstants.myLocation;
   bool drawMapData = true;
   final MapController mapController = MapController();
-  late final String title;
 
   showLocation(idx) {
     setState(() {
@@ -53,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    title = widget.title;
     pageController = PageController(
       initialPage: selectedIndex,
     );
@@ -68,98 +65,91 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Stack(
-        children: [
-          FlutterMap(
-            mapController: mapController,
-            options: MapOptions(
-              minZoom: 5,
-              maxZoom: 18,
-              zoom: 13,
-              center: currentLocation,
-              onPositionChanged: (position, hasGesture) {
-                if (hasGesture) {
-                  setState(() {
-                    drawMapData = false;
-                  });
-                }
-              },
-            ),
-            children: [
-              TileLayer(
-                urlTemplate:
-                    "https://api.mapbox.com/styles/v1/walkerhsu/{mapStyleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
-                additionalOptions: const {
-                  'accessToken': MapConstants.mapBoxAccessToken,
-                  'mapStyleId': MapConstants.mapBoxStyleId,
-                },
-              ),
-              MarkerLayer(
-                markers: [
-                  for (int i = 0; i < mapMarkers.length; i++)
-                    Marker(
-                      height: 40,
-                      width: 40,
-                      point: mapMarkers[i].location ?? MapConstants.myLocation,
-                      builder: (context) {
-                        return GestureDetector(
-                          onTap: () {
-                            showLocation(i);
-                          },
-                          child: AnimatedScale(
-                            duration: const Duration(milliseconds: 500),
-                            scale: selectedIndex == i ? 1 : 0.7,
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 500),
-                              opacity: selectedIndex == i ? 1 : 0.5,
-                              child: SvgPicture.asset(
-                                'assets/icons/map_marker.svg',
-                              ),
-                            ),
-                          ),
-                        );
+    return Stack(children: [
+      FlutterMap(
+        mapController: mapController,
+        options: MapOptions(
+          minZoom: 5,
+          maxZoom: 18,
+          zoom: 13,
+          center: currentLocation,
+          onPositionChanged: (position, hasGesture) {
+            if (hasGesture) {
+              setState(() {
+                drawMapData = false;
+              });
+            }
+          },
+        ),
+        nonRotatedChildren: [
+          TileLayer(
+            urlTemplate:
+                "https://api.mapbox.com/styles/v1/walkerhsu/{mapStyleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
+            additionalOptions: const {
+              'accessToken': MapConstants.mapBoxAccessToken,
+              'mapStyleId': MapConstants.mapBoxStyleId,
+            },
+          ),
+          MarkerLayer(
+            markers: [
+              for (int i = 0; i < mapMarkers.length; i++)
+                Marker(
+                  height: 40,
+                  width: 40,
+                  point: mapMarkers[i].location ?? MapConstants.myLocation,
+                  builder: (context) {
+                    return GestureDetector(
+                      onTap: () {
+                        showLocation(i);
                       },
-                    ),
-                ],
-              ),
+                      child: AnimatedScale(
+                        duration: const Duration(milliseconds: 500),
+                        scale: selectedIndex == i ? 1 : 0.7,
+                        child: AnimatedOpacity(
+                          duration: const Duration(milliseconds: 500),
+                          opacity: selectedIndex == i ? 1 : 0.5,
+                          child: SvgPicture.asset(
+                            'assets/icons/map_marker.svg',
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
             ],
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 2,
-            height: MediaQuery.of(context).size.height * 0.3,
-            child: drawMapData
-                ? PageView.builder(
-                    controller: pageController,
-                    onPageChanged: (value) {
-                      _animatedMapMove(
-                          mapMarkers[value].location ?? MapConstants.myLocation,
-                          14);
-                      setState(() {
-                        selectedIndex = value;
-                        currentLocation = mapMarkers[value].location ??
-                            MapConstants.myLocation;
-                        drawMapData = true;
-                      });
-                    },
-                    itemCount: mapMarkers.length,
-                    itemBuilder: (_, index) {
-                      final MapMarker item = mapMarkers[index];
-                      return MapData(
-                        item: item,
-                      );
-                    },
-                  )
-                : const SizedBox.shrink(),
-          )
         ],
       ),
-    );
+      Positioned(
+        left: 0,
+        right: 0,
+        bottom: 2,
+        height: MediaQuery.of(context).size.height * 0.3,
+        child: drawMapData
+            ? PageView.builder(
+                controller: pageController,
+                onPageChanged: (value) {
+                  _animatedMapMove(
+                      mapMarkers[value].location ?? MapConstants.myLocation,
+                      14);
+                  setState(() {
+                    selectedIndex = value;
+                    currentLocation =
+                        mapMarkers[value].location ?? MapConstants.myLocation;
+                    drawMapData = true;
+                  });
+                },
+                itemCount: mapMarkers.length,
+                itemBuilder: (_, index) {
+                  final MapMarker item = mapMarkers[index];
+                  return MapData(
+                    item: item,
+                  );
+                },
+              )
+            : const SizedBox.shrink(),
+      )
+    ]);
   }
 
   void _animatedMapMove(LatLng destLocation, double destZoom) {
