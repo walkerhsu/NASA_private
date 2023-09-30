@@ -1,17 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
 
 import 'package:water_app/testData/map_consts.dart';
 import 'package:water_app/testData/map_markers.dart';
 import 'package:water_app/map_data.dart';
+// import 'package:water_app/testData/map_current_arrow.dart';
+import 'package:water_app/processData/process_current.dart';
+import 'package:water_app/map_location.dart';
+
+class MapPageBuilder extends StatelessWidget {
+  const MapPageBuilder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: ProcessCurrent.processCsv(context),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            List<List<LatLng>> current = snapshot.data!;
+            // print(ProcessCurrent.current[0].keys.first);
+            return CheckCurrentPosition(current: current);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+}
+
+class CheckCurrentPosition extends StatelessWidget {
+  final List<List<LatLng>> current;
+  const CheckCurrentPosition({super.key, required this.current});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: GetCurrentLocation.handleCurrentPosition(context),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            LatLng currentPosition = snapshot.data as LatLng;
+            return MapPage(current: current, currentPosition: currentPosition);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+}
 
 class MapPage extends StatefulWidget {
-  const MapPage({super.key});
-
-
+  final List<List<LatLng>> current;
+  final LatLng currentPosition;
+  const MapPage({super.key, required this.current, required this.currentPosition});
   // ignore: constant_identifier_names
   static const String ACCESS_TOKEN = String.fromEnvironment("ACCESS_TOKEN");
   @override
@@ -19,9 +66,10 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
+  late final List<List<LatLng>> current;
   late final PageController pageController;
   int selectedIndex = 0;
-  LatLng currentLocation = MapConstants.myLocation;
+  late LatLng currentLocation;
   bool drawMapData = true;
   final MapController mapController = MapController();
 
@@ -54,6 +102,8 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     pageController = PageController(
       initialPage: selectedIndex,
     );
+    current = widget.current;
+    currentLocation = widget.currentPosition;
   }
 
   @override
@@ -65,91 +115,127 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      FlutterMap(
-        mapController: mapController,
-        options: MapOptions(
-          minZoom: 5,
-          maxZoom: 18,
-          zoom: 13,
-          center: currentLocation,
-          onPositionChanged: (position, hasGesture) {
-            if (hasGesture) {
-              setState(() {
-                drawMapData = false;
-              });
-            }
-          },
-        ),
-        nonRotatedChildren: [
-          TileLayer(
-            urlTemplate:
-                "https://api.mapbox.com/styles/v1/walkerhsu/{mapStyleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
-            additionalOptions: const {
-              'accessToken': MapConstants.mapBoxAccessToken,
-              'mapStyleId': MapConstants.mapBoxStyleId,
+    return Stack(
+      children: [
+        FlutterMap(
+          mapController: mapController,
+          options: MapOptions(
+            minZoom: 5,
+            maxZoom: 18,
+            zoom: 15,
+            center: currentLocation,
+            onPositionChanged: (position, hasGesture) {
+              if (hasGesture) {
+                setState(() {
+                  drawMapData = false;
+                });
+              }
             },
           ),
-          MarkerLayer(
-            markers: [
-              for (int i = 0; i < mapMarkers.length; i++)
-                Marker(
-                  height: 40,
-                  width: 40,
-                  point: mapMarkers[i].location ?? MapConstants.myLocation,
-                  builder: (context) {
-                    return GestureDetector(
-                      onTap: () {
-                        showLocation(i);
-                      },
-                      child: AnimatedScale(
-                        duration: const Duration(milliseconds: 500),
-                        scale: selectedIndex == i ? 1 : 0.7,
-                        child: AnimatedOpacity(
-                          duration: const Duration(milliseconds: 500),
-                          opacity: selectedIndex == i ? 1 : 0.5,
-                          child: SvgPicture.asset(
-                            'assets/icons/map_marker.svg',
-                          ),
-                        ),
-                      ),
+          nonRotatedChildren: [
+            TileLayer(
+              urlTemplate:
+                  "https://api.mapbox.com/styles/v1/walkerhsu/{mapStyleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
+              additionalOptions: const {
+                'accessToken': MapConstants.mapBoxAccessToken,
+                'mapStyleId': MapConstants.mapBoxStyleId,
+              },
+            ),
+            // FutureBuilder(
+            //   future: ProcessCurrent.processCsv(context),
+            //   builder: (context, snapshot) {
+            //     if (snapshot.connectionState == ConnectionState.done) {
+            //       // print(ProcessCurrent.current[0].keys.first);
+            //       return MarkerLayer(
+            //         markers: [
+            //           // for (int i = 0; i < mapMarkers.length; i++)
+            //           //   Marker(
+            //           //     height: 40,
+            //           //     width: 40,
+            //           //     point:
+            //           //         mapMarkers[i].location ?? MapConstants.myLocation,
+            //           //     builder: (context) {
+            //           //       return GestureDetector(
+            //           //         onTap: () {
+            //           //           showLocation(i);
+            //           //         },
+            //           //         child: AnimatedScale(
+            //           //           duration: const Duration(milliseconds: 500),
+            //           //           scale: selectedIndex == i ? 1 : 0.7,
+            //           //           child: AnimatedOpacity(
+            //           //             duration: const Duration(milliseconds: 500),
+            //           //             opacity: selectedIndex == i ? 1 : 0.5,
+            //           //             child: SvgPicture.asset(
+            //           //               'assets/icons/map_marker.svg',
+            //           //             ),
+            //           //           ),
+            //           //         ),
+            //           //       );
+            //           //     },
+            //             // ),
+            //           for (int i = 0; i < ProcessCurrent.current.length; i++)
+            //             Marker(
+            //               height: 2,
+            //               width: 2,
+            //               point: ProcessCurrent.current[i].keys.first,
+            //               builder: (context) {
+            //                 // print(ProcessCurrent.current[i].values.first);
+            //                 return Image.asset(
+            //                   'assets/icons/dot.png',
+            //                 );
+            //               },
+            //             ),
+            //         ],
+            //       );
+            //     } else {
+            //       return const Center(
+            //         child: CircularProgressIndicator(),
+            //       );
+            //     }
+            //   },
+            // ),
+            PolylineLayer(
+              polylines: current
+                  .map((e) => Polyline(
+                        points: e,
+                        color: Colors.red,
+                        strokeWidth: 5,
+                      ))
+                  .toList(),
+            ),
+          ],
+        ),
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 2,
+          height: MediaQuery.of(context).size.height * 0.3,
+          child: drawMapData
+              ? PageView.builder(
+                  controller: pageController,
+                  onPageChanged: (value) {
+                    _animatedMapMove(
+                        mapMarkers[value].location ?? MapConstants.myLocation,
+                        15.5);
+                    setState(() {
+                      selectedIndex = value;
+                      currentLocation =
+                          mapMarkers[value].location ?? MapConstants.myLocation;
+                      drawMapData = true;
+                    });
+                  },
+                  itemCount: mapMarkers.length,
+                  itemBuilder: (_, index) {
+                    final MapMarker item = mapMarkers[index];
+                    return MapData(
+                      item: item,
                     );
                   },
-                ),
-            ],
-          ),
-        ],
-      ),
-      Positioned(
-        left: 0,
-        right: 0,
-        bottom: 2,
-        height: MediaQuery.of(context).size.height * 0.3,
-        child: drawMapData
-            ? PageView.builder(
-                controller: pageController,
-                onPageChanged: (value) {
-                  _animatedMapMove(
-                      mapMarkers[value].location ?? MapConstants.myLocation,
-                      14);
-                  setState(() {
-                    selectedIndex = value;
-                    currentLocation =
-                        mapMarkers[value].location ?? MapConstants.myLocation;
-                    drawMapData = true;
-                  });
-                },
-                itemCount: mapMarkers.length,
-                itemBuilder: (_, index) {
-                  final MapMarker item = mapMarkers[index];
-                  return MapData(
-                    item: item,
-                  );
-                },
-              )
-            : const SizedBox.shrink(),
-      )
-    ]);
+                )
+              : const SizedBox.shrink(),
+        )
+      ],
+    );
   }
 
   void _animatedMapMove(LatLng destLocation, double destZoom) {

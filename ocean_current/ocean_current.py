@@ -2,8 +2,10 @@ from pydap.client import open_url
 import os
 import netCDF4
 import pandas as pd
+import math
 # Open the dataset
 if __name__ == "__main__":
+    RATIO = 0.2
     LAT_STEP = 10
     LON_STEP = 10
     TIME_IDX = -1
@@ -12,11 +14,13 @@ if __name__ == "__main__":
     # # lon start from 0 to 360 
     LON = [x+0.5 for x in range(0,360,LON_STEP)]
     LAT = []
+    THETA_ANGLE = []
+    PHI_ANGLE = []
     # LON.append(360)
     # print(LON)
     # print(LAT)
     cwd = os.getcwd()
-    file2read = netCDF4.Dataset(cwd+'/oscar.nc','r')
+    file2read = netCDF4.Dataset(cwd+'/ocean_current.nc','r')
     # print(file2read)
     # print(file2read.variables.keys())
     latitude = file2read.variables['latitude'][:]
@@ -25,14 +29,12 @@ if __name__ == "__main__":
     date = file2read.variables['date'][:]
     depth = file2read.variables['depth'][:]
     mask = file2read.variables['mask'][:]
-    u = file2read.variables['u'][:]
-    v = file2read.variables['v'][:]
-    uf = file2read.variables['uf'][:]
-    vf = file2read.variables['vf'][:]
-    df = pd.DataFrame(u[TIME_IDX][0], index=latitude, columns=longitude)
-    df.to_csv('oscar.csv')
-    # print(latitude)
-    # print(longitude)
+    u = file2read.variables['u'][TIME_IDX][0]
+    v = file2read.variables['v'][TIME_IDX][0]
+    uf = file2read.variables['uf'][TIME_IDX][0]
+    vf = file2read.variables['vf'][TIME_IDX][0]
+    # print(latitude.shape)
+    # print(longitude.shape)
     # print(time)
     # print(date)
     # print(depth)
@@ -40,33 +42,26 @@ if __name__ == "__main__":
     # print(u.shape)
     # print(v.shape)
     # print(uf.shape)
-    # print(vf[0][0][0])
-    # MP_concentration = file2read.variables['MP_concentration'][:]
-    # stdev_MP_samples = file2read.variables['stdev_MP_samples']
-    # num_MP_samples = file2read.variables['num_MP_samples']
+    # print(type(uf[0][0]))
+    
+    # print(type(u[0][0]))
+    for lat in range(len(u)):
+        THETA_ANGLE.append([])
+        PHI_ANGLE.append([])
+        # RATIO = RATIO * math.cos(latitude[lat]*math.pi/180)
+        circumference = 2 * math.pi * RATIO * math.cos(latitude[lat]*math.pi/180)
+        for long in range(len(u[0])):
+            # if v[lat][long] and u[lat][long]:
+                PHI_ANGLE[-1].append(u[lat][long]/circumference)
+                THETA_ANGLE[-1].append(v[lat][long]/(2 * math.pi * RATIO))
+        # if lat % LAT_STEP == 0:
+        #     LAT.append(lat)
 
-    # print(stdev_MP_samples)
-    # print(num_MP_samples)
-
-    # MP_concentration_conpressed = []
-    # for lon in range(int(297/LAT_STEP)+1):
-    #     MP_concentration_conpressed.append([])
-    #     lon_idx = lon*LAT_STEP if lon*LAT_STEP < 297 else 296
-    #     # print(f"lon_idx : {lon_idx}")
-
-    #     for lat in range(int(1440/LON_STEP)+1):
-    #         lat_idx = lat*LON_STEP if lat*LON_STEP < 1440 else 1439
-    #         # print(f"lat_idx : {lat_idx}")
-    #         # print(MP_concentration[lon_idx][lat_idx])
-    #         MP_concentration_conpressed[lon].append(MP_concentration[lon_idx][lat_idx])
-
-    # print(len(MP_concentration_conpressed), len(MP_concentration_conpressed[0]))
-    # assert len(MP_concentration_conpressed) == len(LAT)
-    # assert len(MP_concentration_conpressed[0]) == len(LON)
-
-    # df = pd.DataFrame(MP_concentration_conpressed, index=LAT, columns=LON)
-    # df.to_csv('water_quality.csv')
-
+    df = pd.DataFrame(PHI_ANGLE, index=latitude, columns=longitude)
+    df.to_csv('ocean_current_phi_angle.csv')
+    df = pd.DataFrame(THETA_ANGLE, index=latitude, columns=longitude)
+    df.to_csv('ocean_current_theta_angle.csv')
+    
     # print(time)
     # print()
     # print(MP_concentration)

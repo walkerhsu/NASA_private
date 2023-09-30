@@ -28,6 +28,10 @@
 	<true/>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1Ijoid2Fsa2VyaHN1IiwiYSI6ImNsbXd6N2FkdTBsdGEybHBoM2Riajh3aXcifQ.u2DBinAPW6TC9kdS-lJW8A</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to location when open.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs access to location when in the background.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
