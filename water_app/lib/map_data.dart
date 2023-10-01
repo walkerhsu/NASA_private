@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:water_app/testData/map_markers.dart';
-import 'package:water_app/Details/get_detail_data.dart';
 
 class MapData extends StatefulWidget {
-  const MapData({super.key, required this.item});
-  final MapMarker item;
+  const MapData({super.key, required this.station});
+  final Map<String, dynamic> station;
   @override
   State<MapData> createState() => _MapDataState();
 }
 
 class _MapDataState extends State<MapData> {
-  late final MapMarker item;
+  late final Map<String, dynamic> station;
 
   @override
   void initState() {
     super.initState();
-    item = widget.item;
+    station = widget.station;
   }
 
   @override
@@ -24,11 +22,11 @@ class _MapDataState extends State<MapData> {
       padding: const EdgeInsets.all(15.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => GetDetailData(location: item.location!),
-            ),
-          );
+          // Navigator.of(context).push(
+          //   MaterialPageRoute(
+          //     builder: (context) => GetDetailData(location: stations['location']),
+          //   ),
+          // );
         },
         child: Card(
           elevation: 5,
@@ -43,26 +41,14 @@ class _MapDataState extends State<MapData> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: item.rating,
-                        itemBuilder: (BuildContext context, int index) {
-                          return const Icon(
-                            Icons.star,
-                            color: Colors.orange,
-                          );
-                        },
-                      ),
-                    ),
+                    
                     Expanded(
                       flex: 2,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            item.title ?? '',
+                            station['station'] ?? '',
                             style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -70,7 +56,7 @@ class _MapDataState extends State<MapData> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            item.address ?? '',
+                            station['river'] ?? '',
                             style: const TextStyle(
                               fontSize: 14,
                               color: Colors.grey,
@@ -89,7 +75,7 @@ class _MapDataState extends State<MapData> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.asset(
-                      item.image ?? '',
+                      'assets/images/101.jpeg',
                       fit: BoxFit.cover,
                     ),
                   ),

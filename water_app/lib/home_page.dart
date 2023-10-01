@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     {
       'title': 'Current location',
       'icon': const Icon(Icons.location_on_outlined),
-      'body': const MapPageBuilder(),
+      'body': const CheckCurrentPosition(),
       // 'body': const Center(
         // child: Text('Hello World'),
       // )

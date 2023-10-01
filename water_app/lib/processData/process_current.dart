@@ -10,6 +10,9 @@ abstract class ProcessCurrent {
   static List<List<LatLng>> current = [];
 
   static Future<List<List<LatLng>>> processCsv(context) async {
+    if (current.isNotEmpty) {
+      return current;
+    }
     var thetaAngleString = await DefaultAssetBundle.of(context).loadString(
       "assets/data/ocean_current_theta_angle.csv",
     );
