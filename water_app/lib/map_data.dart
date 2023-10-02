@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
 class MapData extends StatefulWidget {
-  const MapData({super.key, required this.station});
+  const MapData({super.key, required this.station, required this.index});
   final Map<String, dynamic> station;
+  final int index;
   @override
   State<MapData> createState() => _MapDataState();
 }
 
 class _MapDataState extends State<MapData> {
   late final Map<String, dynamic> station;
+  late final int index;
 
   @override
   void initState() {
     super.initState();
     station = widget.station;
+    index = widget.index;
   }
 
   @override
@@ -41,7 +44,6 @@ class _MapDataState extends State<MapData> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    
                     Expanded(
                       flex: 2,
                       child: Column(
@@ -52,6 +54,7 @@ class _MapDataState extends State<MapData> {
                             style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              color: Colors.grey
                             ),
                           ),
                           const SizedBox(height: 10),
@@ -62,6 +65,15 @@ class _MapDataState extends State<MapData> {
                               color: Colors.grey,
                             ),
                           ),
+                          const SizedBox(height: 10),
+                          Text(
+                            index.toString(),
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          
                         ],
                       ),
                     ),

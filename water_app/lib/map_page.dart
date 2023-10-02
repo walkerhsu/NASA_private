@@ -12,6 +12,28 @@ import 'package:water_app/processData/process_current.dart';
 import 'package:water_app/processData/process_species.dart';
 import 'package:water_app/map_location.dart';
 
+class CheckCurrentPosition extends StatelessWidget {
+  const CheckCurrentPosition({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: GetCurrentLocation.handleCurrentPosition(context),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            LatLng currentPosition = snapshot.data as LatLng;
+
+            return MapPageBuilder(currentPosition: currentPosition);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+}
+
 class MapPageBuilder extends StatelessWidget {
   final LatLng currentPosition;
   const MapPageBuilder({super.key, required this.currentPosition});
@@ -48,28 +70,6 @@ class MapPageBuilder extends StatelessWidget {
   }
 }
 
-class CheckCurrentPosition extends StatelessWidget {
-  const CheckCurrentPosition({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: GetCurrentLocation.handleCurrentPosition(context),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done &&
-              snapshot.hasData) {
-            LatLng currentPosition = snapshot.data as LatLng;
-
-            return MapPageBuilder(currentPosition: currentPosition);
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
-  }
-}
-
 class MapPage extends StatefulWidget {
   final List<List<LatLng>> current;
   final List<Map<String, dynamic>> species;
@@ -89,48 +89,60 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late final PageController pageController;
-  int selectedIndex = 0;
-  bool drawMapData = true;
   final MapController mapController = MapController();
+  bool drawMapData = true;
+  late int selectedIndex;
+
+  late List<int> argsort = [];
 
   late LatLng currentLocation;
   late final List<List<LatLng>> current;
   late final List<Map<String, dynamic>> species;
-  late final List<Map<String, dynamic>> stations;
+  late List<Map<String, dynamic>> stations;
+
+  final int markerNum = 10;
 
   showLocation(idx) {
-    setState(() {
-      selectedIndex = idx;
-      currentLocation = stations[idx]['location'] ?? MapConstants.myLocation;
-      drawMapData = true;
-    });
-    SchedulerBinding.instance.addPostFrameCallback(
-      (_) => animateMap(selectedIndex),
-    );
+    if (drawMapData) {
+      pageController.animateToPage(
+        idx,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      setState(() {
+        drawMapData = true;
+      });
+      SchedulerBinding.instance.addPostFrameCallback(
+        (_) => pageController.animateToPage(
+          idx,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        ),
+      );
+    }
   }
 
   animateMap(idx) {
-    pageController.animateToPage(
-      selectedIndex,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
-    );
     _animatedMapMove(
       stations[idx]['location'] ?? MapConstants.myLocation,
-      11,
+      12,
     );
   }
 
   @override
   void initState() {
     super.initState();
-    pageController = PageController(
-      initialPage: selectedIndex,
-    );
     current = widget.current;
     currentLocation = widget.currentPosition;
     species = widget.species;
     stations = widget.stations;
+    argsort = ProcessStations.sortStations(currentLocation);
+    selectedIndex = argsort[0];
+    pageController = PageController(
+      initialPage: 0,
+    );
+    print("in");
   }
 
   @override
@@ -149,7 +161,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
             options: MapOptions(
               minZoom: 5,
               maxZoom: 18,
-              zoom: 10,
+              zoom: 12,
               center: currentLocation,
               onPositionChanged: (position, hasGesture) {
                 if (hasGesture) {
@@ -179,21 +191,21 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               // ),
               MarkerLayer(
                 markers: [
-                  for (int i = 0; i < stations.length; i++)
+                  for (int i = 0; i < markerNum; i++)
                     Marker(
                       width: 40,
                       height: 40,
-                      point: stations[i]["location"],
+                      point: stations[argsort[i]]["location"],
                       builder: (context) => GestureDetector(
                         onTap: () {
                           showLocation(i);
                         },
                         child: AnimatedScale(
                           duration: const Duration(milliseconds: 500),
-                          scale: selectedIndex == i ? 1 : 0.7,
+                          scale: argsort[i] == selectedIndex ? 1 : 0.7,
                           child: AnimatedOpacity(
                             duration: const Duration(milliseconds: 500),
-                            opacity: selectedIndex == i ? 1 : 0.5,
+                            opacity: argsort[i] == selectedIndex ? 1 : 0.5,
                             child: SvgPicture.asset(
                               'assets/icons/map_marker.svg',
                             ),
@@ -213,20 +225,23 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               ? PageView.builder(
                   controller: pageController,
                   onPageChanged: (value) {
+                    print("Page view move : " + argsort[value].toString());
                     _animatedMapMove(
-                        stations[value]['location'] ?? MapConstants.myLocation,
-                        14);
+                        stations[argsort[value]]['location'] ??
+                            MapConstants.myLocation,
+                        12);
                     setState(() {
-                      selectedIndex = value;
-                      currentLocation = stations[value]['location'] ??
+                      selectedIndex = argsort[value];
+                      currentLocation = stations[argsort[value]]['location'] ??
                           MapConstants.myLocation;
                       drawMapData = true;
                     });
                   },
-                  itemCount: stations.length,
+                  itemCount: markerNum,
                   itemBuilder: (_, index) {
                     return MapData(
-                      station: stations[index],
+                      station: stations[argsort[index]],
+                      index: argsort[index],
                     );
                   },
                 )

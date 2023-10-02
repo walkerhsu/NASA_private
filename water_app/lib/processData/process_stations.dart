@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:csv/csv.dart';
+import 'package:water_app/processData/calculate_distance.dart';
 
 abstract class ProcessStations {
-  static List<Map<String, dynamic>> stations = [];
   static final List<String> dataName = [
     "station",
     "latitude",
@@ -20,7 +20,7 @@ abstract class ProcessStations {
   static List<Map<String, dynamic>> taiwanStationData = [];
 
   static Future<List<Map<String, dynamic>>> processCsv(context) async {
-    if(taiwanStationData.isNotEmpty) {
+    if (taiwanStationData.isNotEmpty) {
       return taiwanStationData;
     }
     var riverDataString = await DefaultAssetBundle.of(context).loadString(
@@ -42,5 +42,18 @@ abstract class ProcessStations {
       taiwanStationData.add(stationData);
     }
     return taiwanStationData;
+  }
+
+  static List<int> sortStations(LatLng currentPosition) {
+    List<int> argsort = [];
+    for (int i = 0; i < taiwanStationData.length; i++) {
+      argsort.add(i);
+    }
+    argsort.sort((a, b) => CalculateDistance.calaulateDistance(
+            currentPosition, taiwanStationData[a]["location"])
+        .compareTo(CalculateDistance.calaulateDistance(
+            currentPosition, taiwanStationData[b]["location"])));
+    // print(argsort);
+    return argsort;
   }
 }
