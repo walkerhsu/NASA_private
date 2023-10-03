@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/home_page.dart';
 import 'package:water_app/Theme/theme_data.dart';
+import 'package:water_app/Notification/notification_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocalNotificationService.setup();
+
   runApp(const MyApp());
 }
 

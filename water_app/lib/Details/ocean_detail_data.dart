@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/OceanData/ocean_data.dart';
 
-class DetailData extends StatelessWidget {
+class OceanDetailData extends StatelessWidget {
   final OceanData oceanData;
-  const DetailData({super.key, required this.oceanData});
+  const OceanDetailData({super.key, required this.oceanData});
   
   @override
   Widget build(BuildContext context) {

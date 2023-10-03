@@ -142,7 +142,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     pageController = PageController(
       initialPage: 0,
     );
-    print("in");
   }
 
   @override
@@ -193,8 +192,8 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                 markers: [
                   for (int i = 0; i < markerNum; i++)
                     Marker(
-                      width: 40,
-                      height: 40,
+                      width: 50,
+                      height: 80,
                       point: stations[argsort[i]]["location"],
                       builder: (context) => GestureDetector(
                         onTap: () {
@@ -206,13 +205,35 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                           child: AnimatedOpacity(
                             duration: const Duration(milliseconds: 500),
                             opacity: argsort[i] == selectedIndex ? 1 : 0.5,
-                            child: SvgPicture.asset(
-                              'assets/icons/map_marker.svg',
+                            child: Column(
+                              children: [
+                                Text(
+                                  stations[argsort[i]]["station"],
+                                  style: const TextStyle(
+                                    fontSize: 10,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 5),
+                                SvgPicture.asset(
+                                  'assets/icons/map_marker.svg',
+                                ),
+                              ]
                             ),
                           ),
                         ),
                       ),
                     ),
+                  Marker(
+                    width: 30,
+                    height: 30,  
+                    point: currentLocation, 
+                    builder: (context) => 
+                      Image.asset(
+                        'assets/icons/current_position.png',
+                      ),
+                  )
                 ],
               ),
             ]),
@@ -232,8 +253,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                         12);
                     setState(() {
                       selectedIndex = argsort[value];
-                      currentLocation = stations[argsort[value]]['location'] ??
-                          MapConstants.myLocation;
                       drawMapData = true;
                     });
                   },

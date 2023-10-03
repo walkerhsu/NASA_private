@@ -102,7 +102,7 @@ if __name__ == "__main__":
                     stations_NH3N = station["water"][i]['value']
                 if station["water"][i]['name'] == "pH":
                     stations_pH = station["water"][i]['value']
-                if station["water"][i]['name'] == "temperature":
+                if station["water"][i]['name'] == "Water Temp.":
                     stations_temperature = station["water"][i]['value']
             print(stations_name, stations_latitude, stations_longitude, stations_river, stations_RPI, stations_DO, stations_BOD5, stations_SS, stations_NH3N, stations_pH, stations_temperature)
 
