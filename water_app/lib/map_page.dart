@@ -3,60 +3,144 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:water_app/processData/process_stations.dart';
 
 import 'package:water_app/testData/map_consts.dart';
-import 'package:water_app/testData/map_markers.dart';
 import 'package:water_app/map_data.dart';
+// import 'package:water_app/testData/map_current_arrow.dart';
+import 'package:water_app/processData/process_current.dart';
+import 'package:water_app/processData/process_species.dart';
+import 'package:water_app/map_location.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class CheckCurrentPosition extends StatelessWidget {
+  const CheckCurrentPosition({super.key});
 
-  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: GetCurrentLocation.handleCurrentPosition(context),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            LatLng currentPosition = snapshot.data as LatLng;
 
+            return MapPageBuilder(currentPosition: currentPosition);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+}
+
+class MapPageBuilder extends StatelessWidget {
+  final LatLng currentPosition;
+  const MapPageBuilder({super.key, required this.currentPosition});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: Future.wait([
+          ProcessCurrent.processCsv(context),
+          ProcessSpecies.processCsv(context),
+          ProcessStations.processCsv(context)
+        ]),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            List<List<LatLng>> current =
+                snapshot.data![0] as List<List<LatLng>>;
+            List<Map<String, dynamic>> species =
+                snapshot.data![1] as List<Map<String, dynamic>>;
+            List<Map<String, dynamic>> stations =
+                snapshot.data![2] as List<Map<String, dynamic>>;
+            // print(ProcessCurrent.current[0].keys.first);
+            return MapPage(
+                currentPosition: currentPosition,
+                current: current,
+                species: species,
+                stations: stations);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+}
+
+class MapPage extends StatefulWidget {
+  final List<List<LatLng>> current;
+  final List<Map<String, dynamic>> species;
+  final LatLng currentPosition;
+  final List<Map<String, dynamic>> stations;
+  const MapPage(
+      {super.key,
+      required this.current,
+      required this.currentPosition,
+      required this.species,
+      required this.stations});
   // ignore: constant_identifier_names
   static const String ACCESS_TOKEN = String.fromEnvironment("ACCESS_TOKEN");
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MapPage> createState() => _MapPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late final PageController pageController;
-  int selectedIndex = 0;
-  LatLng currentLocation = MapConstants.myLocation;
-  bool drawMapData = true;
   final MapController mapController = MapController();
-  late final String title;
-  final zoomlevel = 13.0;
+  bool drawMapData = true;
+  late int selectedIndex;
+
+  late List<int> argsort = [];
+
+  late LatLng currentLocation;
+  late final List<List<LatLng>> current;
+  late final List<Map<String, dynamic>> species;
+  late List<Map<String, dynamic>> stations;
+
+  final int markerNum = 10;
 
   showLocation(idx) {
-    setState(() {
-      selectedIndex = idx;
-      currentLocation = mapMarkers[idx].location ?? MapConstants.myLocation;
-      drawMapData = true;
-    });
-    SchedulerBinding.instance.addPostFrameCallback(
-      (_) => animateMap(selectedIndex),
-    );
+    if (drawMapData) {
+      pageController.animateToPage(
+        idx,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      setState(() {
+        drawMapData = true;
+      });
+      SchedulerBinding.instance.addPostFrameCallback(
+        (_) => pageController.animateToPage(
+          idx,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        ),
+      );
+    }
   }
 
   animateMap(idx) {
-    pageController.animateToPage(
-      selectedIndex,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
-    );
     _animatedMapMove(
-      mapMarkers[idx].location ?? MapConstants.myLocation,
-      zoomlevel,
+      stations[idx]['location'] ?? MapConstants.myLocation,
+      12,
     );
   }
 
   @override
   void initState() {
     super.initState();
-    title = widget.title;
+    current = widget.current;
+    currentLocation = widget.currentPosition;
+    species = widget.species;
+    stations = widget.stations;
+    argsort = ProcessStations.sortStations(currentLocation);
+    selectedIndex = argsort[0];
     pageController = PageController(
-      initialPage: selectedIndex,
+      initialPage: 0,
     );
   }
 
@@ -69,18 +153,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Stack(
-        children: [
-          FlutterMap(
+    return Stack(
+      children: [
+        FlutterMap(
             mapController: mapController,
             options: MapOptions(
               minZoom: 5,
               maxZoom: 18,
-              zoom: zoomlevel,
+              zoom: 12,
               center: currentLocation,
               onPositionChanged: (position, hasGesture) {
                 if (hasGesture) {
@@ -90,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 }
               },
             ),
-            children: [
+            nonRotatedChildren: [
               TileLayer(
                 urlTemplate:
                     "https://api.mapbox.com/styles/v1/walkerhsu/{mapStyleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
@@ -99,67 +179,91 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   'mapStyleId': MapConstants.mapBoxStyleId,
                 },
               ),
+              // PolylineLayer(
+              //   polylines: current
+              //       .map((e) => Polyline(
+              //             points: e,
+              //             color: Colors.red,
+              //             strokeWidth: 5,
+              //           ))
+              //       .toList(),
+              // ),
               MarkerLayer(
                 markers: [
-                  for (int i = 0; i < mapMarkers.length; i++)
+                  for (int i = 0; i < markerNum; i++)
                     Marker(
-                      height: 40,
-                      width: 40,
-                      point: mapMarkers[i].location ?? MapConstants.myLocation,
-                      builder: (context) {
-                        return GestureDetector(
-                          onTap: () {
-                            showLocation(i);
-                          },
-                          child: AnimatedScale(
+                      width: 50,
+                      height: 80,
+                      point: stations[argsort[i]]["location"],
+                      builder: (context) => GestureDetector(
+                        onTap: () {
+                          showLocation(i);
+                        },
+                        child: AnimatedScale(
+                          duration: const Duration(milliseconds: 500),
+                          scale: argsort[i] == selectedIndex ? 1 : 0.7,
+                          child: AnimatedOpacity(
                             duration: const Duration(milliseconds: 500),
-                            scale: selectedIndex == i ? 1 : 0.7,
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 500),
-                              opacity: selectedIndex == i ? 1 : 0.5,
-                              child: SvgPicture.asset(
+                            opacity: argsort[i] == selectedIndex ? 1 : 0.5,
+                            child: Column(children: [
+                              Text(
+                                stations[argsort[i]]["station"],
+                                style: const TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              SvgPicture.asset(
                                 'assets/icons/map_marker.svg',
                               ),
-                            ),
+                            ]),
                           ),
-                        );
-                      },
+                        ),
+                      ),
                     ),
+                  Marker(
+                    width: 30,
+                    height: 30,
+                    point: currentLocation,
+                    builder: (context) => Image.asset(
+                      'assets/icons/current_position.png',
+                    ),
+                  )
                 ],
               ),
-            ],
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 2,
-            height: MediaQuery.of(context).size.height * 0.3,
-            child: drawMapData
-                ? PageView.builder(
-                    controller: pageController,
-                    onPageChanged: (value) {
-                      _animatedMapMove(
-                          mapMarkers[value].location ?? MapConstants.myLocation,
-                          zoomlevel);
-                      setState(() {
-                        selectedIndex = value;
-                        currentLocation = mapMarkers[value].location ??
-                            MapConstants.myLocation;
-                        drawMapData = true;
-                      });
-                    },
-                    itemCount: mapMarkers.length,
-                    itemBuilder: (_, index) {
-                      final MapMarker item = mapMarkers[index];
-                      return MapData(
-                        item: item,
-                      );
-                    },
-                  )
-                : const SizedBox.shrink(),
-          )
-        ],
-      ),
+            ]),
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 2,
+          height: MediaQuery.of(context).size.height * 0.3,
+          child: drawMapData
+              ? PageView.builder(
+                  controller: pageController,
+                  onPageChanged: (value) {
+                    print("Page view move : " + argsort[value].toString());
+                    _animatedMapMove(
+                        stations[argsort[value]]['location'] ??
+                            MapConstants.myLocation,
+                        12);
+                    setState(() {
+                      selectedIndex = argsort[value];
+                      drawMapData = true;
+                    });
+                  },
+                  itemCount: markerNum,
+                  itemBuilder: (_, index) {
+                    return MapData(
+                      station: stations[argsort[index]],
+                      index: argsort[index],
+                    );
+                  },
+                )
+              : const SizedBox.shrink(),
+        )
+      ],
     );
   }
 

@@ -1,0 +1,6 @@
+
+		begin
+      f = addfile("/Users/walker/NASA/NASA_private/water_temperature/water_temperature.nc","r")
+      print(f)
+		end
+    
