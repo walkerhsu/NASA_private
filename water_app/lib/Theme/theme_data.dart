@@ -50,7 +50,16 @@ class AppTheme {
           fontWeight: FontWeight.normal,
           color: Colors.black,
         ),
-      )
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black.withOpacity(0.5),
+          // textStyle: const TextStyle(
+          //   fontSize: 18,
+          //   fontWeight: FontWeight.bold,
+          // ),
+        ),
+      ),
     );
   }
 }

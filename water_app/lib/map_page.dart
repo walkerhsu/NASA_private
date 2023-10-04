@@ -291,7 +291,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       if(!mounted) return;
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const CameraPage(),
+                          builder: (context) => CameraPage(camera: _cameras[0]),
                         ),
                       );
                     },

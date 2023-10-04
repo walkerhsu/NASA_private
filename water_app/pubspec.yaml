@@ -55,7 +55,9 @@ dependencies:
     camerawesome: ^2.0.0-dev.1
     open_file: ^3.3.2
     image_gallery_saver: ^2.0.3
+    screenshot: ^2.1.0
     # gallery_saver: ^2.3.2
+  
 
 dev_dependencies:
     flutter_test:

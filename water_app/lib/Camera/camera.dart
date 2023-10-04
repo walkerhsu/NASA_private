@@ -1,13 +1,11 @@
-import 'dart:io';
+import 'dart:typed_data';
 
-import 'package:open_file/open_file.dart';
-import 'package:camerawesome/camerawesome_plugin.dart';
-
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:screenshot/screenshot.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 
-/// CameraApp is the Main Application.
+/// CameraPage is the Main Application.
 
 // class streamCameraPage extends StatelessWidget {
 //   const streamCameraPage({
@@ -20,123 +18,152 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 // }
 
 class CameraPage extends StatefulWidget {
-  const CameraPage({
-    super.key,
-  });
+  /// Default Constructor
+  const CameraPage({super.key, required this.camera});
+  final CameraDescription camera;
+
   @override
   State<CameraPage> createState() => _CameraPageState();
 }
 
 class _CameraPageState extends State<CameraPage> {
+  late CameraController controller;
+  late CameraDescription camera;
+  ScreenshotController screenshotController = ScreenshotController();
+  double _scaleFactor = 1.0;
+  double zoom = 1.0;
+
+  Future<dynamic> showCapturedWidget(
+      BuildContext context, Uint8List capturedImage) {
+    return showDialog(
+      useSafeArea: false,
+      context: context,
+      builder: (context) => Scaffold(
+          appBar: AppBar(
+            title: const Text("Captured widget screenshot"),
+          ),
+          body: Center(child: Image.memory(capturedImage)),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+            FloatingActionButton(
+                  onPressed: () async {
+                    try {
+                      Navigator.of(context).pop();
+                    } catch (e) {
+                      // If an error occurs, log the error to the console.
+                      print(e);
+                    }
+                  },
+                  child: const Icon(Icons.close)),
+            FloatingActionButton(
+              onPressed: () async {
+                try {
+                  ImageGallerySaver.saveImage(
+                    capturedImage,
+                    quality: 100,
+                  );
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                } catch (e) {
+                  // If an error occurs, log the error to the console.
+                  print(e);
+                }
+              },
+              child: const Icon(Icons.check)),
+              ])),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
+    camera = widget.camera;
+    controller = CameraController(camera, ResolutionPreset.max);
+    controller.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    }).catchError((Object e) {
+      if (e is CameraException) {
+        switch (e.code) {
+          case 'CameraAccessDenied':
+            // Handle access errors here.
+            break;
+          default:
+            // Handle other errors here.
+            break;
+        }
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    if (!controller.value.isInitialized) {
+      return Container();
+    }
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: CameraAwesomeBuilder.awesome(
-          saveConfig: SaveConfig.photo(
-            pathBuilder: (sensors) async {
-              final Directory extDir = await getTemporaryDirectory();
-              final testDir = await Directory(
-                '${extDir.path}/camerawesome',
-              ).create(recursive: true);
-              if (sensors.length == 1) {
-                final String filePath =
-                    '${testDir.path}/${DateTime.now().millisecondsSinceEpoch}.jpg';
-                SingleCaptureRequest singleCaptureRequest =
-                    SingleCaptureRequest(filePath, sensors.first);
-                return singleCaptureRequest;
-              } else {
-                return MultipleCaptureRequest(
-                  {
-                    for (final sensor in sensors)
-                      sensor:
-                          '${testDir.path}/${sensor.position == SensorPosition.front ? 'front_' : "back_"}${DateTime.now().millisecondsSinceEpoch}.jpg',
-                  },
-                );
+        appBar: AppBar(title: const Text('Take a picture')),
+        body: Screenshot(
+          controller: screenshotController,
+          child: Stack(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: SizedBox(
+                    width: 100, // the actual width is not important here
+                    child: CameraPreview(controller)),
+              )),
+              // CameraPreview(controller),
+              Center(
+                child: Image.asset(
+                  'assets/images/山椒魚.jpg',
+                  width: 50,
+                  height: 50,
+                ),
+              ),
+              GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                    onScaleStart: (details) {
+                       zoom = _scaleFactor;
+                    },
+                    onScaleUpdate: (details) {
+                       _scaleFactor = zoom * details.scale;
+                       controller.setZoomLevel(_scaleFactor);
+                       debugPrint('Gesture updated');
+                    },
+              ),
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+              try {
+                screenshotController
+                    .capture(delay: const Duration(milliseconds: 10))
+                    .then((capturedImage) async {
+                  showCapturedWidget(context, capturedImage!);
+                }).catchError((onError) {
+                  print(onError);
+                });
+              } catch (e) {
+                // If an error occurs, log the error to the console.
+                print(e);
               }
             },
-          ),
-          bottomActionsBuilder: (state) => AwesomeBottomActions(
-            state: state,
-            captureButton: MyCaptureButton(state: state as PhotoCameraState),
-            right: StreamBuilder(
-              stream: state.captureState$,
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const SizedBox();
-                } else {
-                  return AwesomeMediaPreview(
-                    mediaCapture: snapshot.requireData,
-                    onMediaTap: (mediaCapture) => OpenFile.open(mediaCapture
-                        .captureRequest
-                        .when(single: (single) => single.file!.path)),
-                  );
-                }
-              },
-            ),
-          ),
-          enablePhysicalButton: true,
-          filter: AwesomeFilter.AddictiveRed,
-          // flashMode: FlashMode.auto,
-          sensorConfig: SensorConfig.single(
-            sensor: Sensor.position(SensorPosition.back),
-            // flashMode: FlashMode.auto,
-            aspectRatio: CameraAspectRatios.ratio_4_3,
-            zoom: 0.0,
-          ),
-          // filter: AwesomeFilter.AddictiveRed,
-          previewFit: CameraPreviewFit.fitWidth,
-          onMediaTap: (mediaCapture) {
-            OpenFile.open(
-              mediaCapture.captureRequest
-                  .when(single: (single) => single.file?.path),
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class MyCaptureButton extends StatelessWidget {
-  const MyCaptureButton({
-    super.key,
-    required this.state,
-  });
-
-  final PhotoCameraState state;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {
-        final filePath = await state.takePhoto().then(
-            (result) => result.when(single: (single) => single.file?.path));
-        await ImageGallerySaver.saveFile(filePath!);
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: Colors.white,
-            width: 5,
-          ),
-        ),
-        child: const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Icon(
-            Icons.camera,
-            size: 40,
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
+            child: const Icon(Icons.camera_alt)));
   }
 }
