@@ -153,7 +153,7 @@ class _CameraPageState extends State<CameraPage> {
             onPressed: () async {
               try {
                 screenshotController
-                    .capture(delay: const Duration(milliseconds: 10))
+                    .capture(delay: const Duration(milliseconds: 5))
                     .then((capturedImage) async {
                   showCapturedWidget(context, capturedImage!);
                 }).catchError((onError) {
