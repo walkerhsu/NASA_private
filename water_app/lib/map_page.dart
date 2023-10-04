@@ -26,6 +26,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   bool drawMapData = true;
   final MapController mapController = MapController();
   late final String title;
+  final zoomlevel = 13.0;
 
   showLocation(idx) {
     setState(() {
@@ -46,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     );
     _animatedMapMove(
       mapMarkers[idx].location ?? MapConstants.myLocation,
-      14,
+      zoomlevel,
     );
   }
 
@@ -79,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             options: MapOptions(
               minZoom: 5,
               maxZoom: 18,
-              zoom: 13,
+              zoom: zoomlevel,
               center: currentLocation,
               onPositionChanged: (position, hasGesture) {
                 if (hasGesture) {
@@ -139,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     onPageChanged: (value) {
                       _animatedMapMove(
                           mapMarkers[value].location ?? MapConstants.myLocation,
-                          14);
+                          zoomlevel);
                       setState(() {
                         selectedIndex = value;
                         currentLocation = mapMarkers[value].location ??
