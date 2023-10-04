@@ -1,8 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:water_app/Camera/camera.dart';
 import 'package:water_app/processData/process_stations.dart';
 
 import 'package:water_app/testData/map_consts.dart';
@@ -99,6 +101,8 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late final List<List<LatLng>> current;
   late final List<Map<String, dynamic>> species;
   late List<Map<String, dynamic>> stations;
+
+  late List<CameraDescription> _cameras;
 
   final int markerNum = 10;
 
@@ -243,7 +247,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               ? PageView.builder(
                   controller: pageController,
                   onPageChanged: (value) {
-                    print("Page view move : " + argsort[value].toString());
                     _animatedMapMove(
                         stations[argsort[value]]['location'] ??
                             MapConstants.myLocation,
@@ -262,7 +265,42 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   },
                 )
               : const SizedBox.shrink(),
-        )
+        ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Container(
+            margin: const EdgeInsets.only(top: 50, left: 20, right: 20),
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.photo_camera,
+                      color: Colors.white.withOpacity(.5),
+                    ),
+                    onPressed: () async {
+                      _cameras = await availableCameras();
+                      if(!mounted) return;
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const CameraPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }

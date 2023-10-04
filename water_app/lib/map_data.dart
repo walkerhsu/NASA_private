@@ -98,10 +98,11 @@ class _MapDataState extends State<MapData> {
                   padding: const EdgeInsets.all(4.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      'assets/images/101.jpeg',
-                      fit: BoxFit.cover,
+                    child: Image.network(
+                      'https://picsum.photos/250?image=9',
+                      fit: BoxFit.cover
                     ),
+
                   ),
                 ),
               ),

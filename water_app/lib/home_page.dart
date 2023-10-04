@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/map_page.dart';
-import 'package:water_app/water_temperature.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -21,11 +20,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       // 'body': const Center(
         // child: Text('Hello World'),
       // )
-    },
-    {
-      'title': 'Water temperature',
-      'icon': const Icon(Icons.thermostat_outlined),
-      'body': const WaterTemperature(),
     },
     {
       'title': 'Water quality',
