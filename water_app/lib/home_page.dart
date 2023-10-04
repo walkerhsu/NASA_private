@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/map_page.dart';
+// import 'package:water_app/water_temperature.dart';
+import 'package:water_app/map_taipei_location.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -18,9 +20,20 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       'icon': const Icon(Icons.location_on_outlined),
       'body': const CheckCurrentPosition(),
       // 'body': const Center(
-        // child: Text('Hello World'),
+      // child: Text('Hello World'),
       // )
     },
+    {
+      'title': 'Taiwan location',
+      'icon': const Icon(Icons.location_on_outlined),
+      'body': const CheckTaipeiPosition(),
+      
+    },
+    // {
+    //   'title': 'Water temperature',
+    //   'icon': const Icon(Icons.thermostat_outlined),
+    //   'body': const WaterTemperature(),
+    // },
     {
       'title': 'Water quality',
       'icon': const Icon(Icons.water_drop_outlined),
@@ -71,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            
             for (int i = 0; i < _listViewData.length; i++)
               ListTile(
                 leading: _listViewData[i]['icon'],
