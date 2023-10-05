@@ -3,6 +3,7 @@ import 'package:water_app/map_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+  static String id = 'home_page';
 
   final String title;
 
@@ -18,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       'icon': const Icon(Icons.location_on_outlined),
       'body': const CheckCurrentPosition(),
       // 'body': const Center(
-        // child: Text('Hello World'),
+      // child: Text('Hello World'),
       // )
     },
     {
@@ -37,6 +38,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         child: Text('Hello World'),
       )
     },
+    // {
+    //   'title': 'Species Encyclopedia',
+    //   'icon': const Icon(Icons.book_outlined),
+    //   // 'body': const MapPage(),
+    // },
+    {
+      'title': 'Your species',
+      'icon': const Icon(Icons.pets_outlined),
+      // 'body': const HomeScreen(),
+    }
   ];
   int currentDrawerIndex = 0;
   @override

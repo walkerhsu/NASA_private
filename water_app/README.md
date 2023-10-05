@@ -33,6 +33,7 @@ A new Flutter project named water_app.
     - [x] Take photo with an overlay species image
     - [x] Show photo preview and allow user to retake
     - [x] Save photo to image gallery
+    - [ ] support web camera 
 
 
 - Illustrated species book
@@ -46,9 +47,12 @@ A new Flutter project named water_app.
 - Deploy
     - [ ] use APK to deploy to Android
     - [ ] use IPA to deploy to iOS
+    - [ ] Deploy to web
 
 - Demo video
     - [ ] Record a demo video
+
+    
 
 
 
