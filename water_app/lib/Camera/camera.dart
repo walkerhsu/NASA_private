@@ -142,7 +142,6 @@ class _CameraPageState extends State<CameraPage> {
                     onScaleUpdate: (details) {
                        _scaleFactor = zoom * details.scale;
                        controller.setZoomLevel(_scaleFactor);
-                       debugPrint('Gesture updated');
                     },
               ),
             ],
