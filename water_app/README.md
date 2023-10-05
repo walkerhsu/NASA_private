@@ -1,16 +1,56 @@
-# water_app
+# Water_app
 
 A new Flutter project named water_app.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Login
+    - [] Login with Google
+    - [] Login with Facebook
 
-A few resources to get you started if this is your first Flutter project:
+- Taiwan map
+    - [x] Show markers on observation stations
+    - [x] Show circle on current position
+    - [x] Show rough data for those observation stations in cards
+    - [] Show detail data for observation stations when tapped
+    - [] recalculate data when the current position is moved
+    - [] Show nearby species on the map
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Canada map
+    - [] Show markers on observation stations
+    - [x] Show circle on current position
+    - [] Show rough data for those observation stations in cards
+    - [] Show detail data for observation stations when tapped
+    - [] recalculate data when the current position is moved
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Detail data
+    - [] Show water data for observation stations
+    - [] Show species data for observation stations
+    - [] Show message on how to preserve the species
+    
+- Camera
+    - [] When to trigger camera
+    - [x] Take photo with an overlay species image
+    - [x] Show photo preview and allow user to retake
+    - [x] Save photo to image gallery
+
+
+- Illustrated species book
+    - [] Show species list
+    - [] Show what species you've found
+    - [] Show species detail
+
+- Notification
+    - [] Send notification when a new observation station is nearby
+
+- Deploy
+    - [] use APK to deploy to Android
+    - [] use IPA to deploy to iOS
+
+- Demo video
+    - [] Record a demo video
+
+
+
+
+
