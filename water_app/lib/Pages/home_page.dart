@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+  static String id = 'home_screen';
 
   final String title;
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:water_app/Login/components.dart';
 import 'package:water_app/Login/login_screen.dart';
 import 'package:water_app/Login/signup_screen.dart';
-import 'package:water_app/home_page.dart';
+import 'package:water_app/Pages/home_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
