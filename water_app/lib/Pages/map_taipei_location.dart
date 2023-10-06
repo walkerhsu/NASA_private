@@ -1,21 +1,18 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:water_app/Camera/camera.dart';
 import 'package:water_app/processData/process_stations.dart';
 
 import 'package:water_app/testData/map_consts.dart';
 import 'package:water_app/map_data.dart';
-// import 'package:water_app/testData/map_current_arrow.dart';
 import 'package:water_app/processData/process_current.dart';
 import 'package:water_app/processData/process_species.dart';
 import 'package:water_app/map_location.dart';
 
-class CheckCurrentPosition extends StatelessWidget {
-  const CheckCurrentPosition({super.key});
+class CheckTaipeiPosition extends StatelessWidget {
+  const CheckTaipeiPosition({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +21,8 @@ class CheckCurrentPosition extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
-            LatLng currentPosition = snapshot.data as LatLng;
-
+            LatLng currentPosition = LatLng(25.0330,121.5654);
+            print(currentPosition);
             return MapPageBuilder(currentPosition: currentPosition);
           } else {
             return const Center(
@@ -53,10 +50,11 @@ class MapPageBuilder extends StatelessWidget {
               snapshot.hasData) {
             List<List<LatLng>> current =
                 snapshot.data![0] as List<List<LatLng>>;
-            List<Map<String, dynamic>> species =
-                snapshot.data![1] as List<Map<String, dynamic>>;
+            List<List<Map<String, dynamic>>> species =
+                snapshot.data![1] as List<List<Map<String, dynamic>>>;
             List<Map<String, dynamic>> stations =
                 snapshot.data![2] as List<Map<String, dynamic>>;
+            // print(ProcessSpecies.criticalHabitat[0]);
             // print(ProcessCurrent.current[0].keys.first);
             return MapPage(
                 currentPosition: currentPosition,
@@ -74,7 +72,7 @@ class MapPageBuilder extends StatelessWidget {
 
 class MapPage extends StatefulWidget {
   final List<List<LatLng>> current;
-  final List<Map<String, dynamic>> species;
+  final List<List<Map<String, dynamic>>> species;
   final LatLng currentPosition;
   final List<Map<String, dynamic>> stations;
   const MapPage(
@@ -83,6 +81,7 @@ class MapPage extends StatefulWidget {
       required this.currentPosition,
       required this.species,
       required this.stations});
+
   // ignore: constant_identifier_names
   static const String ACCESS_TOKEN = String.fromEnvironment("ACCESS_TOKEN");
   @override
@@ -91,7 +90,7 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late final PageController pageController;
-  final MapController mapController = MapController();
+  MapController mapController = MapController();
   bool drawMapData = true;
   late int selectedIndex;
 
@@ -99,10 +98,8 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
 
   late LatLng currentLocation;
   late final List<List<LatLng>> current;
-  late final List<Map<String, dynamic>> species;
+  late final List<List<Map<String, dynamic>>> species;
   late List<Map<String, dynamic>> stations;
-
-  late List<CameraDescription> _cameras;
 
   final int markerNum = 10;
 
@@ -155,6 +152,10 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  Future<LatLng> refreshLocation() async {
+    return await GetCurrentLocation.handleCurrentPosition(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -192,6 +193,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               //           ))
               //       .toList(),
               // ),
+              
               MarkerLayer(
                 markers: [
                   for (int i = 0; i < markerNum; i++)
@@ -247,6 +249,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               ? PageView.builder(
                   controller: pageController,
                   onPageChanged: (value) {
+                    print("Page view move : " + argsort[value].toString());
                     _animatedMapMove(
                         stations[argsort[value]]['location'] ??
                             MapConstants.myLocation,
@@ -266,40 +269,16 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                 )
               : const SizedBox.shrink(),
         ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: const EdgeInsets.only(top: 50, left: 20, right: 20),
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.photo_camera,
-                      color: Colors.white.withOpacity(.5),
-                    ),
-                    onPressed: () async {
-                      _cameras = await availableCameras();
-                      if(!mounted) return;
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => CameraPage(camera: _cameras[0]),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
+        IconButton(
+          icon: Icon(Icons.location_on_outlined),
+          onPressed: () async {
+            LatLng currentPosition = LatLng(25.0330,121.5654);
+            LatLng location = await refreshLocation();
+            if(!mounted) return ;
+            setState(() {
+              mapController.move(currentPosition, 12);
+            });
+          },
         ),
       ],
     );

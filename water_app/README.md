@@ -26,7 +26,7 @@ A new Flutter project named water_app.
 - Detail data
     - [ ] Show water data for observation stations
     - [ ] Show species data for observation stations
-    - [ ] Show message on how to preserve the species
+    - [] Show message on how to preserve the species
 
 - Camera
     - [ ] When to trigger camera

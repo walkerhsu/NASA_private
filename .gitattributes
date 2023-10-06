@@ -1,0 +1,2 @@
+*.csv filter=lfs diff=lfs merge=lfs -text
+water_app/assets/data/CriticalHabitat_FGP.csv filter=lfs diff=lfs merge=lfs -text
