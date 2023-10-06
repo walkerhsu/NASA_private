@@ -18,6 +18,7 @@ class _MapDataState extends State<MapData> {
   void initState() {
     super.initState();
     station = widget.station;
+    print(station);
     index = widget.index;
   }
 
