@@ -23,7 +23,6 @@ abstract class ProcessSpecies {
 
     List<List<dynamic>> noFrogSpecies =
         const CsvToListConverter().convert(noFrogSpeciesString, eol: "\n");
-    int IMAGEIDX = 0;
     int LATITUDEIDX = 1;
     int LONGITUDEIDX = 2;
     int SPECIESIDX = 3;
@@ -55,7 +54,7 @@ abstract class ProcessSpecies {
 
     for (int i = 1; i < noFrogSpecies.length; i++) {
       Map<String, dynamic> speciesData = {};
-      speciesData["image"] = noFrogSpecies[i][IMAGEIDX];
+      speciesData["image"] = "image$i.png";
       double latitude = noFrogSpecies[i][LATITUDEIDX];
       double longitude = noFrogSpecies[i][LONGITUDEIDX];
       speciesData["location"] = LatLng(latitude, longitude);
