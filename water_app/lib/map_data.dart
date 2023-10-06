@@ -112,11 +112,14 @@ class GetImageData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: CloudStorage.getImageURL('image1.png'),
+        future: CloudStorage.getImageURL('Logo.png', "stations"),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             String imageURL = snapshot.data as String;
+            if(imageURL == "assets/images/Logo.png") {
+              return Image.asset(imageURL, fit: BoxFit.cover);
+            }
             return Image.network(imageURL, fit: BoxFit.cover);
           } else {
             return const Center(
