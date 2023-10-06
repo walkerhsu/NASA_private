@@ -37,7 +37,7 @@ class MyButton extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
-                color: isOutlined ? Color(0xFF4879C5) : Colors.white,
+                color: isOutlined ? const Color(0xFF4879C5) : Colors.white,
               ),
             ),
           ),
