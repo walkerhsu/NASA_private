@@ -1,9 +1,5 @@
 .DS_Store
 *.zip
 *.nc
-<<<<<<< Updated upstream
 image
 image_without_background
-=======
-*.csv
->>>>>>> Stashed changes
