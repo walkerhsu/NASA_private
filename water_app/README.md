@@ -4,57 +4,57 @@ A new Flutter project named water_app.
 
 ## Features
 
-- Login
-    - [ ] Login with Google
-    - [ ] Login with Facebook
+-   Login
 
-- Taiwan map
-    - [x] Show markers on observation stations
-    - [x] Show circle on current position
-    - [x] Show rough data for those observation stations in cards
-    - [ ] Show detail data for observation stations when tapped
-    - [ ] recalculate data when the current position is moved
-    - [ ] Show nearby species on the map
+    -   [ ] Login with Google
+    -   [ ] Login with Facebook
 
-- Canada map
-    - [ ] Show markers on observation stations
-    - [x] Show circle on current position
-    - [ ] Show rough data for those observation stations in cards
-    - [ ] Show detail data for observation stations when tapped
-    - [ ] recalculate data when the current position is moved
+-   Taiwan map
 
-- Detail data
-    - [ ] Show water data for observation stations
-    - [ ] Show species data for observation stations
-    - [ ] Show message on how to preserve the species
+    -   [x] Show markers on observation stations
+    -   [x] Show circle on current position
+    -   [x] Show rough data for those observation stations in cards
+    -   [ ] Show detail data for observation stations when tapped
+    -   [ ] recalculate data when the current position is moved
+    -   [ ] Show nearby species on the map
 
-- Camera
-    - [ ] When to trigger camera
-    - [x] Take photo with an overlay species image
-    - [x] Show photo preview and allow user to retake
-    - [x] Save photo to image gallery
-    - [ ] support web camera 
+-   Canada map
 
+    -   [ ] Show markers on observation stations
+    -   [x] Show circle on current position
+    -   [ ] Show rough data for those observation stations in cards
+    -   [ ] Show detail data for observation stations when tapped
+    -   [ ] recalculate data when the current position is moved
 
-- Illustrated species book
-    - [ ] Show species list
-    - [ ] Show what species you've found
-    - [ ] Show species detail
+-   Detail data
 
-- Notification
-    - [ ] Send notification when a new observation station is nearby
+    -   [ ] Show water data for observation stations
+    -   [ ] Show species data for observation stations
+    -   [ ] Show message on how to preserve the species
 
-- Deploy
-    - [ ] use APK to deploy to Android
-    - [ ] use IPA to deploy to iOS
-    - [ ] Deploy to web
+-   Camera
 
-- Demo video
-    - [ ] Record a demo video
+    -   [ ] When to trigger camera
+    -   [x] Take photo with an overlay species image
+    -   [x] Show photo preview and allow user to retake
+    -   [x] Save photo to image gallery
+    -   [ ] support web camera
 
-    
+-   Illustrated species book
 
+    -   [ ] Show species list
+    -   [ ] Show what species you've found
+    -   [ ] Show species detail
 
+-   Notification
 
+    -   [ ] Send notification when a new observation station is nearby
 
+-   Deploy
 
+    -   [ ] use APK to deploy to Android
+    -   [ ] use IPA to deploy to iOS
+    -   [ ] Deploy to web
+
+-   Demo video
+    -   [ ] Record a demo video

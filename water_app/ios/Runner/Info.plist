@@ -34,8 +34,6 @@
 	<string>This app needs access to location when open.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app needs to use camera to take photo.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>This app needs to use your microphone to take photo.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app needs to use your photo library to save the image you've taken.</string>
 	<!-- <key>NSMicrophoneUsageDescription</key> -->

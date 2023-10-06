@@ -36,11 +36,11 @@ abstract class GetCurrentLocation {
 
   static Future<LatLng> handleCurrentPosition(context) async {
     final hasPermission = await _handleLocationPermission(context);
-
     if (!hasPermission) return MapConstants.myLocation;
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     LatLng currentLocation = LatLng(position.latitude, position.longitude);
+    print(currentLocation);
     return currentLocation;
   }
 }
