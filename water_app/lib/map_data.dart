@@ -117,9 +117,6 @@ class GetImageData extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             String imageURL = snapshot.data as String;
-            if(imageURL == "assets/images/Logo.png") {
-              return Image.asset(imageURL, fit: BoxFit.cover);
-            }
             return Image.network(imageURL, fit: BoxFit.cover);
           } else {
             return const Center(
