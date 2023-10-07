@@ -51,10 +51,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     title = widget.title;
-    CloudStorage.loadUserData(Authentication.getCurrentUserEmail())
-        .then((value) {
-      currentUser = value;
-    });
+    // CloudStorage.loadUserData(Authentication.getCurrentUserEmail())
+    //     .then((value) {
+    //   currentUser = value;
+    // });
   }
 
   @override

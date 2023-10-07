@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:water_app/components/big_text.dart';
-import 'package:water_app/components/small_text.dart';
+import 'package:water_app/Components/small_text.dart';
 
 class TagsWidget extends StatelessWidget {
   final String tagName;
@@ -40,7 +39,10 @@ class TagsWidget extends StatelessWidget {
             size: height * 0.8,
           ),
           const SizedBox(width: 10),
-          SmallText(text: tagName)
+          Flexible(
+            child: 
+              SmallText(text: tagName),
+          ),
         ],
       )
     );
