@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:water_app/Authentication/authenticate.dart';
 import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
@@ -6,6 +7,7 @@ import 'package:water_app/Pages/map_page.dart';
 import 'package:water_app/Pages/menu_book.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/globals.dart';
+import 'package:water_app/map_location.dart';
 import 'package:water_app/processData/process_city.dart';
 // import 'package:get/get.dart';
 
@@ -22,9 +24,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late final String title;
 
   List<String> dataCountries = ["Taiwan", "America", "Canada"];
-  int action = 0;
   String dataCountry = "Taiwan";
 
+  late Widget currentWidget;
   late final List<Map<String, dynamic>> locations;
 
   int currentDrawerIndex = 0;
@@ -37,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       currentUser = value;
     });
     locations = ProcessCities.citiesData;
+    currentWidget = CheckCurrentPosition(country: dataCountry);
   }
 
   List<Map<String, dynamic>> _search(String str) {
@@ -73,21 +76,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     controller.openView();
                   },
                   leading: Icon(Icons.search, color: Colors.grey[800]),
-                  // trailing: <Widget>[
-                  //   Tooltip(
-                  //     message: 'Change brightness mode',
-                  //     child: IconButton(
-                  //       isSelected: isDark,
-                  //       onPressed: () {
-                  //         setState(() {
-                  //           isDark = !isDark;
-                  //         });
-                  //       },
-                  //       icon: const Icon(Icons.wb_sunny_outlined),
-                  //       selectedIcon: const Icon(Icons.brightness_2_outlined),
-                  //     ),
-                  //   )
-                  // ],
                 );
               }, suggestionsBuilder:
                       (BuildContext context, SearchController controller) {
@@ -98,6 +86,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     onTap: () {
                       setState(() {
                         controller.closeView(location['cityName']);
+                        currentWidget = CheckCurrentPosition(
+                          country: dataCountry,
+                          refSearchLocation: location['coordinate'] as LatLng,
+                        );
                       });
                     },
                   );
@@ -134,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 if (!mounted) return;
                 Navigator.pop(context);
                 setState(() {
-                  action = 1;
+                  currentWidget = const MenuBook();
                 });
               },
             ),
@@ -147,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     Navigator.pop(context);
                     setState(() {
                       setState(() {
-                        action = 0;
+                        CheckCurrentPosition(country: dataCountries[i]);
                       });
                       dataCountry = dataCountries[i];
                     });
@@ -164,9 +156,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           ],
         ),
       ),
-      body: action == 0
-          ? CheckCurrentPosition(country: dataCountry)
-          : const MenuBook(),
+      body: currentWidget,
       // body: const Center(
       //   child: Text('Hello World'),
       // ),
