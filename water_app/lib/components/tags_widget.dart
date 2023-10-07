@@ -39,7 +39,10 @@ class TagsWidget extends StatelessWidget {
             size: height * 0.8,
           ),
           const SizedBox(width: 10),
-          SmallText(text: tagName)
+          Flexible(
+            child: 
+              SmallText(text: tagName),
+          ),
         ],
       )
     );

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: AppTheme.themeData(false, context),
       // home: const MyHomePage(title: 'Flutter Map Home Page'),
-      initialRoute: MyHomePage.id,
+      initialRoute: HomeScreen.id,
       routes: {
         HomeScreen.id: (context) => const HomeScreen(),
         LoginScreen.id: (context) => const LoginScreen(),

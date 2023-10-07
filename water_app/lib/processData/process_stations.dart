@@ -26,16 +26,19 @@ abstract class ProcessTaiwanStations {
     var riverDataString = await DefaultAssetBundle.of(context).loadString(
       "assets/data/Taiwan_river_data.csv",
     );
+
     List<List<dynamic>> taiwanRiverData =
         const CsvToListConverter().convert(riverDataString, eol: "\n");
+      
 
     for (int i = 1; i < taiwanRiverData.length; i++) {
       Map<String, dynamic> stationData = {};
       for (int j = 0; j < dataName.length; j++) {
-        stationData[dataName[j]] = taiwanRiverData[i][j];
+        stationData[dataName[j]] = taiwanRiverData[i][j+1];
       }
+
       LatLng latLng = LatLng(stationData["latitude"], stationData["longitude"]);
-      stationData["location"] = latLng;
+      stationData["location"] = latLng; 
       // remove latitude and longitude from stationData
       stationData.remove("latitude");
       stationData.remove("longitude");

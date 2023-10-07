@@ -43,17 +43,17 @@ abstract class ProcessSpecies {
 
     if (CanadaSpecies.isEmpty) {
       String canadaSpeciesCSVString = await CloudStorage.getCanadaCSV();
-      int WATERBODYIDX = 7;
-      int SARA_STATUS_IDX = 8;
       int CANADACOMMONNAMEIDX = 1;
       int SCIENCIFICNAMEIDX = 2;
+      int WATERBODYIDX = 3;
+      int SARA_STATUS_IDX = 4;
       int LATIDX = 5;
       int LNGIDX = 6;
       int DETAILEDIDX = 7;
       int RAWIMG = 8;
 
       List<List<dynamic>> canadaSpecies =
-          const CsvToListConverter().convert(canadaSpeciesCSVString, eol: "\n");
+          const CsvToListConverter().convert(canadaSpeciesCSVString);
 
       for (int i = 1; i < canadaSpecies.length; i++) {
         Map<String, dynamic> speciesData = {};

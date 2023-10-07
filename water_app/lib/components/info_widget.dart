@@ -5,7 +5,7 @@ import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/Components/special_icon.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/information/observatory_info.dart';
-// import 'package:water_app/information/species_info.dart';
+import 'package:water_app/information/species_info.dart';
 
 class InfoWidget extends StatelessWidget {
   final String name;
@@ -31,6 +31,11 @@ class InfoWidget extends StatelessWidget {
       children: [
         const SizedBox(height: 20),
         BigText(text: name),
+        const SizedBox(height: 5),
+        SmallText(
+          text: scientific_name,
+          fontStyle: FontStyle.italic,
+        ),
         const SizedBox(height: 10),
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,11 +79,16 @@ class InfoWidget extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
+        // const BigText(
+        //   text: 'Water Quality',
+        //   size: 24,
+        // ),
+        // const ExpandedDescription(description: ObservatoryInfo.wois),
         const BigText(
-          text: 'Water Quality',
+          text: 'Introduce',
           size: 24,
         ),
-        const ExpandedDescription(description: ObservatoryInfo.wois),
+        const ExpandedDescription(description: SpeciesInfo.blueWhale),
         // type == "Observatory"
         //     ?
         //     const Column(
