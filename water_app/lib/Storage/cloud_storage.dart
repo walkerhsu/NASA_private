@@ -9,6 +9,7 @@ abstract class CloudStorage {
   static final taiwanSpeciesRef = storageRef.child("taiwan_species");
   static final canadaSpeciesRef = storageRef.child("canada_species");
   static final stationsRef = storageRef.child("stations");
+  static String chatGPTKey = "";
 
   // Create a reference from an HTTPS URL
   // Note that in the URL, characters are URL escaped!
@@ -31,12 +32,12 @@ abstract class CloudStorage {
     return await storageRef.child("canada_species.csv").getDownloadURL();
   }
 
-  static Future<String> getChatGPTKey() async {
+  static Future<void> getChatGPTKey() async {
     return await storageRef
         .child('chatgpt_api_key.txt')
         .getData()
         .then((value) {
-      return const Utf8Codec().decode(value!);
+      chatGPTKey = const Utf8Codec().decode(value!);
     });
   }
 }

@@ -8,13 +8,13 @@ class GetChatGPTData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: HttpRequest.chatGPTAPI("How to protect ${station['location']}"),
+        future: HttpRequest.chatGPTAPI(null, station['river'], "water"),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             String answer = snapshot.data!;
             return Center(
-              child: Text("answer : $answer"),
+              child: Text(answer),
             );
           } else {
             return const Center(

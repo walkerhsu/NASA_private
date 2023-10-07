@@ -3,6 +3,7 @@ import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Login/login_screen.dart';
 import 'package:water_app/Login/signup_screen.dart';
 import 'package:water_app/Pages/home_page.dart';
+import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/Theme/theme_data.dart';
 import 'package:water_app/Notification/notification_service.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,6 +16,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await LocalNotificationService.setup();
+  await CloudStorage.getChatGPTKey();
   runApp(const MyApp());
 }
 

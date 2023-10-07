@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:get/route_manager.dart';
-import 'package:get/get.dart';
 import 'package:water_app/components/info_widget.dart';
 import 'package:water_app/components/tags_widget.dart';
 import 'package:water_app/components/tags_widget_button.dart';
+// import 'package:get/route_manager.dart';
+// import 'package:get/get.dart';
+// import 'package:water_app/map_location.dart';
+// import 'package:water_app/Pages/map_page.dart';
 
 class SpotDetails extends StatelessWidget {
   const SpotDetails({super.key});

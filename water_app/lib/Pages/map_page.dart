@@ -47,6 +47,7 @@ class MapPageBuilder extends StatelessWidget {
           ProcessCurrent.processCsv(context),
           ProcessSpecies.processCsv(context),
           ProcessStations.processCsv(context),
+
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
@@ -196,7 +197,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
             nonRotatedChildren: [
               TileLayer(
                 urlTemplate:
-                    "https://api.mapbox.com/styles/v1/walkerhsu/{mapStyleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
+                    "https://api.mapbox.com/styles/v1/markymarklee/{mapStyleId}/tiles/256/{z}/{x}/{y}?access_token={accessToken}",
                 additionalOptions: const {
                   'accessToken': MapConstants.mapBoxAccessToken,
                   'mapStyleId': MapConstants.mapBoxStyleId,
