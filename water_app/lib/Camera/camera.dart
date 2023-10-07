@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
@@ -45,34 +45,33 @@ class _CameraPageState extends State<CameraPage> {
           body: Center(child: Image.memory(capturedImage)),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+          floatingActionButton:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             FloatingActionButton(
-                  onPressed: () async {
-                    try {
-                      Navigator.of(context).pop();
-                    } catch (e) {
-                      // If an error occurs, log the error to the console.
-                      print(e);
-                    }
-                  },
-                  child: const Icon(Icons.close)),
+                onPressed: () async {
+                  try {
+                    Navigator.of(context).pop();
+                  } catch (e) {
+                    // If an error occurs, log the error to the console.
+                    print(e);
+                  }
+                },
+                child: const Icon(Icons.close)),
             FloatingActionButton(
-              onPressed: () async {
-                try {
-                  ImageGallerySaver.saveImage(
-                    capturedImage,
-                    quality: 100,
-                  );
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                } catch (e) {
-                  // If an error occurs, log the error to the console.
-                  print(e);
-                }
-              },
-              child: const Icon(Icons.check)),
-              ])),
+                onPressed: () async {
+                  try {
+                    ImageGallerySaver.saveImage(
+                      capturedImage,
+                      quality: 100,
+                    );
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  } catch (e) {
+                    // If an error occurs, log the error to the console.
+                    print(e);
+                  }
+                },
+                child: const Icon(Icons.check)),
+          ])),
     );
   }
 
@@ -111,6 +110,8 @@ class _CameraPageState extends State<CameraPage> {
     if (!controller.value.isInitialized) {
       return Container();
     }
+    final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(title: const Text('Take a picture')),
         body: Screenshot(
@@ -118,14 +119,16 @@ class _CameraPageState extends State<CameraPage> {
           child: Stack(
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-              child: FittedBox(
-                fit: BoxFit.cover,
-                child: SizedBox(
-                    width: 100, // the actual width is not important here
-                    child: CameraPreview(controller)),
-              )),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: SizedBox(
+                        width: 100, // the actual width is not important here
+                        child: CameraPreview(
+                          controller,
+                        )),
+                  )),
               // CameraPreview(controller),
               Center(
                 child: Image.asset(
@@ -136,13 +139,13 @@ class _CameraPageState extends State<CameraPage> {
               ),
               GestureDetector(
                 behavior: HitTestBehavior.translucent,
-                    onScaleStart: (details) {
-                       zoom = _scaleFactor;
-                    },
-                    onScaleUpdate: (details) {
-                       _scaleFactor = zoom * details.scale;
-                       controller.setZoomLevel(_scaleFactor);
-                    },
+                onScaleStart: (details) {
+                  zoom = _scaleFactor;
+                },
+                onScaleUpdate: (details) {
+                  _scaleFactor = zoom * details.scale;
+                  controller.setZoomLevel(_scaleFactor);
+                },
               ),
             ],
           ),
@@ -151,13 +154,49 @@ class _CameraPageState extends State<CameraPage> {
         floatingActionButton: FloatingActionButton(
             onPressed: () async {
               try {
-                screenshotController
-                    .capture(delay: const Duration(milliseconds: 5))
-                    .then((capturedImage) async {
-                  showCapturedWidget(context, capturedImage!);
-                }).catchError((onError) {
-                  print(onError);
-                });
+                if (!kIsWeb) {
+                  screenshotController
+                      .capture(delay: const Duration(milliseconds: 5))
+                      .then((capturedImage) async {
+                    print("in");
+                    showCapturedWidget(context, capturedImage!);
+                  }).catchError((onError) {
+                    print(onError);
+                  });
+                } else {
+                  final filepath = await controller.takePicture();
+                  screenshotController
+                      .captureFromWidget(
+                          Stack(
+                            children: [
+                              SizedBox(
+                                width: w, // Width of the cropping box
+                                height: h, // Height of the cropping box
+                                child: ClipRect(
+                                  child: Image.network(
+                                    fit: BoxFit.fitHeight,
+                                    filepath.path,
+                                    height: h,
+                                  ),
+                                ),
+                              ),
+                              Center(
+                                child: Image.asset(
+                                  'assets/images/山椒魚.jpg',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                              )
+                            ],
+                          ),
+                          delay: const Duration(milliseconds: 50))
+                      .then((capturedImage) async {
+                    print("in");
+                    showCapturedWidget(context, capturedImage);
+                  }).catchError((onError) {
+                    print(onError);
+                  });
+                }
               } catch (e) {
                 // If an error occurs, log the error to the console.
                 print(e);
