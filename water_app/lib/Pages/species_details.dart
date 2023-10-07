@@ -5,10 +5,12 @@ import 'package:water_app/processData/process_species.dart';
 
 class SpeciesDetails extends StatelessWidget {
   final int index;
+  final Map<String, dynamic> station;
 
   const SpeciesDetails({
     super.key,
-    this.index = 160,
+    this.index = 2,
+    required this.station,
   });
   
   @override
@@ -68,8 +70,9 @@ class SpeciesDetails extends StatelessWidget {
                 child: 
                   InfoWidget(
                     name: ProcessSpecies.CanadaSpecies[index]["common_name"],
-                    scientific_name: ProcessSpecies.CanadaSpecies[index]["scientific_name"],
-                    waterName: ProcessSpecies.CanadaSpecies[index]["waterbody"],
+                    scientificName: ProcessSpecies.CanadaSpecies[index]["scientific_name"],
+                    waterName: station["river"],
+                    type: "water",
                     // distance:
                     // collected:
                   )

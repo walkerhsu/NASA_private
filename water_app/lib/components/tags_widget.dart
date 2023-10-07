@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:water_app/Components/small_text.dart';
+import 'package:water_app/Components/big_text.dart';
 
+import 'small_text.dart';
 class TagsWidget extends StatelessWidget {
   final String tagName;
   final IconData icon;

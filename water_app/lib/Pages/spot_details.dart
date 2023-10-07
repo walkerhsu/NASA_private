@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:water_app/Components/info_widget.dart';
-import 'package:water_app/Components/tags_widget.dart';
-import 'package:water_app/Components/tags_widget_button.dart';
+import 'package:water_app/components/info_widget.dart';
+import 'package:water_app/components/tags_widget.dart';
+import 'package:water_app/components/tags_widget_button.dart';
 // import 'package:get/route_manager.dart';
 // import 'package:get/get.dart';
 // import 'package:water_app/map_location.dart';
 // import 'package:water_app/Pages/map_page.dart';
 
 class SpotDetails extends StatelessWidget {
-  const SpotDetails({super.key});
+  const SpotDetails({super.key, required this.station});
+  final Map<String, dynamic> station;
 
   @override
   Widget build(BuildContext context) {
@@ -84,33 +85,33 @@ class SpotDetails extends StatelessWidget {
               topRight: Radius.circular(20),
             ),
           ),
-          child: Wrap(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TagsWidgetButton(
-                    tagName: 'Canada Species',
-                    icon: Icons.tag_rounded,
-                    iconColor: TagsWidget.brownColor,
-                  ),
-                  const SizedBox(width: 5),
-                  TagsWidgetButton(
-                    tagName: 'Canada Species',
-                    icon: Icons.tag_rounded,
-                    iconColor: TagsWidget.brownColor,
-                  ),
-                  const SizedBox(width: 5),
-                  TagsWidgetButton(
-                    tagName: 'Canada Species',
-                    icon: Icons.tag_rounded,
-                    iconColor: TagsWidget.brownColor,
-                  ),
-                  const SizedBox(width: 5),
-                ],
-              )
-            ],
-          )),
-    );
+          child: ListView(children: <Widget>[
+            Row(
+              children: [
+                TagsWidgetButton(
+                  tagName: 'Canada Species',
+                  icon: Icons.tag_rounded,
+                  iconColor: TagsWidget.brownColor,
+                  station: station,
+                ),
+                const SizedBox(width: 10),
+                TagsWidgetButton(
+                  tagName: 'Canada Species',
+                  icon: Icons.tag_rounded,
+                  iconColor: TagsWidget.brownColor,
+                  station: station,
+                ),
+                const SizedBox(width: 10),
+                TagsWidgetButton(
+                  tagName: 'Canada Species',
+                  icon: Icons.tag_rounded,
+                  iconColor: TagsWidget.brownColor,
+                  station: station,
+                ),
+                const SizedBox(width: 10),
+              ],
+            )
+          ]),
+        ));
   }
 }

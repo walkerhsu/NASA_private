@@ -4,11 +4,13 @@ import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/information/screen_info.dart';
 
 class ExpandedDescription extends StatefulWidget {
-  final String description;
+  final List<String> description; // [description, fact, advice] or [fact, advice]
+  final String type;
 
   const ExpandedDescription({
     super.key,
-    this.description = 'Brief description',
+    required this.description,
+    required this.type, // species or water
   });
 
   @override
@@ -27,11 +29,11 @@ class _ExpandedDescriptionState extends State<ExpandedDescription> {
     super.initState();
 
     if (widget.description.length > textHeight) {
-      firstHalf = widget.description.substring(0, textHeight.toInt());
-      secondHalf = widget.description
+      firstHalf = widget.description[0].substring(0, textHeight.toInt());
+      secondHalf = widget.description[0]
           .substring(textHeight.toInt() + 1, widget.description.length);
     } else {
-      firstHalf = widget.description;
+      firstHalf = widget.description[0];
       secondHalf = "";
       hidden = false;
     }
@@ -39,7 +41,6 @@ class _ExpandedDescriptionState extends State<ExpandedDescription> {
 
   @override
   Widget build(BuildContext context) {
-
     return Expanded(
       child: SingleChildScrollView(
           child: Container(

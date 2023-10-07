@@ -1,22 +1,62 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
 import 'package:water_app/Storage/cloud_storage.dart';
 
 abstract class HttpRequest {
-  static String getPrompt(String? species, String? water, String type) {
+  static List<String> getPrompt(String? species, String? water, String type) {
     if (type == "species") {
-      return "Give me three concrete advices on how to preserve $species briefly.";
+      List<String> prompt = [
+        "give me a description of $species within 30 words.",
+        "give me three concrete advice within 30 words on how to preserve $species.",
+        "tell me a fun fact about $species in 30 words in a lively way."
+      ];
+      return prompt;
     } else if (type == "water") {
-      return "Tell me one fact about harmful things that a person can negatively impact the $water briefly.";
+      List<String> prompt = [
+        "tell me a fun fact about $water in 30 words in a lively way",
+        "tell me one concrete advice on what I should take care of when going to $water,  or how to preserve $water in 30 words in a lively way",
+      ];
+      return prompt;
     } else {
-      return "No such type.";
+      return [""];
     }
   }
 
-  static Future<String> chatGPTAPI(
-      String? species, String? water, String type) async {
+  static Future<String> getWaterFact(String? water) async {
+    if(water == null){
+      return "";
+    }
+    String prompt =
+        "tell me a fun fact about $water in 30 words in a lively way";
+    return await chatGPTAPI(prompt);
+  }
+
+  static Future<String> getSpeciesDescription(String? species) async {
+    String prompt = "give me a description of $species within 30 words.";
+    return await chatGPTAPI(prompt);
+  }
+
+  static Future<String> getWaterAdvice(String? water) async {
+    String prompt =
+        "tell me one concrete advice on what I should take care of when going to $water, or how to preserve $water in 30 words in a lively way";
+    return await chatGPTAPI(prompt);
+  }
+
+  static Future<String> getSpeciesFact(String? species) async {
+    String prompt =
+        "tell me a fun fact about $species in 30 words in a lively way.";
+    return await chatGPTAPI(prompt);
+  }
+
+  static Future<String> getSpeciesAdvice(String? species) async {
+    String prompt =
+        "give me three concrete advice within 30 words on how to preserve $species.";
+    return await chatGPTAPI(prompt);
+  }
+
+  static Future<String> chatGPTAPI(String prompt) async {
     List<Map<String, String>> messages = [];
-    String prompt = getPrompt(species, water, type);
     messages.add({
       'role': 'user',
       'content': prompt,

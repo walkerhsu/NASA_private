@@ -30,7 +30,7 @@ class _MapDataState extends State<MapData> {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => const SpotDetails(),
+              builder: (context) => SpotDetails(station: station),
             ),
           );
           // Navigator.of(context).push(
