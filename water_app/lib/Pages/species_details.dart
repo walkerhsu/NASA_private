@@ -8,9 +8,9 @@ class SpeciesDetails extends StatelessWidget {
 
   const SpeciesDetails({
     super.key,
-    this.index = 0,
+    this.index = 2,
   });
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class SpeciesDetails extends StatelessWidget {
                   height: 350,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(ProcessSpecies.canadaEndangeredSpecies[index]["detailed"]),
+                      image: NetworkImage(ProcessSpecies.CanadaSpecies[index]["image"]),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -67,8 +67,8 @@ class SpeciesDetails extends StatelessWidget {
                 ),
                 child: 
                   InfoWidget(
-                    name: ProcessSpecies.canadaEndangeredSpecies[index]["common_name"],
-                    waterName: ProcessSpecies.canadaEndangeredSpecies[index]["waterbody"],
+                    name: ProcessSpecies.CanadaSpecies[index]["common_name"],
+                    // waterName: ProcessSpecies.CanadaSpecies[index]["location"],
                     // distance:
                     // collected:
                   )
