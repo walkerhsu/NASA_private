@@ -40,4 +40,19 @@ abstract class CloudStorage {
       chatGPTKey = const Utf8Codec().decode(value!);
     });
   }
+
+  static Future<String> getRawImageURL(path) async {
+    return await stationsRef.child(path).getDownloadURL();
+  }
+
+  static Future<String> getRawtxtURL(path) async {
+    return await storageRef.child(path).getData().then((value) {
+      return const Utf8Codec().decode(value!);
+    });
+  }
+
+  static void uploadTxt(path, data) async {
+    storageRef.child(path).putData(data);
+    return;
+  }
 }

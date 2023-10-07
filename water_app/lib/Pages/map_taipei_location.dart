@@ -7,7 +7,6 @@ import 'package:water_app/processData/process_stations.dart';
 
 import 'package:water_app/testData/map_consts.dart';
 import 'package:water_app/map_data.dart';
-import 'package:water_app/processData/process_current.dart';
 import 'package:water_app/processData/process_species.dart';
 import 'package:water_app/map_location.dart';
 
@@ -40,9 +39,8 @@ class MapPageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: Future.wait([
-          ProcessCurrent.processCsv(context),
           ProcessSpecies.processCsv(context),
-          ProcessStations.processCsv(context)
+          ProcessTaiwanStations.processCsv(context)
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
@@ -137,7 +135,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     currentLocation = widget.currentPosition;
     species = widget.species;
     stations = widget.stations;
-    argsort = ProcessStations.sortStations(currentLocation);
+    argsort = ProcessTaiwanStations.sortStations(currentLocation);
     selectedIndex = argsort[0];
     pageController = PageController(
       initialPage: 0,

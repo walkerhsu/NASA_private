@@ -84,8 +84,7 @@ class SpotDetails extends StatelessWidget {
               topRight: Radius.circular(20),
             ),
           ),
-          child: ListView(
-            children: <Widget>[
+          child: ListView(children: <Widget>[
             Row(
               children: [
                 TagsWidgetButton(
