@@ -28,7 +28,7 @@ abstract class CloudStorage {
   }
 
   static Future<String> getCanadaCSV() async {
-    return await storageRef.child("CriticalHabitat_FGP.csv").getDownloadURL();
+    return await storageRef.child("canada_species.csv").getDownloadURL();
   }
 
   static Future<String> getChatGPTKey() async {

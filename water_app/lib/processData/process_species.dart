@@ -7,7 +7,7 @@ import 'package:water_app/Storage/cloud_storage.dart';
 
 abstract class ProcessSpecies {
   static List<Map<String, dynamic>> species = [];
-  static List<Map<String, dynamic>> criticalHabitat = [];
+  static List<Map<String, dynamic>> canadaEndangeredSpecies = [];
 
   static Future<List<List<Map<String, dynamic>>>> processCsv(context) async {
     if (species.isNotEmpty) {
@@ -25,27 +25,37 @@ abstract class ProcessSpecies {
     int SPECIESIDX = 3;
     int COMMONNAMEIDX = 4;
 
-    int TAXCON = 5;
-    int WATERBODYIDX = 7;
-    int SARA_STATUS_IDX = 8;
-    int AREAIDX = 14;
-    int GEOMETRY_IDX = 17;
+    int CANADACOMMONNAMEIDX = 1;
+    int SCIENCIFICNAMEIDX = 2;
+    int WATERBODYIDX = 3;
+    int SARA_STATUS_IDX = 4;
+    int LATIDX = 5;
+    int LNGIDX = 6;
+    int DETAILEDIDX = 7;
+    int RAWIMG = 8;
+
+    // int TAXCON = 5;
+    // int AREAIDX = 14;
+    // int GEOMETRY_IDX = 17;
 
     List<List<dynamic>> canadaSpecies =
         const CsvToListConverter().convert(canadaSpeciesCSVString, eol: "\n");
 
     for (int i = 1; i < canadaSpecies.length; i++) {
       Map<String, dynamic> speciesData = {};
-      // speciesData["image"] = canadaSpecies[i][IMAGEIDX];
-      speciesData["species"] = canadaSpecies[i][SPECIESIDX];
-      speciesData["common_name"] = canadaSpecies[i][COMMONNAMEIDX - 2];
-      speciesData["taxon"] = canadaSpecies[i][TAXCON];
+      speciesData["common_name"] = canadaSpecies[i][CANADACOMMONNAMEIDX];
+      speciesData["scientific_name"] = canadaSpecies[i][SCIENCIFICNAMEIDX];
       speciesData["waterbody"] = canadaSpecies[i][WATERBODYIDX];
       speciesData["sara_status"] = canadaSpecies[i][SARA_STATUS_IDX];
-      speciesData["Area_Km2"] = canadaSpecies[i][AREAIDX];
-      speciesData["geometry"] = canadaSpecies[i][GEOMETRY_IDX];
+      speciesData["lat"] = canadaSpecies[i][LATIDX];
+      speciesData["lng"] = canadaSpecies[i][LNGIDX];
+      speciesData["detailed"] = canadaSpecies[i][DETAILEDIDX];
+      speciesData["raw_img"] = canadaSpecies[i][RAWIMG];
 
-      criticalHabitat.add(speciesData);
+      // speciesData["Area_Km2"] = canadaSpecies[i][AREAIDX];
+      // speciesData["geometry"] = canadaSpecies[i][GEOMETRY_IDX];
+
+      canadaEndangeredSpecies.add(speciesData);
     }
 
     for (int i = 1; i < noFrogSpecies.length; i++) {
@@ -58,8 +68,8 @@ abstract class ProcessSpecies {
       speciesData["common_name"] = noFrogSpecies[i][COMMONNAMEIDX];
       species.add(speciesData);
     }
-    // print(criticalHabitat[0]);
-    return [species, criticalHabitat];
+    // print(canadaEndangeredSpecies[0]);
+    return [species, canadaEndangeredSpecies];
   }
 }
 
