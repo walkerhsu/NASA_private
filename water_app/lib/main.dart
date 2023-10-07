@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Login/login_screen.dart';
 import 'package:water_app/Login/signup_screen.dart';
-import 'package:water_app/home_page.dart';
+import 'package:water_app/Pages/home_page.dart';
 import 'package:water_app/Theme/theme_data.dart';
 import 'package:water_app/Notification/notification_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:get/get.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.themeData(false, context),
       // home: const MyHomePage(title: 'Flutter Map Home Page'),

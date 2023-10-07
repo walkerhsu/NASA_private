@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/Notification/notification_service.dart';
+import 'package:water_app/Pages/spot_details.dart';
 // import 'package:water_app/Details/get_chatGPT_data.dart';
 
 class MapData extends StatefulWidget {
@@ -18,6 +19,7 @@ class _MapDataState extends State<MapData> {
   void initState() {
     super.initState();
     station = widget.station;
+    // print(station);
     index = widget.index;
   }
 
@@ -27,6 +29,11 @@ class _MapDataState extends State<MapData> {
       padding: const EdgeInsets.all(15.0),
       child: GestureDetector(
         onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SpotDetails(),
+            ),
+          );
           // Navigator.of(context).push(
           //   MaterialPageRoute(
           //     builder: (context) => GetDetailData(location: stations['location']),

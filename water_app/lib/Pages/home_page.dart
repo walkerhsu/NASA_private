@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:water_app/map_page.dart';
+import 'package:water_app/Pages/map_page.dart';
+// import 'package:water_app/water_temperature.dart';
+import 'package:water_app/Pages/map_taipei_location.dart';
+// import 'package:get/get.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-  static String id = 'home_page';
-
+  static String id = 'home_screen';
   final String title;
 
   @override
@@ -19,9 +21,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       'icon': const Icon(Icons.location_on_outlined),
       'body': const CheckCurrentPosition(),
       // 'body': const Center(
-      // child: Text('Hello World'),
+        // child: Text('Hello World'),
       // )
     },
+    {
+      'title': 'Taiwan location',
+      'icon': const Icon(Icons.location_on_outlined),
+      'body': const CheckTaipeiPosition(),
+    },
+    // {
+    //   'title': 'Water temperature',
+    //   'icon': const Icon(Icons.thermostat_outlined),
+    //   'body': const WaterTemperature(),
+    // },
     {
       'title': 'Water quality',
       'icon': const Icon(Icons.water_drop_outlined),
@@ -38,16 +50,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         child: Text('Hello World'),
       )
     },
-    // {
-    //   'title': 'Species Encyclopedia',
-    //   'icon': const Icon(Icons.book_outlined),
-    //   // 'body': const MapPage(),
-    // },
-    {
-      'title': 'Your species',
-      'icon': const Icon(Icons.pets_outlined),
-      // 'body': const HomeScreen(),
-    }
   ];
   int currentDrawerIndex = 0;
   @override
@@ -92,14 +94,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   setState(() {
                     currentDrawerIndex = i;
                   });
+                  
                 },
+                
               ),
+              // GestureDetector(onTap: () => {
+              //     Get.to(() => SpotDetails())
+              // })
           ],
         ),
       ),
       body: _listViewData[currentDrawerIndex]['body'],
       // body: const Center(
-      //   child: Text('Hello World'),
+        // child: Text('Hello World'),
       // ),
     );
   }
