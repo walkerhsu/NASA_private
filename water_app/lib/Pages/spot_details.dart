@@ -13,11 +13,7 @@ class SpotDetails extends StatelessWidget {
   final int index;
   final Map<String, dynamic> station;
 
-  const SpotDetails({
-    super.key, 
-    required this.station, 
-    this.index = 2
-  });
+  const SpotDetails({super.key, required this.station, this.index = 2});
 
   @override
   Widget build(BuildContext context) {
@@ -76,53 +72,74 @@ class SpotDetails extends StatelessWidget {
                     ),
                     child: InfoWidget(
                       name: station['station'],
+                      type: "water",
                       // distance:
                       // collected:
                     ))),
           ],
         ),
-        bottomNavigationBar: Container(
-          height: 100,
-          padding:
-              const EdgeInsets.only(top: 30, bottom: 30, right: 10, left: 10),
-          decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 173, 216, 230),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-          ),
-          child: ListView(children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TagsWidgetButton(
-                  tagName: ProcessStations.taiwanStationData[index]
-                      ["species1"],
-                  icon: Icons.tag_rounded,
-                  iconColor: TagsWidget.brownColor,
-                  station: station,
+        // (!ProcessStations.taiwanStationData[index]["species1"].isEmpty || !ProcessStations.taiwanStationData[index]["species2"].isEmpty || !ProcessStations.taiwanStationData[index]["species3"].isEmpty)?
+        bottomNavigationBar: (!ProcessStations
+                    .taiwanStationData[index]["species1"].isEmpty ||
+                !ProcessStations
+                    .taiwanStationData[index]["species2"].isEmpty ||
+                !ProcessStations
+                    .taiwanStationData[index]["species3"].isEmpty)
+            ? Container(
+                height: 100,
+                padding: const EdgeInsets.only(
+                    top: 30, bottom: 30, right: 10, left: 10),
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 173, 216, 230),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                 ),
-                const SizedBox(width: 5),
-                TagsWidgetButton(
-                  tagName: ProcessStations.taiwanStationData[index]
-                      ["species2"],
-                  icon: Icons.tag_rounded,
-                  iconColor: TagsWidget.brownColor,
-                  station: station,
-                ),
-                const SizedBox(width: 5),
-                TagsWidgetButton(
-                  tagName: ProcessStations.taiwanStationData[index]
-                      ["species3"],
-                  icon: Icons.tag_rounded,
-                  iconColor: TagsWidget.brownColor,
-                  station: station,
-                ),
-                const SizedBox(width: 5),
-              ],
-            )
-          ]),
-        ));
+                child: ListView(children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      (!ProcessStations
+                              .taiwanStationData[index]["species1"].isEmpty)
+                          ? TagsWidgetButton(
+                              tagName: ProcessStations
+                                  .taiwanStationData[index]["species1"],
+                              icon: Icons.tag_rounded,
+                              iconColor: TagsWidget.brownColor,
+                              station: station,
+                            )
+                          : const SizedBox(width: 0),
+                      const SizedBox(width: 5),
+                      (!ProcessStations
+                              .taiwanStationData[index]["species2"].isEmpty)
+                          ? TagsWidgetButton(
+                              tagName: ProcessStations
+                                  .taiwanStationData[index]["species2"],
+                              icon: Icons.tag_rounded,
+                              iconColor: TagsWidget.brownColor,
+                              station: station,
+                            )
+                          : const SizedBox(width: 0),
+                      const SizedBox(width: 5),
+                      (!ProcessStations
+                              .taiwanStationData[index]["species3"].isEmpty)
+                          ? TagsWidgetButton(
+                              tagName: ProcessStations
+                                  .taiwanStationData[index]["species3"],
+                              icon: Icons.tag_rounded,
+                              iconColor: TagsWidget.brownColor,
+                              station: station,
+                            )
+                          : const SizedBox(width: 0),
+                      const SizedBox(width: 5),
+                    ],
+                  )
+                ]),
+              )
+            : const SizedBox(
+                height: 0,
+                width: 0,
+              ));
   }
 }

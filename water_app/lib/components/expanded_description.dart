@@ -66,7 +66,7 @@ class _ExpandedDescriptionState extends State<ExpandedDescription> {
                           children: [
                             SmallText(
                               text: hidden ? "show more" : "show less",
-                              color: TagsWidget.defaultColor,
+                              fontColor: TagsWidget.defaultColor,
                             ),
                             Icon(
                               hidden

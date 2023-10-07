@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SmallText extends StatelessWidget {
   final String text;
   final double size;
-  final Color color;
+  final Color fontColor;
   final FontWeight fontWeight;
   final FontStyle fontStyle;
   final String fontFamily;
@@ -12,7 +12,7 @@ class SmallText extends StatelessWidget {
     super.key,
     required this.text,
     this.size = 10.0,
-    this.color = const Color.fromARGB(255, 0, 0, 0),
+    this.fontColor = const Color.fromARGB(255, 0, 0, 0),
     this.fontWeight = FontWeight.normal,
     this.fontStyle = FontStyle.normal,
     // this.fontFamily = "font-variant-caps: small-caps"
@@ -28,7 +28,7 @@ class SmallText extends StatelessWidget {
         fontWeight: fontWeight,
         fontStyle: fontStyle,
         fontFamily: fontFamily,
-        color: color,
+        color: fontColor,
       ),
     );
   }
