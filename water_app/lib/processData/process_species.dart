@@ -69,7 +69,7 @@ abstract class ProcessSpecies {
         speciesData["country"] = "Canada";
 
         CanadaSpecies.add(speciesData);
-        
+
         species.add(speciesData);
       }
     }
