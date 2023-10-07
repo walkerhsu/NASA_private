@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     },
   ];
   int currentDrawerIndex = 0;
+  String dataset = "Taiwan";
   @override
   void initState() {
     super.initState();
@@ -98,6 +99,34 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   });
                 },
               ),
+            Text("Dataset:"),
+            RadioListTile(
+                title: Text("Taiwan"),
+                value: "Taiwan",
+                groupValue: dataset,
+                onChanged: (s) {
+                  setState(() {
+                    dataset = s!;
+                  });
+                }),
+            RadioListTile(
+                title: Text("America"),
+                value: "America",
+                groupValue: dataset,
+                onChanged: (s) {
+                  setState(() {
+                    dataset = s!;
+                  });
+                }),
+            RadioListTile(
+                title: Text("Canada"),
+                value: "Canada",
+                groupValue: dataset,
+                onChanged: (s) {
+                  setState(() {
+                    dataset = s!;
+                  });
+                }),
           ],
         ),
       ),
