@@ -21,7 +21,7 @@ class CheckTaipeiPosition extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
-            LatLng currentPosition = LatLng(25.0330,121.5654);
+            LatLng currentPosition = LatLng(25.0330, 121.5654);
             print(currentPosition);
             return MapPageBuilder(currentPosition: currentPosition);
           } else {
@@ -193,7 +193,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               //           ))
               //       .toList(),
               // ),
-              
+
               MarkerLayer(
                 markers: [
                   for (int i = 0; i < markerNum; i++)
@@ -272,9 +272,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
         IconButton(
           icon: Icon(Icons.location_on_outlined),
           onPressed: () async {
-            LatLng currentPosition = LatLng(25.0330,121.5654);
+            LatLng currentPosition = LatLng(25.0330, 121.5654);
             LatLng location = await refreshLocation();
-            if(!mounted) return ;
+            if (!mounted) return;
             setState(() {
               mapController.move(currentPosition, 12);
             });
