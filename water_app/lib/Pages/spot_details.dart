@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:water_app/Components/info_widget.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Components/tags_widget_button.dart';
+import 'package:water_app/processData/process_stations.dart';
 // import 'package:get/route_manager.dart';
 // import 'package:get/get.dart';
 // import 'package:water_app/map_location.dart';
@@ -89,26 +90,26 @@ class SpotDetails extends StatelessWidget {
             Row(
               children: [
                 TagsWidgetButton(
-                  tagName: 'Canada Species',
+                  tagName: ProcessTaiwanStations.taiwanStationData[index]["species1"],
                   icon: Icons.tag_rounded,
                   iconColor: TagsWidget.brownColor,
                   station: station,
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 5),
                 TagsWidgetButton(
-                  tagName: 'Canada Species',
+                  tagName: ProcessTaiwanStations.taiwanStationData[index]["species2"],
                   icon: Icons.tag_rounded,
                   iconColor: TagsWidget.brownColor,
                   station: station,
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 5),
                 TagsWidgetButton(
-                  tagName: 'Canada Species',
+                  tagName: ProcessTaiwanStations.taiwanStationData[index]["species3"],
                   icon: Icons.tag_rounded,
                   iconColor: TagsWidget.brownColor,
                   station: station,
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 5),
               ],
             )
           ]),

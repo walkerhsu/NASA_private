@@ -32,7 +32,7 @@ class InfoWidget extends StatelessWidget {
 
         BigText(text: name),
         const SizedBox(height: 5),
-        SmallText(text: scientificName ?? ""),
+        SmallText(text: scientificName ?? "", fontStyle: FontStyle.italic),
         const SizedBox(height: 10),
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +82,7 @@ class InfoWidget extends StatelessWidget {
         // ),
         // const ExpandedDescription(description: ObservatoryInfo.wois),
         const BigText(
-          text: 'Water Quality',
+          text: 'Introduce',
           size: 24,
         ),
         type == "species" ? 
@@ -90,6 +90,7 @@ class InfoWidget extends StatelessWidget {
           type == "water" ?
             GptResponse(species: null, water: name, type: type) :
             GptResponse(species: null, water: null, type: type),
+        // const ExpandedDescription(description: SpeciesInfo.blueWhale),
         // type == "Observatory"
         //     ?
         //     const Column(
