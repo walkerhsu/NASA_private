@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/Notification/notification_service.dart';
+import 'package:water_app/Pages/species_details.dart';
 import 'package:water_app/Pages/spot_details.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 // import 'package:water_app/Details/get_chatGPT_data.dart';
+
 class MapData extends StatefulWidget {
   const MapData({super.key, required this.station});
   final Map<String, dynamic> station;
