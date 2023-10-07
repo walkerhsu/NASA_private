@@ -138,9 +138,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     if (!mounted) return;
                     Navigator.pop(context);
                     setState(() {
-                      setState(() {
-                        CheckCurrentPosition(country: dataCountries[i]);
-                      });
+                      currentWidget =
+                          CheckCurrentPosition(country: dataCountries[i]);
                       dataCountry = dataCountries[i];
                     });
                   }),
