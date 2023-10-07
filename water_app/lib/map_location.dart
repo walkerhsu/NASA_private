@@ -45,17 +45,30 @@ abstract class GetCurrentLocation {
       }
     }
     Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+        // forceAndroidLocationManager: true,
+        desiredAccuracy: LocationAccuracy.best);
     LatLng currentLocation = LatLng(position.latitude, position.longitude);
-    List<Placemark> placemark =
-        await placemarkFromCoordinates(position.latitude, position.longitude);
+    print("Location: $currentLocation");
+
+    List<Placemark> placemark = [];
+    try {
+      placemark =
+          await placemarkFromCoordinates(position.latitude, position.longitude);
+    } catch (e) {
+      // print(e);
+      // web error: MissingPluginException
+      return currentLocation;
+    }
+
     // ignore: non_constant_identifier_names
+    print(placemark);
     String GPScountry = placemark[0].country!;
-    if (
-      ((GPScountry == "台灣" || GPScountry == "Taiwan") && country == "Taiwan") ||
-      ((GPScountry == "加拿大" || GPScountry == "Canada") && country == "Canada") ||
-      ((GPScountry == "美國" || GPScountry == "United States") && country == "America")
-      ) {
+    if (((GPScountry == "台灣" || GPScountry == "Taiwan") &&
+            country == "Taiwan") ||
+        ((GPScountry == "加拿大" || GPScountry == "Canada") &&
+            country == "Canada") ||
+        ((GPScountry == "美國" || GPScountry == "United States") &&
+            country == "America")) {
       return currentLocation;
     } else {
       return MapConstants.myLocation[country]!;
