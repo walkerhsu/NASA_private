@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/Notification/notification_service.dart';
 import 'package:water_app/Pages/spot_details.dart';
+import 'package:water_app/Storage/cloud_storage.dart';
 // import 'package:water_app/Details/get_chatGPT_data.dart';
-
 class MapData extends StatefulWidget {
-  const MapData({super.key, required this.station, required this.index});
+  const MapData({super.key, required this.station});
   final Map<String, dynamic> station;
-  final int index;
   @override
   State<MapData> createState() => _MapDataState();
 }
 
 class _MapDataState extends State<MapData> {
   late final Map<String, dynamic> station;
-  late final int index;
 
   @override
   void initState() {
     super.initState();
     station = widget.station;
-    // print(station);
-    index = widget.index;
   }
 
   @override
@@ -85,14 +81,6 @@ class _MapDataState extends State<MapData> {
                               color: Colors.grey,
                             ),
                           ),
-                          const SizedBox(height: 10),
-                          Text(
-                            index.toString(),
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey,
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -105,11 +93,7 @@ class _MapDataState extends State<MapData> {
                   padding: const EdgeInsets.all(4.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://picsum.photos/250?image=9',
-                      fit: BoxFit.cover
-                    ),
-
+                    child: const GetImageData(),
                   ),
                 ),
               ),
@@ -119,5 +103,29 @@ class _MapDataState extends State<MapData> {
         ),
       ),
     );
+  }
+}
+
+class GetImageData extends StatelessWidget {
+  const GetImageData({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: CloudStorage.getImageURL('Logo.png', "stations"),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            String imageURL = snapshot.data as String;
+            if(imageURL == "assets/images/Logo.png") {
+              return Image.asset(imageURL, fit: BoxFit.cover);
+            }
+            return Image.network(imageURL, fit: BoxFit.cover);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
   }
 }

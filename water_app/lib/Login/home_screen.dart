@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const TopScreenImage(screenImageName: 'assets/images/101.jpeg'),
+              const TopScreenImage(screenImageName: 'assets/images/Logo.png'),
               Expanded(
                 child: Padding(
                   padding:

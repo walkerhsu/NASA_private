@@ -22,7 +22,6 @@ class CheckTaipeiPosition extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             LatLng currentPosition = LatLng(25.0330, 121.5654);
-            print(currentPosition);
             return MapPageBuilder(currentPosition: currentPosition);
           } else {
             return const Center(
@@ -263,17 +262,16 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   itemBuilder: (_, index) {
                     return MapData(
                       station: stations[argsort[index]],
-                      index: argsort[index],
                     );
                   },
                 )
               : const SizedBox.shrink(),
         ),
         IconButton(
-          icon: Icon(Icons.location_on_outlined),
+          icon: const Icon(Icons.location_on_outlined),
           onPressed: () async {
-            LatLng currentPosition = LatLng(25.0330, 121.5654);
-            LatLng location = await refreshLocation();
+            LatLng currentPosition = const LatLng(25.0330, 121.5654);
+            LatLng _ = await refreshLocation();
             if (!mounted) return;
             setState(() {
               mapController.move(currentPosition, 12);
