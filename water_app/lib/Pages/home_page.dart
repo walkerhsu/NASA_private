@@ -12,7 +12,7 @@ import 'package:water_app/globals.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-  static String id = 'home_screen';
+  static String id = 'home_page';
   final String title;
 
   @override
