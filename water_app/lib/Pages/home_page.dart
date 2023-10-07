@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:water_app/Authentication/authenticate.dart';
 import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
 // import 'package:water_app/water_temperature.dart';
 import 'package:water_app/Pages/map_taipei_location.dart';
 import 'package:water_app/Pages/menu_book.dart';
+import 'package:water_app/Storage/cloud_storage.dart';
+import 'package:water_app/globals.dart';
 // import 'package:get/get.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -23,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       'icon': const Icon(Icons.location_on_outlined),
       'body': const CheckCurrentPosition(),
       // 'body': const Center(
-        // child: Text('Hello World'),
+      // child: Text('Hello World'),
       // )
     },
     {
@@ -47,11 +51,15 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     title = widget.title;
+    CloudStorage.loadUserData(Authentication.getCurrentUserEmail())
+        .then((value) {
+      currentUser = value;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    if(currentDrawerIndex == _listViewData.length - 1) {
+    if (currentDrawerIndex == _listViewData.length - 1) {
       return const HomeScreen();
     }
     return Scaffold(

@@ -1,6 +1,6 @@
 class User {
   String email;
-  List<String> seenSpecies = [];
+  List<dynamic> seenSpecies = [];
 
   User({required this.email, ss}) {
     if (ss != null) {

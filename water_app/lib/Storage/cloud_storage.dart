@@ -1,6 +1,9 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:convert';
 
+import 'package:water_app/UserData/userdata.dart';
+import 'package:water_app/globals.dart';
+
 abstract class CloudStorage {
   // Create a storage reference from our app
   static final storageRef = FirebaseStorage.instance.ref();
@@ -54,5 +57,18 @@ abstract class CloudStorage {
   static void uploadTxt(path, data) async {
     storageRef.child(path).putData(data);
     return;
+  }
+
+  static Future<User> loadUserData(email) async {
+    Map<String, dynamic> json =
+        jsonDecode(await getRawtxtURL("/userdata/$email.json").then((value) {
+      return value;
+    }));
+    return User.fromJson(json);
+  }
+
+  static void uploadUserData(email) async {
+    Map<String, dynamic> j = currentUser.toJson();
+    storageRef.child("/userdata/$email.json").putString(jsonEncode(j));
   }
 }

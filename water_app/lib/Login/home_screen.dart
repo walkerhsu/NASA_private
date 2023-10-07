@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:water_app/Authentication/authenticate.dart';
 import 'package:water_app/Login/components.dart';
 import 'package:water_app/Login/login_screen.dart';
 import 'package:water_app/Login/signup_screen.dart';
@@ -59,7 +60,10 @@ class HomeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           InkWell(
-                            onTap: () {
+                            onTap: () async {
+                              await Authentication.signIn(
+                                  "test@nasa.com", "00000000");
+
                               Navigator.pushNamed(context, MyHomePage.id);
                             },
                             child: const Text(

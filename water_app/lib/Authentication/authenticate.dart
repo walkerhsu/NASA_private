@@ -1,12 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
+import 'package:water_app/globals.dart';
 
 class Authentication {
+  // get current user email
+  static String getCurrentUserEmail() {
+    return FirebaseAuth.instance.currentUser!.email!;
+  }
+
   static Future<Map<String, String>> signIn(
       String email, String password) async {
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      CloudStorage.loadUserData(email);
       return {
         'title': 'You are Login!',
         'desc': '',
@@ -48,7 +55,8 @@ class Authentication {
         email: email,
         password: password,
       );
-      CloudStorage.uploadTxt("/userdata/$email.json", "{}");
+      currentUser.email = email;
+      CloudStorage.uploadUserData(email);
       return {
         'title': 'Good, you are signed up!',
         'desc': 'Please check your email to verify your account.',

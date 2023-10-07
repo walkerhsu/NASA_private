@@ -20,7 +20,7 @@ class CheckTaipeiPosition extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
-            LatLng currentPosition = LatLng(25.0330, 121.5654);
+            LatLng currentPosition = const LatLng(25.0330, 121.5654);
             return MapPageBuilder(currentPosition: currentPosition);
           } else {
             return const Center(
