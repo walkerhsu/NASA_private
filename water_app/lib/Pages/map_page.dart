@@ -13,8 +13,10 @@ import 'package:water_app/map_location.dart';
 import 'dart:async';
 
 class CheckCurrentPosition extends StatelessWidget {
-  const CheckCurrentPosition({super.key, required this.country});
   final String country;
+  final LatLng? refSearchLocation;
+  const CheckCurrentPosition(
+      {super.key, required this.country, this.refSearchLocation});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class CheckCurrentPosition extends StatelessWidget {
             return MapPageBuilder(
               currentPosition: currentPosition,
               country: country,
+              refSearchLocation: refSearchLocation,
             );
           } else {
             return const Center(
@@ -39,9 +42,13 @@ class CheckCurrentPosition extends StatelessWidget {
 
 class MapPageBuilder extends StatelessWidget {
   final LatLng currentPosition;
-  const MapPageBuilder(
-      {super.key, required this.currentPosition, required this.country});
   final String country;
+  final LatLng? refSearchLocation;
+  const MapPageBuilder(
+      {super.key,
+      required this.currentPosition,
+      required this.country,
+      this.refSearchLocation});
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +66,7 @@ class MapPageBuilder extends StatelessWidget {
                 snapshot.data![1] as List<Map<String, dynamic>>;
             return MapPage(
                 currentPosition: currentPosition,
+                refSearchLocation: refSearchLocation,
                 species: species,
                 stations: stations);
           } else {
@@ -74,11 +82,13 @@ class MapPage extends StatefulWidget {
   final List<List<Map<String, dynamic>>> species;
   final LatLng currentPosition;
   final List<Map<String, dynamic>> stations;
+  final LatLng? refSearchLocation;
   const MapPage(
       {super.key,
       required this.currentPosition,
       required this.species,
-      required this.stations});
+      required this.stations,
+      this.refSearchLocation});
   // ignore: constant_identifier_names
   static const String ACCESS_TOKEN = String.fromEnvironment("ACCESS_TOKEN");
   @override
@@ -90,9 +100,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   final MapController mapController = MapController();
   bool drawMapData = true;
   late int selectedIndex;
+  late LatLng? refLocation;
   late List<int> argsort = [];
   late LatLng currentLocation;
-  late LatLng? refLocation;
   late final List<List<LatLng>> current;
   late final List<List<Map<String, dynamic>>> species;
   late List<Map<String, dynamic>> stations;
@@ -132,7 +142,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     currentLocation = widget.currentPosition;
-    refLocation = null;
+    refLocation = widget.refSearchLocation;
     species = widget.species;
     stations = widget.stations;
     argsort = ProcessTaiwanStations.sortStations(currentLocation);
@@ -140,6 +150,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     pageController = PageController(
       initialPage: 0,
     );
+    // print(refLocation);
   }
 
   Future<LatLng> refreshLocation() async {
@@ -166,8 +177,8 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
             options: MapOptions(
               minZoom: 5,
               maxZoom: 18,
-              zoom: 12,
-              center: currentLocation,
+              zoom: 10,
+              center: refLocation ?? currentLocation,
               onTap: (tapPosition, point) {
                 _animatedMapMove(point, 12);
                 setState(() {
