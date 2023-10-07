@@ -4,7 +4,6 @@ import 'package:water_app/Authentication/authenticate.dart';
 import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
 // import 'package:water_app/water_temperature.dart';
-import 'package:water_app/Pages/map_taipei_location.dart';
 import 'package:water_app/Pages/menu_book.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/globals.dart';
@@ -21,48 +20,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late final String title;
-  final List<Map<String, dynamic>> _listViewData = [
-    {
-      'title': 'Current location',
-      'icon': const Icon(Icons.location_on_outlined),
-      'body': const CheckCurrentPosition(),
-      // 'body': const Center(
-      // child: Text('Hello World'),
-      // )
-    },
-    {
-      'title': 'Taiwan location',
-      'icon': const Icon(Icons.location_on_outlined),
-      'body': const CheckTaipeiPosition(),
-    },
-    {
-      'title': 'menu_book',
-      'icon': const Icon(Icons.menu_book),
-      'body': const MenuBook(),
-    },
-    {
-      'title': 'Logout',
-      'icon': const Icon(Icons.height_outlined),
-      'body': const HomeScreen(),
-    },
-  ];
-  int currentDrawerIndex = 0;
-  String dataset = "Taiwan";
+
+  List<String> dataCountries = ["Taiwan", "America", "Canada"];
+  int action = 0;
+  String dataCountry = "Taiwan";
   @override
   void initState() {
     super.initState();
     title = widget.title;
-    // CloudStorage.loadUserData(Authentication.getCurrentUserEmail())
-    //     .then((value) {
-    //   currentUser = value;
-    // });
+    CloudStorage.loadUserData(Authentication.getCurrentUserEmail())
+        .then((value) {
+      currentUser = value;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (currentDrawerIndex == _listViewData.length - 1) {
-      return const HomeScreen();
-    }
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -87,50 +60,45 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 ),
               ),
             ),
-            for (int i = 0; i < _listViewData.length; i++)
+            ListTile(
+              leading: Icon(Icons.menu_book),
+              title: Text('menu_book'),
+              onTap: () async {
+                if (!mounted) return;
+                Navigator.pop(context);
+                setState(() {
+                  action = 1;
+                });
+              },
+            ),
+            for (int i = 0; i < dataCountries.length; i++)
               ListTile(
-                leading: _listViewData[i]['icon'],
-                title: Text(_listViewData[i]['title'] as String),
-                onTap: () async {
-                  if (!mounted) return;
-                  Navigator.pop(context);
-                  setState(() {
-                    currentDrawerIndex = i;
-                  });
-                },
-              ),
-            Text("Dataset:"),
-            RadioListTile(
-                title: Text("Taiwan"),
-                value: "Taiwan",
-                groupValue: dataset,
-                onChanged: (s) {
-                  setState(() {
-                    dataset = s!;
-                  });
-                }),
-            RadioListTile(
-                title: Text("America"),
-                value: "America",
-                groupValue: dataset,
-                onChanged: (s) {
-                  setState(() {
-                    dataset = s!;
-                  });
-                }),
-            RadioListTile(
-                title: Text("Canada"),
-                value: "Canada",
-                groupValue: dataset,
-                onChanged: (s) {
-                  setState(() {
-                    dataset = s!;
-                  });
-                }),
+                  leading: Icon(Icons.height_outlined),
+                  title: Text(dataCountries[i]),
+                  onTap: () async {
+                    if (!mounted) return;
+                    Navigator.pop(context);
+                    setState(() {
+                      setState(() {
+                        action = 0;
+                      });
+                      dataCountry = dataCountries[i];
+                    });
+                  }),
+            ListTile(
+              leading: Icon(Icons.height_outlined),
+              title: Text('Logout'),
+              onTap: () async {
+                if (!mounted) return;
+                Authentication.signOut();
+                Navigator.popUntil(context, ModalRoute.withName(HomeScreen.id));
+              },
+            ),
           ],
         ),
       ),
-      body: _listViewData[currentDrawerIndex]['body'],
+      body:
+          action == 0 ? CheckCurrentPosition(country: dataCountry) : MenuBook(),
       // body: const Center(
       //   child: Text('Hello World'),
       // ),

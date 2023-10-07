@@ -8,6 +8,11 @@ class Authentication {
     return FirebaseAuth.instance.currentUser!.email!;
   }
 
+  // sign out
+  static Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
+
   static Future<Map<String, String>> signIn(
       String email, String password) async {
     try {
