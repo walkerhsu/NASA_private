@@ -5,7 +5,7 @@ import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/Components/special_icon.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/information/observatory_info.dart';
-import 'package:water_app/information/species_info.dart';
+// import 'package:water_app/information/species_info.dart';
 
 class InfoWidget extends StatelessWidget {
   final String name;
