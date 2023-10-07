@@ -131,17 +131,15 @@ class InfoWidget extends StatelessWidget {
         //   size: 24,
         // ),
         // const ExpandedDescription(description: ObservatoryInfo.wois),
-        // BigText(
-        //   text: title[0],
-        //   size: 24,
-        // ),
-        // const SizedBox(height: 10),
-        type == "species"
-            ? GptResponse(species: name, water: null, type: type)
-            : type == "water"
-                ? GptResponse(species: null, water: name, type: type)
-                : GptResponse(species: null, water: null, type: type),
-        
+        const BigText(
+          text: 'Introduce',
+          size: 24,
+        ),
+        type == "species" ? 
+          GptResponse(species: name, water: null, type: type) :
+          type == "water" ?
+            GptResponse(species: null, water: name, type: type) :
+            GptResponse(species: null, water: null, type: type),
         // const ExpandedDescription(description: SpeciesInfo.blueWhale),
         // type == "Observatory"
         //     ?
