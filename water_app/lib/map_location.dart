@@ -40,7 +40,6 @@ abstract class GetCurrentLocation {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     LatLng currentLocation = LatLng(position.latitude, position.longitude);
-    print(currentLocation);
     return currentLocation;
   }
 }

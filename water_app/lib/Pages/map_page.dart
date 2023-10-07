@@ -26,7 +26,6 @@ class CheckCurrentPosition extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             LatLng currentPosition = snapshot.data as LatLng;
-            print(currentPosition);
             return MapPageBuilder(currentPosition: currentPosition);
           } else {
             return const Center(
@@ -58,7 +57,6 @@ class MapPageBuilder extends StatelessWidget {
                 snapshot.data![1] as List<List<Map<String, dynamic>>>;
             List<Map<String, dynamic>> stations =
                 snapshot.data![2] as List<Map<String, dynamic>>;
-            print(stations);
             return MapPage(
                 currentPosition: currentPosition,
                 current: current,

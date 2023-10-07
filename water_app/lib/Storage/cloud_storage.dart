@@ -1,4 +1,5 @@
 import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:convert';
 
 abstract class CloudStorage {
   // Create a storage reference from our app
@@ -28,5 +29,14 @@ abstract class CloudStorage {
 
   static Future<String> getCanadaCSV() async {
     return await storageRef.child("CriticalHabitat_FGP.csv").getDownloadURL();
+  }
+
+  static Future<String> getChatGPTKey() async {
+    return await storageRef
+        .child('chatgpt_api_key.txt')
+        .getData()
+        .then((value) {
+      return const Utf8Codec().decode(value!);
+    });
   }
 }

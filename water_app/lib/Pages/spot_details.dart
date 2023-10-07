@@ -18,7 +18,7 @@ class SpotDetails extends StatelessWidget {
             child: Container(
               width: double.maxFinite,
               height: 350,
-              decoration: BoxDecoration(
+              decoration:const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/observatory.png'),
                   fit: BoxFit.cover,
