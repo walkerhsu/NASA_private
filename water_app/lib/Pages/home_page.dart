@@ -3,7 +3,6 @@ import 'package:latlong2/latlong.dart';
 import 'package:water_app/Authentication/authenticate.dart';
 import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
-// import 'package:water_app/water_temperature.dart';
 import 'package:water_app/Pages/menu_book.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/Components/big_text.dart';

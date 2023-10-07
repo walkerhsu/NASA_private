@@ -56,7 +56,7 @@ class TagsWidgetButton extends StatelessWidget {
               Icon(
                 icon,
                 color: iconColor,
-                size: height * 0.1,
+                size: height * 0.7,
               ),
               const SizedBox(width: 10),
               Flexible(
