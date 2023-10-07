@@ -34,15 +34,8 @@ abstract class CloudStorage {
   }
 
   static Future<String> getCanadaCSV() async {
-    String url =  await storageRef.child("canada_species.csv").getDownloadURL();
-    final request = await HttpClient().getUrl(Uri.parse(url));
-    final response = await request.close();
-    final csvString = await response.transform(const Utf8Decoder()).join();
-    return csvString;
+    return getRawtxtURL("canada_species.csv");
   }
-  
-
-
 
   static Future<void> getChatGPTKey() async {
     return await storageRef
