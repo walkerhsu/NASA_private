@@ -134,8 +134,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               ListTile(
                   leading: const Icon(Icons.height_outlined),
                   title: Text(dataCountries[i]),
-                  onTap: () async {
-                    if (!mounted) return;
+                  onTap: () {
                     Navigator.pop(context);
                     setState(() {
                       currentWidget =

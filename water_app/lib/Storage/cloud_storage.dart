@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:convert';
 
@@ -33,8 +31,8 @@ abstract class CloudStorage {
     }
   }
 
-  static Future<String> getCanadaCSV() async {
-    return getRawtxtURL("canada_species.csv");
+  static Future<String> getCanadaStationsCSV() async {
+    return getRawtxtData("canada_stations.csv");
   }
 
   static Future<void> getChatGPTKey() async {
@@ -50,7 +48,7 @@ abstract class CloudStorage {
     return await stationsRef.child(path).getDownloadURL();
   }
 
-  static Future<String> getRawtxtURL(path) async {
+  static Future<String> getRawtxtData(path) async {
     return await storageRef.child(path).getData().then((value) {
       return const Utf8Codec().decode(value!);
     });
@@ -63,7 +61,7 @@ abstract class CloudStorage {
 
   static Future<User> loadUserData(email) async {
     Map<String, dynamic> json =
-        jsonDecode(await getRawtxtURL("/userdata/$email.json").then((value) {
+        jsonDecode(await getRawtxtData("/userdata/$email.json").then((value) {
       return value;
     }));
     return User.fromJson(json);

@@ -97,7 +97,7 @@ class SpotDetails extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TagsWidgetButton(
-                  tagName: ProcessTaiwanStations.taiwanStationData[index]
+                  tagName: ProcessStations.taiwanStationData[index]
                       ["species1"],
                   icon: Icons.tag_rounded,
                   iconColor: TagsWidget.brownColor,
@@ -105,7 +105,7 @@ class SpotDetails extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 TagsWidgetButton(
-                  tagName: ProcessTaiwanStations.taiwanStationData[index]
+                  tagName: ProcessStations.taiwanStationData[index]
                       ["species2"],
                   icon: Icons.tag_rounded,
                   iconColor: TagsWidget.brownColor,
@@ -113,7 +113,7 @@ class SpotDetails extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 TagsWidgetButton(
-                  tagName: ProcessTaiwanStations.taiwanStationData[index]
+                  tagName: ProcessStations.taiwanStationData[index]
                       ["species3"],
                   icon: Icons.tag_rounded,
                   iconColor: TagsWidget.brownColor,
