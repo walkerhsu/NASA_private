@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:water_app/Components/big_text.dart';
 
 import 'small_text.dart';
+
 class TagsWidget extends StatelessWidget {
   final String tagName;
   final IconData icon;
@@ -24,28 +24,26 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(height / 2),
           // color: defaultColor
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(height: 10),
-          Icon(
-            icon,
-            color: iconColor,
-            size: height * 0.8,
-          ),
-          const SizedBox(width: 10),
-          Flexible(
-            child: 
-              SmallText(text: tagName),
-          ),
-        ],
-      )
-    );
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 10),
+            Icon(
+              icon,
+              color: iconColor,
+              size: height * 0.8,
+            ),
+            const SizedBox(width: 10),
+            Flexible(
+              child: SmallText(text: tagName),
+            ),
+          ],
+        ));
   }
 }

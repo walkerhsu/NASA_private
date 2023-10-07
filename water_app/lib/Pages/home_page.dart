@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:water_app/Authentication/authenticate.dart';
 import 'package:water_app/Login/home_screen.dart';
@@ -61,8 +60,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.menu_book),
-              title: Text('menu_book'),
+              leading: const Icon(Icons.menu_book),
+              title: const Text('menu_book'),
               onTap: () async {
                 if (!mounted) return;
                 Navigator.pop(context);
@@ -73,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
             for (int i = 0; i < dataCountries.length; i++)
               ListTile(
-                  leading: Icon(Icons.height_outlined),
+                  leading: const Icon(Icons.height_outlined),
                   title: Text(dataCountries[i]),
                   onTap: () async {
                     if (!mounted) return;
@@ -86,8 +85,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     });
                   }),
             ListTile(
-              leading: Icon(Icons.height_outlined),
-              title: Text('Logout'),
+              leading: const Icon(Icons.height_outlined),
+              title: const Text('Logout'),
               onTap: () async {
                 if (!mounted) return;
                 Authentication.signOut();
@@ -97,8 +96,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           ],
         ),
       ),
-      body:
-          action == 0 ? CheckCurrentPosition(country: dataCountry) : MenuBook(),
+      body: action == 0
+          ? CheckCurrentPosition(country: dataCountry)
+          : const MenuBook(),
       // body: const Center(
       //   child: Text('Hello World'),
       // ),

@@ -62,9 +62,9 @@ class HomeScreen extends StatelessWidget {
                           InkWell(
                             onTap: () async {
                               await Authentication.signIn(
-                                  "test@nasa.com", "00000000");
-
-                              Navigator.pushNamed(context, MyHomePage.id);
+                                      "test@nasa.com", "00000000")
+                                  .then((value) => Navigator.pushNamed(
+                                      context, MyHomePage.id));
                             },
                             child: const Text(
                               'Sign up as guest',
