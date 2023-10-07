@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/Pages/species_details.dart';
-// impo'big_text.dart'rt';
+// import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
 
 class TagsWidgetButton extends StatelessWidget {
@@ -27,7 +27,7 @@ class TagsWidgetButton extends StatelessWidget {
     this.icon = Icons.tag_rounded,
     this.iconColor = const Color.fromARGB(255, 0, 128, 128),
     this.width = 125,
-    this.height = 25,
+    this.height = 35,
     required this.station,
   });
 
@@ -56,11 +56,12 @@ class TagsWidgetButton extends StatelessWidget {
                 size: height * 0.8,
               ),
               const SizedBox(width: 10),
-              SmallText(
+              Flexible(
+                  child: SmallText(
                 text: tagName,
                 fontStyle: fontStyle,
                 fontWeight: fontWeight,
-              )
+              ))
             ],
           )),
     );

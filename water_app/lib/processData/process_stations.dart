@@ -15,7 +15,10 @@ abstract class ProcessTaiwanStations {
     "SS",
     "NH3-N",
     "pH",
-    "temperature"
+    "temperature",
+    "species1",
+    "species2",
+    "species3",
   ];
   static List<Map<String, dynamic>> taiwanStationData = [];
 
@@ -36,7 +39,6 @@ abstract class ProcessTaiwanStations {
       for (int j = 0; j < dataName.length; j++) {
         stationData[dataName[j]] = taiwanRiverData[i][j+1];
       }
-
       LatLng latLng = LatLng(stationData["latitude"], stationData["longitude"]);
       stationData["location"] = latLng; 
       // remove latitude and longitude from stationData
@@ -44,6 +46,7 @@ abstract class ProcessTaiwanStations {
       stationData.remove("longitude");
       taiwanStationData.add(stationData);
     }
+    // print(taiwanStationData[1]);
     return taiwanStationData;
   }
 

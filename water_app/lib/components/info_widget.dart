@@ -14,17 +14,19 @@ class InfoWidget extends StatelessWidget {
   final String? collected;
   final String type;
 
-  const InfoWidget(
-      {super.key,
-      this.name = 'cat',
-      this.scientificName,
-      this.waterName = 'Pacific Ocean',
-      this.distance = '500 m',
-      this.collected = 'uncollected',
-      this.type = "species"});
+  const InfoWidget({
+    super.key,
+    this.name = 'cat',
+    this.scientificName,
+    this.waterName = 'Pacific Ocean',
+    this.distance = '500 m',
+    this.collected = 'uncollected',
+    this.type = "species",
+  });
 
   @override
   Widget build(BuildContext context) {
+    
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -32,7 +34,7 @@ class InfoWidget extends StatelessWidget {
 
         BigText(text: name),
         const SizedBox(height: 5),
-        SmallText(text: scientificName ?? ""),
+        SmallText(text: scientificName ?? "", fontStyle: FontStyle.italic),
         const SizedBox(height: 10),
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,15 +83,18 @@ class InfoWidget extends StatelessWidget {
         //   size: 24,
         // ),
         // const ExpandedDescription(description: ObservatoryInfo.wois),
-        const BigText(
-          text: 'Water Quality',
-          size: 24,
-        ),
-        type == "species" ? 
-          GptResponse(species: name, water: null, type: type) :
-          type == "water" ?
-            GptResponse(species: null, water: name, type: type) :
-            GptResponse(species: null, water: null, type: type),
+        // BigText(
+        //   text: title[0],
+        //   size: 24,
+        // ),
+        // const SizedBox(height: 10),
+        type == "species"
+            ? GptResponse(species: name, water: null, type: type)
+            : type == "water"
+                ? GptResponse(species: null, water: name, type: type)
+                : GptResponse(species: null, water: null, type: type),
+        
+        // const ExpandedDescription(description: SpeciesInfo.blueWhale),
         // type == "Observatory"
         //     ?
         //     const Column(
@@ -110,7 +115,6 @@ class InfoWidget extends StatelessWidget {
         //         ExpandedDescription(description: SpeciesInfo.blueWhale),
         //       ])))
         // ,
-        const SizedBox(height: 50),
       ],
     );
   }

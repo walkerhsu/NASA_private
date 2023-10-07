@@ -9,12 +9,13 @@ class SpeciesDetails extends StatelessWidget {
 
   const SpeciesDetails({
     super.key,
-    this.index = 2,
     required this.station,
+    this.index = 160,
   });
 
   @override
   Widget build(BuildContext context) {
+    print(ProcessSpecies.CanadaSpecies[index]);
     return Scaffold(
         body: Stack(
       children: [
