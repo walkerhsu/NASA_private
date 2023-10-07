@@ -15,10 +15,6 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await LocalNotificationService.setup();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
   runApp(const MyApp());
 }
 
@@ -36,7 +32,8 @@ class MyApp extends StatelessWidget {
         HomeScreen.id: (context) => const HomeScreen(),
         LoginScreen.id: (context) => const LoginScreen(),
         SignUpScreen.id: (context) => const SignUpScreen(),
-        MyHomePage.id: (context) => const MyHomePage(title: 'Flutter Map Home Page'),
+        MyHomePage.id: (context) =>
+            const MyHomePage(title: 'Flutter Map Home Page'),
       },
     );
   }
