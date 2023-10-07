@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:water_app/Pages/map_page.dart';
 // import 'package:water_app/water_temperature.dart';
 import 'package:water_app/Pages/map_taipei_location.dart';
@@ -21,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       'icon': const Icon(Icons.location_on_outlined),
       'body': const CheckCurrentPosition(),
       // 'body': const Center(
-        // child: Text('Hello World'),
+      // child: Text('Hello World'),
       // )
     },
     {
@@ -51,6 +52,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       )
     },
   ];
+  List<Location> locations = [
+    Location(cityName: "Taipei", coordinate: const LatLng(25.0330, 121.5654)),
+    Location(cityName: "Tokyo", coordinate: const LatLng(35.6839, 139.7744)),
+    Location(cityName: "New York", coordinate: const LatLng(40.6943, -73.9249)),
+    Location(
+        cityName: "Vancouver", coordinate: const LatLng(49.2827, -123.1207)),
+  ];
+
   int currentDrawerIndex = 0;
   @override
   void initState() {
@@ -61,9 +70,59 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
+      appBar: AppBar(title: Text(title), actions: <Widget>[
+        Row(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.5,
+              padding: const EdgeInsets.all(8.0),
+              child: SearchAnchor(
+                  builder: (BuildContext context, SearchController controller) {
+                return SearchBar(
+                  controller: controller,
+                  hintText: "Search place...",
+                  padding: const MaterialStatePropertyAll<EdgeInsets>(
+                      EdgeInsets.symmetric(horizontal: 16.0)),
+                  onTap: () {
+                    controller.openView();
+                  },
+                  onChanged: (_) {
+                    controller.openView();
+                  },
+                  leading: Icon(Icons.search, color: Colors.grey[800]),
+                  // trailing: <Widget>[
+                  //   Tooltip(
+                  //     message: 'Change brightness mode',
+                  //     child: IconButton(
+                  //       isSelected: isDark,
+                  //       onPressed: () {
+                  //         setState(() {
+                  //           isDark = !isDark;
+                  //         });
+                  //       },
+                  //       icon: const Icon(Icons.wb_sunny_outlined),
+                  //       selectedIcon: const Icon(Icons.brightness_2_outlined),
+                  //     ),
+                  //   )
+                  // ],
+                );
+              }, suggestionsBuilder:
+                      (BuildContext context, SearchController controller) {
+                return locations.map((location) {
+                  return ListTile(
+                    title: Text(location.cityName),
+                    onTap: () {
+                      setState(() {
+                        controller.closeView(location.cityName);
+                      });
+                    },
+                  );
+                });
+              }),
+            ),
+          ],
+        ),
+      ]),
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
@@ -94,13 +153,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   setState(() {
                     currentDrawerIndex = i;
                   });
-                  
                 },
-                
               ),
-              // GestureDetector(onTap: () => {
-              //     Get.to(() => SpotDetails())
-              // })
+            // GestureDetector(onTap: () => {
+            //     Get.to(() => SpotDetails())
+            // })
           ],
         ),
       ),
@@ -110,4 +167,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       // ),
     );
   }
+}
+
+class Location {
+  String cityName;
+  LatLng coordinate;
+
+  Location({required this.cityName, required this.coordinate});
 }
