@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Camera/camera.dart';
 import 'package:water_app/processData/process_stations.dart';
-
 import 'package:water_app/testData/map_consts.dart';
 import 'package:water_app/map_data.dart';
 import 'package:water_app/processData/process_species.dart';
@@ -14,7 +13,8 @@ import 'package:water_app/map_location.dart';
 import 'dart:async';
 
 class CheckCurrentPosition extends StatelessWidget {
-  const CheckCurrentPosition({super.key});
+  const CheckCurrentPosition({super.key, required this.country});
+  final String country;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,10 @@ class CheckCurrentPosition extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             LatLng currentPosition = snapshot.data as LatLng;
-            return MapPageBuilder(currentPosition: currentPosition);
+            return MapPageBuilder(
+              currentPosition: currentPosition,
+              country: country,
+            );
           } else {
             return const Center(
               child: CircularProgressIndicator(),
@@ -36,7 +39,9 @@ class CheckCurrentPosition extends StatelessWidget {
 
 class MapPageBuilder extends StatelessWidget {
   final LatLng currentPosition;
-  const MapPageBuilder({super.key, required this.currentPosition});
+  const MapPageBuilder(
+      {super.key, required this.currentPosition, required this.country});
+  final String country;
 
   @override
   Widget build(BuildContext context) {
