@@ -129,8 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         });
                                         Navigator.pushNamed(
                                             context, LoginScreen.id);
-                                      }
-                                      else {
+                                      } else {
                                         Navigator.pop(context);
                                         setState(() {
                                           _saving = false;

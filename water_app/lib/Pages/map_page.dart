@@ -5,12 +5,12 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Camera/camera.dart';
+import 'package:water_app/Storage/cloud_storage.dart';
+import 'package:water_app/globals.dart';
 import 'package:water_app/processData/process_stations.dart';
 
 import 'package:water_app/testData/map_consts.dart';
 import 'package:water_app/map_data.dart';
-// import 'package:water_app/testData/map_current_arrow.dart';
-import 'package:water_app/processData/process_current.dart';
 import 'package:water_app/processData/process_species.dart';
 import 'package:water_app/map_location.dart';
 import 'dart:async';
@@ -44,23 +44,18 @@ class MapPageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: Future.wait([
-          ProcessCurrent.processCsv(context),
           ProcessSpecies.processCsv(context),
-          ProcessStations.processCsv(context),
-
+          ProcessTaiwanStations.processCsv(context),
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
-            List<List<LatLng>> current =
-                snapshot.data![0] as List<List<LatLng>>;
             List<List<Map<String, dynamic>>> species =
-                snapshot.data![1] as List<List<Map<String, dynamic>>>;
+                snapshot.data![0] as List<List<Map<String, dynamic>>>;
             List<Map<String, dynamic>> stations =
-                snapshot.data![2] as List<Map<String, dynamic>>;
+                snapshot.data![1] as List<Map<String, dynamic>>;
             return MapPage(
                 currentPosition: currentPosition,
-                current: current,
                 species: species,
                 stations: stations);
           } else {
@@ -73,13 +68,11 @@ class MapPageBuilder extends StatelessWidget {
 }
 
 class MapPage extends StatefulWidget {
-  final List<List<LatLng>> current;
   final List<List<Map<String, dynamic>>> species;
   final LatLng currentPosition;
   final List<Map<String, dynamic>> stations;
   const MapPage(
       {super.key,
-      required this.current,
       required this.currentPosition,
       required this.species,
       required this.stations});
@@ -94,16 +87,12 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   final MapController mapController = MapController();
   bool drawMapData = true;
   late int selectedIndex;
-
   late List<int> argsort = [];
-
   late LatLng currentLocation;
   late LatLng? refLocation;
-
   late final List<List<LatLng>> current;
   late final List<List<Map<String, dynamic>>> species;
   late List<Map<String, dynamic>> stations;
-
   late List<CameraDescription> _cameras;
 
   final int markerNum = 10;
@@ -139,12 +128,11 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    current = widget.current;
     currentLocation = widget.currentPosition;
     refLocation = null;
     species = widget.species;
     stations = widget.stations;
-    argsort = ProcessStations.sortStations(currentLocation);
+    argsort = ProcessTaiwanStations.sortStations(currentLocation);
     selectedIndex = argsort[0];
     pageController = PageController(
       initialPage: 0,
@@ -181,7 +169,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                 _animatedMapMove(point, 12);
                 setState(() {
                   refLocation = point;
-                  argsort = ProcessStations.sortStations(refLocation!);
+                  argsort = ProcessTaiwanStations.sortStations(refLocation!);
                   selectedIndex = argsort[0];
                   drawMapData = true;
                 });
@@ -199,8 +187,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                 urlTemplate:
                     "https://api.mapbox.com/styles/v1/markymarklee/{mapStyleId}/tiles/256/{z}/{x}/{y}?access_token={accessToken}",
                 additionalOptions: const {
-                  'accessToken': MapConstants.mapBoxAccessToken,
-                  'mapStyleId': MapConstants.mapBoxStyleId,
+                  'accessToken':
+                      "pk.eyJ1IjoibWFya3ltYXJrbGVlIiwiYSI6ImNsbmV2MmJpczBnYmgydHBkZ2l5czRmMGwifQ.lHpfBNNYv6tWDfhiJWHhNA",
+                  'mapStyleId': "clnfny2al01j001ps7ep1g539",
                 },
               ),
               // PolylineLayer(
@@ -307,7 +296,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                         setState(() {
                           currentLocation = value;
                           refLocation = null;
-                          argsort = ProcessStations.sortStations(value);
+                          argsort = ProcessTaiwanStations.sortStations(value);
                           selectedIndex = argsort[0];
                           drawMapData = true;
                         });

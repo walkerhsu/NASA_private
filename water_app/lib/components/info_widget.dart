@@ -5,7 +5,6 @@ import 'package:water_app/components/small_text.dart';
 import 'package:water_app/components/special_icon.dart';
 import 'package:water_app/components/tags_widget.dart';
 import 'package:water_app/information/observatory_info.dart';
-import 'package:water_app/information/species_info.dart';
 
 class InfoWidget extends StatelessWidget {
   final String name;
@@ -18,7 +17,7 @@ class InfoWidget extends StatelessWidget {
   const InfoWidget(
       {super.key,
       this.name = 'Hello World',
-      this.scientific_name  = "You know it",
+      this.scientific_name = "You know it",
       this.waterName = 'Pacific Ocean',
       this.distance = '500 m',
       this.collected = 'uncollected',
@@ -75,12 +74,12 @@ class InfoWidget extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const BigText(
-                  text: 'Water Quality',
-                  size: 24,
-                ),
+          text: 'Water Quality',
+          size: 24,
+        ),
         const ExpandedDescription(description: ObservatoryInfo.wois),
         // type == "Observatory"
-        //     ? 
+        //     ?
         //     const Column(
         //       children: [
         //         BigText(

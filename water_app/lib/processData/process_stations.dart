@@ -3,7 +3,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:csv/csv.dart';
 import 'package:water_app/processData/calculate_distance.dart';
 
-abstract class ProcessStations {
+abstract class ProcessTaiwanStations {
   static final List<String> dataName = [
     "station",
     "latitude",
