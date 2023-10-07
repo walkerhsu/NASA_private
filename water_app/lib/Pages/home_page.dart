@@ -84,9 +84,22 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               }, suggestionsBuilder:
                       (BuildContext context, SearchController controller) {
                 List<Map<String, dynamic>> results = _search(controller.text);
+                // print(results.take(15).toList());
                 return results.take(15).map((location) {
                   return ListTile(
-                    title: Text(location['cityName']),
+                    title: Row(
+                      children: <Widget>[
+                        Text(location['cityName']),
+                        const SizedBox(width: 12),
+                        Text(
+                          '${location['admin_name']}, ${location['country']}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        )
+                      ],
+                    ),
                     onTap: () {
                       setState(() {
                         controller.closeView(location['cityName']);
