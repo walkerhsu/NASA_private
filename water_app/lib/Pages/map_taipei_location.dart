@@ -263,7 +263,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   itemBuilder: (_, index) {
                     return MapData(
                       station: stations[argsort[index]],
-                      index: argsort[index],
                     );
                   },
                 )

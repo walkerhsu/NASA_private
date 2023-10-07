@@ -25,4 +25,8 @@ abstract class CloudStorage {
       return "assets/images/Logo.png";
     }
   }
+
+  static Future<String> getCanadaCSV() async {
+    return await storageRef.child("CriticalHabitat_FGP.csv").getDownloadURL();
+  }
 }

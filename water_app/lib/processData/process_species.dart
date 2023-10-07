@@ -3,6 +3,7 @@
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:water_app/Storage/cloud_storage.dart';
 
 abstract class ProcessSpecies {
   // static List<Map<LatLng, double>> theta = [];
@@ -17,9 +18,10 @@ abstract class ProcessSpecies {
     var noFrogSpeciesString = await DefaultAssetBundle.of(context).loadString(
       "assets/data/taiwan_no_frog.csv",
     );
-    // var canadaSpeciesString = await DefaultAssetBundle.of(context).loadString(
-      // "assets/data/CriticalHabitat_FGP.csv",
-    // );
+    var canadaSpeciesCSVString = await CloudStorage.getCanadaCSV();
+    var canadaSpeciesString = await DefaultAssetBundle.of(context).loadString(
+      canadaSpeciesCSVString,
+    );
 
     List<List<dynamic>> noFrogSpecies =
         const CsvToListConverter().convert(noFrogSpeciesString, eol: "\n");
@@ -28,29 +30,29 @@ abstract class ProcessSpecies {
     int SPECIESIDX = 3;
     int COMMONNAMEIDX = 4;
 
-    // int TAXCON = 5;
-    // int WATERBODYIDX = 7;
-    // int SARA_STATUS_IDX = 8;
-    // int AREAIDX = 14;
-    // int GEOMETRY_IDX = 17;
+    int TAXCON = 5;
+    int WATERBODYIDX = 7;
+    int SARA_STATUS_IDX = 8;
+    int AREAIDX = 14;
+    int GEOMETRY_IDX = 17;
     
 
-    // List<List<dynamic>> canadaSpecies =
-    //     const CsvToListConverter().convert(canadaSpeciesString, eol: "\n");
+    List<List<dynamic>> canadaSpecies =
+        const CsvToListConverter().convert(canadaSpeciesString, eol: "\n");
 
-    // for (int i = 1; i < canadaSpecies.length; i++) {
-    //   Map<String, dynamic> speciesData = {};
-    //   // speciesData["image"] = canadaSpecies[i][IMAGEIDX];
-    //   speciesData["species"] = canadaSpecies[i][SPECIESIDX];
-    //   speciesData["common_name"] = canadaSpecies[i][COMMONNAMEIDX-2];
-    //   speciesData["taxon"] = canadaSpecies[i][TAXCON];
-    //   speciesData["waterbody"] = canadaSpecies[i][WATERBODYIDX];
-    //   speciesData["sara_status"] = canadaSpecies[i][SARA_STATUS_IDX];
-    //   speciesData["Area_Km2"] = canadaSpecies[i][AREAIDX];
-    //   speciesData["geometry"] = canadaSpecies[i][GEOMETRY_IDX];
+    for (int i = 1; i < canadaSpecies.length; i++) {
+      Map<String, dynamic> speciesData = {};
+      // speciesData["image"] = canadaSpecies[i][IMAGEIDX];
+      speciesData["species"] = canadaSpecies[i][SPECIESIDX];
+      speciesData["common_name"] = canadaSpecies[i][COMMONNAMEIDX-2];
+      speciesData["taxon"] = canadaSpecies[i][TAXCON];
+      speciesData["waterbody"] = canadaSpecies[i][WATERBODYIDX];
+      speciesData["sara_status"] = canadaSpecies[i][SARA_STATUS_IDX];
+      speciesData["Area_Km2"] = canadaSpecies[i][AREAIDX];
+      speciesData["geometry"] = canadaSpecies[i][GEOMETRY_IDX];
 
-    //   criticalHabitat.add(speciesData);
-    // }
+      criticalHabitat.add(speciesData);
+    }
 
     for (int i = 1; i < noFrogSpecies.length; i++) {
       Map<String, dynamic> speciesData = {};
