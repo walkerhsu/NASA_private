@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:water_app/components/info_widget.dart';
+import 'package:water_app/Components/info_widget.dart';
 import 'package:water_app/processData/process_species.dart';
 
 class SpeciesDetails extends StatelessWidget {

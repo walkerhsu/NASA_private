@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:water_app/components/info_widget.dart';
-import 'package:water_app/components/tags_widget.dart';
-import 'package:water_app/components/tags_widget_button.dart';
+import 'package:water_app/Components/info_widget.dart';
+import 'package:water_app/Components/tags_widget.dart';
+import 'package:water_app/Components/tags_widget_button.dart';
 // import 'package:get/route_manager.dart';
 // import 'package:get/get.dart';
 // import 'package:water_app/map_location.dart';
