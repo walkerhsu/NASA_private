@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
-import 'package:water_app/components/tags_widget.dart';
 
 class SpecialCard extends StatelessWidget {
   final Map<String, dynamic> station;

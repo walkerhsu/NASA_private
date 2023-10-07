@@ -4,6 +4,8 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:water_app/Storage/cloud_storage.dart';
+import 'package:water_app/globals.dart';
 
 /// CameraPage is the Main Application.
 
@@ -19,8 +21,16 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 class CameraPage extends StatefulWidget {
   /// Default Constructor
-  const CameraPage({super.key, required this.camera});
+  const CameraPage(
+      {super.key,
+      required this.country,
+      required this.camera,
+      required this.scientificName,
+      required this.image});
   final CameraDescription camera;
+  final String scientificName;
+  final String image;
+  final String country;
 
   @override
   State<CameraPage> createState() => _CameraPageState();
@@ -29,6 +39,10 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage> {
   late CameraController controller;
   late CameraDescription camera;
+  late String scientificName;
+  late String image;
+  late String country;
+
   ScreenshotController screenshotController = ScreenshotController();
   double _scaleFactor = 1.0;
   double zoom = 1.0;
@@ -64,7 +78,10 @@ class _CameraPageState extends State<CameraPage> {
                       capturedImage,
                       quality: 100,
                     );
-                    Navigator.of(context).popUntil((route) => route.isFirst);
+                    currentUser.seenSpecies.add(scientificName);
+                    CloudStorage.uploadUserData(currentUser.email);
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pop();
                   } catch (e) {
                     // If an error occurs, log the error to the console.
                     print(e);
@@ -79,6 +96,7 @@ class _CameraPageState extends State<CameraPage> {
   void initState() {
     super.initState();
     camera = widget.camera;
+    scientificName = widget.scientificName;
     controller = CameraController(camera, ResolutionPreset.max);
     controller.initialize().then((_) {
       if (!mounted) {
@@ -97,6 +115,7 @@ class _CameraPageState extends State<CameraPage> {
         }
       }
     });
+    image = widget.image;
   }
 
   @override
@@ -131,10 +150,10 @@ class _CameraPageState extends State<CameraPage> {
                   )),
               // CameraPreview(controller),
               Center(
-                child: Image.asset(
-                  'assets/images/山椒魚.jpg',
-                  width: 50,
-                  height: 50,
+                child: Image.network(
+                  image,
+                  width: 100,
+                  height: 100,
                 ),
               ),
               GestureDetector(

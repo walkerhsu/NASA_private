@@ -2,6 +2,7 @@
 import 'package:flutter/services.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:csv/csv.dart';
+import 'dart:io' show Platform;
 
 abstract class ProcessCities {
   static final List<String> dataName = [
@@ -21,10 +22,21 @@ abstract class ProcessCities {
     var cityDataString = await rootBundle.loadString(
       "assets/data/worldcities.csv",
     );
-    List<List<dynamic>> cityRawData =
-        const CsvToListConverter().convert(cityDataString);
+    late List<List<dynamic>> cityRawData;
+    if (Platform.isAndroid) {
+      cityRawData = const CsvToListConverter().convert(
+        cityDataString,
+      );
+    } else if (Platform.isIOS) {
+      cityRawData = const CsvToListConverter().convert(
+        cityDataString, eol: "\n"
+      );
+    } else {
+      cityRawData = const CsvToListConverter().convert(
+        cityDataString,
+      );
+    }
 
-    // print("Length: ${cityRawData.length}");
     for (int i = 1; i < cityRawData.length; i++) {
       Map<String, dynamic> cityData = {};
       for (int j = 0; j < dataName.length; j++) {
@@ -39,7 +51,6 @@ abstract class ProcessCities {
       cityData.remove("latitude");
       cityData.remove("longitude");
       citiesData.add(cityData);
-      // print(cityData);
     }
     // for (int i = 0; i < citiesData.length; i++) {
     //   print(citiesData);

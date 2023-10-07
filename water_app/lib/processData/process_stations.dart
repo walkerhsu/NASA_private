@@ -20,6 +20,13 @@ abstract class ProcessStations {
     "NH3-N",
     "pH",
     "temperature",
+    "RPI_unit",
+    "DO(Electrode)_unit",
+    "BOD5_unit",
+    "SS_unit",
+    "NH3-N_unit",
+    "pH_unit",
+    "temperature_unit",
     "species1",
     "species2",
     "species3",
@@ -45,7 +52,7 @@ abstract class ProcessStations {
       for (int i = 1; i < taiwanRiverData.length; i++) {
         Map<String, dynamic> stationData = {};
         for (int j = 0; j < dataName.length; j++) {
-          stationData[dataName[j]] = taiwanRiverData[i][j + 1];
+          stationData[dataName[j]] = taiwanRiverData[i][j];
         }
         LatLng latLng =
             LatLng(stationData["latitude"], stationData["longitude"]);
@@ -53,6 +60,7 @@ abstract class ProcessStations {
         // remove latitude and longitude from stationData
         stationData.remove("latitude");
         stationData.remove("longitude");
+        stationData["waterbody"] = stationData["river"];
         taiwanStationData.add(stationData);
       }
       // print(taiwanStationData[1]);
@@ -74,7 +82,8 @@ abstract class ProcessStations {
         for (int i = 1; i < CanadaStations.length; i++) {
           Map<String, dynamic> CanadaStation = {};
           CanadaStation["common_name"] = CanadaStations[i][CANADACOMMONNAMEIDX];
-          CanadaStation["scientific_name"] = CanadaStations[i][SCIENCIFICNAMEIDX];
+          CanadaStation["scientific_name"] =
+              CanadaStations[i][SCIENCIFICNAMEIDX];
           CanadaStation["waterbody"] = CanadaStations[i][WATERBODYIDX];
           CanadaStation["station"] = CanadaStations[i][WATERBODYIDX];
           CanadaStation["sara_status"] = CanadaStations[i][SARA_STATUS_IDX];
@@ -94,9 +103,31 @@ abstract class ProcessStations {
     } else if (country == "America") {
       if (AmericaStationData.isNotEmpty) {
         return AmericaStationData;
-      } else {
-        return [];
       }
+      var AmericaStationDataString =
+          await DefaultAssetBundle.of(context).loadString(
+        "assets/data/America_river_data.csv",
+      );
+      List<List<dynamic>> AmericaRiverData = const CsvToListConverter()
+          .convert(AmericaStationDataString, eol: "\n");
+      for (int i = 1; i < AmericaRiverData.length; i++) {
+        Map<String, dynamic> stationData = {};
+        for (int j = 0; j < dataName.length; j++) {
+          if (AmericaRiverData[i][j + 1]) {
+            stationData[dataName[j]] = AmericaRiverData[i][j];
+          }
+        }
+        LatLng latLng =
+            LatLng(stationData["latitude"], stationData["longitude"]);
+        stationData["location"] = latLng;
+        // remove latitude and longitude from stationData
+        stationData.remove("latitude");
+        stationData.remove("longitude");
+        stationData["waterbody"] = stationData["river"];
+        AmericaStationData.add(stationData);
+      }
+      print("process done");
+      return AmericaStationData;
     } else {
       return [];
     }
@@ -104,6 +135,7 @@ abstract class ProcessStations {
 
   static List<int> sortStations(LatLng currentPosition, String country) {
     List<int> argsort = [];
+    print(country);
     if (country == "Taiwan") {
       for (int i = 0; i < taiwanStationData.length; i++) {
         argsort.add(i);
@@ -122,6 +154,7 @@ abstract class ProcessStations {
           .compareTo(CalculateDistance.calaulateDistance(
               currentPosition, CanadaStationData[b]["location"])));
     } else if (country == "America") {
+      print("in");
       for (int i = 0; i < AmericaStationData.length; i++) {
         argsort.add(i);
       }
@@ -129,6 +162,7 @@ abstract class ProcessStations {
               currentPosition, AmericaStationData[a]["location"])
           .compareTo(CalculateDistance.calaulateDistance(
               currentPosition, AmericaStationData[b]["location"])));
+      print("done");
     }
 
     return argsort;

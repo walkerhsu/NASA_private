@@ -1,304 +1,304 @@
-,station,latitude,longitude,river,RPI,DO(Electrode),BOD5,SS,NH3-N,pH,temperature,species1,species2,species3
-0,Upper Huang River Bridge,25.17920888888889,121.58227305555556,Huang River,1.00,7.8,1.0,8.4,0.11,2.37,25.3,Cyprinus carpio,Pelophylax fukienensis,Zhangixalus taipeianus
-1,Huang River Bridge,25.226953,121.630624,Huang River,3.50,7.3,10.8,97.1,0.19,4.00,28.5,Zhangixalus taipeianus,Pelophylax fukienensis,Zhangixalus prasinatus
-2,No. 40 Bridge,25.227357,121.630912,Huang River,4.50,6.6,12.7,131,0.17,4.62,28.9,Pelophylax fukienensis,Zhangixalus prasinatus,Zhangixalus taipeianus
-3,Jhongshou Bridge.,25.051144,121.500209,Danshuei River,6.25,4.6,5.0,167,1.41,7.42,26.4,Pelophylax fukienensis,Zhangixalus prasinatus,Zhangixalus taipeianus
-4,Chongyang Bridge,25.08417397222222,121.50279694444444,Danshuei River,4.00,3.3,2.7,35.6,1.47,7.22,27.2,Rana longicrus,Cyprinus carpio,Zhangixalus taipeianus
-5,Gwandu Bridge,25.124816944444444,121.45723694444445,Danshuei River,5.00,1.7,2.2,47.0,1.56,7.52,27.6,Rana longicrus,Hylarana taipehensis,Zhangixalus taipeianus
-6,Danshuei River Mouth,25.170901111111117,121.422745,Danshuei River,3.25,3.7,<1.0,37.8,0.56,7.64,28.9,Zhangixalus prasinatus,Zhangixalus taipeianus,Cyprinus carpio
-7,Dahan Bridge,24.88467397222222,121.283827,Danshuei River,2.25,8.4,<1.0,57.2,0.04,7.77,25.8,Rana sauteri,Zhangixalus taipeianus,Rana longicrus
-8,Bansin Intake,24.930705,121.341425,Danshuei River,1.50,7.6,1.4,28.9,0.04,8.02,26.8,Zhangixalus taipeianus,Zhangixalus prasinatus,Zhangixalus aurantiventris
-9,Sanying Bridge,24.944761111111116,121.35322305555556,Danshuei River,1.50,8.1,1.5,24.2,0.09,7.26,27.3,Pelophylax fukienensis,Hylarana taipehensis,Zhangixalus taipeianus
-10,Fuchou Bridge,24.99507305555556,121.43624611111112,Danshuei River,2.25,6.9,1.5,57.2,0.47,7.64,25.6,Cyprinus carpio,Zhangixalus prasinatus,Hylarana taipehensis
-11,Cinhi Bridge,25.03286611111111,121.45462,Danshuei River,4.25,6.2,2.5,130,0.95,7.24,26.2,Pelophylax fukienensis,Zhangixalus prasinatus,Rana longicrus
-12,Hochih Weir,24.824188888888887,121.251659,Danshuei River,1.50,5.9,<1.0,20.0,0.01,7.26,24.6,Rana sauteri,Zhangixalus taipeianus,Rana longicrus
-13,Hocungein Intake,24.96822222222222,121.40461111111112,Danshuei River,1.50,8.1,1.1,32.6,0.36,7.87,27.6,Zhangixalus aurantiventris,Hylarana taipehensis,Pelophylax fukienensis
-14,SingSin Bridge,24.89563888888889,121.37377694444444,Danshuei River,1.00,8.8,<1.0,3.8,0.03,8.23,25.7,Zhangixalus taipeianus,Zhangixalus prasinatus,Rana longicrus
-15,Sansia Bridge,24.934632,121.374865,Danshuei River,1.00,8.0,1.9,12.6,0.36,7.87,28.8,Pelophylax fukienensis,Zhangixalus aurantiventris,Zhangixalus taipeianus
-16,Beetan Bridge,24.96092388888889,121.535815,Danshuei River,1.00,8.7,<1.0,5.2,0.04,7.28,25.7,Pelophylax fukienensis,Hylarana taipehensis,Zhangixalus arvalis
-17,Jhongjheng Bridge,25.021306944444444,121.51423305555556,Danshuei River,1.50,6.6,2.0,21.3,0.37,7.35,24.7,Hylarana taipehensis,Zhangixalus taipeianus,Pelophylax fukienensis
-18,Huajhong Bridge,25.01021305555556,121.49627,Danshuei River,2.00,6.0,2.7,19.5,0.51,7.08,24.8,Cyprinus carpio,Pelophylax fukienensis,Zhangixalus taipeianus
-19,Huajhian Bridge,25.034898,121.483509,Danshuei River,2.50,4.8,2.1,29.0,0.92,7.24,26.1,Zhangixalus aurantiventris,Zhangixalus prasinatus,Rana longicrus
-20,Chiuche Weir,24.91233111111111,121.547495,Danshuei River,1.00,8.4,1.0,4.7,0.02,7.35,,Rana sauteri,Zhangixalus aurantiventris,Hylarana taipehensis
-21,Chintan Weir,24.94144111111111,121.54521388888888,Danshuei River,1.00,8.8,<1.0,5.2,0.03,7.14,25.6,Pelophylax fukienensis,Zhangixalus aurantiventris,Rana longicrus
-22,Chintan Weir Intake,24.925410000000003,121.533135,Danshuei River,1.00,8.5,<1.0,3.4,0.03,7.11,24.4,Rana longicrus,Zhangixalus arvalis,Zhangixalus aurantiventris
-23,Ciulan Bridge,24.988715000000003,121.52857305555555,Danshuei River,1.00,7.8,1.7,19.2,0.08,7.04,25.5,Hylarana taipehensis,Zhangixalus prasinatus,Pelophylax fukienensis
-24,Shenkeng Jhongjheng Bridge,25.001205833333334,121.62143972222222,Danshuei River,1.50,8.2,1.2,20.2,0.08,7.50,26.8,Zhangixalus aurantiventris,Rana longicrus,Zhangixalus taipeianus
-25,Wanshou Bridge,24.992053055555555,121.572045,Danshuei River,2.00,6.9,4.9,37.9,0.19,7.35,27.2,Rana longicrus,Hylarana taipehensis,Cyprinus carpio
-26,Bao Bridge,24.97926611111111,121.55326805555556,Danshuei River,1.50,6.6,2.4,39.9,0.20,7.38,27.6,Zhangixalus aurantiventris,Cyprinus carpio,Zhangixalus taipeianus
-27,Fonlin Bridge,25.010776944444444,121.64198,Danshuei River,1.00,8.6,1.5,16.9,0.02,7.26,26.2,Pelophylax fukienensis,Zhangixalus prasinatus,Rana longicrus
-28,Jieshou Bridge,25.10640388888889,121.8054,Danshuei River,1.00,8.2,1.3,9.6,0.35,7.62,28.2,Rana longicrus,Zhangixalus taipeianus,Zhangixalus prasinatus
-29,Nungen Bridge,25.102836111111117,121.74162888888888,Danshuei River,1.00,7.4,2.5,12.2,0.28,7.42,28.8,Zhangixalus prasinatus,Zhangixalus taipeianus,
-30,Liuho Bridge,25.09477111111111,121.70375888888888,Danshuei River,3.25,4.8,3.2,18.3,1.36,7.22,28.8,Zhangixalus taipeianus,Zhangixalus prasinatus,
-31,Shihgein Bridge,25.078780833333333,121.69333194444444,Danshuei River,3.25,5.0,4.2,18.4,1.03,7.32,30.2,Cyprinus carpio,Zhangixalus prasinatus,Zhangixalus taipeianus
-32,Jiangpei Bridge,25.068573,121.65564,Danshuei River,3.00,6.4,3.6,31.6,0.94,7.48,30.8,Zhangixalus prasinatus,Cyprinus carpio,Pelophylax fukienensis
-33,Minchenda Bridge,25.063466944444446,121.56951611111111,Danshuei River,4.50,1.2,2.5,16.3,1.19,7.16,28.7,Rana longicrus,Zhangixalus prasinatus,Pelophylax fukienensis
-34,Dajhih Bridge,25.076458055555555,121.54445388888888,Danshuei River,4.50,1.0,1.9,16.0,1.19,7.05,28.5,Zhangixalus taipeianus,Pelophylax fukienensis,Cyprinus carpio
-35,Bialin Bridge,25.088435,121.51372583333334,Danshuei River,4.50,0.4,1.8,9.0,1.75,7.08,28.4,Cyprinus carpio,Hylarana taipehensis,Pelophylax fukienensis
-36,Diolin Station,25.058333333333334,121.81991666666666,Danshuei River,1.00,8.0,<1.0,4.9,0.02,7.52,26.6,Zhangixalus prasinatus,Zhangixalus taipeianus,Tridacna maxima
-37,Hodon Station,25.08815388888889,121.82867,Danshuei River,1.00,8.1,1.1,4.8,0.02,7.82,27.2,Tridacna maxima,Zhangixalus taipeianus,Zhangixalus prasinatus
-38,Nanhooda Bridge,25.063235,121.6120211111111,Danshuei River,4.50,1.2,2.6,11.4,1.32,7.14,28.5,Cyprinus carpio,Rana longicrus,Pelophylax fukienensis
-39,Chenmei Bridge,25.05366888888889,121.583295,Danshuei River,4.50,1.6,2.0,18.2,1.12,7.06,28.5,Rana longicrus,Zhangixalus prasinatus,Hylarana taipehensis
-40,Jhongsan Bridge,25.073886944444443,121.52511388888888,Danshuei River,4.50,0.8,2.3,9.2,1.26,7.05,28.2,Zhangixalus prasinatus,Pelophylax fukienensis,Hylarana taipehensis
-41,Geolooda Bridge,25.01875397222222,121.36234805555554,Nankan River,4.50,6.8,6.7,6.4,9.55,7.79,28.8,Pelophylax fukienensis,Rana longicrus,Zhangixalus taipeianus
-42,Gueishan Bridge,24.997021944444445,121.33995,Nankan River,5.00,6.3,5.0,4.6,3.52,7.60,28.6,Hylarana taipehensis,Zhangixalus prasinatus,Zhangixalus aurantiventris
-43,Tianju Bridge,25.00702777777778,121.3141111111111,Nankan River,4.00,6.4,7.8,10.4,2.75,7.68,30.3,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
-44,Dakwai River Bridge,25.011648055555558,121.30911388888887,Nankan River,5.75,4.5,12.8,9.8,5.26,7.64,30.4,Rana longicrus,Pelophylax fukienensis,Zhangixalus taipeianus
-45,Nankan River Bridge,25.05573305555556,121.28095694444444,Nankan River,5.00,5.6,10.5,19.0,7.45,7.48,30.3,Zhangixalus prasinatus,Zhangixalus taipeianus,Rana longicrus
-46,Tianliao Bridge,25.10213888888889,121.25077777777778,Nankan River,4.00,5.5,6.8,13.5,2.69,7.83,30.3,Rana longicrus,Zhangixalus prasinatus,
-47,Dapoo Bridge,25.02508611111111,121.3692479722222,Nankan River,5.75,3.8,12.6,5.5,8.68,7.57,28.7,Rana longicrus,Zhangixalus aurantiventris,Zhangixalus taipeianus
-48,Shinshing Road Bridge,24.94183333333333,121.27686111111112,Nankan River,3.25,5.9,3.4,13.1,1.30,7.66,28.2,Rana sauteri,Zhangixalus prasinatus,Rana longicrus
-49,Hontia Bridge,24.98849638888889,121.28371027777776,Nankan River,4.00,5.8,6.5,7.6,2.67,7.73,28.8,Rana longicrus,Zhangixalus prasinatus,Zhangixalus taipeianus
-50,Singein Bridge,25.009731111111112,121.28264305555555,Nankan River,5.00,5.1,7.6,8.2,3.95,7.48,29.4,Rana longicrus,Zhangixalus prasinatus,Zhangixalus taipeianus
-51,Jiadong River Bridge,25.034333333333336,121.27752777777778,Nankan River,4.50,5.2,6.4,38.3,2.66,7.48,29.7,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
-52,Meidooli Bridge,24.87427,121.21329111111112,Laojiie River,3.75,12.3,4.9,6.7,4.04,7.13,27.2,Rana sauteri,Rana longicrus,Pelophylax fukienensis
-53,Peishih Bridge,24.92482888888889,121.21244194444444,Laojiie River,5.00,6.3,6.0,5.1,4.20,7.30,28.8,Zhangixalus taipeianus,Rana longicrus,Rana sauteri
-54,Songwu,24.943376944444445,121.210095,Laojiie River,3.50,6.5,6.0,7.1,2.42,7.59,29.0,Zhangixalus taipeianus,Rana longicrus,Zhangixalus prasinatus
-55,Shinpoo Bridge,25.004955555555554,121.20934472222224,Laojiie River,2.00,6.9,3.7,7.4,0.86,7.56,30.2,Rana sauteri,Zhangixalus prasinatus,Rana longicrus
-56,Jhongjheng Bridge,25.06375805555556,121.19639694444444,Laojiie River,1.50,8.0,3.1,8.8,0.26,8.62,31.2,Rana longicrus,Zhangixalus prasinatus,Hylarana taipehensis
-57,Shiutsugan No.1,25.07744361111111,121.17761194444444,Laojiie River,2.00,7.4,3.3,10.5,0.68,7.60,28.7,Rana longicrus,Zhangixalus prasinatus,Hylarana taipehensis
-58,Pingjhen 1st Bridge,24.92099305555556,121.19616111111112,Laojiie River,2.00,7.8,3.3,8.0,0.55,7.62,29.2,Zhangixalus prasinatus,Rana sauteri,Hylarana taipehensis
-59,Yunin no. 1 Bridge,24.903113055555558,121.15162297222224,Shezih River,1.00,7.2,1.8,3.7,0.08,7.48,27.0,Rana sauteri,Hylarana taipehensis,Rana longicrus
-60,Yuemei Bridge,24.918754972222224,121.14627694444444,Shezih River,5.00,5.7,9.5,5.5,9.12,7.59,28.0,Hylarana taipehensis,Rana longicrus,Rana sauteri
-61,Laofandian Bridge,24.93578997222222,121.1237411111111,Shezih River,4.50,7.2,5.5,14.5,3.68,7.84,29.4,Hylarana taipehensis,Silurus asotus,Rana longicrus
-62,Shezih Bridge,24.960846944444445,121.09404694444444,Shezih River,1.00,7.8,1.9,9.4,0.13,8.03,29.0,Rana longicrus,Zhangixalus taipeianus,Silurus asotus
-63,Bendzugon Bridge,24.982991944444443,121.02730611111112,Shezih River,3.25,6.3,7.3,10.2,0.98,8.15,31.9,Hylarana taipehensis,Silurus asotus,Zhangixalus taipeianus
-64,Yuanben Bridge,24.94394388888889,121.08813305555556,Fusing River,2.00,7.2,3.8,46.2,0.28,7.78,29.4,Hylarana taipehensis,Rana longicrus,Silurus asotus
-65,Sinhoo Bridge,24.94344611111111,121.04595694444444,Fusing River,2.00,7.7,3.6,13.4,0.63,7.87,29.8,Silurus asotus,Rana longicrus,Hylarana taipehensis
-66,Shenkeng Bridge,24.939901111111112,121.00271597222222,Fusing River,1.50,7.4,3.4,10.8,0.19,7.89,30.1,Zhangixalus taipeianus,Silurus asotus,Rana longicrus
-67,Dong Xing Bridge,24.909138888888886,121.01031,Sinfong River,1.00,8.8,2.6,7.7,0.19,7.38,31.4,Zhangixalus taipeianus,Rana longicrus,Silurus asotus
-68,Zhong Shan Bridge (Sinfo,24.906666666666663,120.99556472222224,Sinfong River,1.50,7.8,3.5,10.1,0.50,7.96,32.5,Rana longicrus,Silurus asotus,Zhangixalus taipeianus
-69,Wuming Bridge,24.86775,120.99561111111112,Sinfong River,5.00,5.6,8.2,11.7,10.3,7.16,30.1,Zhangixalus taipeianus,Silurus asotus,Pelophylax fukienensis
-70,Shanchee Bridge,24.869095972222222,120.99555305555556,Sinfong River,5.00,5.6,7.9,16.2,10.8,7.21,30.8,Pelophylax fukienensis,Hylarana taipehensis,Zhangixalus taipeianus
-71,Siangbee Bridge,24.887735,120.98646694444444,Sinfong River,4.50,6.5,5.5,6.5,8.19,7.63,32.4,Silurus asotus,Pelophylax fukienensis,Hylarana taipehensis
-72,Honmoa Harbor,24.9089675,120.97195361111112,Sinfong River,2.25,7.2,2.5,16.0,1.85,7.64,30.0,Zhangixalus taipeianus,Rana longicrus,Silurus asotus
-73,Doochunda Bridge,24.785555,121.17565305555556,Fongshan River,1.00,8.4,1.2,4.0,0.04,7.99,26.6,Hylarana taipehensis,Zhangixalus taipeianus,Pelophylax fukienensis
-74,Sinpooda Bridge,24.825681111111116,121.06568694444444,Fongshan River,1.00,8.0,1.0,3.8,0.04,8.04,27.9,Zhangixalus taipeianus,Rana longicrus,Pelophylax fukienensis
-75,Fongshan River Bridge,24.852576000000003,121.00480194444444,Fongshan River,1.00,8.4,1.8,7.5,0.22,8.02,28.5,Zhangixalus taipeianus,Pelophylax fukienensis,Silurus asotus
-76,Fonggonda Bridge,24.85891666666667,120.94975472222222,Fongshan River,2.00,7.1,1.8,22.5,0.62,7.65,30.2,Rana longicrus,Pelophylax fukienensis,
-77,Sansheng Bridge,24.832556944444445,121.0975461111111,Fongshan River,1.00,7.7,2.3,6.2,0.08,7.66,27.9,Rana sauteri,Hylarana taipehensis,Rana longicrus
-78,Jhulinda Bridge,24.74768388888889,121.09359611111113,Toucian River,1.00,9.2,<1.0,1.5,0.01,8.55,29.1,Rana sauteri,Pelophylax fukienensis,Rana longicrus
-79,Jhongjhengda Bridge,24.785687972222224,121.0576161111111,Toucian River,1.00,8.4,1.1,6.4,0.03,8.72,29.9,Rana sauteri,Zhangixalus taipeianus,Hylarana taipehensis
-80,Toucian River Bridge,24.822895,120.99701,Toucian River,1.00,9.0,1.2,6.0,0.15,8.51,30.8,Pelophylax fukienensis,Rana sauteri,Zhangixalus taipeianus
-81,Sichiuda Bridge,24.82509111111111,120.97929611111113,Toucian River,1.00,9.1,1.2,4.8,0.09,7.99,29.3,Pelophylax fukienensis,Zhangixalus taipeianus,Silurus asotus
-82,Wanfonda Bridge,24.66806,121.119079,Toucian River,1.00,9.3,<1.0,2.2,0.04,8.62,25.2,Rana sauteri,Rana longicrus,Hynobius fucus
-83,Paosan Reservoir water Intake,24.69001861111111,121.103045,Toucian River,1.00,9.0,<1.0,1.9,0.04,8.61,26.1,Zhangixalus taipeianus,Pelophylax fukienensis,Rana sauteri
-84,Jhudongda Bridge,24.722675,121.10329388888889,Toucian River,1.00,9.7,<1.0,2.8,0.04,8.64,28.4,Pelophylax fukienensis,Zhangixalus taipeianus,Rana longicrus
-85,Neiwun Suspension Bridge,24.702031972222223,121.1832388888889,Toucian River,1.00,8.7,<1.0,1.5,0.02,8.67,27.2,Rana sauteri,Pelophylax fukienensis,Zhangixalus taipeianus
-86,Zhongzheng Bridge,24.768083333333333,120.98852777777778,Keya River,3.75,6.1,3.8,36.4,1.30,7.92,27.8,Silurus asotus,Zhangixalus taipeianus,Pelophylax fukienensis
-87,Chintsao Lake,24.775652777777776,120.96980555555557,Keya River,2.00,10.4,4.5,31.6,0.47,8.09,0.0,Pelophylax fukienensis,Silurus asotus,Zhangixalus taipeianus
-88,Keya River Bridge,24.796736111111112,120.9588138888889,Keya River,5.75,3.6,7.4,12.4,7.68,7.44,29.5,Rana longicrus,Zhangixalus taipeianus,Silurus asotus
-89,Siangya Bridge,24.80322805555556,120.92535694444445,Keya River,4.25,6.7,4.2,23.9,7.92,7.70,31.1,Rana longicrus,Zhangixalus taipeianus,Pelophylax fukienensis
-90,Sincheng Bridge,24.729906944444444,120.96438111111112,Yangang River,1.50,7.4,2.2,37.0,0.16,7.98,30.4,Rana longicrus,Zhangixalus taipeianus,Rana sauteri
-91,Jhongai Bridge,24.729975,120.91713397222225,Yangang River,1.00,6.9,2.2,15.2,0.16,7.68,30.6,Silurus asotus,Rana longicrus,Zhangixalus taipeianus
-92,Chenren Bridge,24.740821944444445,120.906295,Yangang River,3.25,7.6,3.2,39.2,1.45,7.80,30.0,Rana longicrus,Silurus asotus,Zhangixalus taipeianus
-93,Yongsing Bridge,24.617528,121.00581,Jhonggang River,1.50,8.6,3.5,4.6,0.08,8.15,24.9,Rana sauteri,Rana longicrus,Hynobius fucus
-94,Sanwanda Bridge,24.661898055555557,120.95911305555556,Jhonggang River,1.00,8.6,<1.0,5.9,0.06,8.03,26.6,Pelophylax fukienensis,Rana longicrus,Rana sauteri
-95,Pinanda Bridge,24.675886944444446,120.94921305555556,Jhonggang River,1.00,8.3,<1.0,17.9,0.10,8.12,27.1,Zhangixalus taipeianus,Pelophylax fukienensis,Rana longicrus
-96,Dongcin Bridge,24.68055194444445,120.90790694444443,Jhonggang River,1.00,8.5,<1.0,17.2,0.13,8.18,28.0,Pelophylax fukienensis,Rana longicrus,Zhangixalus taipeianus
-97,Jhonggang River Bridge,24.666946000000003,120.8817,Jhonggang River,1.50,7.7,<1.0,30.8,0.19,7.77,26.3,Cyprinus carpio,Zhangixalus taipeianus,Rana longicrus
-98,Wufu Bridge,24.66420833333333,120.84228055555556,Jhonggang River,2.25,7.1,<1.0,60.0,0.37,7.93,27.2,Zhangixalus taipeianus,Silurus asotus,Rana longicrus
-99,Nangang River Bridge,24.65589888888889,120.867851,Jhonggang River,2.00,6.5,3.7,35.2,0.38,7.76,27.0,Rana longicrus,Silurus asotus,Cyprinus carpio
-100,Gueishan Bridge,24.53644,120.81591694444444,Houlong River,2.75,8.3,6.2,20.4,0.06,8.42,27.5,Zhangixalus taipeianus,Rana longicrus,Rana sauteri
-101,Yuqing Bridge,24.56125,120.83944444444444,Houlong River,2.25,8.3,9.5,14.6,0.05,8.36,27.8,Cyprinus carpio,Zhangixalus taipeianus,Rana sauteri
-102,Peishih Bridge,24.594896944444443,120.82556305555556,Houlong River,2.25,8.0,12.8,10.9,0.11,8.29,28.4,Rana sauteri,Pelophylax fukienensis,Cyprinus carpio
-103,Houlong River Bridge,24.60874388888889,120.78429797222222,Houlong River,2.25,6.8,5.7,10.2,0.30,8.07,27.6,Zhangixalus taipeianus,Rana longicrus,Rana sauteri
-104,Guanhai Bridge,24.613958333333336,120.76303888888889,Houlong River,1.00,6.8,<1.0,17.6,0.23,7.96,28.2,Rana longicrus,Zhangixalus taipeianus,Rana sauteri
-105,Jhushenda Bridge,24.44951,120.77784805555557,Sihu River,1.00,7.2,<1.0,3.1,0.05,7.10,26.6,Silurus asotus,Rana sauteri,Zhangixalus taipeianus
-106,Tongluo Bridge,24.49419305555556,120.78059888888887,Sihu River,1.00,8.0,<1.0,4.2,0.04,7.69,27.6,Rana sauteri,Rana longicrus,Zhangixalus taipeianus
-107,Longsho Bridge,24.533339,120.74787194444444,Sihu River,1.00,8.4,<1.0,5.8,0.08,8.20,28.6,Pelophylax fukienensis,Rana longicrus,Rana sauteri
-108,Sihhu Bridge,24.56326805555556,120.75260097222224,Sihu River,1.00,8.2,<1.0,10.3,0.07,8.16,29.3,Rana sauteri,Zhangixalus taipeianus,Rana longicrus
-109,Siangbee Bridge,24.357472222222224,120.94677777777778,Da-an River,1.00,8.5,<1.0,10.5,0.11,8.12,21.0,Hynobius formosanus,Hynobius fucus,Pelophylax fukienensis
-110,Beifan Bridge,24.29436111111111,120.9105277777778,Da-an River,1.00,8.2,<1.0,4.3,0.01,8.25,22.9,Hynobius sonani,Pelophylax fukienensis,Hynobius formosanus
-111,Lanshih Bridge,24.307695,120.817321,Da-an River,1.00,8.0,1.7,7.0,0.01,8.34,26.3,Hynobius sonani,Rana sauteri,Hynobius formosanus
-112,Yilida Bridge,24.348666666666663,120.73422222222224,Da-an River,1.00,7.4,<1.0,7.5,0.02,8.44,30.2,Pelophylax fukienensis,Silurus asotus,Rana sauteri
-113,Da-an River Bridge,24.370575,120.64491611111112,Da-an River,3.25,7.5,1.0,115,0.05,8.38,31.8,Rana longicrus,Silurus asotus,Pelophylax fukienensis
-114,Da-an River Mouth,24.401416694444443,120.6105972222222,Da-an River,2.25,7.5,<1.0,89.4,0.06,8.21,30.4,Silurus asotus,Rana longicrus,Pelophylax fukienensis
-115,Ciechen Bridge,24.308151944444447,120.835937,Da-an River,1.00,8.8,1.7,8.6,0.07,8.04,26.8,Rana sauteri,Hynobius sonani,Hynobius formosanus
-116,Wenfon Bridge,24.312466944444445,120.830495,Da-an River,1.00,8.6,1.6,4.5,0.21,8.32,27.5,Silurus asotus,Rana sauteri,Hynobius sonani
-117,Inbin Bridge,24.347773055555557,121.30815194444445,Dajia River,1.00,8.1,<1.0,<1.0,0.01,8.08,15.3,Rana sauteri,Hynobius fucus,Hynobius formosanus
-118,Changcing Bridge,24.17489,120.9746938888889,Dajia River,2.25,8.3,<1.0,79.2,0.02,7.71,22.4,Pelophylax fukienensis,Rana sauteri,Hynobius formosanus
-119,Longanda Bridge,24.171936111111112,120.83791805555556,Dajia River,1.00,8.2,<1.0,11.1,0.02,7.96,24.8,Silurus asotus,Rana sauteri,Micryletta steinegeri
-120,Dongfonda Bridge,24.26084611111111,120.82003194444444,Dajia River,1.50,8.2,<1.0,36.3,0.03,8.03,24.6,Hynobius formosanus,Pelophylax fukienensis,Rana sauteri
-121,Shihgang Dam,24.28375,120.77981472222224,Dajia River,1.50,8.3,1.5,32.2,0.04,8.05,25.4,Hynobius formosanus,Hynobius sonani,Silurus asotus
-122,Jinxing Bridge,24.275055555555557,120.77397222222224,Dajia River,1.00,7.8,1.5,18.0,0.06,7.90,28.1,Pelophylax fukienensis,Rana longicrus,Hynobius formosanus
-123,Houfonda Bridge,24.28268611111111,120.722805,Dajia River,1.50,8.3,<1.0,33.5,0.04,8.12,26.0,Rana sauteri,Rana longicrus,Micryletta steinegeri
-124,Hiway Bridge,24.283931000000003,120.69470694444443,Dajia River,1.50,8.0,1.5,30.7,0.05,7.76,27.2,Rana longicrus,Pelophylax fukienensis,Silurus asotus
-125,Dajia River Bridge,24.31547,120.604905,Dajia River,2.25,8.2,1.7,53.1,0.08,8.04,25.8,Rana longicrus,Silurus asotus,Pelophylax fukienensis
-126,Cingliu Bridge,24.063083055555555,120.95429111111112,Wu River,3.25,8.6,<1.0,2240,0.08,8.02,23.1,Rana sauteri,Pelophylax fukienensis,Hynobius formosanus
-127,Chenfon Bridge,24.027046944444443,120.82691194444445,Wu River,3.25,8.6,<1.0,2760,0.12,8.14,24.2,Rana sauteri,Nidirana okinavana,Micryletta steinegeri
-128,Wu River Bridge,24.008936944444443,120.69559694444445,Wu River,3.75,8.4,3.3,2700,0.11,8.20,26.3,Micryletta steinegeri,Silurus asotus,Rana sauteri
-129,Fumazun,24.10438611111111,120.57532,Wu River,3.75,7.3,3.5,2200,0.27,7.70,28.2,Silurus asotus,Micryletta steinegeri,Rana sauteri
-130,Dadu Bridge,24.10593,120.58213694444444,Wu River,3.25,7.6,1.8,1820,0.12,7.93,28.1,Rana sauteri,Silurus asotus,Micryletta steinegeri
-131,Ailan Bridge,23.966919,120.94651111111112,Wu River,2.75,8.0,12.1,24.4,0.26,7.13,24.6,Rana sauteri,Micryletta steinegeri,Silurus asotus
-132,Beisan Bridge,23.983003888888888,120.87152888888888,Wu River,3.25,8.0,1.6,4040,0.13,8.12,25.2,Micryletta steinegeri,Pelophylax fukienensis,Zhangixalus taipeianus
-133,Gandzulin Bridge,24.017999,120.84402,Wu River,3.25,8.4,1.3,3510,0.13,8.18,25.4,Micryletta steinegeri,Zhangixalus taipeianus,Nidirana okinavana
-134,Jhongjheng Bridge,23.882531944444445,120.75777694444444,Wu River,1.50,8.0,4.4,8.7,0.05,8.48,28.8,Pelophylax fukienensis,Micryletta steinegeri,Nidirana okinavana
-135,Pinlin Bridge,23.952397972222226,120.6574538888889,Wu River,3.25,7.2,3.0,347,0.25,8.08,29.6,Zhangixalus arvalis,Micryletta steinegeri,Silurus asotus
-136,Limin Bridge,24.01346805555556,120.6375688888889,Wu River,3.25,7.0,2.6,108,0.14,8.07,31.0,Micryletta steinegeri,Zhangixalus arvalis,Silurus asotus
-137,Fongia Bridge,24.178476111111117,120.73777194444445,Wu River,1.00,8.2,1.5,5.6,0.08,8.45,28.2,Rana sauteri,Micryletta steinegeri,Silurus asotus
-138,Dali Bridge,24.093878055555557,120.68908611111112,Wu River,7.25,5.9,24.2,480,1.84,7.50,26.8,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
-139,Sinan Bridge,24.092068055555558,120.64337111111112,Wu River,5.50,6.0,12.4,375,0.69,7.56,28.2,Micryletta steinegeri,Zhangixalus arvalis,Rana sauteri
-140,Chenho Bridge,24.169646944444445,120.705355,Wu River,1.00,8.7,2.4,7.0,0.16,8.46,27.3,Rana sauteri,Silurus asotus,Micryletta steinegeri
-141,Shuwan Bridge,24.110045000000003,120.66566305555556,Wu River,5.50,6.4,13.5,176,0.98,7.50,26.3,Silurus asotus,Rana sauteri,Micryletta steinegeri
-142,Guogwon Bridge,24.117481,120.67955694444444,Wu River,4.00,5.4,14.1,19.0,1.57,7.37,27.0,Rana sauteri,Micryletta steinegeri,Silurus asotus
-143,Donghi Bridge,24.177101944444445,120.62793611111113,Wu River,4.00,7.4,8.4,80.4,0.95,7.40,27.6,Rana sauteri,Micryletta steinegeri,Silurus asotus
-144,Gichen Bridge,24.106336111111112,120.61499388888888,Wu River,3.25,6.3,13.7,36.1,0.47,7.53,28.5,Rana sauteri,Micryletta steinegeri,Silurus asotus
-145,Yufonda Bridge,23.808405,120.84348,Jhuoshuei River,4.50,8.5,10.7,7360,0.15,8.28,23.7,Rana sauteri,Nidirana okinavana,Micryletta steinegeri
-146,Ji Lu Bridge,23.81507861111111,120.78286111111112,Jhuoshuei River,3.25,8.4,1.6,6050,0.14,8.24,24.4,Micryletta steinegeri,Rana sauteri,Nidirana okinavana
-147,Minchiuda Bridge,23.817803972222222,120.70584611111111,Jhuoshuei River,3.25,9.0,1.6,6500,0.13,8.38,25.0,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
-148,Xizhou Bridge,23.80975,120.46947222222222,Jhuoshuei River,5.50,8.0,18.9,4660,0.14,8.31,27.5,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
-149,Nanyunda Bridge,23.759175,120.65697111111112,Jhuoshuei River,3.25,7.9,1.4,142,0.10,8.43,27.6,Rana sauteri,Nidirana okinavana,Micryletta steinegeri
-150,Rueitsau Bridge,23.626689722222224,120.65615277777778,Jhuoshuei River,4.50,8.4,5.2,154,0.05,8.47,25.6,Nidirana okinavana,Zhangixalus arvalis,Micryletta steinegeri
-151,Tungyou River Dike,23.64583333333333,120.658625,Jhuoshuei River,3.25,8.2,1.4,131,0.07,8.48,26.0,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
-152,Cihtong no. 1 Bridge,23.751467,120.50817583333334,Sin Huwei River,3.75,7.4,<1.0,2940,0.87,8.17,26.4,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
-153,Sinhuwei River Bridge,23.750846972222224,120.49701805555556,Sin Huwei River,3.75,7.2,<1.0,4130,0.84,8.10,26.9,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
-154,Jhongjheng Bridge,23.74351305555556,120.42238194444444,Sin Huwei River,5.00,6.5,3.4,444,2.16,7.95,28.2,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
-155,Fon Bridge,23.74204611111111,120.34734888888887,Sin Huwei River,5.00,4.8,2.8,344,1.77,7.66,29.9,Rana sauteri,Zhangixalus arvalis,Micryletta steinegeri
-156,Hifon Bridge,23.74039888888889,120.24572388888888,Sin Huwei River,5.50,5.2,4.1,376,1.86,7.71,30.2,Zhangixalus arvalis,,
-157,Wengang Bridge,23.761916666666668,120.22386111111112,Sin Huwei River,9.00,0.8,13.4,248,14.0,7.74,30.9,Zhangixalus arvalis,,
-158,Beigangda Bridge,23.56255888888889,120.3014899722222,Beigang River,7.00,4.2,7.7,469,2.04,7.65,29.3,Zhangixalus arvalis,,
-159,Yunchiada Bridge,23.513793888888888,120.17793388888887,Beigang River,8.00,3.3,43.5,222,2.05,7.69,29.2,,,
-160,Meinan Bridge,23.700586972222226,120.59999805555556,Beigang River,3.25,7.8,1.8,190,0.11,8.34,28.3,Zhangixalus arvalis,Zhangixalus taipeianus,Micryletta steinegeri
-161,Shihliuban Bridge,23.718603,120.57327,Beigang River,3.25,7.6,<1.0,591,0.10,8.04,28.0,Rana sauteri,Micryletta steinegeri,Nidirana okinavana
-162,Rong Bridge,23.731215,120.523435,Beigang River,3.25,7.4,1.1,1760,0.50,8.04,27.8,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
-163,Tokooda Bridge,23.681451111111112,120.41863497222222,Beigang River,6.25,6.1,8.3,905,2.20,7.80,27.6,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
-164,Heping Bridge,23.608475,120.39851111111112,Beigang River,6.25,5.7,7.9,186,1.45,7.59,29.3,Rana sauteri,Zhangixalus arvalis,Micryletta steinegeri
-165,Songchiuda Bridge,23.52693111111111,120.55621305555556,Puzih River,1.00,8.3,<1.0,9.9,<0.01,8.48,27.2,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
-166,Jhucida Bridge,23.524958055555555,120.54628888888888,Puzih River,1.00,8.9,<1.0,7.4,<0.01,8.46,29.0,Rana sauteri,Zhangixalus arvalis,Micryletta steinegeri
-167,Second Super highway Sidewalk bridge,23.50690888888889,120.48953694444444,Puzih River,2.25,7.9,1.1,69.2,0.01,8.42,29.0,Micryletta steinegeri,Zhangixalus arvalis,Rana sauteri
-168,Neochoci Bridge,23.51376388888889,120.44340305555556,Puzih River,3.25,6.8,1.8,113,0.22,7.98,29.2,Micryletta steinegeri,Zhangixalus arvalis,Rana sauteri
-169,Yuemeitan Bridge,23.51409111111111,120.3604161111111,Puzih River,4.50,5.9,3.9,53.8,1.12,7.80,30.8,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
-170,Jieshou Bridge,23.48206,120.29326,Puzih River,4.50,4.8,3.9,51.8,1.17,8.08,30.7,Hylarana taipehensis,Zhangixalus arvalis,
-171,Puzih River Bridge,23.47560611111111,120.24506083333334,Puzih River,5.25,3.9,3.8,86.7,1.07,7.81,31.1,Zhangixalus arvalis,Hylarana taipehensis,
-172,Dongshihda Bridge,23.459245,120.1774288888889,Puzih River,5.00,6.8,4.3,209,1.08,7.69,30.3,Hylarana taipehensis,,
-173,Dungshrnan Bridge,23.443694444444446,120.16886111111111,Puzih River,5.50,4.0,4.9,819,0.73,7.78,31.1,Hylarana taipehensis,Micryletta steinegeri,
-174,Chuko Bridge,23.438861111111112,120.60591666666666,Bajhang River,1.50,8.0,<1.0,44.9,<0.01,8.53,25.9,Rana sauteri,Micryletta steinegeri,Zhangixalus arvalis
-175,Wuhuliao Bridge,23.45125,120.55077777777778,Bajhang River,3.25,7.9,<1.0,143,0.01,8.48,26.9,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
-176,Jyunhui Bridge,23.458916666666667,120.45805555555556,Bajhang River,3.25,7.9,<1.0,109,0.04,8.42,29.0,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
-177,Bajhang River Bridge,23.403916666666664,120.38230555555556,Bajhang River,3.25,7.1,2.8,550,0.18,8.04,28.4,Zhangixalus arvalis,Pelophylax fukienensis,Rana sauteri
-178,Hocin Bridge,23.328972222222223,120.25261111111112,Bajhang River,－,－,－,－,－,－,0.0,Hylarana taipehensis,Pelophylax fukienensis,Micryletta steinegeri
-179,Chiananda Bridge,23.31277777777778,120.1527777777778,Bajhang River,5.00,4.9,5.1,1540,0.31,7.82,29.9,Micryletta steinegeri,Hylarana taipehensis,Pelophylax fukienensis
-180,Jishueici Bridge,23.296115,120.32414,Jishuei River,3.75,4.8,2.6,173,0.21,7.80,30.6,Hylarana taipehensis,Pelophylax fukienensis,
-181,Teisian Vi.,23.26116083333333,120.27284777777776,Jishuei River,5.50,5.1,5.7,291,0.77,7.60,30.4,Micryletta steinegeri,Hylarana taipehensis,Zhangixalus arvalis
-182,Jhaigon Bridge,23.253527777777776,120.20355555555555,Jishuei River,5.00,4.1,3.3,309,0.40,7.68,30.3,Micryletta steinegeri,Pelophylax fukienensis,Hylarana taipehensis
-183,Erngon Bridge,23.26604,120.19042694444444,Jishuei River,4.50,3.1,2.9,276,0.49,7.62,30.5,Micryletta steinegeri,Zhangixalus arvalis,Hylarana taipehensis
-184,Nankunsan,23.29158805555556,120.14430305555555,Jishuei River,5.00,3.8,1.7,176,0.74,7.66,31.4,Pelophylax fukienensis,Hylarana taipehensis,Micryletta steinegeri
-185,Chinyie Bridge,23.338693888888887,120.40718805555557,Jishuei River,6.25,3.0,4.7,476,1.16,7.64,30.0,Hylarana taipehensis,Pelophylax fukienensis,Zhangixalus arvalis
-186,Mugiliao,23.36300888888889,120.45423583333334,Jishuei River,－,－,－,－,－,－,0.0,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
-187,Zengwun no.1 Bridge,23.19230083333333,120.48809305555557,Zengwun River,3.25,7.3,<1.0,135,<0.01,7.96,30.1,Pelophylax fukienensis,Micryletta steinegeri,Rana sauteri
-188,Yujing Bridge,23.117880972222224,120.45831305555556,Zengwun River,3.25,7.3,<1.0,712,0.13,8.21,28.6,Pelophylax fukienensis,Micryletta steinegeri,Zhangixalus arvalis
-189,Dzomalia Bridge,23.137581944444445,120.43045388888888,Zengwun River,3.25,7.2,<1.0,1320,0.18,8.10,30.7,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
-190,Erncida Bridge,23.115661944444447,120.384388,Zengwun River,3.25,6.7,<1.0,532,0.11,8.14,30.9,Rana sauteri,Micryletta steinegeri,Hylarana taipehensis
-191,Peishihchou Bridge,23.120303888888888,120.34538611111113,Zengwun River,3.25,7.0,<1.0,112,0.12,8.20,30.4,Zhangixalus arvalis,Hylarana taipehensis,Pelophylax fukienensis
-192,Zengwun River Bridge,23.155541944444444,120.33807388888889,Zengwun River,3.25,9.6,<1.0,159,0.19,7.93,30.7,Micryletta steinegeri,Pelophylax fukienensis,Hylarana taipehensis
-193,Marsonda Bridge,23.171461111111118,120.26072888888888,Zengwun River,3.75,6.3,<1.0,424,0.10,8.09,30.6,Pelophylax fukienensis,Zhangixalus arvalis,Hylarana taipehensis
-194,Sigangda Bridge,23.10876888888889,120.20493611111112,Zengwun River,3.25,9.1,<1.0,620,0.14,7.92,30.9,Pelophylax fukienensis,Micryletta steinegeri,Hylarana taipehensis
-195,Guoshen Bridge,23.085799972222222,120.13482,Zengwun River,3.25,7.6,<1.0,133,0.33,7.70,30.9,Pelophylax fukienensis,Zhangixalus arvalis,
-196,Zengwun River Mouth,23.04448805555556,120.06263,Zengwun River,3.75,6.1,<1.0,154,0.21,7.98,30.7,,,
-197,Yufonda Bridge,23.09706083333333,120.36989805555557,Zengwun River,3.25,6.7,<1.0,193,0.10,8.04,30.6,Hylarana taipehensis,Zhangixalus arvalis,Rana sauteri
-198,Tonsin Bridge,23.05921638888889,120.36320555555557,Yanshuei River,1.50,7.0,<1.0,27.3,0.09,8.12,31.5,Zhangixalus arvalis,Pelophylax fukienensis,Hylarana taipehensis
-199,Chenniao Bridge,23.0723,120.35825,Yanshuei River,2.00,6.4,<1.0,22.2,0.09,8.30,31.1,Hylarana taipehensis,Pelophylax fukienensis,Zhangixalus arvalis
-200,Fonhua Bridge,23.05908388888889,120.27777694444444,Yanshuei River,4.75,3.4,2.0,52.4,2.50,7.89,32.6,Micryletta steinegeri,Hylarana taipehensis,Zhangixalus arvalis
-201,Yungan Bridge,23.05138888888889,120.2395,Yanshuei River,4.25,5.2,2.0,27.3,3.26,7.54,30.8,Micryletta steinegeri,Pelophylax fukienensis,Hylarana taipehensis
-202,Taiping Bridge,23.02499111111111,120.21554611111112,Yanshuei River,5.00,2.2,1.9,24.9,4.77,7.40,31.2,Micryletta steinegeri,Hylarana taipehensis,Zhangixalus arvalis
-203,Yanshuei River Bridge,23.019773055555557,120.19246805555557,Yanshuei River,6.00,1.4,2.4,25.1,3.14,7.43,30.8,Hylarana taipehensis,Zhangixalus arvalis,Pelophylax fukienensis
-204,Erntsun Bridge,22.916728000000003,120.46046194444445,Erren River,3.25,7.1,2.1,1970,0.42,7.98,27.4,Micryletta steinegeri,Zhangixalus arvalis,
-205,Gootin Bridge,22.888018055555555,120.396335,Erren River,5.00,5.5,3.0,6020,1.06,8.16,27.7,Micryletta steinegeri,Zhangixalus arvalis,
-206,Chongdeda Bridge,22.875676944444447,120.36184694444444,Erren River,4.75,4.8,3.3,18200,0.56,7.94,27.8,Micryletta steinegeri,Zhangixalus arvalis,
-207,Nansyong Bridge,22.889388888888888,120.33819444444444,Erren River,4.25,4.8,2.9,10400,0.53,7.88,27.9,Zhangixalus arvalis,Micryletta steinegeri,
-208,Shihan Bridge,22.900694444444444,120.31019444444443,Erren River,5.00,3.9,3.0,8320,0.63,7.81,28.7,Zhangixalus arvalis,Micryletta steinegeri,
-209,Erntsuncin Bridge,22.9155,120.22608333333334,Erren River,5.75,3.4,2.3,2380,1.45,7.73,28.9,Hylarana taipehensis,Zhangixalus arvalis,Pelophylax fukienensis
-210,Nandin Bridge,22.918726,120.184586,Erren River,7.00,4.3,7.0,17100,2.10,7.62,29.8,Pelophylax fukienensis,Micryletta steinegeri,Hylarana taipehensis
-211,Chenguo Village,22.998721111111116,120.25059997222222,Erren River,3.25,5.7,2.9,26.2,2.54,7.70,30.4,Pelophylax fukienensis,Micryletta steinegeri,Zhangixalus arvalis
-212,Wukon Bridge,22.927526111111117,120.22161305555557,Erren River,5.75,3.0,2.0,101,1.40,7.40,29.8,Zhangixalus arvalis,Hylarana taipehensis,Micryletta steinegeri
-213,Yunnin Bridge,22.92519194444445,120.19435694444444,Erren River,－,－,－,－,－,－,0.0,Hylarana taipehensis,Micryletta steinegeri,Pelophylax fukienensis
-214,Agongdian River,22.80325,120.36121,Agongdian River,2.25,8.8,1.8,51.4,0.01,8.51,32.7,Micryletta steinegeri,Zhangixalus arvalis,
-215,High Speed Rail Bridge,22.80388888888889,120.32822,Agongdian River,4.00,2.7,1.2,40.3,1.18,7.59,33.0,Zhangixalus arvalis,Micryletta steinegeri,
-216,Agongdian Bridge,22.785304972222225,120.29710305555555,Agongdian River,3.75,5.6,3.2,29.8,2.22,7.70,32.4,Micryletta steinegeri,Zhangixalus arvalis,
-217,Cianchou Bridge,22.80293805555556,120.27987083333332,Agongdian River,7.25,1.0,9.3,23.8,7.47,7.68,32.6,Micryletta steinegeri,,
-218,Geogon Bridge,22.800741972222223,120.23212694444445,Agongdian River,5.50,2.8,4.4,22.0,5.21,7.71,32.1,Micryletta steinegeri,,
-219,Ligangda Bridge,22.79447888888889,120.50339111111111,Gaoping River,3.25,7.7,<1.0,1640,0.03,8.24,25.7,,,
-220,Linko Bridge,22.77067111111111,120.45271,Gaoping River,3.25,7.9,<1.0,3620,0.03,8.14,25.6,Zhangixalus arvalis,Micryletta steinegeri,
-221,Gaopingda Bridge,22.64712611111111,120.43741111111112,Gaoping River,3.25,7.9,1.1,2560,0.37,8.15,25.9,Micryletta steinegeri,,
-222,Wandada Bridge,22.593358888888886,120.439785,Gaoping River,3.25,7.5,<1.0,1550,0.07,8.14,25.9,,,
-223,Shuangyuanda Bridge,22.49502777777778,120.41844444444445,Gaoping River,－,－,－,－,－,－,0.0,,,
-224,Sinfada Bridge,23.04855888888889,120.66916,Gaoping River,3.25,8.0,<1.0,956,0.01,8.22,23.2,,,
-225,Liougueida Bridge,22.99547111111111,120.63828,Gaoping River,3.25,8.0,<1.0,938,0.03,8.27,23.8,,,
-226,Jiouru Bridge,22.724753055555556,120.48875611111112,Gaoping River,6.25,5.7,9.6,63.7,9.04,7.61,27.7,,,
-227,Dagean Bridge,22.880076111111112,120.64812305555556,Gaoping River,3.25,7.8,<1.0,1390,0.03,8.24,24.5,,,
-228,Beinoon Brideg,22.63027805555556,120.45802888888888,Gaoping River,3.50,3.9,2.8,7.9,2.86,7.35,29.0,Micryletta steinegeri,,
-229,Jiasian Intake,23.083111111111112,120.58455555555555,Gaoping River,3.25,8.4,<1.0,709,0.02,8.41,24.2,Rana sauteri,Micryletta steinegeri,
-230,Yuemei Bridge,22.961101944444444,120.5217161111111,Gaoping River,3.25,8.3,1.0,1490,0.03,8.42,25.4,Micryletta steinegeri,Rana sauteri,
-231,Sinciwei Bridge,22.87400805555556,120.487895,Gaoping River,3.25,7.8,<1.0,4520,0.08,8.32,26.3,,,
-232,Simenda Bridge,22.898643888888888,120.535864,Gaoping River,2.25,6.9,<1.0,87.4,0.13,7.90,28.1,,,
-233,Cinan Bridge,22.868449972222223,120.49660805555555,Gaoping River,2.25,7.2,<1.0,83.4,0.16,7.67,27.8,,,
-234,Chengde Bridge,22.613611111111112,120.58869444444444,Donggang River,2.00,5.9,1.1,35.6,0.31,7.49,26.9,Zhangixalus aurantiventris,Cyprinus carpio,
-235,Longdon Bridge,22.602935,120.58295194444445,Donggang River,2.00,6.3,<1.0,45.7,0.24,7.47,26.9,Zhangixalus aurantiventris,Cyprinus carpio,
-236,Chaojhouda Bridge,22.56475,120.53966666666666,Donggang River,2.00,5.6,<1.0,29.8,0.43,7.59,28.0,Zhangixalus aurantiventris,Cyprinus carpio,
-237,Cinsheda Bridge,22.54219888888889,120.50416388888888,Donggang River,4.00,5.2,3.0,62.1,2.05,7.68,29.2,,,
-238,Gangci Pomping Station,22.50452305555556,120.46200694444444,Donggang River,3.25,5.3,2.1,34.2,2.73,7.66,29.4,,,
-239,Donggangda Bridge,22.47771694444444,120.459635,Donggang River,3.75,5.8,3.2,22.6,2.79,7.84,30.0,,,
-240,Sinbeida Bridge,22.461196944444445,120.55042,Linbian River,3.25,8.2,<1.0,1570,0.04,8.32,27.2,,,
-241,Linbianda Bridge,22.430816944444445,120.52326611111113,Linbian River,3.25,7.9,<1.0,3800,0.04,8.24,27.6,,,
-242,Fangliuda Bridge,22.34329888888889,120.61175194444444,Shuaimang River,3.25,8.0,<1.0,436,<0.01,8.39,27.8,,,
-243,Fangshan Bridge,22.25609888888889,120.65406694444444,Fangshan River,2.25,7.8,<1.0,87.1,<0.01,8.32,27.1,Micryletta steinegeri,,
-244,Itun Suspension Bridge,22.21258333333333,120.76366666666668,Fonggang River,1.00,7.9,<1.0,5.8,<0.01,8.02,26.2,Micryletta steinegeri,,
-245,Fongang Bridge,22.19586111111111,120.69116805555556,Fonggang River,1.00,7.8,<1.0,16.7,<0.01,8.32,27.4,Micryletta steinegeri,,
-246,Shihmen,22.123527777777777,120.77275,Sihchong River,1.50,9.8,<1.0,31.6,0.02,8.20,26.7,Zhangixalus aurantiventris,Micryletta steinegeri,
-247,Erchongci,22.082791944444445,120.74083194444444,Sihchong River,1.50,10.5,<1.0,38.5,0.01,8.12,27.7,Tridacna maxima,Zhangixalus aurantiventris,
-248,Longluntan,21.988222222222223,120.73783333333331,Baoli River,－,－,－,－,－,－,0.0,Micryletta steinegeri,Tridacna squamosa,Zhangixalus aurantiventris
-249,Linhia Bridge,22.05788888888889,120.711,Baoli River,2.75,5.8,<1.0,75.7,0.09,7.92,28.9,Tridacna squamosa,Zhangixalus aurantiventris,Tridacna maxima
-250,Gangkou Bridge,22.001496,120.819197,Gangkou River,1.00,7.7,<1.0,12.2,<0.01,8.19,29.0,Micryletta steinegeri,Tridacna squamosa,Tridacna maxima
-251,Hichenda Bridge,21.988695,120.84102777777775,Gangkou River,1.50,8.0,<1.0,24.7,<0.01,8.26,29.5,Tridacna squamosa,Tridacna maxima,Zhangixalus aurantiventris
-252,Jhihben hotspring Bridge,22.695166666666665,121.02477777777776,Jhihben River,3.25,8.1,<1.0,642,0.05,8.02,26.8,,,
-253,Jhihben Bridge,22.701395972222222,121.0396,Jhihben River,3.25,8.0,<1.0,1320,0.04,8.17,26.8,,,
-254,Danan Bridge,22.76079194444445,121.049225,Lijiia River,3.25,8.1,<1.0,457,<0.01,8.32,26.6,,,
-255,Fongyuanda Bridge,22.72346583333333,121.09519805555556,Lijiia River,3.25,7.8,<1.0,680,<0.01,8.34,28.5,,,
-256,Dabaliugeoba Intake,22.813972222222223,121.05,Tai Pingsi,1.00,8.3,<1.0,7.2,<0.01,8.42,24.6,Hynobius arisanensis,,
-257,Malan Bridge,22.76598111111111,121.132595,Tai Pingsi,－,－,－,－,－,－,0.0,,,
-258,Fonli Bridge,22.74644888888889,121.14232694444443,Tai Pingsi,10.00,0.5,88.0,137,4.39,7.92,30.4,,,
-259,Taitungda Bridge,22.79223305555556,121.144475,Beinan River,3.25,8.2,1.0,6440,0.07,8.12,26.2,,,
-260,Choulia Bridge,23.125638055555555,121.169128,Beinan River,3.75,8.2,4.4,15700,0.06,8.08,32.7,Pelophylax fukienensis,,
-261,Lumin Bridge,22.891445,121.09419888888888,Beinan River,3.25,8.1,2.5,12600,0.09,8.12,24.5,,,
-262,Yulida Bridge,23.322925,121.3277661111111,Siouguluan River,3.25,8.2,<1.0,1030,0.05,7.92,25.2,Pelophylax fukienensis,,
-263,Taipingci Bridge,23.393678055555554,121.33362597222222,Siouguluan River,3.25,8.3,<1.0,235,0.04,8.15,24.6,Pelophylax fukienensis,,
-264,Rueisueida Bridge,23.485399972222226,121.40401611111112,Siouguluan River,3.25,7.8,<1.0,866,0.08,7.99,26.0,,,
-265,Wanlici Bridge,23.719596944444444,121.42623888888888,Hualien River,2.25,8.1,<1.0,85.0,0.10,8.22,26.4,,,
-266,Fonpin Bridge,23.813225,121.45256797222224,Hualien River,3.25,8.1,<1.0,680,0.05,8.19,26.3,,,
-267,Hualienda Bridge,23.923545833333336,121.59769888888889,Hualien River,3.25,7.5,<1.0,392,0.05,8.10,27.4,Rana sauteri,,
-268,Sialousi Bridge,23.87859166666667,121.51874222222222,Hualien River,1.00,8.4,<1.0,7.0,0.03,8.46,27.4,,,
-269,Mugua River Bridge,23.93169388888889,121.53858611111112,Hualien River,3.25,8.8,<1.0,700,0.06,8.18,22.4,Rana sauteri,,
-270,Taichang Bridge,23.98333333333333,121.56958333333333,Jian River,1.00,8.7,<1.0,11.2,0.14,7.96,20.9,Rana sauteri,,
-271,Renli Bridge,23.968777777777778,121.59444444444443,Jian River,1.00,8.7,1.4,11.0,0.22,7.90,24.3,Rana sauteri,,
-272,Shueiwui Bridge,24.005785,121.54607388888888,Meilun River,1.00,8.2,<1.0,<1.0,0.04,8.29,24.5,Rana sauteri,,
-273,Chiali No 2 Bridge,24.016897,121.6049461111111,Meilun River,1.00,8.6,1.5,9.4,0.31,8.04,29.1,Rana sauteri,,
-274,Chiacin Village,24.009405,121.608395,Meilun River,1.00,7.3,2.3,13.9,0.49,7.92,29.2,Rana sauteri,,
-275,Jhongjheng Bridge,23.980326111111108,121.61195388888888,Meilun River,1.00,7.1,1.1,9.8,0.33,7.82,28.6,Rana sauteri,,
-276,Sanjhan Bridge,24.100662,121.608385,Sanjhan River,1.00,8.4,<1.0,3.2,0.04,8.36,25.4,,,
-277,Podooda Bridge,24.18130888888889,121.49549583333334,Liwu River,2.25,8.5,<1.0,94.5,0.04,8.36,23.6,Rana sauteri,,
-278,Geinwun Bridge,24.156348055555554,121.62174805555554,Liwu River,3.25,8.5,<1.0,369,0.04,8.18,24.2,,,
-279,Dajhuoshuei Bridge,24.32484,121.74306388888888,Heping River,3.25,8.2,<1.0,1480,0.07,8.19,25.7,,,
-280,Ginyang No 2,24.435946972222222,121.75844194444444,Nan-ao River,1.00,8.5,<1.0,<1.0,0.04,7.65,23.9,,,
-281,Aowei Bridge,24.449141944444445,121.78002111111113,Nan-ao River,1.00,8.6,<1.0,12.6,0.03,8.21,24.3,,,
-282,Nanao Bridge,24.46029194444444,121.78859888888888,Nan-ao River,1.50,8.4,<1.0,27.8,0.03,8.20,24.3,,,
-283,Yunlali,24.573716944444445,121.84455888888888,Su-ao River,－,－,－,－,－,－,0.0,Zhangixalus taipeianus,Zhangixalus prasinatus,Rana longicrus
-284,Bimei Bridge,24.59617,121.85372,Su-ao River,1.00,7.7,<1.0,2.8,0.02,7.26,25.4,Zhangixalus taipeianus,Zhangixalus prasinatus,Rana longicrus
-285,Sincheng Bridge,24.61528805555556,121.81234194444444,Sincheng River,1.00,8.3,1.0,1.8,0.02,8.10,26.7,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
-286,Longdeda Bridge,24.63236388888889,121.83156,Sincheng River,1.00,8.7,<1.0,1.2,0.04,8.53,26.9,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
-287,Woolaokan,24.6035,121.81086,Sincheng River,1.00,8.1,1.5,2.1,0.04,8.10,25.9,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
-288,Shrsanfen Bridge,24.631888888888888,121.773,Dongshan River,1.50,6.4,<1.0,14.2,0.15,7.38,25.2,Cyprinus carpio,Zhangixalus taipeianus,Zhangixalus prasinatus
-289,Dongshan River Bridge,24.63916305555556,121.78689,Dongshan River,1.50,5.4,1.2,5.7,0.36,7.68,26.0,Rana longicrus,Zhangixalus taipeianus,Cyprinus carpio
-290,Lidzugein Bridge,24.66989805555556,121.81411694444444,Dongshan River,2.00,5.8,3.0,18.0,0.57,7.55,28.6,Rana longicrus,Zhangixalus taipeianus,Zhangixalus prasinatus
-291,Cingshueida Gate,24.692006111111112,121.83297194444444,Dongshan River,2.00,7.2,3.6,28.8,0.50,7.93,29.0,Rana longicrus,Zhangixalus prasinatus,Zhangixalus taipeianus
-292,Lonbei,24.681098,121.605924,Lanyang River,1.00,8.3,<1.0,2.4,0.02,7.14,23.6,Zhangixalus taipeianus,Zhangixalus prasinatus,Rana sauteri
-293,Shangshengo,24.704817,121.724819,Lanyang River,3.25,7.9,<1.0,145,0.03,8.27,25.5,Rana longicrus,Zhangixalus prasinatus,Zhangixalus taipeianus
-294,Lanyangda Bridge,24.71361111111111,121.772,Lanyang River,3.25,7.8,<1.0,582,0.03,8.20,25.6,Zhangixalus prasinatus,Rana longicrus,Cyprinus carpio
-295,Sinlanda Bridge,24.713763,121.820112,Lanyang River,3.25,7.8,2.2,903,0.05,8.30,26.3,Zhangixalus prasinatus,Zhangixalus taipeianus,Rana longicrus
-296,Neodao Bridge,24.642268,121.567251,Lanyang River,3.25,7.9,<1.0,300,0.02,8.29,24.0,Zhangixalus prasinatus,Hynobius fucus,Zhangixalus aurantiventris
-297,Juan Bridge,24.84133333333333,121.82336111111113,Dezihkou River,2.50,5.5,1.4,43.2,0.80,7.70,28.4,Zhangixalus prasinatus,Rana longicrus,
-298,Tetzekou Bridge,24.806361111111112,121.77241666666669,Dezihkou River,3.25,6.0,4.2,16.6,1.78,7.50,26.6,Zhangixalus prasinatus,Zhangixalus taipeianus,Rana sauteri
-299,Fusing Bridge,24.817713972222226,121.812895,Dezihkou River,4.00,5.2,2.3,79.9,1.35,7.46,28.7,Zhangixalus taipeianus,Rana longicrus,Zhangixalus prasinatus
-300,Meichien Cottage,24.83145111111111,121.74705888888889,Dezihkou River,1.00,8.2,<1.0,3.8,0.02,7.98,24.7,Zhangixalus taipeianus,Rana longicrus,Zhangixalus prasinatus
-301,Sinliaoda Bridge,25.031796944444444,121.834769,Shuangsi,1.00,8.3,1.3,8.2,0.06,7.07,26.1,Tridacna maxima,Zhangixalus taipeianus,Zhangixalus prasinatus
-302,Gongliaoda Bridge,25.02071,121.9095288888889,Shuangsi,1.00,7.7,1.4,17.9,0.04,7.10,28.0,Tridacna maxima,,
+,station,latitude,longitude,river,RPI,DO(Electrode),BOD5,SS,NH3-N,pH,temperature,RPI_unit,DO(Electrode)_unit,BOD5_unit,SS_unit,NH3-N_unit,pH_unit,temperature_unit,species1,species2,species3
+Upper Huang River Bridge,25.17920888888889,121.58227305555556,Huang River,1.00,7.8,1.0,8.4,0.11,2.37,25.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Pelophylax fukienensis,Zhangixalus taipeianus
+Huang River Bridge,25.226953,121.630624,Huang River,3.50,7.3,10.8,97.1,0.19,4.00,28.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Pelophylax fukienensis,Zhangixalus prasinatus
+No. 40 Bridge,25.227357,121.630912,Huang River,4.50,6.6,12.7,131,0.17,4.62,28.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus prasinatus,Zhangixalus taipeianus
+Jhongshou Bridge.,25.051144,121.500209,Danshuei River,6.25,4.6,5.0,167,1.41,7.42,26.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus prasinatus,Zhangixalus taipeianus
+Chongyang Bridge,25.08417397222222,121.50279694444444,Danshuei River,4.00,3.3,2.7,35.6,1.47,7.22,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Cyprinus carpio,Zhangixalus taipeianus
+Gwandu Bridge,25.124816944444444,121.45723694444445,Danshuei River,5.00,1.7,2.2,47.0,1.56,7.52,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Hylarana taipehensis,Zhangixalus taipeianus
+Danshuei River Mouth,25.170901111111117,121.422745,Danshuei River,3.25,3.7,<1.0,37.8,0.56,7.64,28.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Zhangixalus taipeianus,Cyprinus carpio
+Dahan Bridge,24.88467397222222,121.283827,Danshuei River,2.25,8.4,<1.0,57.2,0.04,7.77,25.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus taipeianus,Rana longicrus
+Bansin Intake,24.930705,121.341425,Danshuei River,1.50,7.6,1.4,28.9,0.04,8.02,26.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Zhangixalus prasinatus,Zhangixalus aurantiventris
+Sanying Bridge,24.944761111111116,121.35322305555556,Danshuei River,1.50,8.1,1.5,24.2,0.09,7.26,27.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Hylarana taipehensis,Zhangixalus taipeianus
+Fuchou Bridge,24.99507305555556,121.43624611111112,Danshuei River,2.25,6.9,1.5,57.2,0.47,7.64,25.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Zhangixalus prasinatus,Hylarana taipehensis
+Cinhi Bridge,25.03286611111111,121.45462,Danshuei River,4.25,6.2,2.5,130,0.95,7.24,26.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus prasinatus,Rana longicrus
+Hochih Weir,24.824188888888887,121.251659,Danshuei River,1.50,5.9,<1.0,20.0,0.01,7.26,24.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus taipeianus,Rana longicrus
+Hocungein Intake,24.96822222222222,121.40461111111112,Danshuei River,1.50,8.1,1.1,32.6,0.36,7.87,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus aurantiventris,Hylarana taipehensis,Pelophylax fukienensis
+SingSin Bridge,24.89563888888889,121.37377694444444,Danshuei River,1.00,8.8,<1.0,3.8,0.03,8.23,25.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Zhangixalus prasinatus,Rana longicrus
+Sansia Bridge,24.934632,121.374865,Danshuei River,1.00,8.0,1.9,12.6,0.36,7.87,28.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus aurantiventris,Zhangixalus taipeianus
+Beetan Bridge,24.96092388888889,121.535815,Danshuei River,1.00,8.7,<1.0,5.2,0.04,7.28,25.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Hylarana taipehensis,Zhangixalus arvalis
+Jhongjheng Bridge,25.021306944444444,121.51423305555556,Danshuei River,1.50,6.6,2.0,21.3,0.37,7.35,24.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Zhangixalus taipeianus,Pelophylax fukienensis
+Huajhong Bridge,25.01021305555556,121.49627,Danshuei River,2.00,6.0,2.7,19.5,0.51,7.08,24.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Pelophylax fukienensis,Zhangixalus taipeianus
+Huajhian Bridge,25.034898,121.483509,Danshuei River,2.50,4.8,2.1,29.0,0.92,7.24,26.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus aurantiventris,Zhangixalus prasinatus,Rana longicrus
+Chiuche Weir,24.91233111111111,121.547495,Danshuei River,1.00,8.4,1.0,4.7,0.02,7.35,,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus aurantiventris,Hylarana taipehensis
+Chintan Weir,24.94144111111111,121.54521388888888,Danshuei River,1.00,8.8,<1.0,5.2,0.03,7.14,25.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus aurantiventris,Rana longicrus
+Chintan Weir Intake,24.925410000000003,121.533135,Danshuei River,1.00,8.5,<1.0,3.4,0.03,7.11,24.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus arvalis,Zhangixalus aurantiventris
+Ciulan Bridge,24.988715000000003,121.52857305555555,Danshuei River,1.00,7.8,1.7,19.2,0.08,7.04,25.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Zhangixalus prasinatus,Pelophylax fukienensis
+Shenkeng Jhongjheng Bridge,25.001205833333334,121.62143972222222,Danshuei River,1.50,8.2,1.2,20.2,0.08,7.50,26.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus aurantiventris,Rana longicrus,Zhangixalus taipeianus
+Wanshou Bridge,24.992053055555555,121.572045,Danshuei River,2.00,6.9,4.9,37.9,0.19,7.35,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Hylarana taipehensis,Cyprinus carpio
+Bao Bridge,24.97926611111111,121.55326805555556,Danshuei River,1.50,6.6,2.4,39.9,0.20,7.38,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus aurantiventris,Cyprinus carpio,Zhangixalus taipeianus
+Fonlin Bridge,25.010776944444444,121.64198,Danshuei River,1.00,8.6,1.5,16.9,0.02,7.26,26.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus prasinatus,Rana longicrus
+Jieshou Bridge,25.10640388888889,121.8054,Danshuei River,1.00,8.2,1.3,9.6,0.35,7.62,28.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus taipeianus,Zhangixalus prasinatus
+Nungen Bridge,25.102836111111117,121.74162888888888,Danshuei River,1.00,7.4,2.5,12.2,0.28,7.42,28.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Zhangixalus taipeianus,
+Liuho Bridge,25.09477111111111,121.70375888888888,Danshuei River,3.25,4.8,3.2,18.3,1.36,7.22,28.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Zhangixalus prasinatus,
+Shihgein Bridge,25.078780833333333,121.69333194444444,Danshuei River,3.25,5.0,4.2,18.4,1.03,7.32,30.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Zhangixalus prasinatus,Zhangixalus taipeianus
+Jiangpei Bridge,25.068573,121.65564,Danshuei River,3.00,6.4,3.6,31.6,0.94,7.48,30.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Cyprinus carpio,Pelophylax fukienensis
+Minchenda Bridge,25.063466944444446,121.56951611111111,Danshuei River,4.50,1.2,2.5,16.3,1.19,7.16,28.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,Pelophylax fukienensis
+Dajhih Bridge,25.076458055555555,121.54445388888888,Danshuei River,4.50,1.0,1.9,16.0,1.19,7.05,28.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Pelophylax fukienensis,Cyprinus carpio
+Bialin Bridge,25.088435,121.51372583333334,Danshuei River,4.50,0.4,1.8,9.0,1.75,7.08,28.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Hylarana taipehensis,Pelophylax fukienensis
+Diolin Station,25.058333333333334,121.81991666666666,Danshuei River,1.00,8.0,<1.0,4.9,0.02,7.52,26.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Zhangixalus taipeianus,Tridacna maxima
+Hodon Station,25.08815388888889,121.82867,Danshuei River,1.00,8.1,1.1,4.8,0.02,7.82,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Tridacna maxima,Zhangixalus taipeianus,Zhangixalus prasinatus
+Nanhooda Bridge,25.063235,121.6120211111111,Danshuei River,4.50,1.2,2.6,11.4,1.32,7.14,28.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Rana longicrus,Pelophylax fukienensis
+Chenmei Bridge,25.05366888888889,121.583295,Danshuei River,4.50,1.6,2.0,18.2,1.12,7.06,28.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,Hylarana taipehensis
+Jhongsan Bridge,25.073886944444443,121.52511388888888,Danshuei River,4.50,0.8,2.3,9.2,1.26,7.05,28.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Pelophylax fukienensis,Hylarana taipehensis
+Geolooda Bridge,25.01875397222222,121.36234805555554,Nankan River,4.50,6.8,6.7,6.4,9.55,7.79,28.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Rana longicrus,Zhangixalus taipeianus
+Gueishan Bridge,24.997021944444445,121.33995,Nankan River,5.00,6.3,5.0,4.6,3.52,7.60,28.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Zhangixalus prasinatus,Zhangixalus aurantiventris
+Tianju Bridge,25.00702777777778,121.3141111111111,Nankan River,4.00,6.4,7.8,10.4,2.75,7.68,30.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
+Dakwai River Bridge,25.011648055555558,121.30911388888887,Nankan River,5.75,4.5,12.8,9.8,5.26,7.64,30.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Pelophylax fukienensis,Zhangixalus taipeianus
+Nankan River Bridge,25.05573305555556,121.28095694444444,Nankan River,5.00,5.6,10.5,19.0,7.45,7.48,30.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Zhangixalus taipeianus,Rana longicrus
+Tianliao Bridge,25.10213888888889,121.25077777777778,Nankan River,4.00,5.5,6.8,13.5,2.69,7.83,30.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,
+Dapoo Bridge,25.02508611111111,121.3692479722222,Nankan River,5.75,3.8,12.6,5.5,8.68,7.57,28.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus aurantiventris,Zhangixalus taipeianus
+Shinshing Road Bridge,24.94183333333333,121.27686111111112,Nankan River,3.25,5.9,3.4,13.1,1.30,7.66,28.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus prasinatus,Rana longicrus
+Hontia Bridge,24.98849638888889,121.28371027777776,Nankan River,4.00,5.8,6.5,7.6,2.67,7.73,28.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,Zhangixalus taipeianus
+Singein Bridge,25.009731111111112,121.28264305555555,Nankan River,5.00,5.1,7.6,8.2,3.95,7.48,29.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,Zhangixalus taipeianus
+Jiadong River Bridge,25.034333333333336,121.27752777777778,Nankan River,4.50,5.2,6.4,38.3,2.66,7.48,29.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
+Meidooli Bridge,24.87427,121.21329111111112,Laojiie River,3.75,12.3,4.9,6.7,4.04,7.13,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Rana longicrus,Pelophylax fukienensis
+Peishih Bridge,24.92482888888889,121.21244194444444,Laojiie River,5.00,6.3,6.0,5.1,4.20,7.30,28.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Rana sauteri
+Songwu,24.943376944444445,121.210095,Laojiie River,3.50,6.5,6.0,7.1,2.42,7.59,29.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Zhangixalus prasinatus
+Shinpoo Bridge,25.004955555555554,121.20934472222224,Laojiie River,2.00,6.9,3.7,7.4,0.86,7.56,30.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus prasinatus,Rana longicrus
+Jhongjheng Bridge,25.06375805555556,121.19639694444444,Laojiie River,1.50,8.0,3.1,8.8,0.26,8.62,31.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,Hylarana taipehensis
+Shiutsugan No.1,25.07744361111111,121.17761194444444,Laojiie River,2.00,7.4,3.3,10.5,0.68,7.60,28.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,Hylarana taipehensis
+Pingjhen 1st Bridge,24.92099305555556,121.19616111111112,Laojiie River,2.00,7.8,3.3,8.0,0.55,7.62,29.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Rana sauteri,Hylarana taipehensis
+Yunin no. 1 Bridge,24.903113055555558,121.15162297222224,Shezih River,1.00,7.2,1.8,3.7,0.08,7.48,27.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Hylarana taipehensis,Rana longicrus
+Yuemei Bridge,24.918754972222224,121.14627694444444,Shezih River,5.00,5.7,9.5,5.5,9.12,7.59,28.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Rana longicrus,Rana sauteri
+Laofandian Bridge,24.93578997222222,121.1237411111111,Shezih River,4.50,7.2,5.5,14.5,3.68,7.84,29.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Silurus asotus,Rana longicrus
+Shezih Bridge,24.960846944444445,121.09404694444444,Shezih River,1.00,7.8,1.9,9.4,0.13,8.03,29.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus taipeianus,Silurus asotus
+Bendzugon Bridge,24.982991944444443,121.02730611111112,Shezih River,3.25,6.3,7.3,10.2,0.98,8.15,31.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Silurus asotus,Zhangixalus taipeianus
+Yuanben Bridge,24.94394388888889,121.08813305555556,Fusing River,2.00,7.2,3.8,46.2,0.28,7.78,29.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Rana longicrus,Silurus asotus
+Sinhoo Bridge,24.94344611111111,121.04595694444444,Fusing River,2.00,7.7,3.6,13.4,0.63,7.87,29.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Rana longicrus,Hylarana taipehensis
+Shenkeng Bridge,24.939901111111112,121.00271597222222,Fusing River,1.50,7.4,3.4,10.8,0.19,7.89,30.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Silurus asotus,Rana longicrus
+Dong Xing Bridge,24.909138888888886,121.01031,Sinfong River,1.00,8.8,2.6,7.7,0.19,7.38,31.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Silurus asotus
+Zhong Shan Bridge (Sinfo,24.906666666666663,120.99556472222224,Sinfong River,1.50,7.8,3.5,10.1,0.50,7.96,32.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Silurus asotus,Zhangixalus taipeianus
+Wuming Bridge,24.86775,120.99561111111112,Sinfong River,5.00,5.6,8.2,11.7,10.3,7.16,30.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Silurus asotus,Pelophylax fukienensis
+Shanchee Bridge,24.869095972222222,120.99555305555556,Sinfong River,5.00,5.6,7.9,16.2,10.8,7.21,30.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Hylarana taipehensis,Zhangixalus taipeianus
+Siangbee Bridge,24.887735,120.98646694444444,Sinfong River,4.50,6.5,5.5,6.5,8.19,7.63,32.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Pelophylax fukienensis,Hylarana taipehensis
+Honmoa Harbor,24.9089675,120.97195361111112,Sinfong River,2.25,7.2,2.5,16.0,1.85,7.64,30.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Silurus asotus
+Doochunda Bridge,24.785555,121.17565305555556,Fongshan River,1.00,8.4,1.2,4.0,0.04,7.99,26.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Zhangixalus taipeianus,Pelophylax fukienensis
+Sinpooda Bridge,24.825681111111116,121.06568694444444,Fongshan River,1.00,8.0,1.0,3.8,0.04,8.04,27.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Pelophylax fukienensis
+Fongshan River Bridge,24.852576000000003,121.00480194444444,Fongshan River,1.00,8.4,1.8,7.5,0.22,8.02,28.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Pelophylax fukienensis,Silurus asotus
+Fonggonda Bridge,24.85891666666667,120.94975472222222,Fongshan River,2.00,7.1,1.8,22.5,0.62,7.65,30.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Pelophylax fukienensis,
+Sansheng Bridge,24.832556944444445,121.0975461111111,Fongshan River,1.00,7.7,2.3,6.2,0.08,7.66,27.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Hylarana taipehensis,Rana longicrus
+Jhulinda Bridge,24.74768388888889,121.09359611111113,Toucian River,1.00,9.2,<1.0,1.5,0.01,8.55,29.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Pelophylax fukienensis,Rana longicrus
+Jhongjhengda Bridge,24.785687972222224,121.0576161111111,Toucian River,1.00,8.4,1.1,6.4,0.03,8.72,29.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus taipeianus,Hylarana taipehensis
+Toucian River Bridge,24.822895,120.99701,Toucian River,1.00,9.0,1.2,6.0,0.15,8.51,30.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Rana sauteri,Zhangixalus taipeianus
+Sichiuda Bridge,24.82509111111111,120.97929611111113,Toucian River,1.00,9.1,1.2,4.8,0.09,7.99,29.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus taipeianus,Silurus asotus
+Wanfonda Bridge,24.66806,121.119079,Toucian River,1.00,9.3,<1.0,2.2,0.04,8.62,25.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Rana longicrus,Hynobius fucus
+Paosan Reservoir water Intake,24.69001861111111,121.103045,Toucian River,1.00,9.0,<1.0,1.9,0.04,8.61,26.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Pelophylax fukienensis,Rana sauteri
+Jhudongda Bridge,24.722675,121.10329388888889,Toucian River,1.00,9.7,<1.0,2.8,0.04,8.64,28.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus taipeianus,Rana longicrus
+Neiwun Suspension Bridge,24.702031972222223,121.1832388888889,Toucian River,1.00,8.7,<1.0,1.5,0.02,8.67,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Pelophylax fukienensis,Zhangixalus taipeianus
+Zhongzheng Bridge,24.768083333333333,120.98852777777778,Keya River,3.75,6.1,3.8,36.4,1.30,7.92,27.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Zhangixalus taipeianus,Pelophylax fukienensis
+Chintsao Lake,24.775652777777776,120.96980555555557,Keya River,2.00,10.4,4.5,31.6,0.47,8.09,0.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Silurus asotus,Zhangixalus taipeianus
+Keya River Bridge,24.796736111111112,120.9588138888889,Keya River,5.75,3.6,7.4,12.4,7.68,7.44,29.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus taipeianus,Silurus asotus
+Siangya Bridge,24.80322805555556,120.92535694444445,Keya River,4.25,6.7,4.2,23.9,7.92,7.70,31.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus taipeianus,Pelophylax fukienensis
+Sincheng Bridge,24.729906944444444,120.96438111111112,Yangang River,1.50,7.4,2.2,37.0,0.16,7.98,30.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus taipeianus,Rana sauteri
+Jhongai Bridge,24.729975,120.91713397222225,Yangang River,1.00,6.9,2.2,15.2,0.16,7.68,30.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Rana longicrus,Zhangixalus taipeianus
+Chenren Bridge,24.740821944444445,120.906295,Yangang River,3.25,7.6,3.2,39.2,1.45,7.80,30.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Silurus asotus,Zhangixalus taipeianus
+Yongsing Bridge,24.617528,121.00581,Jhonggang River,1.50,8.6,3.5,4.6,0.08,8.15,24.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Rana longicrus,Hynobius fucus
+Sanwanda Bridge,24.661898055555557,120.95911305555556,Jhonggang River,1.00,8.6,<1.0,5.9,0.06,8.03,26.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Rana longicrus,Rana sauteri
+Pinanda Bridge,24.675886944444446,120.94921305555556,Jhonggang River,1.00,8.3,<1.0,17.9,0.10,8.12,27.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Pelophylax fukienensis,Rana longicrus
+Dongcin Bridge,24.68055194444445,120.90790694444443,Jhonggang River,1.00,8.5,<1.0,17.2,0.13,8.18,28.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Rana longicrus,Zhangixalus taipeianus
+Jhonggang River Bridge,24.666946000000003,120.8817,Jhonggang River,1.50,7.7,<1.0,30.8,0.19,7.77,26.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Zhangixalus taipeianus,Rana longicrus
+Wufu Bridge,24.66420833333333,120.84228055555556,Jhonggang River,2.25,7.1,<1.0,60.0,0.37,7.93,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Silurus asotus,Rana longicrus
+Nangang River Bridge,24.65589888888889,120.867851,Jhonggang River,2.00,6.5,3.7,35.2,0.38,7.76,27.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Silurus asotus,Cyprinus carpio
+Gueishan Bridge,24.53644,120.81591694444444,Houlong River,2.75,8.3,6.2,20.4,0.06,8.42,27.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Rana sauteri
+Yuqing Bridge,24.56125,120.83944444444444,Houlong River,2.25,8.3,9.5,14.6,0.05,8.36,27.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Zhangixalus taipeianus,Rana sauteri
+Peishih Bridge,24.594896944444443,120.82556305555556,Houlong River,2.25,8.0,12.8,10.9,0.11,8.29,28.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Pelophylax fukienensis,Cyprinus carpio
+Houlong River Bridge,24.60874388888889,120.78429797222222,Houlong River,2.25,6.8,5.7,10.2,0.30,8.07,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Rana sauteri
+Guanhai Bridge,24.613958333333336,120.76303888888889,Houlong River,1.00,6.8,<1.0,17.6,0.23,7.96,28.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus taipeianus,Rana sauteri
+Jhushenda Bridge,24.44951,120.77784805555557,Sihu River,1.00,7.2,<1.0,3.1,0.05,7.10,26.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Rana sauteri,Zhangixalus taipeianus
+Tongluo Bridge,24.49419305555556,120.78059888888887,Sihu River,1.00,8.0,<1.0,4.2,0.04,7.69,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Rana longicrus,Zhangixalus taipeianus
+Longsho Bridge,24.533339,120.74787194444444,Sihu River,1.00,8.4,<1.0,5.8,0.08,8.20,28.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Rana longicrus,Rana sauteri
+Sihhu Bridge,24.56326805555556,120.75260097222224,Sihu River,1.00,8.2,<1.0,10.3,0.07,8.16,29.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus taipeianus,Rana longicrus
+Siangbee Bridge,24.357472222222224,120.94677777777778,Da-an River,1.00,8.5,<1.0,10.5,0.11,8.12,21.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Hynobius formosanus,Hynobius fucus,Pelophylax fukienensis
+Beifan Bridge,24.29436111111111,120.9105277777778,Da-an River,1.00,8.2,<1.0,4.3,0.01,8.25,22.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Hynobius sonani,Pelophylax fukienensis,Hynobius formosanus
+Lanshih Bridge,24.307695,120.817321,Da-an River,1.00,8.0,1.7,7.0,0.01,8.34,26.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Hynobius sonani,Rana sauteri,Hynobius formosanus
+Yilida Bridge,24.348666666666663,120.73422222222224,Da-an River,1.00,7.4,<1.0,7.5,0.02,8.44,30.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Silurus asotus,Rana sauteri
+Da-an River Bridge,24.370575,120.64491611111112,Da-an River,3.25,7.5,1.0,115,0.05,8.38,31.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Silurus asotus,Pelophylax fukienensis
+Da-an River Mouth,24.401416694444443,120.6105972222222,Da-an River,2.25,7.5,<1.0,89.4,0.06,8.21,30.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Rana longicrus,Pelophylax fukienensis
+Ciechen Bridge,24.308151944444447,120.835937,Da-an River,1.00,8.8,1.7,8.6,0.07,8.04,26.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Hynobius sonani,Hynobius formosanus
+Wenfon Bridge,24.312466944444445,120.830495,Da-an River,1.00,8.6,1.6,4.5,0.21,8.32,27.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Rana sauteri,Hynobius sonani
+Inbin Bridge,24.347773055555557,121.30815194444445,Dajia River,1.00,8.1,<1.0,<1.0,0.01,8.08,15.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Hynobius fucus,Hynobius formosanus
+Changcing Bridge,24.17489,120.9746938888889,Dajia River,2.25,8.3,<1.0,79.2,0.02,7.71,22.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Rana sauteri,Hynobius formosanus
+Longanda Bridge,24.171936111111112,120.83791805555556,Dajia River,1.00,8.2,<1.0,11.1,0.02,7.96,24.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Rana sauteri,Micryletta steinegeri
+Dongfonda Bridge,24.26084611111111,120.82003194444444,Dajia River,1.50,8.2,<1.0,36.3,0.03,8.03,24.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Hynobius formosanus,Pelophylax fukienensis,Rana sauteri
+Shihgang Dam,24.28375,120.77981472222224,Dajia River,1.50,8.3,1.5,32.2,0.04,8.05,25.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Hynobius formosanus,Hynobius sonani,Silurus asotus
+Jinxing Bridge,24.275055555555557,120.77397222222224,Dajia River,1.00,7.8,1.5,18.0,0.06,7.90,28.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Rana longicrus,Hynobius formosanus
+Houfonda Bridge,24.28268611111111,120.722805,Dajia River,1.50,8.3,<1.0,33.5,0.04,8.12,26.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Rana longicrus,Micryletta steinegeri
+Hiway Bridge,24.283931000000003,120.69470694444443,Dajia River,1.50,8.0,1.5,30.7,0.05,7.76,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Pelophylax fukienensis,Silurus asotus
+Dajia River Bridge,24.31547,120.604905,Dajia River,2.25,8.2,1.7,53.1,0.08,8.04,25.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Silurus asotus,Pelophylax fukienensis
+Cingliu Bridge,24.063083055555555,120.95429111111112,Wu River,3.25,8.6,<1.0,2240,0.08,8.02,23.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Pelophylax fukienensis,Hynobius formosanus
+Chenfon Bridge,24.027046944444443,120.82691194444445,Wu River,3.25,8.6,<1.0,2760,0.12,8.14,24.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Nidirana okinavana,Micryletta steinegeri
+Wu River Bridge,24.008936944444443,120.69559694444445,Wu River,3.75,8.4,3.3,2700,0.11,8.20,26.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Silurus asotus,Rana sauteri
+Fumazun,24.10438611111111,120.57532,Wu River,3.75,7.3,3.5,2200,0.27,7.70,28.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Micryletta steinegeri,Rana sauteri
+Dadu Bridge,24.10593,120.58213694444444,Wu River,3.25,7.6,1.8,1820,0.12,7.93,28.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Silurus asotus,Micryletta steinegeri
+Ailan Bridge,23.966919,120.94651111111112,Wu River,2.75,8.0,12.1,24.4,0.26,7.13,24.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,Silurus asotus
+Beisan Bridge,23.983003888888888,120.87152888888888,Wu River,3.25,8.0,1.6,4040,0.13,8.12,25.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Pelophylax fukienensis,Zhangixalus taipeianus
+Gandzulin Bridge,24.017999,120.84402,Wu River,3.25,8.4,1.3,3510,0.13,8.18,25.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus taipeianus,Nidirana okinavana
+Jhongjheng Bridge,23.882531944444445,120.75777694444444,Wu River,1.50,8.0,4.4,8.7,0.05,8.48,28.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Micryletta steinegeri,Nidirana okinavana
+Pinlin Bridge,23.952397972222226,120.6574538888889,Wu River,3.25,7.2,3.0,347,0.25,8.08,29.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,Silurus asotus
+Limin Bridge,24.01346805555556,120.6375688888889,Wu River,3.25,7.0,2.6,108,0.14,8.07,31.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,Silurus asotus
+Fongia Bridge,24.178476111111117,120.73777194444445,Wu River,1.00,8.2,1.5,5.6,0.08,8.45,28.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,Silurus asotus
+Dali Bridge,24.093878055555557,120.68908611111112,Wu River,7.25,5.9,24.2,480,1.84,7.50,26.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
+Sinan Bridge,24.092068055555558,120.64337111111112,Wu River,5.50,6.0,12.4,375,0.69,7.56,28.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,Rana sauteri
+Chenho Bridge,24.169646944444445,120.705355,Wu River,1.00,8.7,2.4,7.0,0.16,8.46,27.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Silurus asotus,Micryletta steinegeri
+Shuwan Bridge,24.110045000000003,120.66566305555556,Wu River,5.50,6.4,13.5,176,0.98,7.50,26.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Silurus asotus,Rana sauteri,Micryletta steinegeri
+Guogwon Bridge,24.117481,120.67955694444444,Wu River,4.00,5.4,14.1,19.0,1.57,7.37,27.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,Silurus asotus
+Donghi Bridge,24.177101944444445,120.62793611111113,Wu River,4.00,7.4,8.4,80.4,0.95,7.40,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,Silurus asotus
+Gichen Bridge,24.106336111111112,120.61499388888888,Wu River,3.25,6.3,13.7,36.1,0.47,7.53,28.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,Silurus asotus
+Yufonda Bridge,23.808405,120.84348,Jhuoshuei River,4.50,8.5,10.7,7360,0.15,8.28,23.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Nidirana okinavana,Micryletta steinegeri
+Ji Lu Bridge,23.81507861111111,120.78286111111112,Jhuoshuei River,3.25,8.4,1.6,6050,0.14,8.24,24.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Rana sauteri,Nidirana okinavana
+Minchiuda Bridge,23.817803972222222,120.70584611111111,Jhuoshuei River,3.25,9.0,1.6,6500,0.13,8.38,25.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
+Xizhou Bridge,23.80975,120.46947222222222,Jhuoshuei River,5.50,8.0,18.9,4660,0.14,8.31,27.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
+Nanyunda Bridge,23.759175,120.65697111111112,Jhuoshuei River,3.25,7.9,1.4,142,0.10,8.43,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Nidirana okinavana,Micryletta steinegeri
+Rueitsau Bridge,23.626689722222224,120.65615277777778,Jhuoshuei River,4.50,8.4,5.2,154,0.05,8.47,25.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Nidirana okinavana,Zhangixalus arvalis,Micryletta steinegeri
+Tungyou River Dike,23.64583333333333,120.658625,Jhuoshuei River,3.25,8.2,1.4,131,0.07,8.48,26.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
+Cihtong no. 1 Bridge,23.751467,120.50817583333334,Sin Huwei River,3.75,7.4,<1.0,2940,0.87,8.17,26.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
+Sinhuwei River Bridge,23.750846972222224,120.49701805555556,Sin Huwei River,3.75,7.2,<1.0,4130,0.84,8.10,26.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
+Jhongjheng Bridge,23.74351305555556,120.42238194444444,Sin Huwei River,5.00,6.5,3.4,444,2.16,7.95,28.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
+Fon Bridge,23.74204611111111,120.34734888888887,Sin Huwei River,5.00,4.8,2.8,344,1.77,7.66,29.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus arvalis,Micryletta steinegeri
+Hifon Bridge,23.74039888888889,120.24572388888888,Sin Huwei River,5.50,5.2,4.1,376,1.86,7.71,30.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,,
+Wengang Bridge,23.761916666666668,120.22386111111112,Sin Huwei River,9.00,0.8,13.4,248,14.0,7.74,30.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,,
+Beigangda Bridge,23.56255888888889,120.3014899722222,Beigang River,7.00,4.2,7.7,469,2.04,7.65,29.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,,
+Yunchiada Bridge,23.513793888888888,120.17793388888887,Beigang River,8.00,3.3,43.5,222,2.05,7.69,29.2,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Meinan Bridge,23.700586972222226,120.59999805555556,Beigang River,3.25,7.8,1.8,190,0.11,8.34,28.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Zhangixalus taipeianus,Micryletta steinegeri
+Shihliuban Bridge,23.718603,120.57327,Beigang River,3.25,7.6,<1.0,591,0.10,8.04,28.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,Nidirana okinavana
+Rong Bridge,23.731215,120.523435,Beigang River,3.25,7.4,1.1,1760,0.50,8.04,27.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
+Tokooda Bridge,23.681451111111112,120.41863497222222,Beigang River,6.25,6.1,8.3,905,2.20,7.80,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
+Heping Bridge,23.608475,120.39851111111112,Beigang River,6.25,5.7,7.9,186,1.45,7.59,29.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus arvalis,Micryletta steinegeri
+Songchiuda Bridge,23.52693111111111,120.55621305555556,Puzih River,1.00,8.3,<1.0,9.9,<0.01,8.48,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
+Jhucida Bridge,23.524958055555555,120.54628888888888,Puzih River,1.00,8.9,<1.0,7.4,<0.01,8.46,29.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Zhangixalus arvalis,Micryletta steinegeri
+Second Super highway Sidewalk bridge,23.50690888888889,120.48953694444444,Puzih River,2.25,7.9,1.1,69.2,0.01,8.42,29.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,Rana sauteri
+Neochoci Bridge,23.51376388888889,120.44340305555556,Puzih River,3.25,6.8,1.8,113,0.22,7.98,29.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,Rana sauteri
+Yuemeitan Bridge,23.51409111111111,120.3604161111111,Puzih River,4.50,5.9,3.9,53.8,1.12,7.80,30.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
+Jieshou Bridge,23.48206,120.29326,Puzih River,4.50,4.8,3.9,51.8,1.17,8.08,30.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Zhangixalus arvalis,
+Puzih River Bridge,23.47560611111111,120.24506083333334,Puzih River,5.25,3.9,3.8,86.7,1.07,7.81,31.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Hylarana taipehensis,
+Dongshihda Bridge,23.459245,120.1774288888889,Puzih River,5.00,6.8,4.3,209,1.08,7.69,30.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,,
+Dungshrnan Bridge,23.443694444444446,120.16886111111111,Puzih River,5.50,4.0,4.9,819,0.73,7.78,31.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Micryletta steinegeri,
+Chuko Bridge,23.438861111111112,120.60591666666666,Bajhang River,1.50,8.0,<1.0,44.9,<0.01,8.53,25.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,Zhangixalus arvalis
+Wuhuliao Bridge,23.45125,120.55077777777778,Bajhang River,3.25,7.9,<1.0,143,0.01,8.48,26.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
+Jyunhui Bridge,23.458916666666667,120.45805555555556,Bajhang River,3.25,7.9,<1.0,109,0.04,8.42,29.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,Rana sauteri
+Bajhang River Bridge,23.403916666666664,120.38230555555556,Bajhang River,3.25,7.1,2.8,550,0.18,8.04,28.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Pelophylax fukienensis,Rana sauteri
+Hocin Bridge,23.328972222222223,120.25261111111112,Bajhang River,－,－,－,－,－,－,0.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Pelophylax fukienensis,Micryletta steinegeri
+Chiananda Bridge,23.31277777777778,120.1527777777778,Bajhang River,5.00,4.9,5.1,1540,0.31,7.82,29.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Hylarana taipehensis,Pelophylax fukienensis
+Jishueici Bridge,23.296115,120.32414,Jishuei River,3.75,4.8,2.6,173,0.21,7.80,30.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Pelophylax fukienensis,
+Teisian Vi.,23.26116083333333,120.27284777777776,Jishuei River,5.50,5.1,5.7,291,0.77,7.60,30.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Hylarana taipehensis,Zhangixalus arvalis
+Jhaigon Bridge,23.253527777777776,120.20355555555555,Jishuei River,5.00,4.1,3.3,309,0.40,7.68,30.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Pelophylax fukienensis,Hylarana taipehensis
+Erngon Bridge,23.26604,120.19042694444444,Jishuei River,4.50,3.1,2.9,276,0.49,7.62,30.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,Hylarana taipehensis
+Nankunsan,23.29158805555556,120.14430305555555,Jishuei River,5.00,3.8,1.7,176,0.74,7.66,31.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Hylarana taipehensis,Micryletta steinegeri
+Chinyie Bridge,23.338693888888887,120.40718805555557,Jishuei River,6.25,3.0,4.7,476,1.16,7.64,30.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Pelophylax fukienensis,Zhangixalus arvalis
+Mugiliao,23.36300888888889,120.45423583333334,Jishuei River,－,－,－,－,－,－,0.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Rana sauteri,Micryletta steinegeri
+Zengwun no.1 Bridge,23.19230083333333,120.48809305555557,Zengwun River,3.25,7.3,<1.0,135,<0.01,7.96,30.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Micryletta steinegeri,Rana sauteri
+Yujing Bridge,23.117880972222224,120.45831305555556,Zengwun River,3.25,7.3,<1.0,712,0.13,8.21,28.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Micryletta steinegeri,Zhangixalus arvalis
+Dzomalia Bridge,23.137581944444445,120.43045388888888,Zengwun River,3.25,7.2,<1.0,1320,0.18,8.10,30.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Rana sauteri,Zhangixalus arvalis
+Erncida Bridge,23.115661944444447,120.384388,Zengwun River,3.25,6.7,<1.0,532,0.11,8.14,30.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,Hylarana taipehensis
+Peishihchou Bridge,23.120303888888888,120.34538611111113,Zengwun River,3.25,7.0,<1.0,112,0.12,8.20,30.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Hylarana taipehensis,Pelophylax fukienensis
+Zengwun River Bridge,23.155541944444444,120.33807388888889,Zengwun River,3.25,9.6,<1.0,159,0.19,7.93,30.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Pelophylax fukienensis,Hylarana taipehensis
+Marsonda Bridge,23.171461111111118,120.26072888888888,Zengwun River,3.75,6.3,<1.0,424,0.10,8.09,30.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus arvalis,Hylarana taipehensis
+Sigangda Bridge,23.10876888888889,120.20493611111112,Zengwun River,3.25,9.1,<1.0,620,0.14,7.92,30.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Micryletta steinegeri,Hylarana taipehensis
+Guoshen Bridge,23.085799972222222,120.13482,Zengwun River,3.25,7.6,<1.0,133,0.33,7.70,30.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Zhangixalus arvalis,
+Zengwun River Mouth,23.04448805555556,120.06263,Zengwun River,3.75,6.1,<1.0,154,0.21,7.98,30.7,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Yufonda Bridge,23.09706083333333,120.36989805555557,Zengwun River,3.25,6.7,<1.0,193,0.10,8.04,30.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Zhangixalus arvalis,Rana sauteri
+Tonsin Bridge,23.05921638888889,120.36320555555557,Yanshuei River,1.50,7.0,<1.0,27.3,0.09,8.12,31.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Pelophylax fukienensis,Hylarana taipehensis
+Chenniao Bridge,23.0723,120.35825,Yanshuei River,2.00,6.4,<1.0,22.2,0.09,8.30,31.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Pelophylax fukienensis,Zhangixalus arvalis
+Fonhua Bridge,23.05908388888889,120.27777694444444,Yanshuei River,4.75,3.4,2.0,52.4,2.50,7.89,32.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Hylarana taipehensis,Zhangixalus arvalis
+Yungan Bridge,23.05138888888889,120.2395,Yanshuei River,4.25,5.2,2.0,27.3,3.26,7.54,30.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Pelophylax fukienensis,Hylarana taipehensis
+Taiping Bridge,23.02499111111111,120.21554611111112,Yanshuei River,5.00,2.2,1.9,24.9,4.77,7.40,31.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Hylarana taipehensis,Zhangixalus arvalis
+Yanshuei River Bridge,23.019773055555557,120.19246805555557,Yanshuei River,6.00,1.4,2.4,25.1,3.14,7.43,30.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Zhangixalus arvalis,Pelophylax fukienensis
+Erntsun Bridge,22.916728000000003,120.46046194444445,Erren River,3.25,7.1,2.1,1970,0.42,7.98,27.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,
+Gootin Bridge,22.888018055555555,120.396335,Erren River,5.00,5.5,3.0,6020,1.06,8.16,27.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,
+Chongdeda Bridge,22.875676944444447,120.36184694444444,Erren River,4.75,4.8,3.3,18200,0.56,7.94,27.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,
+Nansyong Bridge,22.889388888888888,120.33819444444444,Erren River,4.25,4.8,2.9,10400,0.53,7.88,27.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,
+Shihan Bridge,22.900694444444444,120.31019444444443,Erren River,5.00,3.9,3.0,8320,0.63,7.81,28.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,
+Erntsuncin Bridge,22.9155,120.22608333333334,Erren River,5.75,3.4,2.3,2380,1.45,7.73,28.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Zhangixalus arvalis,Pelophylax fukienensis
+Nandin Bridge,22.918726,120.184586,Erren River,7.00,4.3,7.0,17100,2.10,7.62,29.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Micryletta steinegeri,Hylarana taipehensis
+Chenguo Village,22.998721111111116,120.25059997222222,Erren River,3.25,5.7,2.9,26.2,2.54,7.70,30.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,Micryletta steinegeri,Zhangixalus arvalis
+Wukon Bridge,22.927526111111117,120.22161305555557,Erren River,5.75,3.0,2.0,101,1.40,7.40,29.8,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Hylarana taipehensis,Micryletta steinegeri
+Yunnin Bridge,22.92519194444445,120.19435694444444,Erren River,－,－,－,－,－,－,0.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Hylarana taipehensis,Micryletta steinegeri,Pelophylax fukienensis
+Agongdian River,22.80325,120.36121,Agongdian River,2.25,8.8,1.8,51.4,0.01,8.51,32.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,
+High Speed Rail Bridge,22.80388888888889,120.32822,Agongdian River,4.00,2.7,1.2,40.3,1.18,7.59,33.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,
+Agongdian Bridge,22.785304972222225,120.29710305555555,Agongdian River,3.75,5.6,3.2,29.8,2.22,7.70,32.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Zhangixalus arvalis,
+Cianchou Bridge,22.80293805555556,120.27987083333332,Agongdian River,7.25,1.0,9.3,23.8,7.47,7.68,32.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,,
+Geogon Bridge,22.800741972222223,120.23212694444445,Agongdian River,5.50,2.8,4.4,22.0,5.21,7.71,32.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,,
+Ligangda Bridge,22.79447888888889,120.50339111111111,Gaoping River,3.25,7.7,<1.0,1640,0.03,8.24,25.7,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Linko Bridge,22.77067111111111,120.45271,Gaoping River,3.25,7.9,<1.0,3620,0.03,8.14,25.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus arvalis,Micryletta steinegeri,
+Gaopingda Bridge,22.64712611111111,120.43741111111112,Gaoping River,3.25,7.9,1.1,2560,0.37,8.15,25.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,,
+Wandada Bridge,22.593358888888886,120.439785,Gaoping River,3.25,7.5,<1.0,1550,0.07,8.14,25.9,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Shuangyuanda Bridge,22.49502777777778,120.41844444444445,Gaoping River,－,－,－,－,－,－,0.0,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Sinfada Bridge,23.04855888888889,120.66916,Gaoping River,3.25,8.0,<1.0,956,0.01,8.22,23.2,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Liougueida Bridge,22.99547111111111,120.63828,Gaoping River,3.25,8.0,<1.0,938,0.03,8.27,23.8,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Jiouru Bridge,22.724753055555556,120.48875611111112,Gaoping River,6.25,5.7,9.6,63.7,9.04,7.61,27.7,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Dagean Bridge,22.880076111111112,120.64812305555556,Gaoping River,3.25,7.8,<1.0,1390,0.03,8.24,24.5,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Beinoon Brideg,22.63027805555556,120.45802888888888,Gaoping River,3.50,3.9,2.8,7.9,2.86,7.35,29.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,,
+Jiasian Intake,23.083111111111112,120.58455555555555,Gaoping River,3.25,8.4,<1.0,709,0.02,8.41,24.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,Micryletta steinegeri,
+Yuemei Bridge,22.961101944444444,120.5217161111111,Gaoping River,3.25,8.3,1.0,1490,0.03,8.42,25.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Rana sauteri,
+Sinciwei Bridge,22.87400805555556,120.487895,Gaoping River,3.25,7.8,<1.0,4520,0.08,8.32,26.3,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Simenda Bridge,22.898643888888888,120.535864,Gaoping River,2.25,6.9,<1.0,87.4,0.13,7.90,28.1,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Cinan Bridge,22.868449972222223,120.49660805555555,Gaoping River,2.25,7.2,<1.0,83.4,0.16,7.67,27.8,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Chengde Bridge,22.613611111111112,120.58869444444444,Donggang River,2.00,5.9,1.1,35.6,0.31,7.49,26.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus aurantiventris,Cyprinus carpio,
+Longdon Bridge,22.602935,120.58295194444445,Donggang River,2.00,6.3,<1.0,45.7,0.24,7.47,26.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus aurantiventris,Cyprinus carpio,
+Chaojhouda Bridge,22.56475,120.53966666666666,Donggang River,2.00,5.6,<1.0,29.8,0.43,7.59,28.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus aurantiventris,Cyprinus carpio,
+Cinsheda Bridge,22.54219888888889,120.50416388888888,Donggang River,4.00,5.2,3.0,62.1,2.05,7.68,29.2,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Gangci Pomping Station,22.50452305555556,120.46200694444444,Donggang River,3.25,5.3,2.1,34.2,2.73,7.66,29.4,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Donggangda Bridge,22.47771694444444,120.459635,Donggang River,3.75,5.8,3.2,22.6,2.79,7.84,30.0,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Sinbeida Bridge,22.461196944444445,120.55042,Linbian River,3.25,8.2,<1.0,1570,0.04,8.32,27.2,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Linbianda Bridge,22.430816944444445,120.52326611111113,Linbian River,3.25,7.9,<1.0,3800,0.04,8.24,27.6,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Fangliuda Bridge,22.34329888888889,120.61175194444444,Shuaimang River,3.25,8.0,<1.0,436,<0.01,8.39,27.8,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Fangshan Bridge,22.25609888888889,120.65406694444444,Fangshan River,2.25,7.8,<1.0,87.1,<0.01,8.32,27.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,,
+Itun Suspension Bridge,22.21258333333333,120.76366666666668,Fonggang River,1.00,7.9,<1.0,5.8,<0.01,8.02,26.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,,
+Fongang Bridge,22.19586111111111,120.69116805555556,Fonggang River,1.00,7.8,<1.0,16.7,<0.01,8.32,27.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,,
+Shihmen,22.123527777777777,120.77275,Sihchong River,1.50,9.8,<1.0,31.6,0.02,8.20,26.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus aurantiventris,Micryletta steinegeri,
+Erchongci,22.082791944444445,120.74083194444444,Sihchong River,1.50,10.5,<1.0,38.5,0.01,8.12,27.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Tridacna maxima,Zhangixalus aurantiventris,
+Longluntan,21.988222222222223,120.73783333333331,Baoli River,－,－,－,－,－,－,0.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Tridacna squamosa,Zhangixalus aurantiventris
+Linhia Bridge,22.05788888888889,120.711,Baoli River,2.75,5.8,<1.0,75.7,0.09,7.92,28.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Tridacna squamosa,Zhangixalus aurantiventris,Tridacna maxima
+Gangkou Bridge,22.001496,120.819197,Gangkou River,1.00,7.7,<1.0,12.2,<0.01,8.19,29.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Micryletta steinegeri,Tridacna squamosa,Tridacna maxima
+Hichenda Bridge,21.988695,120.84102777777775,Gangkou River,1.50,8.0,<1.0,24.7,<0.01,8.26,29.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Tridacna squamosa,Tridacna maxima,Zhangixalus aurantiventris
+Jhihben hotspring Bridge,22.695166666666665,121.02477777777776,Jhihben River,3.25,8.1,<1.0,642,0.05,8.02,26.8,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Jhihben Bridge,22.701395972222222,121.0396,Jhihben River,3.25,8.0,<1.0,1320,0.04,8.17,26.8,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Danan Bridge,22.76079194444445,121.049225,Lijiia River,3.25,8.1,<1.0,457,<0.01,8.32,26.6,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Fongyuanda Bridge,22.72346583333333,121.09519805555556,Lijiia River,3.25,7.8,<1.0,680,<0.01,8.34,28.5,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Dabaliugeoba Intake,22.813972222222223,121.05,Tai Pingsi,1.00,8.3,<1.0,7.2,<0.01,8.42,24.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Hynobius arisanensis,,
+Malan Bridge,22.76598111111111,121.132595,Tai Pingsi,－,－,－,－,－,－,0.0,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Fonli Bridge,22.74644888888889,121.14232694444443,Tai Pingsi,10.00,0.5,88.0,137,4.39,7.92,30.4,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Taitungda Bridge,22.79223305555556,121.144475,Beinan River,3.25,8.2,1.0,6440,0.07,8.12,26.2,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Choulia Bridge,23.125638055555555,121.169128,Beinan River,3.75,8.2,4.4,15700,0.06,8.08,32.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,,
+Lumin Bridge,22.891445,121.09419888888888,Beinan River,3.25,8.1,2.5,12600,0.09,8.12,24.5,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Yulida Bridge,23.322925,121.3277661111111,Siouguluan River,3.25,8.2,<1.0,1030,0.05,7.92,25.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,,
+Taipingci Bridge,23.393678055555554,121.33362597222222,Siouguluan River,3.25,8.3,<1.0,235,0.04,8.15,24.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Pelophylax fukienensis,,
+Rueisueida Bridge,23.485399972222226,121.40401611111112,Siouguluan River,3.25,7.8,<1.0,866,0.08,7.99,26.0,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Wanlici Bridge,23.719596944444444,121.42623888888888,Hualien River,2.25,8.1,<1.0,85.0,0.10,8.22,26.4,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Fonpin Bridge,23.813225,121.45256797222224,Hualien River,3.25,8.1,<1.0,680,0.05,8.19,26.3,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Hualienda Bridge,23.923545833333336,121.59769888888889,Hualien River,3.25,7.5,<1.0,392,0.05,8.10,27.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Sialousi Bridge,23.87859166666667,121.51874222222222,Hualien River,1.00,8.4,<1.0,7.0,0.03,8.46,27.4,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Mugua River Bridge,23.93169388888889,121.53858611111112,Hualien River,3.25,8.8,<1.0,700,0.06,8.18,22.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Taichang Bridge,23.98333333333333,121.56958333333333,Jian River,1.00,8.7,<1.0,11.2,0.14,7.96,20.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Renli Bridge,23.968777777777778,121.59444444444443,Jian River,1.00,8.7,1.4,11.0,0.22,7.90,24.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Shueiwui Bridge,24.005785,121.54607388888888,Meilun River,1.00,8.2,<1.0,<1.0,0.04,8.29,24.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Chiali No 2 Bridge,24.016897,121.6049461111111,Meilun River,1.00,8.6,1.5,9.4,0.31,8.04,29.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Chiacin Village,24.009405,121.608395,Meilun River,1.00,7.3,2.3,13.9,0.49,7.92,29.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Jhongjheng Bridge,23.980326111111108,121.61195388888888,Meilun River,1.00,7.1,1.1,9.8,0.33,7.82,28.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Sanjhan Bridge,24.100662,121.608385,Sanjhan River,1.00,8.4,<1.0,3.2,0.04,8.36,25.4,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Podooda Bridge,24.18130888888889,121.49549583333334,Liwu River,2.25,8.5,<1.0,94.5,0.04,8.36,23.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana sauteri,,
+Geinwun Bridge,24.156348055555554,121.62174805555554,Liwu River,3.25,8.5,<1.0,369,0.04,8.18,24.2,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Dajhuoshuei Bridge,24.32484,121.74306388888888,Heping River,3.25,8.2,<1.0,1480,0.07,8.19,25.7,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Ginyang No 2,24.435946972222222,121.75844194444444,Nan-ao River,1.00,8.5,<1.0,<1.0,0.04,7.65,23.9,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Aowei Bridge,24.449141944444445,121.78002111111113,Nan-ao River,1.00,8.6,<1.0,12.6,0.03,8.21,24.3,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Nanao Bridge,24.46029194444444,121.78859888888888,Nan-ao River,1.50,8.4,<1.0,27.8,0.03,8.20,24.3,,mg/L,mg/L,mg/L,mg/L,,℃,,,,
+Yunlali,24.573716944444445,121.84455888888888,Su-ao River,－,－,－,－,－,－,0.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Zhangixalus prasinatus,Rana longicrus
+Bimei Bridge,24.59617,121.85372,Su-ao River,1.00,7.7,<1.0,2.8,0.02,7.26,25.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Zhangixalus prasinatus,Rana longicrus
+Sincheng Bridge,24.61528805555556,121.81234194444444,Sincheng River,1.00,8.3,1.0,1.8,0.02,8.10,26.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
+Longdeda Bridge,24.63236388888889,121.83156,Sincheng River,1.00,8.7,<1.0,1.2,0.04,8.53,26.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
+Woolaokan,24.6035,121.81086,Sincheng River,1.00,8.1,1.5,2.1,0.04,8.10,25.9,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Rana longicrus,Zhangixalus taipeianus
+Shrsanfen Bridge,24.631888888888888,121.773,Dongshan River,1.50,6.4,<1.0,14.2,0.15,7.38,25.2,,mg/L,mg/L,mg/L,mg/L,,℃,,Cyprinus carpio,Zhangixalus taipeianus,Zhangixalus prasinatus
+Dongshan River Bridge,24.63916305555556,121.78689,Dongshan River,1.50,5.4,1.2,5.7,0.36,7.68,26.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus taipeianus,Cyprinus carpio
+Lidzugein Bridge,24.66989805555556,121.81411694444444,Dongshan River,2.00,5.8,3.0,18.0,0.57,7.55,28.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus taipeianus,Zhangixalus prasinatus
+Cingshueida Gate,24.692006111111112,121.83297194444444,Dongshan River,2.00,7.2,3.6,28.8,0.50,7.93,29.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,Zhangixalus taipeianus
+Lonbei,24.681098,121.605924,Lanyang River,1.00,8.3,<1.0,2.4,0.02,7.14,23.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Zhangixalus prasinatus,Rana sauteri
+Shangshengo,24.704817,121.724819,Lanyang River,3.25,7.9,<1.0,145,0.03,8.27,25.5,,mg/L,mg/L,mg/L,mg/L,,℃,,Rana longicrus,Zhangixalus prasinatus,Zhangixalus taipeianus
+Lanyangda Bridge,24.71361111111111,121.772,Lanyang River,3.25,7.8,<1.0,582,0.03,8.20,25.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Rana longicrus,Cyprinus carpio
+Sinlanda Bridge,24.713763,121.820112,Lanyang River,3.25,7.8,2.2,903,0.05,8.30,26.3,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Zhangixalus taipeianus,Rana longicrus
+Neodao Bridge,24.642268,121.567251,Lanyang River,3.25,7.9,<1.0,300,0.02,8.29,24.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Hynobius fucus,Zhangixalus aurantiventris
+Juan Bridge,24.84133333333333,121.82336111111113,Dezihkou River,2.50,5.5,1.4,43.2,0.80,7.70,28.4,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Rana longicrus,
+Tetzekou Bridge,24.806361111111112,121.77241666666669,Dezihkou River,3.25,6.0,4.2,16.6,1.78,7.50,26.6,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus prasinatus,Zhangixalus taipeianus,Rana sauteri
+Fusing Bridge,24.817713972222226,121.812895,Dezihkou River,4.00,5.2,2.3,79.9,1.35,7.46,28.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Zhangixalus prasinatus
+Meichien Cottage,24.83145111111111,121.74705888888889,Dezihkou River,1.00,8.2,<1.0,3.8,0.02,7.98,24.7,,mg/L,mg/L,mg/L,mg/L,,℃,,Zhangixalus taipeianus,Rana longicrus,Zhangixalus prasinatus
+Sinliaoda Bridge,25.031796944444444,121.834769,Shuangsi,1.00,8.3,1.3,8.2,0.06,7.07,26.1,,mg/L,mg/L,mg/L,mg/L,,℃,,Tridacna maxima,Zhangixalus taipeianus,Zhangixalus prasinatus
+Gongliaoda Bridge,25.02071,121.9095288888889,Shuangsi,1.00,7.7,1.4,17.9,0.04,7.10,28.0,,mg/L,mg/L,mg/L,mg/L,,℃,,Tridacna maxima,,

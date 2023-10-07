@@ -41,7 +41,6 @@ class TagsWidgetButton extends StatelessWidget {
             speciesName: tagName,
           ),
         ));
-        print("press");
       },
       child: Container(
           width: width,
@@ -57,7 +56,7 @@ class TagsWidgetButton extends StatelessWidget {
               Icon(
                 icon,
                 color: iconColor,
-                size: height * 0.7,
+                size: height * 0.1,
               ),
               const SizedBox(width: 10),
               Flexible(

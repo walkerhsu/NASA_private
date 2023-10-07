@@ -5,6 +5,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Camera/camera.dart';
+import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/processData/process_stations.dart';
 import 'package:water_app/information/map_consts.dart';
 import 'package:water_app/map_data.dart';
@@ -160,6 +161,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     stations = widget.stations;
     argsort = ProcessStations.sortStations(currentLocation, country);
     selectedIndex = argsort[0];
+    print(selectedIndex);
     pageController = PageController(
       initialPage: 0,
     );
@@ -286,12 +288,17 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       ),
                       onPressed: () async {
                         _cameras = await availableCameras();
+                        String image =
+                            await CloudStorage.getImageURL("image1.png", country);
                         if (!mounted) return;
                         Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                CameraPage(camera: _cameras[0]),
-                          ),
+                          MaterialPageRoute(builder: (context) {
+                            return CameraPage(
+                                camera: _cameras[0],
+                                country: country,
+                                scientificName: "image1",
+                                image: image);
+                          }),
                         );
                       }))
             ]),

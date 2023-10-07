@@ -6,9 +6,10 @@ import 'package:water_app/Pages/map_page.dart';
 // import 'package:water_app/water_temperature.dart';
 import 'package:water_app/Pages/menu_book.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
-import 'package:water_app/components/big_text.dart';
-import 'package:water_app/components/small_text.dart';
+import 'package:water_app/Components/big_text.dart';
+import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/globals.dart';
+// import 'package:water_app/map_location.dart';
 import 'package:water_app/processData/process_city.dart';
 // import 'package:get/get.dart';
 
@@ -63,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         Row(
           children: [
             Container(
-              width: MediaQuery.of(context).size.width * 0.5,
+              width: MediaQuery.of(context).size.width * 0.3,
               padding: const EdgeInsets.all(8.0),
               child: SearchAnchor(
                   builder: (BuildContext context, SearchController controller) {
