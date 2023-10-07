@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
@@ -37,13 +38,14 @@ abstract class GetCurrentLocation {
 
   static Future<LatLng> handleCurrentPosition(context, String country) async {
     final hasPermission = await _handleLocationPermission(context);
-    if (!hasPermission) {
+    if (!hasPermission || kIsWeb) {
       if (country != "Taiwan" && country != "Canada" && country != "America") {
         return MapConstants.myLocation[country]!;
       } else {
         return MapConstants.myLocation["Taiwan"]!;
       }
     }
+
     Position position = await Geolocator.getCurrentPosition(
         // forceAndroidLocationManager: true,
         desiredAccuracy: LocationAccuracy.best);

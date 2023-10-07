@@ -45,7 +45,11 @@ abstract class CloudStorage {
   }
 
   static Future<String> getRawImageURL(path) async {
-    return await stationsRef.child(path).getDownloadURL();
+    return await storageRef.child(path).getDownloadURL();
+  }
+
+  static Future<String> getNoBGImageURL(path) async {
+    return storageRef.child("image_mat").child(path).getDownloadURL();
   }
 
   static Future<String> getRawtxtData(path) async {
