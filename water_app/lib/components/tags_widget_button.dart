@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/Pages/species_details.dart';
-// impo'big_text.dart'rt';
+// import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
 
 class TagsWidgetButton extends StatelessWidget {
