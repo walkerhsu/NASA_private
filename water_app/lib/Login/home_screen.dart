@@ -31,6 +31,7 @@ class HomeScreen extends StatelessWidget {
                       Hero(
                         tag: 'login_button',
                         child: MyButton(
+                          icon: Icons.login_outlined,
                           buttonText: 'Login',
                           onPressed: () {
                             Navigator.pushNamed(context, LoginScreen.id);
@@ -43,32 +44,16 @@ class HomeScreen extends StatelessWidget {
                       Hero(
                         tag: 'signup_button',
                         child: MyButton(
-                          buttonText: 'Sign Up',
+                          icon: Icons.app_registration_outlined,
+                          buttonText: 'Signup',
                           isOutlined: true,
                           onPressed: () {
                             Navigator.pushNamed(context, SignUpScreen.id);
                           },
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Sign up using : ',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 16,
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: CircleAvatar(
-                              radius: 25,
-                              backgroundColor: Colors.transparent,
-                              child: Image.asset('assets/icons/google.png'),
-                            ),
-                          ),
-                        ],
+                      const SizedBox(
+                        height: 5,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

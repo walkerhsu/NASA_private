@@ -7,12 +7,14 @@ class MyButton extends StatelessWidget {
       required this.buttonText,
       this.isOutlined = false,
       required this.onPressed,
-      this.width = 280});
+      this.width = 280,
+      required this.icon});
 
   final String buttonText;
   final bool isOutlined;
   final Function onPressed;
   final double width;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -31,18 +33,24 @@ class MyButton extends StatelessWidget {
             border: Border.all(color: const Color(0xFF4879C5), width: 2.5),
             borderRadius: BorderRadius.circular(30),
           ),
-          child: Center(
-            child: Text(
-              buttonText,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: isOutlined ? const Color(0xFF4879C5) : Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, color: isOutlined ? const Color(0xFF4879C5) : Colors.white,),
+              const SizedBox(
+                width: 10,
               ),
-            ),
-          ),
+              Text(
+                buttonText,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: isOutlined ? const Color(0xFF4879C5) : Colors.white,
+                ),
+              ),
+            ],
+          )),
         ),
-      ),
     );
   }
 }
@@ -112,12 +120,14 @@ class MyBottomScreen extends StatelessWidget {
     this.heroTag = '',
     required this.buttonPressed,
     required this.questionPressed,
+    required this.iconButton,
   });
   final String textButton;
   final String question;
   final String heroTag;
   final Function buttonPressed;
   final Function questionPressed;
+  final IconData iconButton;
 
   @override
   Widget build(BuildContext context) {
@@ -128,27 +138,36 @@ class MyBottomScreen extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 30,
+              horizontal: 5,
             ),
             child: GestureDetector(
               onTap: () {
                 questionPressed();
               },
-              child: Text(question),
+              child: Text(question,
+                  style: const TextStyle(
+                    decoration: TextDecoration.underline,
+                  )),
             ),
           ),
         ),
         Align(
           alignment: Alignment.centerRight,
-          child: Hero(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+            ),
+            child: Hero(
             tag: heroTag,
             child: MyButton(
               buttonText: textButton,
-              width: 150,
+              width: 140,
               onPressed: () {
                 buttonPressed();
               },
+              icon: iconButton,
             ),
+          ),
           ),
         ),
       ],
@@ -172,7 +191,7 @@ Alert signUpAlert({
         onPressed: () {
           onPressed();
         },
-        width: 120,
+        width: 130,
         child: Text(
           btnText,
           style: const TextStyle(color: Colors.white, fontSize: 20),
@@ -198,7 +217,7 @@ Alert showAlert({
         onPressed: () {
           onPressed();
         },
-        width: 120,
+        width: 150,
         child: const Text(
           "OK",
           style: TextStyle(color: Colors.white, fontSize: 20),
