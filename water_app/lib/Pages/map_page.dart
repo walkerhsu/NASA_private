@@ -407,6 +407,12 @@ class _MarkerLayersState extends State<MarkerLayers> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    timer.cancel();
+  }
+
+  @override
   Widget build(BuildContext context) {
     argsort = widget.argsort;
     selectedIndex = widget.selectedindex;
