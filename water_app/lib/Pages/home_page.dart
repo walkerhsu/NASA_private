@@ -9,7 +9,6 @@ import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/globals.dart';
-// import 'package:water_app/map_location.dart';
 import 'package:water_app/processData/process_city.dart';
 // import 'package:get/get.dart';
 
@@ -58,65 +57,71 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[300],
-        title: BigText(text: title, fontColor: Colors.black, size: 25,),
-        actions: <Widget>[
-        Row(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.3,
-              padding: const EdgeInsets.all(8.0),
-              child: SearchAnchor(
-                  builder: (BuildContext context, SearchController controller) {
-                return SearchBar(
-                  controller: controller,
-                  hintText: "Search place...",
-                  padding: const MaterialStatePropertyAll<EdgeInsets>(
-                      EdgeInsets.symmetric(horizontal: 16.0)),
-                  onTap: () {
-                    controller.openView();
-                  },
-                  onChanged: (string) {
-                    // print(string);
-                    controller.openView();
-                  },
-                  leading: Icon(Icons.search, color: Colors.grey[800]),
-                );
-              }, suggestionsBuilder:
+          backgroundColor: Colors.grey[300],
+          title: BigText(
+            text: title,
+            fontColor: Colors.black,
+            size: 25,
+          ),
+          actions: <Widget>[
+            Row(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  padding: const EdgeInsets.all(8.0),
+                  child: SearchAnchor(builder:
                       (BuildContext context, SearchController controller) {
-                List<Map<String, dynamic>> results = _search(controller.text);
-                // print(results.take(15).toList());
-                return results.take(15).map((location) {
-                  return ListTile(
-                    title: Row(
-                      children: <Widget>[
-                        Text(location['cityName']),
-                        const SizedBox(width: 12),
-                        Text(
-                          '${location['admin_name']}, ${location['country']}',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey[600],
-                          ),
-                        )
-                      ],
-                    ),
-                    onTap: () {
-                      setState(() {
-                        controller.closeView(location['cityName']);
-                        currentWidget = CheckCurrentPosition(
-                          country: dataCountry,
-                          refSearchLocation: location['coordinate'] as LatLng,
-                        );
-                      });
-                    },
-                  );
-                });
-              }),
+                    return SearchBar(
+                      controller: controller,
+                      hintText: "Search place...",
+                      padding: const MaterialStatePropertyAll<EdgeInsets>(
+                          EdgeInsets.symmetric(horizontal: 16.0)),
+                      onTap: () {
+                        controller.openView();
+                      },
+                      onChanged: (string) {
+                        // print(string);
+                        controller.openView();
+                      },
+                      leading: Icon(Icons.search, color: Colors.grey[800]),
+                    );
+                  }, suggestionsBuilder:
+                      (BuildContext context, SearchController controller) {
+                    List<Map<String, dynamic>> results =
+                        _search(controller.text);
+                    // print(results.take(15).toList());
+                    return results.take(15).map((location) {
+                      return ListTile(
+                        title: Row(
+                          children: <Widget>[
+                            Text(location['cityName']),
+                            const SizedBox(width: 12),
+                            Text(
+                              '${location['admin_name']}, ${location['country']}',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[600],
+                              ),
+                            )
+                          ],
+                        ),
+                        onTap: () {
+                          setState(() {
+                            controller.closeView(location['cityName']);
+                            currentWidget = CheckCurrentPosition(
+                              country: dataCountry,
+                              refSearchLocation:
+                                  location['coordinate'] as LatLng,
+                            );
+                          });
+                        },
+                      );
+                    });
+                  }),
+                ),
+              ],
             ),
-          ],
-        ),
-      ]),
+          ]),
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
@@ -130,8 +135,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   color: Color(0xFFE0E0E0),
                 ),
                 child: Center(
-                  child: const BigText(text: 'Water App', size: 20, fontWeight: FontWeight.normal)
-                ),
+                    child: const BigText(
+                        text: 'Water App',
+                        size: 20,
+                        fontWeight: FontWeight.normal)),
               ),
             ),
             ListTile(
