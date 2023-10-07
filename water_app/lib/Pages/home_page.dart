@@ -6,6 +6,7 @@ import 'package:water_app/Pages/map_page.dart';
 import 'package:water_app/Pages/menu_book.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/globals.dart';
+import 'package:water_app/processData/process_city.dart';
 // import 'package:get/get.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -23,6 +24,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   List<String> dataCountries = ["Taiwan", "America", "Canada"];
   int action = 0;
   String dataCountry = "Taiwan";
+
+  late final List<Map<String, dynamic>> locations;
+
+  int currentDrawerIndex = 0;
   @override
   void initState() {
     super.initState();
@@ -31,14 +36,77 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         .then((value) {
       currentUser = value;
     });
+    locations = ProcessCities.citiesData;
+  }
+
+  List<Map<String, dynamic>> _search(String str) {
+    List<Map<String, dynamic>> results = [];
+    for (var city in locations) {
+      if (city['cityName'].toLowerCase().contains(str.toLowerCase())) {
+        results.add(city);
+      }
+    }
+    return results;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
+      appBar: AppBar(title: Text(title), actions: <Widget>[
+        Row(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.5,
+              padding: const EdgeInsets.all(8.0),
+              child: SearchAnchor(
+                  builder: (BuildContext context, SearchController controller) {
+                return SearchBar(
+                  controller: controller,
+                  hintText: "Search place...",
+                  padding: const MaterialStatePropertyAll<EdgeInsets>(
+                      EdgeInsets.symmetric(horizontal: 16.0)),
+                  onTap: () {
+                    controller.openView();
+                  },
+                  onChanged: (string) {
+                    // print(string);
+                    controller.openView();
+                  },
+                  leading: Icon(Icons.search, color: Colors.grey[800]),
+                  // trailing: <Widget>[
+                  //   Tooltip(
+                  //     message: 'Change brightness mode',
+                  //     child: IconButton(
+                  //       isSelected: isDark,
+                  //       onPressed: () {
+                  //         setState(() {
+                  //           isDark = !isDark;
+                  //         });
+                  //       },
+                  //       icon: const Icon(Icons.wb_sunny_outlined),
+                  //       selectedIcon: const Icon(Icons.brightness_2_outlined),
+                  //     ),
+                  //   )
+                  // ],
+                );
+              }, suggestionsBuilder:
+                      (BuildContext context, SearchController controller) {
+                List<Map<String, dynamic>> results = _search(controller.text);
+                return results.take(15).map((location) {
+                  return ListTile(
+                    title: Text(location['cityName']),
+                    onTap: () {
+                      setState(() {
+                        controller.closeView(location['cityName']);
+                      });
+                    },
+                  );
+                });
+              }),
+            ),
+          ],
+        ),
+      ]),
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.

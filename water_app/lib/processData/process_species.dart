@@ -40,7 +40,6 @@ abstract class ProcessSpecies {
         species.add(speciesData);
       }
     }
-
     if (CanadaSpecies.isEmpty) {
       String canadaSpeciesCSVString = await CloudStorage.getCanadaCSV();
       int CANADACOMMONNAMEIDX = 1;
@@ -67,7 +66,6 @@ abstract class ProcessSpecies {
         speciesData["image"] = canadaSpecies[i][DETAILEDIDX];
         speciesData["no_bg_image"] = canadaSpecies[i][RAWIMG];
         speciesData["country"] = "Canada";
-
         CanadaSpecies.add(speciesData);
 
         species.add(speciesData);
