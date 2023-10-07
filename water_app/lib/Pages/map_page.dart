@@ -25,7 +25,7 @@ class CheckCurrentPosition extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             LatLng currentPosition = snapshot.data as LatLng;
-
+            print(currentPosition);
             return MapPageBuilder(currentPosition: currentPosition);
           } else {
             return const Center(
@@ -53,11 +53,11 @@ class MapPageBuilder extends StatelessWidget {
               snapshot.hasData) {
             List<List<LatLng>> current =
                 snapshot.data![0] as List<List<LatLng>>;
-            List<Map<String, dynamic>> species =
-                snapshot.data![1] as List<Map<String, dynamic>>;
+            List<List<Map<String, dynamic>>> species =
+                snapshot.data![1] as List<List<Map<String, dynamic>>>;
             List<Map<String, dynamic>> stations =
                 snapshot.data![2] as List<Map<String, dynamic>>;
-            // print(ProcessCurrent.current[0].keys.first);
+            print(stations);
             return MapPage(
                 currentPosition: currentPosition,
                 current: current,
@@ -74,7 +74,7 @@ class MapPageBuilder extends StatelessWidget {
 
 class MapPage extends StatefulWidget {
   final List<List<LatLng>> current;
-  final List<Map<String, dynamic>> species;
+  final List<List<Map<String, dynamic>>> species;
   final LatLng currentPosition;
   final List<Map<String, dynamic>> stations;
   const MapPage(
@@ -99,7 +99,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
 
   late LatLng currentLocation;
   late final List<List<LatLng>> current;
-  late final List<Map<String, dynamic>> species;
+  late final List<List<Map<String, dynamic>>> species;
   late List<Map<String, dynamic>> stations;
 
   late List<CameraDescription> _cameras;
@@ -151,7 +151,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   Future<LatLng> refreshLocation() async {
     return await GetCurrentLocation.handleCurrentPosition(context);
   }
-  
+
   @override
   void dispose() {
     pageController.dispose();
@@ -296,10 +296,10 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Scaffold(
-                    body: 
-                      Row(children: [Container(
-                        child:
-                        IconButton(
+                      body: Row(
+                    children: [
+                      Container(
+                          child: IconButton(
                         icon: Icon(
                           Icons.photo_camera,
                           color: Colors.white.withOpacity(.5),
@@ -314,13 +314,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                             ),
                           );
                         },
-                      )
-                      )
-                          
-                      ],)
-                      
-                    
-                  ),
+                      ))
+                    ],
+                  )),
                 ),
               ],
             ),

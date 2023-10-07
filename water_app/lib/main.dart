@@ -19,7 +19,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,9 +34,9 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.id,
       routes: {
         HomeScreen.id: (context) => const HomeScreen(),
-        // LoginScreen.id: (context) => const LoginScreen(),
-        // SignUpScreen.id: (context) => const SignUpScreen(),
-        // MyHomePage.id: (context) => const MyHomePage(title: 'Flutter Map Home Page'),
+        LoginScreen.id: (context) => const LoginScreen(),
+        SignUpScreen.id: (context) => const SignUpScreen(),
+        MyHomePage.id: (context) => const MyHomePage(title: 'Flutter Map Home Page'),
       },
     );
   }

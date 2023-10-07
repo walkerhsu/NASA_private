@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           InkWell(
                             onTap: () {
-                              // Navigator.pushNamed(context, MyHomePage.id);
+                              Navigator.pushNamed(context, MyHomePage.id);
                             },
                             child: const Text(
                               'Sign up as guest',
