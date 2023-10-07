@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
 // import 'package:water_app/water_temperature.dart';
 import 'package:water_app/Pages/map_taipei_location.dart';
@@ -29,11 +30,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       'icon': const Icon(Icons.location_on_outlined),
       'body': const CheckTaipeiPosition(),
     },
-    // {
-    //   'title': 'Water temperature',
-    //   'icon': const Icon(Icons.thermostat_outlined),
-    //   'body': const WaterTemperature(),
-    // },
     {
       'title': 'Water quality',
       'icon': const Icon(Icons.water_drop_outlined),
@@ -43,12 +39,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       )
     },
     {
-      'title': 'Water level',
+      'title': 'Logout',
       'icon': const Icon(Icons.height_outlined),
-      // 'body': const MapPage(),
-      'body': const Center(
-        child: Text('Hello World'),
-      )
+      'body': const HomeScreen(),
     },
   ];
   int currentDrawerIndex = 0;
@@ -60,6 +53,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    if(currentDrawerIndex == _listViewData.length - 1) {
+      return const HomeScreen();
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -94,13 +90,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   setState(() {
                     currentDrawerIndex = i;
                   });
-                  
                 },
-                
               ),
-              // GestureDetector(onTap: () => {
-              //     Get.to(() => SpotDetails())
-              // })
           ],
         ),
       ),
