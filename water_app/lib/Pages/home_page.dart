@@ -3,6 +3,7 @@ import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
 // import 'package:water_app/water_temperature.dart';
 import 'package:water_app/Pages/map_taipei_location.dart';
+import 'package:water_app/Pages/menu_book.dart';
 // import 'package:get/get.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -31,12 +32,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       'body': const CheckTaipeiPosition(),
     },
     {
-      'title': 'Water quality',
-      'icon': const Icon(Icons.water_drop_outlined),
-      // 'body': const MapPage(),
-      'body': const Center(
-        child: Text('Hello World'),
-      )
+      'title': 'menu_book',
+      'icon': const Icon(Icons.menu_book),
+      'body': const MenuBook(),
     },
     {
       'title': 'Logout',
