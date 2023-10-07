@@ -21,7 +21,7 @@ class InfoWidget extends StatelessWidget {
       this.waterName = 'Pacific Ocean',
       this.distance = '500 m',
       this.collected = 'uncollected',
-      this.type = "Observatory"});
+      this.type = "species"});
 
   @override
   Widget build(BuildContext context) {

@@ -15,7 +15,6 @@ class SpeciesDetails extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    print(ProcessSpecies.CanadaSpecies[index]);
     return Scaffold(
         body: Stack(
           children: [

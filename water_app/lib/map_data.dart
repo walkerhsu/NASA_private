@@ -46,10 +46,10 @@ class _MapDataState extends State<MapData> {
           // if(station['location'] != null) {
           //   print(station['location']);
           // }
-          LocalNotificationService.showLocalNotification(
-            'Yay you did it!',
-            'Congrats on your first local notification',
-          );
+          // LocalNotificationService.showLocalNotification(
+          //   'Yay you did it!',
+          //   'Congrats on your first local notification',
+          // );
         },
         child: Card(
           elevation: 5,

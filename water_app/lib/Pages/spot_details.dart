@@ -67,8 +67,8 @@ class SpotDetails extends StatelessWidget {
                     color: const Color.fromARGB(255, 255, 255, 255),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const InfoWidget(
-                    name: 'Observatory',
+                  child: InfoWidget(
+                    name: station['station'],
                     // distance:
                     // collected:
                   ))),
@@ -78,9 +78,9 @@ class SpotDetails extends StatelessWidget {
           height: 100,
           padding:
               const EdgeInsets.only(top: 30, bottom: 30, right: 10, left: 10),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color.fromARGB(255, 173, 216, 230),
-            borderRadius: const BorderRadius.only(
+            borderRadius:  BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
             ),
