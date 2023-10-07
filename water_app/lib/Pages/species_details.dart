@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:water_app/components/info_widget.dart';
+import 'package:water_app/Components/info_widget.dart';
 import 'package:water_app/processData/process_species.dart';
 
 class SpeciesDetails extends StatelessWidget {
@@ -24,7 +24,7 @@ class SpeciesDetails extends StatelessWidget {
                   height: 350,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(ProcessSpecies.canadaEndangeredSpecies[index]["detailed"]),
+                      image: NetworkImage(ProcessSpecies.CanadaSpecies[index]["detailed"]),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -67,8 +67,8 @@ class SpeciesDetails extends StatelessWidget {
                 ),
                 child: 
                   InfoWidget(
-                    name: ProcessSpecies.canadaEndangeredSpecies[index]["common_name"],
-                    waterName: ProcessSpecies.canadaEndangeredSpecies[index]["waterbody"],
+                    name: ProcessSpecies.CanadaSpecies[index]["common_name"],
+                    waterName: ProcessSpecies.CanadaSpecies[index]["waterbody"],
                     // distance:
                     // collected:
                   )

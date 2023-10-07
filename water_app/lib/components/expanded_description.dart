@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:water_app/components/small_text.dart';
-import 'package:water_app/components/tags_widget.dart';
+import 'package:water_app/Components/small_text.dart';
+import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/information/screen_info.dart';
 
 class ExpandedDescription extends StatefulWidget {

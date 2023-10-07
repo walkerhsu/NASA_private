@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:water_app/components/tags_widget.dart';
 
 class SmallText extends StatelessWidget {
   final String text;
