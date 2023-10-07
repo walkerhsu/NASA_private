@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Camera/camera.dart';
 import 'package:water_app/processData/process_stations.dart';
-import 'package:water_app/testData/map_consts.dart';
+import 'package:water_app/information/map_consts.dart';
 import 'package:water_app/map_data.dart';
 import 'package:water_app/processData/process_species.dart';
 import 'package:water_app/map_location.dart';
@@ -21,7 +21,7 @@ class CheckCurrentPosition extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: GetCurrentLocation.handleCurrentPosition(context),
+        future: GetCurrentLocation.handleCurrentPosition(context, country),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
@@ -53,22 +53,31 @@ class MapPageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: Future.wait([
-          ProcessSpecies.processCsv(context),
-          ProcessTaiwanStations.processCsv(context),
-        ]),
+        future: country == "Canada"
+            ? Future.wait([ProcessStations.processCsv(context, "Canada")])
+            : Future.wait([
+                ProcessSpecies.processCsv(context, country),
+                ProcessStations.processCsv(context, country),
+              ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
-            List<List<Map<String, dynamic>>> species =
-                snapshot.data![0] as List<List<Map<String, dynamic>>>;
-            List<Map<String, dynamic>> stations =
-                snapshot.data![1] as List<Map<String, dynamic>>;
+            late List<Map<String, dynamic>> stations;
+            late List<Map<String, dynamic>> species;
+            if (country == "Canada") {
+              stations = snapshot.data![0];
+              species = stations;
+            } else {
+              species = snapshot.data![0];
+              stations = snapshot.data![1];
+            }
             return MapPage(
-                currentPosition: currentPosition,
-                refSearchLocation: refSearchLocation,
-                species: species,
-                stations: stations);
+              currentPosition: currentPosition,
+              refSearchLocation: refSearchLocation,
+              species: species,
+              stations: stations,
+              country: country,
+            );
           } else {
             return const Center(
               child: CircularProgressIndicator(),
@@ -79,16 +88,18 @@ class MapPageBuilder extends StatelessWidget {
 }
 
 class MapPage extends StatefulWidget {
-  final List<List<Map<String, dynamic>>> species;
+  final List<Map<String, dynamic>> species;
   final LatLng currentPosition;
   final List<Map<String, dynamic>> stations;
   final LatLng? refSearchLocation;
+  final String country;
   const MapPage(
       {super.key,
       required this.currentPosition,
       required this.species,
       required this.stations,
-      this.refSearchLocation});
+      this.refSearchLocation,
+      required this.country});
   // ignore: constant_identifier_names
   static const String ACCESS_TOKEN = String.fromEnvironment("ACCESS_TOKEN");
   @override
@@ -104,9 +115,10 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late List<int> argsort = [];
   late LatLng currentLocation;
   late final List<List<LatLng>> current;
-  late final List<List<Map<String, dynamic>>> species;
+  late final List<Map<String, dynamic>> species;
   late List<Map<String, dynamic>> stations;
   late List<CameraDescription> _cameras;
+  late String country;
 
   final int markerNum = 10;
 
@@ -141,11 +153,12 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    country = widget.country;
     currentLocation = widget.currentPosition;
     refLocation = widget.refSearchLocation;
     species = widget.species;
     stations = widget.stations;
-    argsort = ProcessTaiwanStations.sortStations(currentLocation);
+    argsort = ProcessStations.sortStations(currentLocation, country);
     selectedIndex = argsort[0];
     pageController = PageController(
       initialPage: 0,
@@ -154,7 +167,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   }
 
   Future<LatLng> refreshLocation() async {
-    return await GetCurrentLocation.handleCurrentPosition(context);
+    return await GetCurrentLocation.handleCurrentPosition(context, country);
   }
 
   @override
@@ -183,7 +196,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                 _animatedMapMove(point, 12);
                 setState(() {
                   refLocation = point;
-                  argsort = ProcessTaiwanStations.sortStations(refLocation!);
+                  argsort = ProcessStations.sortStations(refLocation!, country);
                   selectedIndex = argsort[0];
                   drawMapData = true;
                 });
@@ -223,6 +236,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                 showLocation: showLocation,
                 follow: true,
                 selectedindex: selectedIndex,
+                country: country,
               )
             ]),
         Positioned(
@@ -304,13 +318,15 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       color: Colors.white.withOpacity(1),
                     ),
                     onPressed: () async {
-                      await GetCurrentLocation.handleCurrentPosition(context)
+                      await GetCurrentLocation.handleCurrentPosition(
+                              context, country)
                           .then((value) {
                         _animatedMapMove(value, 12);
                         setState(() {
                           currentLocation = value;
                           refLocation = null;
-                          argsort = ProcessTaiwanStations.sortStations(value);
+                          argsort =
+                              ProcessStations.sortStations(value, country);
                           selectedIndex = argsort[0];
                           drawMapData = true;
                         });
@@ -361,15 +377,17 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
 }
 
 class MarkerLayers extends StatefulWidget {
-  const MarkerLayers(
-      {super.key,
-      required this.currentPosition,
-      required this.refPosition,
-      required this.stations,
-      required this.showLocation,
-      required this.argsort,
-      required this.follow,
-      required this.selectedindex});
+  const MarkerLayers({
+    super.key,
+    required this.currentPosition,
+    required this.refPosition,
+    required this.stations,
+    required this.showLocation,
+    required this.argsort,
+    required this.follow,
+    required this.selectedindex,
+    required this.country,
+  });
   final LatLng currentPosition;
   final LatLng? refPosition;
   final List<Map<String, dynamic>> stations;
@@ -377,6 +395,7 @@ class MarkerLayers extends StatefulWidget {
   final List<int> argsort;
   final bool follow;
   final int selectedindex;
+  final String country;
 
   @override
   State<MarkerLayers> createState() => _MarkerLayersState();
@@ -388,6 +407,7 @@ class _MarkerLayersState extends State<MarkerLayers> {
   final int markerNum = 10;
   late Timer timer;
   late LatLng currentPosition;
+  late String country;
 
   reload() {
     setState(() {});
@@ -396,18 +416,24 @@ class _MarkerLayersState extends State<MarkerLayers> {
   @override
   void initState() {
     super.initState();
+    country = widget.country;
     selectedIndex = widget.selectedindex;
     currentPosition = widget.currentPosition;
     timer = Timer.periodic(const Duration(seconds: 10), (timer) async {
       if (widget.follow) {
         if (mounted) {
-          await GetCurrentLocation.handleCurrentPosition(context).then((value) {
+          await GetCurrentLocation.handleCurrentPosition(
+                  context, widget.country)
+              .then((value) {
             currentPosition = value;
             reload();
           });
         }
       }
     });
+
+    argsort = widget.argsort;
+    selectedIndex = widget.selectedindex;
   }
 
   @override
@@ -418,14 +444,12 @@ class _MarkerLayersState extends State<MarkerLayers> {
 
   @override
   Widget build(BuildContext context) {
-    argsort = widget.argsort;
-    selectedIndex = widget.selectedindex;
     return MarkerLayer(
       markers: [
         for (int i = 0; i < markerNum; i++)
           Marker(
-            width: 50,
-            height: 80,
+            width: 70,
+            height: 100,
             point: widget.stations[argsort[i]]["location"],
             builder: (context) => GestureDetector(
               onTap: () {

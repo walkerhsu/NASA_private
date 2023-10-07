@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:water_app/TestData/map_consts.dart';
+import 'package:water_app/information/map_consts.dart';
+import 'package:geocoding/geocoding.dart';
 
 abstract class GetCurrentLocation {
   static Future<bool> _handleLocationPermission(context) async {
@@ -34,12 +35,30 @@ abstract class GetCurrentLocation {
     return true;
   }
 
-  static Future<LatLng> handleCurrentPosition(context) async {
+  static Future<LatLng> handleCurrentPosition(context, String country) async {
     final hasPermission = await _handleLocationPermission(context);
-    if (!hasPermission) return MapConstants.myLocation;
+    if (!hasPermission) {
+      if (country != "Taiwan" && country != "Canada" && country != "America") {
+        return MapConstants.myLocation[country]!;
+      } else {
+        return MapConstants.myLocation["Taiwan"]!;
+      }
+    }
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     LatLng currentLocation = LatLng(position.latitude, position.longitude);
-    return currentLocation;
+    List<Placemark> placemark =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+    // ignore: non_constant_identifier_names
+    String GPScountry = placemark[0].country!;
+    if (
+      ((GPScountry == "台灣" || GPScountry == "Taiwan") && country == "Taiwan") ||
+      ((GPScountry == "加拿大" || GPScountry == "Canada") && country == "Canada") ||
+      ((GPScountry == "美國" || GPScountry == "United States") && country == "America")
+      ) {
+      return currentLocation;
+    } else {
+      return MapConstants.myLocation[country]!;
+    }
   }
 }
