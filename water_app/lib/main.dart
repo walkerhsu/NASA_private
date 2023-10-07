@@ -7,9 +7,6 @@ import 'package:water_app/Theme/theme_data.dart';
 import 'package:water_app/Notification/notification_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:water_app/Pages/home_page.dart';
-import 'package:water_app/Theme/theme_data.dart';
-import 'package:water_app/Notification/notification_service.dart';
 import 'package:get/get.dart';
 
 Future<void> main() async {
@@ -37,9 +34,9 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.id,
       routes: {
         HomeScreen.id: (context) => const HomeScreen(),
-        LoginScreen.id: (context) => const LoginScreen(),
-        SignUpScreen.id: (context) => const SignUpScreen(),
-        MyHomePage.id: (context) => const MyHomePage(title: 'Flutter Map Home Page'),
+        // LoginScreen.id: (context) => const LoginScreen(),
+        // SignUpScreen.id: (context) => const SignUpScreen(),
+        // MyHomePage.id: (context) => const MyHomePage(title: 'Flutter Map Home Page'),
       },
     );
   }
