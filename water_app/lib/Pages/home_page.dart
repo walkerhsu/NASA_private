@@ -6,8 +6,9 @@ import 'package:water_app/Pages/map_page.dart';
 // import 'package:water_app/water_temperature.dart';
 import 'package:water_app/Pages/menu_book.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
+import 'package:water_app/components/big_text.dart';
+import 'package:water_app/components/small_text.dart';
 import 'package:water_app/globals.dart';
-import 'package:water_app/map_location.dart';
 import 'package:water_app/processData/process_city.dart';
 // import 'package:get/get.dart';
 
@@ -55,7 +56,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title), actions: <Widget>[
+      appBar: AppBar(
+        backgroundColor: Colors.grey[300],
+        title: BigText(text: title, fontColor: Colors.black, size: 25,),
+        actions: <Widget>[
         Row(
           children: [
             Container(
@@ -107,21 +111,18 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width * 0.5,
-              child: DrawerHeader(
+              child: const DrawerHeader(
                 decoration: const BoxDecoration(
-                  color: Colors.blue,
+                  color: Color(0xFFE0E0E0),
                 ),
                 child: Center(
-                  child: Text(
-                    'Water App',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
+                  child: const BigText(text: 'Water App', size: 20, fontWeight: FontWeight.normal)
                 ),
               ),
             ),
             ListTile(
               leading: const Icon(Icons.menu_book),
-              title: const Text('menu_book'),
+              title: const SmallText(text: 'menu_book', size: 16),
               onTap: () async {
                 if (!mounted) return;
                 Navigator.pop(context);
@@ -133,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             for (int i = 0; i < dataCountries.length; i++)
               ListTile(
                   leading: const Icon(Icons.height_outlined),
-                  title: Text(dataCountries[i]),
+                  title: SmallText(text: dataCountries[i], size: 16),
                   onTap: () {
                     Navigator.pop(context);
                     setState(() {

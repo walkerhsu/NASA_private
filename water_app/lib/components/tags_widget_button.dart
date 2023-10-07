@@ -36,24 +36,28 @@ class TagsWidgetButton extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => SpeciesDetails(station: station),
+          builder: (context) => SpeciesDetails(
+            station: station,
+            speciesName: tagName,
+          ),
         ));
         print("press");
       },
       child: Container(
           width: width,
           height: height,
+          padding: const EdgeInsets.only(left: 15, right: 15),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(height / 2),
               color: backgroundColor),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const SizedBox(height: 10),
               Icon(
                 icon,
                 color: iconColor,
-                size: height * 0.8,
+                size: height * 0.7,
               ),
               const SizedBox(width: 10),
               Flexible(

@@ -7,6 +7,8 @@ import 'package:water_app/processData/process_species.dart';
 
 class MenuBook extends StatelessWidget {
   const MenuBook({Key? key}) : super(key: key);
+  static String id = 'menu_book';
+  
   final int crossAxisCount = 2;
   @override
   Widget build(BuildContext context) {

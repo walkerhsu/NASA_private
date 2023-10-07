@@ -3,6 +3,7 @@ import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Login/login_screen.dart';
 import 'package:water_app/Login/signup_screen.dart';
 import 'package:water_app/Pages/home_page.dart';
+import 'package:water_app/Pages/menu_book.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/Theme/theme_data.dart';
 import 'package:water_app/Notification/notification_service.dart';
@@ -33,11 +34,12 @@ class MyApp extends StatelessWidget {
       // home: const MyHomePage(title: 'Flutter Map Home Page'),
       initialRoute: HomeScreen.id,
       routes: {
+        // MenuBook.id: (context) => const MenuBook(),
         HomeScreen.id: (context) => const HomeScreen(),
         LoginScreen.id: (context) => const LoginScreen(),
         SignUpScreen.id: (context) => const SignUpScreen(),
         MyHomePage.id: (context) =>
-            const MyHomePage(title: 'Flutter Map Home Page'),
+            const MyHomePage(title: 'BlueVista'),
       },
     );
   }

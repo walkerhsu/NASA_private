@@ -57,12 +57,14 @@ class InfoWidget extends StatelessWidget {
             SmallText(text: 'smallify'),
             SizedBox(height: 10),
             SmallText(text: 'smallify'),
+            SizedBox(width: 5),
           ],
         ),
         const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            const SizedBox(height: 10),
             TagsWidget(
               tagName: waterName,
               icon: Icons.circle_sharp,
@@ -75,6 +77,7 @@ class InfoWidget extends StatelessWidget {
               tagName: collected!,
               icon: Icons.accessibility_new_rounded,
             ),
+            const SizedBox(height: 10),
           ],
         ),
         const SizedBox(height: 20),

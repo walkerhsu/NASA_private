@@ -4,14 +4,25 @@ import 'package:water_app/Components/info_widget.dart';
 import 'package:water_app/processData/process_species.dart';
 
 class SpeciesDetails extends StatelessWidget {
-  final int index;
+  late int index;
+  final String speciesName;
   final Map<String, dynamic> station;
 
-  const SpeciesDetails({
+  SpeciesDetails({
     super.key,
     required this.station,
-    this.index = 160,
+    this.speciesName = "Canada Goose",
+    this.index = 0,
   });
+
+  void nameToIdx() {
+    for (int i = 0; i < ProcessSpecies.CanadaSpecies.length; i++) {
+      if (ProcessSpecies.CanadaSpecies[i]["common_name"] == speciesName) {
+        index = i;
+        break;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +84,7 @@ class SpeciesDetails extends StatelessWidget {
                   scientificName: ProcessSpecies.CanadaSpecies[index]
                       ["scientific_name"],
                   waterName: station["river"],
-                  type: "water",
+                  type: "species",
                   // distance:
                   // collected:
                 )))
