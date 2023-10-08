@@ -198,6 +198,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               maxZoom: 18,
               zoom: 12,
               center: refLocation ?? currentLocation,
+              interactiveFlags: InteractiveFlag.all & ~InteractiveFlag.rotate,
               onTap: (_, point) {
                 List<int> newArgSort =
                     ProcessStations.sortStations(point, country);

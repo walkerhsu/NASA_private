@@ -30,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   late Widget currentWidget;
   late final List<Map<String, dynamic>> locations;
+  // ignore: non_constant_identifier_names
   List<String> IconURL = [
     'assets/icons/taiwan.png',
     'assets/icons/united-states.png',
