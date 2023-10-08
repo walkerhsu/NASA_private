@@ -15,10 +15,4 @@ class AllInfo {
     "Canada": ProcessStations.CanadaStationData,
     "America": ProcessStations.AmericaStationData,
   };
-  
-  // static Future<List<Map<String, dynamic>>> getMenus(context, String country) async {
-  //   String menuCSVString = await CloudStorage.getRawtxtData("ill_book.csv");
-  //   List<List<dynamic>> processMenuData = CsvToListConverter().convert(menuCSVString, eol: "\n");
-  //   List<Map<String, dynamic>> menuData = [];
-  // } 
 }

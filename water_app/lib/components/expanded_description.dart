@@ -4,7 +4,7 @@ import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Constants/screen_info.dart';
 
 class ExpandedDescription extends StatefulWidget {
-  final List<String> description; // [description, fact, advice] or [fact, advice]
+  final List<String> description; // [description, fact, advice] or [source, fact, advice]
   final String type;
   final int index;
 

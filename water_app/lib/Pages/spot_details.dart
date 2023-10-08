@@ -53,12 +53,6 @@ class SpotDetails extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // SpecialIcon(
-                    //   icon: Icons.arrow_back_ios_rounded,
-                    //   backgroundColor: Colors.black.withOpacity(0.5),
-                    //   iconColor: Colors.white,
-                    //   size: 40,
-                    // ),
                     IconButton(
                       iconSize: 30,
                       icon: const Icon(
@@ -82,22 +76,30 @@ class SpotDetails extends StatelessWidget {
                       color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: InfoWidget(
-                      name: station['station'],
-                      rpi: station['RPI'].toString(),
-                      pH: station['pH'].toString(),
-                      temperature: station['temperature'].toString(),
-                      NH3_N: station['NH3-N'].toString(),
-                      NH3_N_unit: station['NH3-N_unit'].toString(),
-                      type: "water",
-                      waterName: (country == "Taiwan")
-                          ? station['river']
-                          : station["waterbody"],
-                      distance: CalculateDistance.calculateDistance(
-                              station['location'], currentPosition)
-                          .toString(),
-                      country: country,
-                    ))),
+                    child: (country == "Canada")
+                        ? InfoWidget(
+                            name: station['station'],
+                            type: "water",
+                            waterName: station['waterbody'],
+                            distance: CalculateDistance.calculateDistance(
+                                    station['location'], currentPosition)
+                                .toString(),
+                            country: country,
+                          )
+                        : InfoWidget(
+                            name: station['station'],
+                            rpi: station['RPI'].toString(),
+                            pH: station['pH'].toString(),
+                            temperature: station['temperature'].toString(),
+                            NH3_N: station['NH3-N'].toString(),
+                            NH3_N_unit: station['NH3-N_unit'].toString(),
+                            type: "water",
+                            waterName: station['river'],
+                            distance: CalculateDistance.calculateDistance(
+                                    station['location'], currentPosition)
+                                .toString(),
+                            country: country,
+                          ))),
           ],
         ),
         // (!AllInfo.allStations[country][index]["species1"] || !AllInfo.allStations[country][index]["species2"] || !AllInfo.allStations[country][index]["species3"])?
