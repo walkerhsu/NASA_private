@@ -39,4 +39,8 @@ abstract class ProcessBook {
     }
     return book;
   }
+
+  static String getCommonName(String scientificName) {
+    return book[scientificName]!["common_name"];
+  }
 }
