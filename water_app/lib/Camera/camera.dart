@@ -201,8 +201,8 @@ class _CameraPageState extends State<CameraPage> {
                                 ),
                               ),
                               Center(
-                                child: Image.asset(
-                                  'assets/images/山椒魚.jpg',
+                                child: Image.network(
+                                  image,
                                   width: 300,
                                   height: 300,
                                 ),
