@@ -70,7 +70,7 @@ class TopScreenImage extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.contain,
+            fit: BoxFit.cover,
             image: AssetImage(screenImageName),
           ),
         ),
