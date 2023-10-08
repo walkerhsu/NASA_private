@@ -156,6 +156,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 setState(() {
                   currentWidget = MenuBook(
                     country: dataCountry,
+                    currentPosition: MapConstants.myLocation[dataCountry]!,
                   );
                 });
               },

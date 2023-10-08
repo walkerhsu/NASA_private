@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:water_app/Pages/species_details.dart';
-import 'package:water_app/components/big_text.dart';
-import 'package:water_app/components/small_text.dart';
-import 'package:water_app/components/tags_widget.dart';
-import 'package:water_app/components/tags_widget_button.dart';
+import 'package:water_app/Components/big_text.dart';
+import 'package:water_app/Components/small_text.dart';
+import 'package:water_app/Components/tags_widget.dart';
+import 'package:water_app/Components/tags_widget_button.dart';
 import 'package:water_app/globals.dart';
 import 'package:water_app/processData/process_book.dart';
 import 'package:water_app/processData/process_species.dart';
 import 'package:water_app/Constants/all_info.dart';
 
 class MenuBook extends StatelessWidget {
-  const MenuBook({Key? key, required this.country}) : super(key: key);
+  const MenuBook({Key? key, required this.country, required this.currentPosition}) : super(key: key);
   static String id = 'menu_book';
   final String country;
+  final LatLng currentPosition;
 
   final int unknownSpecies = 10;
   final int crossAxisCount = 2;
@@ -70,7 +72,9 @@ class MenuBook extends StatelessWidget {
                             builder: (context) => SpeciesDetails(
                                 // station:AllInfo.allStations[countries[i]][j],
                                 speciesName: filterseenSpecies[j].key,
-                                country: country)),
+                                country: country,
+                                currentPosition: currentPosition,
+                            )),
                       );
                     },
                     child: Card(

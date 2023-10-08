@@ -8,6 +8,7 @@ class CalculateDistance {
 
     double distance = const Distance()
         .as(LengthUnit.Kilometer, currentPosition, stationPosition);
+        
     return distance * Radius;
   }
 }

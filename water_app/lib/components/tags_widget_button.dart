@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:water_app/Pages/species_details.dart';
 // import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
@@ -14,6 +15,7 @@ class TagsWidgetButton extends StatelessWidget {
   final double height;
   final Map<String, dynamic> station;
   final String country;
+  final LatLng currentPosition;
   static Color defaultColor = const Color.fromARGB(255, 0, 128, 128);
   static Color blueColor = const Color.fromARGB(255, 70, 130, 180);
   static Color brownColor = const Color.fromARGB(255, 149, 69, 53);
@@ -31,6 +33,7 @@ class TagsWidgetButton extends StatelessWidget {
     this.height = 35,
     required this.station,
     required this.country,
+    required this.currentPosition,
   });
 
   @override
@@ -42,6 +45,7 @@ class TagsWidgetButton extends StatelessWidget {
             station: station,
             speciesName: tagName,
             country: country,
+            currentPosition: currentPosition,
           ),
         ));
       },

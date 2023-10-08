@@ -4,9 +4,7 @@ import 'package:water_app/Components/info_widget.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Components/tags_widget_button.dart';
 import 'package:water_app/Constants/all_info.dart';
-import 'package:water_app/globals.dart';
 import 'package:water_app/processData/calculate_distance.dart';
-import 'package:water_app/processData/process_stations.dart';
 
 class SpotDetails extends StatelessWidget {
   final int index;
@@ -91,6 +89,7 @@ class SpotDetails extends StatelessWidget {
                         distance: CalculateDistance.calculateDistance(
                                 station['location'], currentPosition)
                             .toString(),
+                        country: country,
                         ))),
           ],
         ),
@@ -122,6 +121,7 @@ class SpotDetails extends StatelessWidget {
                               iconColor: TagsWidget.brownColor,
                               station: station,
                               country: country,
+                              currentPosition: currentPosition,
                             )
                           : const SizedBox(width: 0),
                       (AllInfo.allStations[country][index]["species1"] != "")
@@ -135,6 +135,7 @@ class SpotDetails extends StatelessWidget {
                               iconColor: TagsWidget.brownColor,
                               station: station,
                               country: country,
+                              currentPosition: currentPosition,
                             )
                           : const SizedBox(width: 0),
                       (AllInfo.allStations[country][index]["species2"] != "")
@@ -148,6 +149,7 @@ class SpotDetails extends StatelessWidget {
                               iconColor: TagsWidget.brownColor,
                               station: station,
                               country: country,
+                              currentPosition: currentPosition,
                             )
                           : const SizedBox(width: 0),
                       (AllInfo.allStations[country][index]["species3"] != "")
