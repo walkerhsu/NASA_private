@@ -7,13 +7,13 @@ class AllInfo {
   static Map<String, dynamic> allSpecies = {
     "Taiwan": ProcessSpecies.TaiwanSpecies,
     "Canada": ProcessSpecies.CanadaSpecies,
-    // "America": ProcessSpecies.AmericaSpecies,
+    "America": ProcessSpecies.AmericaSpecies,
   };
 
   static Map<String, dynamic> allStations = {
     "Taiwan": ProcessStations.taiwanStationData,
     "Canada": ProcessStations.CanadaStationData,
-    // "America": ProcessStations.AmericaStationData,
+    "America": ProcessStations.AmericaStationData,
   };
   
   // static Future<List<Map<String, dynamic>>> getMenus(context, String country) async {

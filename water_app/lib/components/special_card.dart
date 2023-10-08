@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
+import 'package:water_app/components/tags_widget.dart';
 
 class SpecialCard extends StatelessWidget {
   final Map<String, dynamic> station;
@@ -26,21 +27,30 @@ class SpecialCard extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 20),
-                      BigText(
-                        text: station['station'] ?? '',
-                        fontColor: const Color.fromARGB(255, 189, 189, 189),
-                      ),
-                      const SizedBox(height: 10),
-                      SmallText(
-                        text: station['river'] ?? '',
-                        fontColor: const Color.fromARGB(255, 189, 189, 189),
-                      ),
-                    ],
-                  ),
-                ),
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 20),
+                        BigText(
+                          text: station['station'] ?? '',
+                          fontColor: const Color.fromARGB(255, 189, 189, 189),
+                        ),
+                        const SizedBox(height: 10),
+                        SmallText(
+                          text: station['river'] ?? '',
+                          fontColor: const Color.fromARGB(255, 189, 189, 189),
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            TagsWidget(
+                              icon: Icons.thermostat_auto_rounded,
+                              // iconBackgroundColor: Color.fromARGB(255, 42, 42, 42),
+                              tagName: station['temperature'].toString(),
+                            )
+                          ],
+                        ),
+                      ]),
+                )
               ],
             ),
           ),

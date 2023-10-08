@@ -84,6 +84,10 @@ abstract class ProcessStations {
           CanadaStation["common_name"] = CanadaStations[i][CANADACOMMONNAMEIDX];
           CanadaStation["scientific_name"] =
               CanadaStations[i][SCIENCIFICNAMEIDX];
+          CanadaStation["species1"] =
+              CanadaStations[i][SCIENCIFICNAMEIDX] ?? "";
+          CanadaStation["species2"] = "";
+          CanadaStation["species3"] = "";
           CanadaStation["waterbody"] = CanadaStations[i][WATERBODYIDX];
           CanadaStation["station"] = CanadaStations[i][WATERBODYIDX];
           CanadaStation["sara_status"] = CanadaStations[i][SARA_STATUS_IDX];
