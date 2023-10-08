@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:water_app/components/big_text.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton(
@@ -26,31 +27,35 @@ class MyButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         elevation: 4,
         child: Container(
-          width: width,
-          padding: const EdgeInsets.all(13),
-          decoration: BoxDecoration(
-            color: isOutlined ? Colors.white : const Color(0xFF4879C5),
-            border: Border.all(color: const Color(0xFF4879C5), width: 2.5),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, color: isOutlined ? const Color(0xFF4879C5) : Colors.white,),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                buttonText,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
+            width: width,
+            padding: const EdgeInsets.all(13),
+            decoration: BoxDecoration(
+              color: isOutlined ? Colors.grey[200] : const Color(0xFF4879C5),
+              border: Border.all(color: const Color(0xFF4879C5), width: 2.5),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
                   color: isOutlined ? const Color(0xFF4879C5) : Colors.white,
                 ),
-              ),
-            ],
-          )),
-        ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  buttonText,
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: isOutlined ? const Color(0xFF4879C5) : Colors.white,
+                  ),
+                ),
+              ],
+            )),
+      ),
     );
   }
 }
@@ -80,12 +85,8 @@ class ScreenTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: const TextStyle(
-        fontSize: 40,
-        fontWeight: FontWeight.bold,
-      ),
+    return BigText(
+      text: title,
     );
   }
 }
@@ -158,16 +159,16 @@ class MyBottomScreen extends StatelessWidget {
               horizontal: 15,
             ),
             child: Hero(
-            tag: heroTag,
-            child: MyButton(
-              buttonText: textButton,
-              width: 140,
-              onPressed: () {
-                buttonPressed();
-              },
-              icon: iconButton,
+              tag: heroTag,
+              child: MyButton(
+                buttonText: textButton,
+                width: 140,
+                onPressed: () {
+                  buttonPressed();
+                },
+                icon: iconButton,
+              ),
             ),
-          ),
           ),
         ),
       ],

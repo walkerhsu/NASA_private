@@ -50,7 +50,7 @@ class SpecialCard extends StatelessWidget {
               padding: const EdgeInsets.all(4.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: GetImageData(),
+                child: Hero(tag: "home_to_info", child: GetImageData()),
               ),
             ),
           ),
