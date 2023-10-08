@@ -4,8 +4,8 @@ import 'package:latlong2/latlong.dart';
 abstract class GenerateSpecies {
   static const maxSpeciesIterate = 10000;
   static const maxDistance = 100;
-  static const maxSpecies = 1;
-  static const maxDeltaLat = 0.1;
+  static const maxSpecies = 3;
+  static const maxDeltaLat = 0.15;
   static const maxDeltaLong = 0.1;
 
   static List<Map<String, dynamic>> getSpecies(
