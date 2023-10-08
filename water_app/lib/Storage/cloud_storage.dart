@@ -23,8 +23,7 @@ abstract class CloudStorage {
       return await canadaSpeciesRef.child(imageName).getDownloadURL();
     } else if (reference == "America") {
       return await americaSpeciesRef.child(imageName).getDownloadURL();
-    }
-    else if (reference == "stations") {
+    } else if (reference == "stations") {
       return await stationsRef.child(imageName).getDownloadURL();
     } else {
       return "assets/images/Logo.png";
@@ -75,4 +74,8 @@ abstract class CloudStorage {
     Map<String, dynamic> j = currentUser.toJson();
     storageRef.child("/userdata/$email.json").putString(jsonEncode(j));
   }
+
+  // static void downloadPhotoJson() async {
+  //   await storageRef.child(path).putData(data);
+  // }
 }

@@ -14,7 +14,7 @@ class SpecialCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      color: Color.fromARGB(255, 0, 0, 0),
+      color: Color.fromARGB(255, 42, 42, 42),
       child: Row(
         children: [
           const SizedBox(width: 10),
@@ -29,8 +29,8 @@ class SpecialCard extends StatelessWidget {
                     children: [
                       const SizedBox(height: 20),
                       BigText(
-                          text: station['station'] ?? '',
-                          fontColor: Color.fromARGB(255, 189, 189, 189),
+                        text: station['station'] ?? '',
+                        fontColor: Color.fromARGB(255, 189, 189, 189),
                       ),
                       const SizedBox(height: 10),
                       SmallText(
