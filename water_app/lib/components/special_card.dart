@@ -72,7 +72,7 @@ class GetImageData extends StatelessWidget {
     "https://cdn.britannica.com/97/158797-050-ABECB32F/North-Cascades-National-Park-Lake-Ann-park.jpg?w=400&h=300&c=crop",
     "https://media.istockphoto.com/id/1069539210/photo/fantastic-autumn-sunset-of-hintersee-lake.jpg?s=612x612&w=0&k=20&c=oqKJzUgnjNQi-nSJpAxouNli_Xl6nY7KwLBjArXr_GE=",
     "https://www.sciencenews.org/wp-content/uploads/2022/09/092822_js_fewer-blue-lakes_feat.jpg",
-    "https://www.sciencenews.org/article/climate-change-lake-color-blue-green-brown",
+    "https://www.sciencenews.org/wp-content/uploads/2022/09/092822_js_fewer-blue-lakes_feat.jpg",
     "https://d3qvqlc701gzhm.cloudfront.net/thumbs/daf73532a7b2c2653b9475a031c5e142d1d1eab2ff6fbedcc55af10aacc7dbc5-750.jpg"
   ];
 
