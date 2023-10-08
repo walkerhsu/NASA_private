@@ -92,21 +92,47 @@ if __name__ == "__main__":
             for i in range(len(station["water"])):
                 if station["water"][i]['name'] == "RPI":
                     stations_RPI = station["water"][i]['value']
+                    stations_RPI_unit = station["water"][i]['unit']
                 if station["water"][i]['name'] == "DO(Electrode)":
                     stations_DO = station["water"][i]['value']
+                    stations_DO_unit = station["water"][i]['unit']
                 if station["water"][i]['name'] == "BOD5":
                     stations_BOD5 = station["water"][i]['value']
+                    stations_BOD5_unit = station["water"][i]['unit']
                 if station["water"][i]['name'] == "SS":
                     stations_SS = station["water"][i]['value']
+                    stations_SS_unit = station["water"][i]['unit']
                 if station["water"][i]['name'] == "NH3-N":
                     stations_NH3N = station["water"][i]['value']
+                    stations_NH3N_unit = station["water"][i]['unit']
                 if station["water"][i]['name'] == "pH":
                     stations_pH = station["water"][i]['value']
+                    stations_pH_unit = station["water"][i]['unit']
                 if station["water"][i]['name'] == "Water Temp.":
                     stations_temperature = station["water"][i]['value']
+                    stations_temperature_unit = station["water"][i]['unit']
             print(stations_name, stations_latitude, stations_longitude, stations_river, stations_RPI, stations_DO, stations_BOD5, stations_SS, stations_NH3N, stations_pH, stations_temperature)
 
-            river_df = river_df._append({"station": stations_name, "latitude": stations_latitude, "longitude": stations_longitude, "river": stations_river, "RPI": stations_RPI, "DO(Electrode)": stations_DO, "BOD5": stations_BOD5, "SS": stations_SS, "NH3-N": stations_NH3N, "pH": stations_pH, "temperature": stations_temperature}, ignore_index=True)
+            river_df = river_df._append({
+                "station": stations_name,
+                "latitude": stations_latitude, 
+                "longitude": stations_longitude, 
+                "river": stations_river, 
+                "RPI": stations_RPI, 
+                "DO(Electrode)": stations_DO, 
+                "BOD5": stations_BOD5, 
+                "SS": stations_SS, 
+                "NH3-N": stations_NH3N, 
+                "pH": stations_pH, 
+                "temperature": stations_temperature,
+                "RPI_unit": stations_RPI_unit,
+                "DO(Electrode)_unit": stations_DO_unit,
+                "BOD5_unit": stations_BOD5_unit,
+                "SS_unit": stations_SS_unit,
+                "NH3-N_unit":stations_NH3N_unit,
+                "pH_unit": stations_pH_unit,
+                "temperature_unit": stations_temperature_unit,
+            }, ignore_index=True)
 
         # Save the dataframe to a csv file
         river_df.to_csv("Taiwan_river_data.csv", index=False)

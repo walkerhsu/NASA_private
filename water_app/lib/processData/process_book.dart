@@ -35,7 +35,6 @@ abstract class ProcessBook {
         book[bookCsv[i][SCINAMEIDX]] = bookData;
       }
     }
-    print(book.length);
     return book;
   }
 }
