@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   setState(() {
                                     _saving = false;
                                   });
-                                  Navigator.pushNamed(context, MyHomePage.id);
+                                  Navigator.pushNamed(context, CheckCurrentPosition.id);
                                 } else {
                                   Navigator.pop(context);
                                   setState(() {

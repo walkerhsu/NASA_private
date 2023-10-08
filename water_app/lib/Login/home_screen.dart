@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                                 await Authentication.signIn(
                                         "test@nasa.com", "00000000")
                                     .then((value) => Navigator.pushNamed(
-                                        context, MyHomePage.id));
+                                        context, CheckCurrentPosition.id));
                               },
                               child: Text(
                                 'Sign in as guest',

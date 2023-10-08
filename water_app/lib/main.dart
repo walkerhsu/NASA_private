@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.id: (context) => const HomeScreen(),
         LoginScreen.id: (context) => const LoginScreen(),
         SignUpScreen.id: (context) => const SignUpScreen(),
-        MyHomePage.id: (context) => const MyHomePage(title: 'BlueVista'),
+        CheckCurrentPosition.id: (context) => const CheckCurrentPosition(),
       },
       debugShowCheckedModeBanner: false,
     );

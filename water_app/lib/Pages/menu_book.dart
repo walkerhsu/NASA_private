@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:water_app/Components/login_widget.dart';
 import 'package:water_app/Pages/species_details.dart';
 import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
@@ -8,11 +8,12 @@ import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Components/tags_widget_button.dart';
 import 'package:water_app/globals.dart';
 import 'package:water_app/processData/process_book.dart';
-import 'package:water_app/processData/process_species.dart';
-import 'package:water_app/Constants/all_info.dart';
+import 'package:water_app/processData/process_stations.dart';
 
 class MenuBook extends StatelessWidget {
-  const MenuBook({Key? key, required this.country, required this.currentPosition}) : super(key: key);
+  const MenuBook(
+      {Key? key, required this.country, required this.currentPosition})
+      : super(key: key);
   static String id = 'menu_book';
   final String country;
   final LatLng currentPosition;
@@ -24,36 +25,26 @@ class MenuBook extends StatelessWidget {
     List<String> references = [
       "taiwan_species",
       "canada_species",
-      // "american_species"
+      "american_species"
     ];
-    List<String> countries = ["Taiwan", "Canada", "America"];
-    // if (AllInfo.allSpecies.isNotEmpty) {
-    print("book");
-    print(ProcessBook.book["Hynobius formosanus"]);
-    // print(currentUser.seenSpecies);
     List<dynamic> seenSpecies = currentUser.seenSpecies;
     // print(AllInfo.allSpecies[countries[1]]);
     List<dynamic> filterseenSpecies = ProcessBook.book.entries
         .where((element) => seenSpecies.contains(element.key))
         .toList();
-
-    print(filterseenSpecies);
-    // print("in");
-
+    ProcessStations.sortStations(currentPosition, country);
     return Scaffold(
         body: Column(children: [
-      Container(
+      const SizedBox(
         width: double.maxFinite,
         height: 50,
-        child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              BigText(text: "collection pregress", size: 15),
-              // SizedBox(width: 10),
-              BigText(text: "text", size: 15),
-              // SizedBox(width: 10),
-              BigText(text: "text", size: 15),
-            ]),
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          BigText(text: "collection progress", size: 15),
+          // SizedBox(width: 10),
+          BigText(text: "text", size: 15),
+          // SizedBox(width: 10),
+          BigText(text: "text", size: 15),
+        ]),
       ),
       Expanded(
         // child: SingleChildScrollView(
@@ -68,20 +59,29 @@ class MenuBook extends StatelessWidget {
                     j++)
                   GestureDetector(
                     onTap: () {
-                      print("currentPosition");
-                      print(currentPosition);
-                      String tempcountry = filterseenSpecies[j].value["country"];
-                      // print("tempcountry");
-                      // print(tempcountry);
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => SpeciesDetails(
-                                // station:AllInfo.allStations[countries[i]][j],
-                                speciesName: filterseenSpecies[j].key,
-                                country: tempcountry,
-                                currentPosition: currentPosition,
-                            )),
-                      );
+                      if (j >= filterseenSpecies.length) {
+                        showAlert(
+                          context: context,
+                          title: "You haven't collected this species!!",
+                          desc:
+                              "Please collect other species , and you can see the detail information~",
+                          onPressed: () => Navigator.pop(context),
+                        ).show();
+                      } else {
+                        String tempcountry =
+                            filterseenSpecies[j].value["country"];
+                        // print("tempcountry");
+                        // print(tempcountry);
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => SpeciesDetails(
+                                    speciesName: filterseenSpecies[j].key,
+                                    country: tempcountry,
+                                    currentPosition: currentPosition,
+                                    station: ProcessStations.currentStation,
+                                  )),
+                        );
+                      }
                     },
                     child: Card(
                       elevation: 5,
@@ -101,8 +101,8 @@ class MenuBook extends StatelessWidget {
                                     ? NetworkImage(
                                             filterseenSpecies[j].value["image"])
                                         as ImageProvider<Object>
-                                    : AssetImage("assets/images/unknown.jpg")
-                                        as ImageProvider<Object>,
+                                    : const AssetImage(
+                                        "assets/images/unknown.jpg"),
                                 // image: NetworkImage(imageURLs[j]),
                                 fit: BoxFit.cover,
                                 opacity: 0.9),
@@ -121,8 +121,8 @@ class MenuBook extends StatelessWidget {
                                   (j < filterseenSpecies.length)
                                       ? SmallText(
                                           text: filterseenSpecies[j].key)
-                                      : SmallText(text: "unknown"),
-                                  SizedBox(height: 5),
+                                      : const SmallText(text: "unknown"),
+                                  const SizedBox(height: 5),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,

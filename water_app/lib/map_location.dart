@@ -63,7 +63,7 @@ abstract class GetCurrentLocation {
     }
 
     // ignore: non_constant_identifier_names
-    // print(placemark);
+    print(placemark);
     String GPScountry = placemark[0].country!;
     if (((GPScountry == "台灣" || GPScountry == "Taiwan") &&
             country == "Taiwan") ||

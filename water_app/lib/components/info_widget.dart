@@ -6,7 +6,6 @@ import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/Components/special_icon.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Components/gpt_response.dart';
-import 'package:water_app/Constants/all_info.dart';
 import 'package:water_app/processData/process_book.dart';
 // import 'package:water_app/information/species_info.dart';
 
@@ -71,7 +70,7 @@ class InfoWidget extends StatelessWidget {
               ]:[
                 const SizedBox(height: 0),
               ],
-            ), 
+            ),
           ],
         )
         :
@@ -91,7 +90,7 @@ class InfoWidget extends StatelessWidget {
                 SmallText(text: rpi, size: 20),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             SmallText(text: "pH: " + pH?? "0", size: 12),
             SizedBox(height: 10),
             SmallText(text: "temp: " + temperature?? "0", size: 12),

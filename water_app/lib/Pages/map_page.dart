@@ -4,99 +4,19 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Pages/markers.dart';
-import 'package:water_app/processData/process_book.dart';
 import 'package:water_app/processData/process_stations.dart';
 import 'package:water_app/Constants/map_consts.dart';
 import 'package:water_app/map_data.dart';
-import 'package:water_app/processData/process_species.dart';
 import 'package:water_app/map_location.dart';
 import 'dart:async';
 
-class CheckCurrentPosition extends StatelessWidget {
-  final String country;
-  final LatLng? refSearchLocation;
-  const CheckCurrentPosition(
-      {super.key, required this.country, this.refSearchLocation});
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: GetCurrentLocation.handleCurrentPosition(context, country),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done &&
-              snapshot.hasData) {
-            LatLng currentPosition = snapshot.data as LatLng;
-            return MapPageBuilder(
-              currentPosition: currentPosition,
-              country: country,
-              refSearchLocation: refSearchLocation,
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
-  }
-}
-
-class MapPageBuilder extends StatelessWidget {
-  final LatLng currentPosition;
-  final String country;
-  final LatLng? refSearchLocation;
-  const MapPageBuilder(
-      {super.key,
-      required this.currentPosition,
-      required this.country,
-      this.refSearchLocation});
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: country == "Canada"
-            ? Future.wait([
-                ProcessStations.processCsv(context, "Canada"),
-                ProcessBook.processCsv(context),
-                
-              ])
-            : Future.wait([
-                ProcessSpecies.processCsv(context, country),
-                ProcessStations.processCsv(context, country),
-                ProcessBook.processCsv(context),
-              ]),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done &&
-              snapshot.hasData) {
-            late List<Map<String, dynamic>> stations;
-            if (country == "Canada") {
-              stations = snapshot.data![0] as List<Map<String, dynamic>>;
-            } else {
-              stations = snapshot.data![1] as List<Map<String, dynamic>>;
-            }
-            return MapPage(
-              currentPosition: currentPosition,
-              refSearchLocation: refSearchLocation,
-              stations: stations,
-              country: country,
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
-  }
-}
-
 class MapPage extends StatefulWidget {
   final LatLng currentPosition;
-  final List<Map<String, dynamic>> stations;
   final LatLng? refSearchLocation;
   final String country;
   const MapPage(
       {super.key,
       required this.currentPosition,
-      required this.stations,
       this.refSearchLocation,
       required this.country});
   // ignore: constant_identifier_names
@@ -158,17 +78,17 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     pageController = PageController(
       initialPage: 0,
     );
-    stations = widget.stations;
+    stations = ProcessStations.getStationData(widget.country);
     timerCurrentPosition =
         Timer.periodic(const Duration(seconds: 10), (timer) async {
-      if (mounted) {
-        await GetCurrentLocation.handleCurrentPosition(context, widget.country)
-            .then((value) {
-          setState(() {
-            currentLocation = value;
-          });
+      if (!mounted) return;
+      return await GetCurrentLocation.handleCurrentPosition(
+              context, widget.country)
+          .then((value) {
+        setState(() {
+          currentLocation = value;
         });
-      }
+      });
     });
   }
 
@@ -189,13 +109,14 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    print(refLocation);
     return Stack(
       children: [
         FlutterMap(
             mapController: mapController,
             options: MapOptions(
-              minZoom: 5,
-              maxZoom: 18,
+              minZoom: 4,
+              maxZoom: 19,
               zoom: 12,
               center: refLocation ?? currentLocation,
               interactiveFlags: InteractiveFlag.all & ~InteractiveFlag.rotate,
@@ -235,9 +156,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   markers: [
                     for (int i = 0; i < markerNum; i++)
                       Marker(
-                        width: 70,
-                        height: 100,
-                        point: widget.stations[argsort[i]]["location"],
+                        width: 80,
+                        height: 120,
+                        point: stations[argsort[i]]["location"],
                         builder: (context) => GestureDetector(
                           onTap: () {
                             showLocation(i);
