@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Authentication/authenticate.dart';
+import 'package:water_app/Constants/all_info.dart';
 import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
-// import 'package:water_app/water_temperature.dart';
 import 'package:water_app/Pages/menu_book.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/Components/big_text.dart';
@@ -154,7 +154,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 if (!mounted) return;
                 Navigator.pop(context);
                 setState(() {
-                  currentWidget = const MenuBook();
+                  currentWidget = MenuBook(
+                    country: dataCountry,
+                  );
                 });
               },
             ),

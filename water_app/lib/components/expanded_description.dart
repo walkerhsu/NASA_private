@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/Components/tags_widget.dart';
-import 'package:water_app/information/screen_info.dart';
+import 'package:water_app/Constants/screen_info.dart';
 
 class ExpandedDescription extends StatefulWidget {
   final List<String> description; // [description, fact, advice] or [fact, advice]

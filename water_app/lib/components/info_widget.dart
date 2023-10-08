@@ -13,15 +13,25 @@ class InfoWidget extends StatelessWidget {
   final String distance;
   final String? collected;
   final String type;
+  final String rpi;
+  final String pH;
+  final String temperature;
+  final String NH3_N;
+  final String NH3_N_unit;
 
   const InfoWidget({
     super.key,
     this.name = 'cat',
     this.scientificName,
     this.waterName = 'Pacific Ocean',
-    this.distance = '500 m',
+    this.distance = '500',
     this.collected = 'uncollected',
     this.type = "species",
+    this.rpi = "0",
+    this.pH = "0",
+    this.temperature = "0",
+    this.NH3_N = "0",
+    this.NH3_N_unit = "mg/L",
   });
 
   @override
@@ -36,28 +46,29 @@ class InfoWidget extends StatelessWidget {
         const SizedBox(height: 5),
         SmallText(text: scientificName ?? "", fontStyle: FontStyle.italic),
         const SizedBox(height: 10),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 15,
+              spacing: 10,
               children: [
                 // List.generate()
                 SpecialIcon(
                   icon: Icons.wrap_text_outlined,
-                  size: 40,
+                  size: 30,
                 ),
-                SmallText(text: 'wrap text'),
+                BigText(text: "RPI:", size: 20,),
+                SmallText(text: rpi?? "0", size: 20),
               ],
             ),
             SizedBox(height: 10),
-            SmallText(text: 'smallify'),
+            SmallText(text: "pH: " + pH?? "0", size: 12),
             SizedBox(height: 10),
-            SmallText(text: 'smallify'),
+            SmallText(text: "temp: " + temperature?? "0", size: 12),
             SizedBox(height: 10),
-            SmallText(text: 'smallify'),
-            SizedBox(width: 5),
+            SmallText(text: "NH3-N: " + NH3_N + " " + NH3_N_unit?? "mg/L", size: 12),
+            // SizedBox(width: 5),
           ],
         ),
         const SizedBox(height: 20),
@@ -70,7 +81,7 @@ class InfoWidget extends StatelessWidget {
               icon: Icons.circle_sharp,
             ),
             TagsWidget(
-              tagName: distance,
+              tagName: (distance + " m"),
               icon: Icons.location_on,
             ),
             TagsWidget(

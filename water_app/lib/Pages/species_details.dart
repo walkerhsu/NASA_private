@@ -1,31 +1,38 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:water_app/Components/info_widget.dart';
+import 'package:water_app/Constants/all_info.dart';
 import 'package:water_app/processData/process_species.dart';
 
 class SpeciesDetails extends StatelessWidget {
-  late int index;
   final String speciesName;
   final Map<String, dynamic> station;
+  final String country;
 
-  SpeciesDetails({
+  const SpeciesDetails({
     super.key,
-    required this.station,
+    this.station = const {"waterbody": "Pacific Ocean"},
+    required this.country,
     this.speciesName = "Canada Goose",
-    this.index = 0,
   });
 
-  void nameToIdx() {
-    for (int i = 0; i < ProcessSpecies.CanadaSpecies.length; i++) {
-      if (ProcessSpecies.CanadaSpecies[i]["common_name"] == speciesName) {
+  int nameToIdx() {
+    int index = 0;
+    for (int i = 0; i < AllInfo.allSpecies[country].length; i++) {
+      print(speciesName);
+      print(AllInfo.allSpecies[country][i]["scientific_name"]);
+      if (AllInfo.allSpecies[country][i]["scientific_name"] == speciesName) {
         index = i;
-        break;
+        return index;
       }
     }
+    return -1;
   }
 
   @override
   Widget build(BuildContext context) {
+    print("index");
+    print(nameToIdx());
+    // print(AllInfo.allSpecies[country][6]);
     return Scaffold(
         body: Stack(
       children: [
@@ -38,7 +45,7 @@ class SpeciesDetails extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                      ProcessSpecies.CanadaSpecies[index]["image"]),
+                      AllInfo.allSpecies[country][nameToIdx()]["image"]),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -79,10 +86,10 @@ class SpeciesDetails extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: InfoWidget(
-                  name: ProcessSpecies.CanadaSpecies[index]["common_name"],
-                  scientificName: ProcessSpecies.CanadaSpecies[index]
+                  name: AllInfo.allSpecies[country][nameToIdx()]["common_name"],
+                  scientificName: AllInfo.allSpecies[country][nameToIdx()]
                       ["scientific_name"],
-                  waterName: station["river"],
+                  waterName: station["waterbody"],
                   type: "species",
                   // distance:
                   // collected:
