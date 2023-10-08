@@ -45,3 +45,7 @@ app.*.map.json
 
 # IOS Podfile
 water_app/ios/Podfile.lock
+
+.firebase/
+.firebaserc
+firebase.json
