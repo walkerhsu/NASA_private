@@ -34,6 +34,7 @@ class GptResponse extends StatelessWidget {
               )
             : Future.wait(
                 [
+                  HttpRequest.getWaterSource(water),
                   HttpRequest.getWaterFact(water),
                   HttpRequest.getWaterAdvice(water),
                 ],

@@ -55,6 +55,11 @@ abstract class HttpRequest {
     return await chatGPTAPI(prompt);
   }
 
+  static Future<String> getWaterSource(String? water) async {
+    String prompt = "what is the source of $water? 30 words";
+    return await chatGPTAPI(prompt);
+  }
+
   static Future<String> chatGPTAPI(String prompt) async {
     List<Map<String, String>> messages = [];
     messages.add({
