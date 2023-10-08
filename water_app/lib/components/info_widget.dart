@@ -137,7 +137,7 @@ class InfoWidget extends StatelessWidget {
         // ),
         // const SizedBox(height: 10),
         type == "species"
-            ? GptResponse(species: name, water: null, type: type)
+            ? GptResponse(species: scientificName, water: null, type: type)
             : type == "water"
                 ? GptResponse(species: null, water: name, type: type)
                 : GptResponse(species: null, water: null, type: type),

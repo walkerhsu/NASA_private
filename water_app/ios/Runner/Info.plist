@@ -28,16 +28,14 @@
 	<true/>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1Ijoid2Fsa2VyaHN1IiwiYSI6ImNsbXd6N2FkdTBsdGEybHBoM2Riajh3aXcifQ.u2DBinAPW6TC9kdS-lJW8A</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs to use camera to take photo.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This app needs access to location when in the background.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This app needs access to location when open.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>This app needs to use camera to take photo.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app needs to use your photo library to save the image you've taken.</string>
-	<!-- <key>NSMicrophoneUsageDescription</key> -->
-	<!-- <string>your usage description here</string> -->
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
