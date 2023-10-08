@@ -1,10 +1,8 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:water_app/Camera/camera.dart';
-import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/Pages/markers.dart';
 import 'package:water_app/processData/process_book.dart';
 import 'package:water_app/processData/process_stations.dart';
@@ -115,8 +113,8 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late List<int> argsort = [];
   late LatLng currentLocation;
   late List<Map<String, dynamic>> stations;
-  late List<CameraDescription> _cameras;
   late String country;
+  late Timer timerCurrentPosition;
 
   final int markerNum = 10;
 
@@ -160,6 +158,17 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
       initialPage: 0,
     );
     stations = widget.stations;
+    timerCurrentPosition =
+        Timer.periodic(const Duration(seconds: 10), (timer) async {
+      if (mounted) {
+        await GetCurrentLocation.handleCurrentPosition(context, widget.country)
+            .then((value) {
+          setState(() {
+            currentLocation = value;
+          });
+        });
+      }
+    });
   }
 
   Future<LatLng> refreshLocation() async {
@@ -188,13 +197,17 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               maxZoom: 18,
               zoom: 12,
               center: refLocation ?? currentLocation,
-              onTap: (tapPosition, point) {
-                _animatedMapMove(point, 12);
+              onTap: (_, point) {
+                List<int> newArgSort =
+                    ProcessStations.sortStations(point, country);
                 setState(() {
                   refLocation = point;
-                  argsort = ProcessStations.sortStations(refLocation!, country);
+                  argsort = newArgSort;
                   selectedIndex = argsort[0];
                   drawMapData = true;
+                });
+                SchedulerBinding.instance.addPostFrameCallback((_) {
+                  _animatedMapMove(point, 12);
                 });
               },
               onPositionChanged: (position, hasGesture) {
@@ -215,16 +228,56 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   'mapStyleId': "clnfny2al01j001ps7ep1g539",
                 },
               ),
-              MarkerLayers(
-                currentPosition: widget.currentPosition,
-                refPosition: refLocation,
-                stations: stations,
-                argsort: argsort,
-                showLocation: showLocation,
-                follow: true,
-                selectedindex: selectedIndex,
-                country: country,
-              ),
+              Stack(children: [
+                MarkerLayer(
+                  markers: [
+                    for (int i = 0; i < markerNum; i++)
+                      Marker(
+                        width: 70,
+                        height: 100,
+                        point: widget.stations[argsort[i]]["location"],
+                        builder: (context) => GestureDetector(
+                          onTap: () {
+                            showLocation(i);
+                            setState(() {
+                              selectedIndex = argsort[i];
+                            });
+                          },
+                          child: AnimatedScale(
+                            duration: const Duration(milliseconds: 500),
+                            scale: argsort[i] == selectedIndex ? 1 : 0.7,
+                            child: AnimatedOpacity(
+                              duration: const Duration(milliseconds: 500),
+                              opacity: argsort[i] == selectedIndex ? 1 : 0.5,
+                              child: Column(children: [
+                                Text(
+                                  stations[argsort[i]]["station"],
+                                  style: const TextStyle(
+                                    fontSize: 10,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 5),
+                                SvgPicture.asset(
+                                  'assets/icons/map_marker.svg',
+                                ),
+                              ]),
+                            ),
+                          ),
+                        ),
+                      ),
+                    Marker(
+                      width: 30,
+                      height: 30,
+                      point: currentLocation,
+                      builder: (context) => Image.asset(
+                        'assets/icons/current_position.png',
+                      ),
+                    ),
+                  ],
+                ),
+              ]),
               SpeciesMarker(
                   country: country,
                   currentPosition: widget.currentPosition,
@@ -250,48 +303,10 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   },
                   itemCount: markerNum,
                   itemBuilder: (_, index) {
-                    return MapData(
-                      station: stations[argsort[index]],
-                    );
+                    return MapData(station: stations[index]);
                   },
                 )
               : const SizedBox.shrink(),
-        ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: const EdgeInsets.only(top: 50, left: 20, right: 20),
-            width: double.infinity,
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: IconButton(
-                      icon: Icon(
-                        Icons.photo_camera,
-                        color: Colors.white.withOpacity(.5),
-                      ),
-                      onPressed: () async {
-                        _cameras = await availableCameras();
-                        String image = await CloudStorage.getImageURL(
-                            "image1.png", country);
-                        if (!mounted) return;
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) {
-                            return CameraPage(
-                                camera: _cameras[0],
-                                country: country,
-                                scientificName: "image1",
-                                image: image);
-                          }),
-                        );
-                      }))
-            ]),
-          ),
         ),
         Align(
           alignment: Alignment.topRight,

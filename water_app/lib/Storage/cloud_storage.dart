@@ -23,8 +23,7 @@ abstract class CloudStorage {
       return await canadaSpeciesRef.child(imageName).getDownloadURL();
     } else if (reference == "America") {
       return await americaSpeciesRef.child(imageName).getDownloadURL();
-    }
-    else if (reference == "stations") {
+    } else if (reference == "stations") {
       return await stationsRef.child(imageName).getDownloadURL();
     } else {
       return "assets/images/Logo.png";

@@ -38,20 +38,19 @@ abstract class GetCurrentLocation {
 
   static Future<LatLng> handleCurrentPosition(context, String country) async {
     final hasPermission = await _handleLocationPermission(context);
-    if (!hasPermission || kIsWeb) {
-      if (country != "Taiwan" && country != "Canada" && country != "America") {
-        return MapConstants.myLocation[country]!;
-      } else {
-        return MapConstants.myLocation["Taiwan"]!;
-      }
-    }
 
     Position position = await Geolocator.getCurrentPosition(
         // forceAndroidLocationManager: true,
         desiredAccuracy: LocationAccuracy.best);
     LatLng currentLocation = LatLng(position.latitude, position.longitude);
-    // print("Location: $currentLocation");
-
+    if (!hasPermission || kIsWeb) {
+      if (country == "Taiwan" || country == "Canada" || country == "America") {
+        // return MapConstants.myLocation[country]!;
+        return currentLocation;
+      } else {
+        return MapConstants.myLocation["Taiwan"]!;
+      }
+    }
     List<Placemark> placemark = [];
     try {
       placemark =
@@ -59,6 +58,7 @@ abstract class GetCurrentLocation {
     } catch (e) {
       // print(e);
       // web error: MissingPluginException
+      // print(MapConstants.myLocation[country]!);
       return currentLocation;
     }
 

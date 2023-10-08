@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:csv/csv.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 

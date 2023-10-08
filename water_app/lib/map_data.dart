@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/Pages/spot_details.dart';
-import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/components/special_card.dart';
 // import 'package:water_app/processData/process_species.dart';
 // import 'package:water_app/Details/get_chatGPT_data.dart';
@@ -19,7 +18,6 @@ class _MapDataState extends State<MapData> {
   void initState() {
     super.initState();
     station = widget.station;
-    
   }
 
   @override
@@ -33,28 +31,9 @@ class _MapDataState extends State<MapData> {
               builder: (context) => SpotDetails(station: station),
             ),
           );
-          // Navigator.of(context).push(
-          //   MaterialPageRoute(
-          //     builder: (context) => GetDetailData(location: stations['location']),
-          //   ),
-          // );
-          // Navigator.of(context).push(
-          //   MaterialPageRoute(
-          //     builder: (context) => GetChatGPTData(station: station),
-          //   ),
-          // );
-          // if(station['location'] != null) {
-          //   print(station['location']);
-          // }
-          // LocalNotificationService.showLocalNotification(
-          //   'Yay you did it!',
-          //   'Congrats on your first local notification',
-          // );
         },
-        child: SpecialCard(station: station)
+        child: SpecialCard(station: station),
       ),
     );
   }
 }
-
-

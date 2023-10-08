@@ -114,7 +114,7 @@ abstract class ProcessStations {
       for (int i = 1; i < AmericaRiverData.length; i++) {
         Map<String, dynamic> stationData = {};
         for (int j = 0; j < dataName.length; j++) {
-          stationData[dataName[j]] = AmericaRiverData[i][j+1];
+          stationData[dataName[j]] = AmericaRiverData[i][j + 1];
         }
         LatLng latLng =
             LatLng(stationData["latitude"], stationData["longitude"]);
@@ -137,28 +137,27 @@ abstract class ProcessStations {
       for (int i = 0; i < taiwanStationData.length; i++) {
         argsort.add(i);
       }
-      argsort.sort((a, b) => CalculateDistance.calaulateDistance(
+      argsort.sort((a, b) => CalculateDistance.calculateDistance(
               currentPosition, taiwanStationData[a]["location"])
-          .compareTo(CalculateDistance.calaulateDistance(
+          .compareTo(CalculateDistance.calculateDistance(
               currentPosition, taiwanStationData[b]["location"])));
     } else if (country == "Canada") {
       for (int i = 0; i < CanadaStationData.length; i++) {
         argsort.add(i);
       }
-      argsort.sort((a, b) => CalculateDistance.calaulateDistance(
+      argsort.sort((a, b) => CalculateDistance.calculateDistance(
               currentPosition, CanadaStationData[a]["location"])
-          .compareTo(CalculateDistance.calaulateDistance(
+          .compareTo(CalculateDistance.calculateDistance(
               currentPosition, CanadaStationData[b]["location"])));
     } else if (country == "America") {
       for (int i = 0; i < AmericaStationData.length; i++) {
         argsort.add(i);
       }
-      argsort.sort((a, b) => CalculateDistance.calaulateDistance(
+      argsort.sort((a, b) => CalculateDistance.calculateDistance(
               currentPosition, AmericaStationData[a]["location"])
-          .compareTo(CalculateDistance.calaulateDistance(
+          .compareTo(CalculateDistance.calculateDistance(
               currentPosition, AmericaStationData[b]["location"])));
     }
-
     return argsort;
   }
 }

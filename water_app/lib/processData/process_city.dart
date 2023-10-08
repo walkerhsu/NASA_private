@@ -1,4 +1,5 @@
 // import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:csv/csv.dart';
@@ -23,18 +24,20 @@ abstract class ProcessCities {
       "assets/data/worldcities.csv",
     );
     late List<List<dynamic>> cityRawData;
-    if (Platform.isAndroid) {
+    if (kIsWeb) {
       cityRawData = const CsvToListConverter().convert(
         cityDataString,
-      );
-    } else if (Platform.isIOS) {
-      cityRawData = const CsvToListConverter().convert(
-        cityDataString, eol: "\n"
       );
     } else {
-      cityRawData = const CsvToListConverter().convert(
-        cityDataString,
-      );
+      // print(Platform.isAndroid);
+      if (Platform.isAndroid) {
+        cityRawData = const CsvToListConverter().convert(
+          cityDataString,
+        );
+      } else if (Platform.isIOS) {
+        cityRawData =
+            const CsvToListConverter().convert(cityDataString, eol: "\n");
+      }
     }
 
     for (int i = 1; i < cityRawData.length; i++) {

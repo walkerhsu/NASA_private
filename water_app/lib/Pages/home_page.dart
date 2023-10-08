@@ -9,6 +9,7 @@ import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/globals.dart';
+import 'package:water_app/information/map_consts.dart';
 import 'package:water_app/processData/process_city.dart';
 // import 'package:get/get.dart';
 
@@ -29,6 +30,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   late Widget currentWidget;
   late final List<Map<String, dynamic>> locations;
+  List<String> IconURL = [
+    'assets/icons/taiwan.png',
+    'assets/icons/united-states.png',
+    'assets/icons/canada.png',
+  ];
 
   int currentDrawerIndex = 0;
   @override
@@ -131,12 +137,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width * 0.5,
               child: const DrawerHeader(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color(0xFFE0E0E0),
                 ),
                 child: Center(
-                    child: const BigText(
-                        text: 'Water App',
+                    child: BigText(
+                        text: 'Blue Vista',
                         size: 20,
                         fontWeight: FontWeight.normal)),
               ),
@@ -154,18 +160,23 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
             for (int i = 0; i < dataCountries.length; i++)
               ListTile(
-                  leading: const Icon(Icons.height_outlined),
+                  leading: Image.asset(
+                    IconURL[i],
+                    width: 24.0,
+                  ),
                   title: SmallText(text: dataCountries[i], size: 16),
                   onTap: () {
                     Navigator.pop(context);
                     setState(() {
-                      currentWidget =
-                          CheckCurrentPosition(country: dataCountries[i]);
                       dataCountry = dataCountries[i];
+                      currentWidget = CheckCurrentPosition(
+                          country: dataCountries[i],
+                          refSearchLocation:
+                              MapConstants.myLocation[dataCountries[i]]);
                     });
                   }),
             ListTile(
-              leading: const Icon(Icons.height_outlined),
+              leading: Icon(Icons.logout, color: Colors.grey[600]),
               title: const Text('Logout'),
               onTap: () async {
                 if (!mounted) return;

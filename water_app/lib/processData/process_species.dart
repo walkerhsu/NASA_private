@@ -105,9 +105,9 @@ abstract class ProcessSpecies {
       for (int i = 0; i < TaiwanSpecies.length; i++) {
         argsort.add(i);
       }
-      argsort.sort((a, b) => CalculateDistance.calaulateDistance(
+      argsort.sort((a, b) => CalculateDistance.calculateDistance(
               currentPosition, TaiwanSpecies[a]["location"])
-          .compareTo(CalculateDistance.calaulateDistance(
+          .compareTo(CalculateDistance.calculateDistance(
               currentPosition, TaiwanSpecies[b]["location"])));
     } else if (country == "Canada") {}
 
