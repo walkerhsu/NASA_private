@@ -52,7 +52,7 @@ abstract class ProcessStations {
       for (int i = 1; i < taiwanRiverData.length; i++) {
         Map<String, dynamic> stationData = {};
         for (int j = 0; j < dataName.length; j++) {
-          stationData[dataName[j]] = taiwanRiverData[i][j];
+          stationData[dataName[j]] = taiwanRiverData[i][j + 1];
         }
         LatLng latLng =
             LatLng(stationData["latitude"], stationData["longitude"]);
