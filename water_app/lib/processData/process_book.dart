@@ -2,6 +2,7 @@
 
 import 'package:csv/csv.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
+import 'package:water_app/globals.dart';
 
 abstract class ProcessBook {
   static Map<String, Map<String, dynamic>> book = {};
@@ -23,6 +24,7 @@ abstract class ProcessBook {
       for (int i = 1; i < bookCsv.length; i++) {
         Map<String, dynamic> bookData = {};
         String s = bookCsv[i][NOBGIMAGEIDX];
+        bookData["collected"] = currentUser.seenSpecies.contains(bookCsv[i][SCINAMEIDX]);
         bookData["no_bg_image"] = s.substring(0, s.length - 1);
         bookData["image"] = bookCsv[i][IMAGEIDX];
         bookData["scientific_name"] = bookCsv[i][SCINAMEIDX];
