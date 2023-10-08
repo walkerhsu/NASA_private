@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'BlueVista',
       theme: AppTheme.themeData(false, context),
       // home: const MyHomePage(title: 'Flutter Map Home Page'),
       initialRoute: HomeScreen.id,
@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
         SignUpScreen.id: (context) => const SignUpScreen(),
         MyHomePage.id: (context) => const MyHomePage(title: 'BlueVista'),
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }

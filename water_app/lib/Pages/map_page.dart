@@ -222,11 +222,11 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
             nonRotatedChildren: [
               TileLayer(
                 urlTemplate:
-                    "https://api.mapbox.com/styles/v1/markymarklee/{mapStyleId}/tiles/256/{z}/{x}/{y}?access_token={accessToken}",
+                    "https://api.mapbox.com/styles/v1/markymarklee/{mapStyleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
                 additionalOptions: const {
                   'accessToken':
                       "pk.eyJ1IjoibWFya3ltYXJrbGVlIiwiYSI6ImNsbmV2MmJpczBnYmgydHBkZ2l5czRmMGwifQ.lHpfBNNYv6tWDfhiJWHhNA",
-                  'mapStyleId': "clnfny2al01j001ps7ep1g539",
+                  'mapStyleId': "clnh585ju01j501pu1hvggjk5",
                 },
               ),
               Stack(children: [
