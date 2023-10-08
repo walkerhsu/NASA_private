@@ -6,7 +6,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:water_app/Pages/markers.dart';
 import 'package:water_app/processData/process_book.dart';
 import 'package:water_app/processData/process_stations.dart';
-import 'package:water_app/information/map_consts.dart';
+import 'package:water_app/Constants/map_consts.dart';
 import 'package:water_app/map_data.dart';
 import 'package:water_app/processData/process_species.dart';
 import 'package:water_app/map_location.dart';
@@ -57,6 +57,7 @@ class MapPageBuilder extends StatelessWidget {
             ? Future.wait([
                 ProcessStations.processCsv(context, "Canada"),
                 ProcessBook.processCsv(context),
+                
               ])
             : Future.wait([
                 ProcessSpecies.processCsv(context, country),
@@ -303,7 +304,11 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   },
                   itemCount: markerNum,
                   itemBuilder: (_, index) {
-                    return MapData(station: stations[index]);
+                    return MapData(
+                      station: stations[argsort[index]],
+                      country: country,
+                      currentPosition: widget.currentPosition,
+                    );
                   },
                 )
               : const SizedBox.shrink(),

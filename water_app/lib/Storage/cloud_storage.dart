@@ -30,6 +30,16 @@ abstract class CloudStorage {
     }
   }
 
+  static Future<List<String>> getImageURLs (List<Map<String,dynamic>> species ,String reference) async {
+    // ignore: non_constant_identifier_names
+    List<String> URLs = [];
+    for (int i=0; i<species.length; i++) {
+      String url = await getImageURL(species[i]['no_bg_image'], reference);
+      URLs.add(url);
+    }
+    return URLs;
+  }
+
   static Future<String> getCanadaStationsCSV() async {
     return getRawtxtData("canada_stations.csv");
   }

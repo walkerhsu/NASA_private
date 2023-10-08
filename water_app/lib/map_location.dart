@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:water_app/information/map_consts.dart';
+import 'package:water_app/Constants/map_consts.dart';
 import 'package:geocoding/geocoding.dart';
 
 abstract class GetCurrentLocation {

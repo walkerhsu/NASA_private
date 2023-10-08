@@ -13,6 +13,7 @@ class TagsWidgetButton extends StatelessWidget {
   final double width;
   final double height;
   final Map<String, dynamic> station;
+  final String country;
   static Color defaultColor = const Color.fromARGB(255, 0, 128, 128);
   static Color blueColor = const Color.fromARGB(255, 70, 130, 180);
   static Color brownColor = const Color.fromARGB(255, 149, 69, 53);
@@ -29,6 +30,7 @@ class TagsWidgetButton extends StatelessWidget {
     this.width = 125,
     this.height = 35,
     required this.station,
+    required this.country,
   });
 
   @override
@@ -39,6 +41,7 @@ class TagsWidgetButton extends StatelessWidget {
           builder: (context) => SpeciesDetails(
             station: station,
             speciesName: tagName,
+            country: country,
           ),
         ));
       },

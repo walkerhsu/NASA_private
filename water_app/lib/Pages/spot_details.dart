@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:water_app/Components/info_widget.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Components/tags_widget_button.dart';
+import 'package:water_app/Constants/all_info.dart';
+import 'package:water_app/globals.dart';
+import 'package:water_app/processData/calculate_distance.dart';
 import 'package:water_app/processData/process_stations.dart';
-// import 'package:get/route_manager.dart';
-// import 'package:get/get.dart';
-// import 'package:water_app/map_location.dart';
-// import 'package:water_app/Pages/map_page.dart';
 
 class SpotDetails extends StatelessWidget {
   final int index;
   final Map<String, dynamic> station;
+  final String country;
+  final LatLng currentPosition;
 
-  const SpotDetails({super.key, required this.station, this.index = 2});
+  const SpotDetails(
+      {super.key,
+      required this.station,
+      required this.country,
+      required this.currentPosition,
+      this.index = 1});
 
   @override
   Widget build(BuildContext context) {
+    print("INFO");
+    print(AllInfo.allStations[country][index]);
+
     return Scaffold(
         body: Stack(
           children: [
@@ -26,9 +35,10 @@ class SpotDetails extends StatelessWidget {
                 child: Container(
                   width: double.maxFinite,
                   height: 350,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/images/observatory.png'),
+                      // image: NetworkImage(AllInfo.allStations[country][index]["image"]),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -53,7 +63,6 @@ class SpotDetails extends StatelessWidget {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        // await Get.to(() => CheckCurrentPosition());
                         Navigator.pop(context);
                       },
                     ),
@@ -62,7 +71,7 @@ class SpotDetails extends StatelessWidget {
             Positioned(
                 left: 0,
                 right: 0,
-                top: 330,
+                top: 300,
                 bottom: 0,
                 child: Container(
                     padding: const EdgeInsets.only(left: 20, right: 20),
@@ -71,20 +80,25 @@ class SpotDetails extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: InfoWidget(
-                      name: station['station'],
-                      type: "water",
-                      // distance:
-                      // collected:
-                    ))),
+                        name: station['station'],
+                        rpi: station['RPI'].toString(),
+                        pH: station['pH'].toString(),
+                        temperature: station['temperature'].toString(),
+                        NH3_N: station['NH3-N'].toString(),
+                        NH3_N_unit: station['NH3-N_unit'],
+                        type: "water",
+                        waterName: (country == "Taiwan")?station['river']:station["waterbody"],
+                        distance: CalculateDistance.calculateDistance(
+                                station['location'], currentPosition)
+                            .toString(),
+                        ))),
           ],
         ),
-        // (!ProcessStations.taiwanStationData[index]["species1"].isEmpty || !ProcessStations.taiwanStationData[index]["species2"].isEmpty || !ProcessStations.taiwanStationData[index]["species3"].isEmpty)?
-        bottomNavigationBar: (!ProcessStations
-                    .taiwanStationData[index]["species1"].isEmpty ||
-                !ProcessStations
-                    .taiwanStationData[index]["species2"].isEmpty ||
-                !ProcessStations
-                    .taiwanStationData[index]["species3"].isEmpty)
+        // (!AllInfo.allStations[country][index]["species1"] || !AllInfo.allStations[country][index]["species2"] || !AllInfo.allStations[country][index]["species3"])?
+        bottomNavigationBar: (AllInfo.allStations[country][index]["species1"] !=
+                    null ||
+                AllInfo.allStations[country][index]["species2"] != null ||
+                AllInfo.allStations[country][index]["species3"] != null)
             ? Container(
                 height: 100,
                 padding: const EdgeInsets.only(
@@ -98,41 +112,47 @@ class SpotDetails extends StatelessWidget {
                 ),
                 child: ListView(children: <Widget>[
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      (!ProcessStations
-                              .taiwanStationData[index]["species1"].isEmpty)
+                      (AllInfo.allStations[country][index]["species1"] != "")
                           ? TagsWidgetButton(
-                              tagName: ProcessStations
-                                  .taiwanStationData[index]["species1"],
+                              tagName: AllInfo.allStations[country][index]
+                                  ["species1"],
                               icon: Icons.tag_rounded,
                               iconColor: TagsWidget.brownColor,
                               station: station,
+                              country: country,
                             )
                           : const SizedBox(width: 0),
-                      const SizedBox(width: 5),
-                      (!ProcessStations
-                              .taiwanStationData[index]["species2"].isEmpty)
+                      (AllInfo.allStations[country][index]["species1"] != "")
+                          ? const SizedBox(width: 5)
+                          : const SizedBox(width: 0),
+                      (AllInfo.allStations[country][index]["species2"] != "")
                           ? TagsWidgetButton(
-                              tagName: ProcessStations
-                                  .taiwanStationData[index]["species2"],
+                              tagName: AllInfo.allStations[country][index]
+                                  ["species2"],
                               icon: Icons.tag_rounded,
                               iconColor: TagsWidget.brownColor,
                               station: station,
+                              country: country,
                             )
                           : const SizedBox(width: 0),
-                      const SizedBox(width: 5),
-                      (!ProcessStations
-                              .taiwanStationData[index]["species3"].isEmpty)
+                      (AllInfo.allStations[country][index]["species2"] != "")
+                          ? const SizedBox(width: 5)
+                          : const SizedBox(width: 0),
+                      (AllInfo.allStations[country][index]["species3"] != "")
                           ? TagsWidgetButton(
-                              tagName: ProcessStations
-                                  .taiwanStationData[index]["species3"],
+                              tagName: AllInfo.allStations[country][index]
+                                  ["species3"],
                               icon: Icons.tag_rounded,
                               iconColor: TagsWidget.brownColor,
                               station: station,
+                              country: country,
                             )
                           : const SizedBox(width: 0),
-                      const SizedBox(width: 5),
+                      (AllInfo.allStations[country][index]["species3"] != "")
+                          ? const SizedBox(width: 5)
+                          : const SizedBox(width: 0),
                     ],
                   )
                 ]),
