@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:water_app/Components/info_widget.dart';
+import 'package:water_app/Components/info_widgets.dart';
 import 'package:water_app/Constants/all_info.dart';
 import 'package:water_app/Constants/screen_info.dart';
 import 'package:water_app/globals.dart';
 import 'package:water_app/processData/calculate_distance.dart';
+import 'package:water_app/processData/process_book.dart';
 // import 'package:water_app/processData/process_species.dart';
 
 class SpeciesDetails extends StatelessWidget {
@@ -81,17 +82,17 @@ class SpeciesDetails extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: InfoWidget(
-                  name: species["common_name"],
+                  name: ProcessBook.getCommonName(species["scientific_name"]),
                   scientificName: species["scientific_name"],
                   waterName: station["waterbody"],
                   type: "species",
                   distance: CalculateDistance.calculateDistance(
-                          currentPosition, station['location'])
-                      .toString(),
+                          currentPosition, station['location']),
                   collected: currentUser.seenSpecies
                       .contains(species["scientific_name"])
                       .toString(),
                   country: country,
+                  location: station["location"],
                 )))
       ],
     ));

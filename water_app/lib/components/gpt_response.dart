@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:water_app/Components/loading.dart';
 import 'package:water_app/HTTP/http_request.dart';
 import 'package:water_app/Components/expanded_description.dart';
 import 'package:water_app/Components/big_text.dart';
@@ -16,7 +17,7 @@ class GptResponse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> title = ["Introduce"];
+    List<String> title = ["Introduction"];
     if (type == "species") {
       title = ["Introduce", "Fun Fact", "How to protect species"];
     } else {
@@ -72,7 +73,7 @@ class GptResponse extends StatelessWidget {
               ),
             );
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return const Loading();
           }
         });
   }

@@ -23,8 +23,8 @@ class TagsWidget extends StatelessWidget {
     this.icon = Icons.tag_rounded,
     this.iconBackgroundColor = Colors.white,
     this.iconColor = const Color.fromARGB(255, 0, 128, 128),
-    this.iconRatio = 0.7,
-    this.width = 125,
+    this.iconRatio = 0.6,
+    this.width = 100,
     this.height = 25,
   });
 
@@ -46,9 +46,7 @@ class TagsWidget extends StatelessWidget {
               size: height * iconRatio,
             ),
             SizedBox(width: width * 0.03),
-            Flexible(
-              child: SmallText(text: tagName, size: textsize),
-            ),
+            SmallText(text: tagName, size: textsize),
           ],
         ));
   }
