@@ -8,8 +8,5 @@
 4. [Water data from Taiwan river observation station](https://wq.moenv.gov.tw/EWQP/en/EnvWaterMonitoring/River.aspx?fbclid=IwAR1xRbfgRkHeI61t3m2la2YRffZSVrD7U3RACuik6oVYpNgAWOmLuIJRL9Q)
 5. [threatened species in Taiwan](https://www.inaturalist.org/observations?photos&place_id=7887&threatened&verifiable=any&view=species&iconic_taxa=Mollusca,Actinopterygii,unknown)
 
-## Installation
-
-1. Get 4.6.6 (https://pub.dev/packages/get/install)
 
 

@@ -6,45 +6,38 @@ A new Flutter project named water_app.
 
 -   Login
 
-    -   [ ] Login with Google
-    -   [ ] Login with Facebook
+    -   [x] Login with email
 
--   Taiwan map
+-   Taiwan map / Canada map / America map
 
     -   [x] Show markers on observation stations
     -   [x] Show circle on current position
     -   [x] Show rough data for those observation stations in cards
-    -   [ ] Show detail data for observation stations when tapped
-    -   [ ] recalculate data when the current position is moved
-    -   [ ] Show nearby species on the map
-
--   Canada map
-
-    -   [ ] Show markers on observation stations
-    -   [x] Show circle on current position
-    -   [ ] Show rough data for those observation stations in cards
-    -   [ ] Show detail data for observation stations when tapped
-    -   [ ] recalculate data when the current position is moved
+    -   [x] Show detail data for observation stations when tapped
+    -   [x] recalculate data when the current position is moved
+    -   [x] Show nearby species on the map
+    -   [x] Search bar for cities
 
 -   Detail data
 
-    -   [ ] Show water data for observation stations
-    -   [ ] Show species data for observation stations
-    -   [ ] Show message on how to preserve the species
+    -   [x] Show water data for observation stations
+    -   [x] Show species data for observation stations
+    -   [x] Show message on how to preserve the species
 
 -   Camera
 
-    -   [ ] When to trigger camera
+    -   [x] Trigger camera when tap on species
     -   [x] Take photo with an overlay species image
     -   [x] Show photo preview and allow user to retake
     -   [x] Save photo to image gallery
-    -   [ ] support web camera
+    -   [x] support web camera
 
 -   Illustrated species book
 
-    -   [ ] Show species list
-    -   [ ] Show what species you've found
-    -   [ ] Show species detail
+    -   [x] Show species list
+    -   [x] Show what species you've found
+    -   [x] Show species detail
+    -   [x] Show species rarity
 
 -   Notification
 
