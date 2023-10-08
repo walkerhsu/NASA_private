@@ -52,7 +52,7 @@ class InfoWidget extends StatelessWidget {
         const SizedBox(height: 5),
         SmallText(text: scientificName ?? "", fontStyle: FontStyle.italic),
         const SizedBox(height: 10),
-        type == "species" 
+        type == "species" || country == "Canada"
         ? 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,7 +60,7 @@ class InfoWidget extends StatelessWidget {
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               spacing: 10,
-              children: [
+              children: (type == "species")?[
                 // List.generate()
                 const SpecialIcon(
                   icon: Icons.wrap_text_outlined,
@@ -68,15 +68,10 @@ class InfoWidget extends StatelessWidget {
                 ),
                 const BigText(text: "RANK:", size: 20,),
                 BigText(text: ProcessBook.book[scientificName]!["rank"], size: 20),
+              ]:[
+                const SizedBox(height: 0),
               ],
-            ),
-            // SizedBox(height: 10),
-            // SmallText(text: "pH: " + pH?? "0", size: 12),
-            // SizedBox(height: 10),
-            // SmallText(text: "temp: " + temperature?? "0", size: 12),
-            // SizedBox(height: 10),
-            // SmallText(text: "NH3-N: " + NH3_N + " " + NH3_N_unit?? "mg/L", size: 12),
-            // SizedBox(width: 5),
+            ), 
           ],
         )
         :
@@ -113,6 +108,7 @@ class InfoWidget extends StatelessWidget {
             TagsWidget(
               tagName: waterName,
               icon: Icons.circle_sharp,
+              height: 32,
             ),
             TagsWidget(
               tagName: (distance + " m"),
@@ -137,32 +133,10 @@ class InfoWidget extends StatelessWidget {
         // ),
         // const SizedBox(height: 10),
         type == "species"
-            ? GptResponse(species: name, water: null, type: type)
+            ? GptResponse(species: scientificName, water: null, type: type)
             : type == "water"
-                ? GptResponse(species: null, water: name, type: type)
+                ? GptResponse(species: null, water: waterName, type: type)
                 : GptResponse(species: null, water: null, type: type),
-        
-        // const ExpandedDescription(description: SpeciesInfo.blueWhale),
-        // type == "Observatory"
-        //     ?
-        //     const Column(
-        //       children: [
-        //         BigText(
-        //           text: 'Water Quality',
-        //           size: 24,
-        //         ),
-        //         ExpandedDescription(description: ObservatoryInfo.wois),
-        //     ])
-        //     : const Expanded(
-        //         child: SingleChildScrollView(
-        //             child: Column(children: [
-        //         BigText(
-        //           text: 'Introduce',
-        //           size: 24,
-        //         ),
-        //         ExpandedDescription(description: SpeciesInfo.blueWhale),
-        //       ])))
-        // ,
       ],
     );
   }

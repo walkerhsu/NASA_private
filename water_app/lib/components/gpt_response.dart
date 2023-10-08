@@ -20,7 +20,7 @@ class GptResponse extends StatelessWidget {
     if (type == "species") {
       title = ["Introduce", "Fun Fact", "How to protect species"];
     } else {
-      title = ["Introduce", "What you need to be aware of"];
+      title = ["Water Source", "Introduce", "What you need to be aware of"];
     }
     // print(title[0]);
     return FutureBuilder(

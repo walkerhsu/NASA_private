@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Components/info_widget.dart';
+import 'package:water_app/Components/special_card.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Components/tags_widget_button.dart';
 import 'package:water_app/Constants/all_info.dart';
+import 'package:water_app/Constants/screen_info.dart';
 import 'package:water_app/processData/calculate_distance.dart';
 
 class SpotDetails extends StatelessWidget {
@@ -32,15 +34,17 @@ class SpotDetails extends StatelessWidget {
                 right: 0,
                 child: Hero(
                   tag: "home_to_info",
-                  child: Container(
+                  child: SizedBox(
                       width: double.maxFinite,
                       height: 350,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/observatory.png'),
-                          fit: BoxFit.cover,
-                        ),
-                      )),
+                      // decoration: BoxDecoration(
+                      //   image: DecorationImage(
+                      //     image: GetImageData() as ImageProvider<Object>,
+                      //     // image: AssetImage('assets/images/observatory.png'),
+                      //     fit: BoxFit.cover,
+                      //   ),
+                      // ),
+                      child: GetImageData()),
                 )),
             Positioned(
               top: 45,
@@ -49,12 +53,6 @@ class SpotDetails extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // SpecialIcon(
-                    //   icon: Icons.arrow_back_ios_rounded,
-                    //   backgroundColor: Colors.black.withOpacity(0.5),
-                    //   iconColor: Colors.white,
-                    //   size: 40,
-                    // ),
                     IconButton(
                       iconSize: 30,
                       icon: const Icon(
@@ -70,7 +68,7 @@ class SpotDetails extends StatelessWidget {
             Positioned(
                 left: 0,
                 right: 0,
-                top: 300,
+                top: Constants.screenHeight * 0.35,
                 bottom: 0,
                 child: Container(
                     padding: const EdgeInsets.only(left: 20, right: 20),
@@ -78,22 +76,30 @@ class SpotDetails extends StatelessWidget {
                       color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: InfoWidget(
-                      name: station['station'],
-                      rpi: station['RPI'].toString(),
-                      pH: station['pH'].toString(),
-                      temperature: station['temperature'].toString(),
-                      NH3_N: station['NH3-N'].toString(),
-                      NH3_N_unit: station['NH3-N_unit'],
-                      type: "water",
-                      waterName: (country == "Taiwan")
-                          ? station['river']
-                          : station["waterbody"],
-                      distance: CalculateDistance.calculateDistance(
-                              station['location'], currentPosition)
-                          .toString(),
-                      country: country,
-                    ))),
+                    child: (country == "Canada")
+                        ? InfoWidget(
+                            name: station['station'],
+                            type: "water",
+                            waterName: station['waterbody'],
+                            distance: CalculateDistance.calculateDistance(
+                                    station['location'], currentPosition)
+                                .toString(),
+                            country: country,
+                          )
+                        : InfoWidget(
+                            name: station['station'],
+                            rpi: station['RPI'].toString(),
+                            pH: station['pH'].toString(),
+                            temperature: station['temperature'].toString(),
+                            NH3_N: station['NH3-N'].toString(),
+                            NH3_N_unit: station['NH3-N_unit'].toString(),
+                            type: "water",
+                            waterName: station['river'],
+                            distance: CalculateDistance.calculateDistance(
+                                    station['location'], currentPosition)
+                                .toString(),
+                            country: country,
+                          ))),
           ],
         ),
         // (!AllInfo.allStations[country][index]["species1"] || !AllInfo.allStations[country][index]["species2"] || !AllInfo.allStations[country][index]["species3"])?
@@ -114,7 +120,7 @@ class SpotDetails extends StatelessWidget {
                 ),
                 child: ListView(children: <Widget>[
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       (AllInfo.allStations[country][index]["species1"] != "")
                           ? TagsWidgetButton(

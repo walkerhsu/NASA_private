@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Pages/species_details.dart';
 import 'package:water_app/Components/big_text.dart';
@@ -67,12 +68,17 @@ class MenuBook extends StatelessWidget {
                     j++)
                   GestureDetector(
                     onTap: () {
+                      print("currentPosition");
+                      print(currentPosition);
+                      String tempcountry = filterseenSpecies[j].value["country"];
+                      // print("tempcountry");
+                      // print(tempcountry);
                       Navigator.of(context).push(
                         MaterialPageRoute(
                             builder: (context) => SpeciesDetails(
                                 // station:AllInfo.allStations[countries[i]][j],
                                 speciesName: filterseenSpecies[j].key,
-                                country: country,
+                                country: tempcountry,
                                 currentPosition: currentPosition,
                             )),
                       );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Components/info_widget.dart';
 import 'package:water_app/Constants/all_info.dart';
+import 'package:water_app/Constants/screen_info.dart';
 import 'package:water_app/globals.dart';
 import 'package:water_app/processData/calculate_distance.dart';
 // import 'package:water_app/processData/process_species.dart';
@@ -30,15 +31,15 @@ class SpeciesDetails extends StatelessWidget {
         return index;
       }
     }
-    return -1;
+    return 1;
   }
 
   @override
   Widget build(BuildContext context) {
-    print("index");
-    print(nameToIdx());
+    // print("index");
+    // print(nameToIdx());
+    print(country);
     print(currentPosition);
-    // print(AllInfo.allSpecies[country][6]);
     return Scaffold(
         body: Stack(
       children: [
@@ -83,7 +84,7 @@ class SpeciesDetails extends StatelessWidget {
         Positioned(
             left: 0,
             right: 0,
-            top: 330,
+            top: Constants.screenHeight * 0.35,
             bottom: 0,
             child: Container(
                 padding: const EdgeInsets.only(left: 20, right: 20),
