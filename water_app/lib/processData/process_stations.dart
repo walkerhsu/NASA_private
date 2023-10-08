@@ -114,9 +114,7 @@ abstract class ProcessStations {
       for (int i = 1; i < AmericaRiverData.length; i++) {
         Map<String, dynamic> stationData = {};
         for (int j = 0; j < dataName.length; j++) {
-          if (AmericaRiverData[i][j + 1]) {
-            stationData[dataName[j]] = AmericaRiverData[i][j];
-          }
+          stationData[dataName[j]] = AmericaRiverData[i][j+1];
         }
         LatLng latLng =
             LatLng(stationData["latitude"], stationData["longitude"]);
@@ -135,7 +133,6 @@ abstract class ProcessStations {
 
   static List<int> sortStations(LatLng currentPosition, String country) {
     List<int> argsort = [];
-    print(country);
     if (country == "Taiwan") {
       for (int i = 0; i < taiwanStationData.length; i++) {
         argsort.add(i);
@@ -144,7 +141,6 @@ abstract class ProcessStations {
               currentPosition, taiwanStationData[a]["location"])
           .compareTo(CalculateDistance.calaulateDistance(
               currentPosition, taiwanStationData[b]["location"])));
-      // print(argsort);
     } else if (country == "Canada") {
       for (int i = 0; i < CanadaStationData.length; i++) {
         argsort.add(i);
@@ -154,7 +150,6 @@ abstract class ProcessStations {
           .compareTo(CalculateDistance.calaulateDistance(
               currentPosition, CanadaStationData[b]["location"])));
     } else if (country == "America") {
-      print("in");
       for (int i = 0; i < AmericaStationData.length; i++) {
         argsort.add(i);
       }
@@ -162,7 +157,6 @@ abstract class ProcessStations {
               currentPosition, AmericaStationData[a]["location"])
           .compareTo(CalculateDistance.calaulateDistance(
               currentPosition, AmericaStationData[b]["location"])));
-      print("done");
     }
 
     return argsort;
