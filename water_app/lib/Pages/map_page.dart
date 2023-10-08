@@ -1,11 +1,8 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:water_app/Camera/camera.dart';
-import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/Pages/markers.dart';
 import 'package:water_app/processData/process_book.dart';
 import 'package:water_app/processData/process_stations.dart';
@@ -116,7 +113,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late List<int> argsort = [];
   late LatLng currentLocation;
   late List<Map<String, dynamic>> stations;
-  late List<CameraDescription> _cameras;
   late String country;
   late Timer timerCurrentPosition;
 
@@ -307,48 +303,10 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   },
                   itemCount: markerNum,
                   itemBuilder: (_, index) {
-                    return MapData(
-                      station: stations[argsort[index]],
-                    );
+                    return MapData(station: stations[index]);
                   },
                 )
               : const SizedBox.shrink(),
-        ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: const EdgeInsets.only(top: 50, left: 20, right: 20),
-            width: double.infinity,
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: IconButton(
-                      icon: Icon(
-                        Icons.photo_camera,
-                        color: Colors.white.withOpacity(.5),
-                      ),
-                      onPressed: () async {
-                        _cameras = await availableCameras();
-                        String image = await CloudStorage.getImageURL(
-                            "image1.png", country);
-                        if (!mounted) return;
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) {
-                            return CameraPage(
-                                camera: _cameras[0],
-                                country: country,
-                                scientificName: "image1",
-                                image: image);
-                          }),
-                        );
-                      }))
-            ]),
-          ),
         ),
         Align(
           alignment: Alignment.topRight,

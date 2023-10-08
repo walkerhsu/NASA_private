@@ -74,8 +74,4 @@ abstract class CloudStorage {
     Map<String, dynamic> j = currentUser.toJson();
     storageRef.child("/userdata/$email.json").putString(jsonEncode(j));
   }
-
-  // static void downloadPhotoJson() async {
-  //   await storageRef.child(path).putData(data);
-  // }
 }
