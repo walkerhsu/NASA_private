@@ -143,13 +143,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 child: Center(
                     child: BigText(
                         text: 'Blue Vista',
-                        size: 20,
+                        size: 24,
                         fontWeight: FontWeight.normal)),
               ),
             ),
             ListTile(
               leading: const Icon(Icons.menu_book),
-              title: const SmallText(text: 'menu_book', size: 16),
+              title: const SmallText(text: 'Menu Book', size: 16),
               onTap: () async {
                 if (!mounted) return;
                 Navigator.pop(context);
@@ -180,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   }),
             ListTile(
               leading: Icon(Icons.logout, color: Colors.grey[600]),
-              title: const Text('Logout'),
+              title: const SmallText(text: 'Logout', size: 16.0),
               onTap: () async {
                 if (!mounted) return;
                 Authentication.signOut();
