@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:water_app/Components/info_widget.dart';
 import 'package:water_app/Constants/all_info.dart';
-import 'package:water_app/processData/process_species.dart';
+import 'package:water_app/globals.dart';
+import 'package:water_app/processData/calculate_distance.dart';
+// import 'package:water_app/processData/process_species.dart';
 
 class SpeciesDetails extends StatelessWidget {
   final String speciesName;
   final Map<String, dynamic> station;
   final String country;
+  final LatLng currentPosition;
 
   const SpeciesDetails({
     super.key,
     this.station = const {"waterbody": "Pacific Ocean"},
     required this.country,
     this.speciesName = "Canada Goose",
+    required this.currentPosition,
   });
 
   int nameToIdx() {
@@ -32,6 +37,7 @@ class SpeciesDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     print("index");
     print(nameToIdx());
+    print(currentPosition);
     // print(AllInfo.allSpecies[country][6]);
     return Scaffold(
         body: Stack(
@@ -86,13 +92,21 @@ class SpeciesDetails extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: InfoWidget(
-                  name: AllInfo.allSpecies[country][nameToIdx()]["common_name"],
-                  scientificName: AllInfo.allSpecies[country][nameToIdx()]
-                      ["scientific_name"],
-                  waterName: station["waterbody"],
-                  type: "species",
-                  // distance:
-                  // collected:
+                    name: AllInfo.allSpecies[country][nameToIdx()]
+                        ["common_name"],
+                    scientificName: AllInfo.allSpecies[country][nameToIdx()]
+                        ["scientific_name"],
+                    waterName: station["waterbody"],
+                    type: "species",
+                    distance: CalculateDistance.calculateDistance(
+                            currentPosition,
+                            station['location'])
+                        .toString(),
+                    collected: currentUser.seenSpecies
+                        .contains(AllInfo.allSpecies[country][nameToIdx()]
+                            ["scientific_name"])
+                        .toString(),
+                    country: country,
                 )))
       ],
     ));

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Pages/spot_details.dart';
-import 'package:water_app/components/special_card.dart';
+import 'package:water_app/Components/special_card.dart';
 // import 'package:water_app/processData/process_species.dart';
 // import 'package:water_app/Details/get_chatGPT_data.dart';
 

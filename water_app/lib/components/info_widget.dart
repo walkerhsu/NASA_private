@@ -1,9 +1,13 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/Components/special_icon.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Components/gpt_response.dart';
+import 'package:water_app/Constants/all_info.dart';
+import 'package:water_app/processData/process_book.dart';
 // import 'package:water_app/information/species_info.dart';
 
 class InfoWidget extends StatelessWidget {
@@ -18,6 +22,7 @@ class InfoWidget extends StatelessWidget {
   final String temperature;
   final String NH3_N;
   final String NH3_N_unit;
+  final String country;
 
   const InfoWidget({
     super.key,
@@ -32,6 +37,7 @@ class InfoWidget extends StatelessWidget {
     this.temperature = "0",
     this.NH3_N = "0",
     this.NH3_N_unit = "mg/L",
+    required this.country,
   });
 
   @override
@@ -46,6 +52,8 @@ class InfoWidget extends StatelessWidget {
         const SizedBox(height: 5),
         SmallText(text: scientificName ?? "", fontStyle: FontStyle.italic),
         const SizedBox(height: 10),
+        type == "species" 
+        ? 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -54,12 +62,38 @@ class InfoWidget extends StatelessWidget {
               spacing: 10,
               children: [
                 // List.generate()
-                SpecialIcon(
+                const SpecialIcon(
                   icon: Icons.wrap_text_outlined,
                   size: 30,
                 ),
-                BigText(text: "RPI:", size: 20,),
-                SmallText(text: rpi?? "0", size: 20),
+                const BigText(text: "RANK:", size: 20,),
+                BigText(text: ProcessBook.book[scientificName]!["rank"], size: 20),
+              ],
+            ),
+            // SizedBox(height: 10),
+            // SmallText(text: "pH: " + pH?? "0", size: 12),
+            // SizedBox(height: 10),
+            // SmallText(text: "temp: " + temperature?? "0", size: 12),
+            // SizedBox(height: 10),
+            // SmallText(text: "NH3-N: " + NH3_N + " " + NH3_N_unit?? "mg/L", size: 12),
+            // SizedBox(width: 5),
+          ],
+        )
+        :
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 10,
+              children: [
+                // List.generate()
+                const SpecialIcon(
+                  icon: Icons.wrap_text_outlined,
+                  size: 30,
+                ),
+                const BigText(text: "RPI:", size: 20,),
+                SmallText(text: rpi, size: 20),
               ],
             ),
             SizedBox(height: 10),
