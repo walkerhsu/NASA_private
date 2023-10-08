@@ -154,8 +154,8 @@ class _CameraPageState extends State<CameraPage> {
               Center(
                 child: Image.network(
                   image,
-                  width: 100,
-                  height: 100,
+                  width: 300,
+                  height: 300,
                 ),
               ),
               GestureDetector(
@@ -203,8 +203,8 @@ class _CameraPageState extends State<CameraPage> {
                               Center(
                                 child: Image.asset(
                                   'assets/images/山椒魚.jpg',
-                                  width: 50,
-                                  height: 50,
+                                  width: 300,
+                                  height: 300,
                                 ),
                               )
                             ],
