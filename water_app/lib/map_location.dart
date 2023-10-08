@@ -50,7 +50,7 @@ abstract class GetCurrentLocation {
         // forceAndroidLocationManager: true,
         desiredAccuracy: LocationAccuracy.best);
     LatLng currentLocation = LatLng(position.latitude, position.longitude);
-    print("Location: $currentLocation");
+    // print("Location: $currentLocation");
 
     List<Placemark> placemark = [];
     try {
@@ -63,7 +63,7 @@ abstract class GetCurrentLocation {
     }
 
     // ignore: non_constant_identifier_names
-    print(placemark);
+    // print(placemark);
     String GPScountry = placemark[0].country!;
     if (((GPScountry == "台灣" || GPScountry == "Taiwan") &&
             country == "Taiwan") ||

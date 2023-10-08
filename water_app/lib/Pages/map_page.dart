@@ -69,18 +69,14 @@ class MapPageBuilder extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             late List<Map<String, dynamic>> stations;
-            late List<Map<String, dynamic>> species;
             if (country == "Canada") {
               stations = snapshot.data![0] as List<Map<String, dynamic>>;
-              species = stations;
             } else {
-              species = snapshot.data![0] as List<Map<String, dynamic>>;
               stations = snapshot.data![1] as List<Map<String, dynamic>>;
             }
             return MapPage(
               currentPosition: currentPosition,
               refSearchLocation: refSearchLocation,
-              species: species,
               stations: stations,
               country: country,
             );
@@ -94,7 +90,6 @@ class MapPageBuilder extends StatelessWidget {
 }
 
 class MapPage extends StatefulWidget {
-  final List<Map<String, dynamic>> species;
   final LatLng currentPosition;
   final List<Map<String, dynamic>> stations;
   final LatLng? refSearchLocation;
@@ -102,7 +97,6 @@ class MapPage extends StatefulWidget {
   const MapPage(
       {super.key,
       required this.currentPosition,
-      required this.species,
       required this.stations,
       this.refSearchLocation,
       required this.country});
@@ -120,8 +114,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late LatLng? refLocation;
   late List<int> argsort = [];
   late LatLng currentLocation;
-  late final List<List<LatLng>> current;
-  late final List<Map<String, dynamic>> species;
   late List<Map<String, dynamic>> stations;
   late List<CameraDescription> _cameras;
   late String country;
@@ -162,15 +154,12 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     country = widget.country;
     currentLocation = widget.currentPosition;
     refLocation = widget.refSearchLocation;
-    species = widget.species;
-    stations = widget.stations;
     argsort = ProcessStations.sortStations(currentLocation, country);
     selectedIndex = argsort[0];
-    print(selectedIndex);
     pageController = PageController(
       initialPage: 0,
     );
-    // print(refLocation);
+    stations = widget.stations;
   }
 
   Future<LatLng> refreshLocation() async {
@@ -197,7 +186,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
             options: MapOptions(
               minZoom: 5,
               maxZoom: 18,
-              zoom: 10,
+              zoom: 12,
               center: refLocation ?? currentLocation,
               onTap: (tapPosition, point) {
                 _animatedMapMove(point, 12);

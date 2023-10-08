@@ -1,6 +1,8 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:water_app/Camera/camera.dart';
 import 'package:water_app/ShowSpecies/generate_species.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 import 'package:water_app/map_location.dart';
@@ -8,6 +10,7 @@ import 'package:water_app/processData/process_book.dart';
 import 'dart:async';
 import 'package:water_app/processData/process_species.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:water_app/Components/login_widget.dart';
 
 class MarkerLayers extends StatefulWidget {
   const MarkerLayers({
@@ -163,6 +166,7 @@ class SpeciesMarker extends StatefulWidget {
 class _SpeciesMarkerState extends State<SpeciesMarker> {
   late Timer timerSpecies;
   late LatLng refPoint;
+  late List<CameraDescription> _cameras;
 
   List<Map<String, dynamic>> getCountrySpecies() {
     if (widget.country == "Taiwan") {
@@ -196,7 +200,6 @@ class _SpeciesMarkerState extends State<SpeciesMarker> {
 
   @override
   Widget build(BuildContext context) {
-    print(popUpSpecies);
     return MarkerLayer(
       markers: [
         for (int i = 0; i < popUpSpecies.length; i++)
@@ -209,15 +212,39 @@ class _SpeciesMarkerState extends State<SpeciesMarker> {
                       (popUpSpecies[i]["delta_long"] as double)),
               builder: (context) {
                 String sn = popUpSpecies[i]["scientific_name"];
-                print(ProcessBook.book[sn]!["no_bg_image"]);
+                // print(ProcessBook.book[sn]!["no_bg_image"]);
                 return FutureBuilder(
                     future: CloudStorage.getNoBGImageURL(
                         ProcessBook.book[sn]!["no_bg_image"]),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        print(snapshot.data);
-                        return Image.network(snapshot.data
-                            as String); // TODO: Add Gesture detector to camera
+                        return GestureDetector(
+                          onTap: () async {
+                            _cameras = await availableCameras();
+                            if (!mounted) return;
+                            if (_cameras.isEmpty) {
+                              showAlert(
+                                context: context,
+                                title: "No camera found",
+                                desc: "Please check your camera settings.",
+                                onPressed: () => Navigator.pop(context),
+                              ).show();
+                            } else {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) {
+                                  return CameraPage(
+                                      camera: _cameras[0],
+                                      country: widget.country,
+                                      scientificName: popUpSpecies[i]
+                                          ["scientific_name"],
+                                      image: snapshot.data as String);
+                                }),
+                              );
+                            }
+                          },
+                          child: Image.network(snapshot.data as String),
+                        );
+                        // Gesture detector to camera
                       } else {
                         return const SizedBox();
                       }

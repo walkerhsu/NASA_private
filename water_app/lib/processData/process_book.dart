@@ -1,5 +1,4 @@
 import 'package:csv/csv.dart';
-import 'package:get/get.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
 
 abstract class ProcessBook {
@@ -36,6 +35,7 @@ abstract class ProcessBook {
         book[bookCsv[i][SCINAMEIDX]] = bookData;
       }
     }
+    print(book.length);
     return book;
   }
 }

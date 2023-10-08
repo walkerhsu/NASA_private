@@ -97,6 +97,7 @@ abstract class ProcessStations {
           CanadaStationData.add(CanadaStation);
 
           ProcessSpecies.species.add(CanadaStation);
+          ProcessSpecies.CanadaSpecies.add(CanadaStation);
         }
       }
       return CanadaStationData;
@@ -126,7 +127,6 @@ abstract class ProcessStations {
         stationData["waterbody"] = stationData["river"];
         AmericaStationData.add(stationData);
       }
-      print("process done");
       return AmericaStationData;
     } else {
       return [];
