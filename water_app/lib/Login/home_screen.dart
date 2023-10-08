@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:water_app/Authentication/authenticate.dart';
-import 'package:water_app/Login/components.dart';
+import 'package:water_app/Components/login_widget.dart';
 import 'package:water_app/Login/login_screen.dart';
 import 'package:water_app/Login/signup_screen.dart';
 import 'package:water_app/Pages/home_page.dart';

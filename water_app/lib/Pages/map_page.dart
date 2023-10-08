@@ -2,10 +2,11 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Camera/camera.dart';
 import 'package:water_app/Storage/cloud_storage.dart';
+import 'package:water_app/Pages/markers.dart';
+import 'package:water_app/processData/process_book.dart';
 import 'package:water_app/processData/process_stations.dart';
 import 'package:water_app/information/map_consts.dart';
 import 'package:water_app/map_data.dart';
@@ -55,27 +56,27 @@ class MapPageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: country == "Canada"
-            ? Future.wait([ProcessStations.processCsv(context, "Canada")])
+            ? Future.wait([
+                ProcessStations.processCsv(context, "Canada"),
+                ProcessBook.processCsv(context),
+              ])
             : Future.wait([
                 ProcessSpecies.processCsv(context, country),
                 ProcessStations.processCsv(context, country),
+                ProcessBook.processCsv(context),
               ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             late List<Map<String, dynamic>> stations;
-            late List<Map<String, dynamic>> species;
             if (country == "Canada") {
-              stations = snapshot.data![0];
-              species = stations;
+              stations = snapshot.data![0] as List<Map<String, dynamic>>;
             } else {
-              species = snapshot.data![0];
-              stations = snapshot.data![1];
+              stations = snapshot.data![1] as List<Map<String, dynamic>>;
             }
             return MapPage(
               currentPosition: currentPosition,
               refSearchLocation: refSearchLocation,
-              species: species,
               stations: stations,
               country: country,
             );
@@ -89,7 +90,6 @@ class MapPageBuilder extends StatelessWidget {
 }
 
 class MapPage extends StatefulWidget {
-  final List<Map<String, dynamic>> species;
   final LatLng currentPosition;
   final List<Map<String, dynamic>> stations;
   final LatLng? refSearchLocation;
@@ -97,7 +97,6 @@ class MapPage extends StatefulWidget {
   const MapPage(
       {super.key,
       required this.currentPosition,
-      required this.species,
       required this.stations,
       this.refSearchLocation,
       required this.country});
@@ -115,8 +114,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late LatLng? refLocation;
   late List<int> argsort = [];
   late LatLng currentLocation;
-  late final List<List<LatLng>> current;
-  late final List<Map<String, dynamic>> species;
   late List<Map<String, dynamic>> stations;
   late List<CameraDescription> _cameras;
   late String country;
@@ -157,15 +154,12 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     country = widget.country;
     currentLocation = widget.currentPosition;
     refLocation = widget.refSearchLocation;
-    species = widget.species;
-    stations = widget.stations;
     argsort = ProcessStations.sortStations(currentLocation, country);
     selectedIndex = argsort[0];
-    print(selectedIndex);
     pageController = PageController(
       initialPage: 0,
     );
-    // print(refLocation);
+    stations = widget.stations;
   }
 
   Future<LatLng> refreshLocation() async {
@@ -192,7 +186,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
             options: MapOptions(
               minZoom: 5,
               maxZoom: 18,
-              zoom: 10,
+              zoom: 12,
               center: refLocation ?? currentLocation,
               onTap: (tapPosition, point) {
                 _animatedMapMove(point, 12);
@@ -221,15 +215,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   'mapStyleId': "clnfny2al01j001ps7ep1g539",
                 },
               ),
-              // PolylineLayer(
-              //   polylines: current
-              //       .map((e) => Polyline(
-              //             points: e,
-              //             color: Colors.red,
-              //             strokeWidth: 5,
-              //           ))
-              //       .toList(),
-              // ),
               MarkerLayers(
                 currentPosition: widget.currentPosition,
                 refPosition: refLocation,
@@ -239,7 +224,11 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                 follow: true,
                 selectedindex: selectedIndex,
                 country: country,
-              )
+              ),
+              SpeciesMarker(
+                  country: country,
+                  currentPosition: widget.currentPosition,
+                  refPosition: refLocation)
             ]),
         Positioned(
           left: 0,
@@ -288,8 +277,8 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       ),
                       onPressed: () async {
                         _cameras = await availableCameras();
-                        String image =
-                            await CloudStorage.getImageURL("image1.png", country);
+                        String image = await CloudStorage.getImageURL(
+                            "image1.png", country);
                         if (!mounted) return;
                         Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) {
@@ -380,124 +369,5 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
       }
     });
     controller.forward();
-  }
-}
-
-class MarkerLayers extends StatefulWidget {
-  const MarkerLayers({
-    super.key,
-    required this.currentPosition,
-    required this.refPosition,
-    required this.stations,
-    required this.showLocation,
-    required this.argsort,
-    required this.follow,
-    required this.selectedindex,
-    required this.country,
-  });
-  final LatLng currentPosition;
-  final LatLng? refPosition;
-  final List<Map<String, dynamic>> stations;
-  final Function showLocation;
-  final List<int> argsort;
-  final bool follow;
-  final int selectedindex;
-  final String country;
-
-  @override
-  State<MarkerLayers> createState() => _MarkerLayersState();
-}
-
-class _MarkerLayersState extends State<MarkerLayers> {
-  late int selectedIndex;
-  List<int> argsort = [];
-  final int markerNum = 10;
-  late Timer timer;
-  late LatLng currentPosition;
-  late String country;
-
-  reload() {
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    country = widget.country;
-    selectedIndex = widget.selectedindex;
-    currentPosition = widget.currentPosition;
-    timer = Timer.periodic(const Duration(seconds: 10), (timer) async {
-      if (widget.follow) {
-        if (mounted) {
-          await GetCurrentLocation.handleCurrentPosition(
-                  context, widget.country)
-              .then((value) {
-            currentPosition = value;
-            reload();
-          });
-        }
-      }
-    });
-
-    argsort = widget.argsort;
-    selectedIndex = widget.selectedindex;
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    timer.cancel();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MarkerLayer(
-      markers: [
-        for (int i = 0; i < markerNum; i++)
-          Marker(
-            width: 70,
-            height: 100,
-            point: widget.stations[argsort[i]]["location"],
-            builder: (context) => GestureDetector(
-              onTap: () {
-                widget.showLocation(i);
-                setState(() {
-                  selectedIndex = argsort[i];
-                });
-              },
-              child: AnimatedScale(
-                duration: const Duration(milliseconds: 500),
-                scale: argsort[i] == selectedIndex ? 1 : 0.7,
-                child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 500),
-                  opacity: argsort[i] == selectedIndex ? 1 : 0.5,
-                  child: Column(children: [
-                    Text(
-                      widget.stations[argsort[i]]["station"],
-                      style: const TextStyle(
-                        fontSize: 10,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    SvgPicture.asset(
-                      'assets/icons/map_marker.svg',
-                    ),
-                  ]),
-                ),
-              ),
-            ),
-          ),
-        Marker(
-          width: 30,
-          height: 30,
-          point: currentPosition,
-          builder: (context) => Image.asset(
-            'assets/icons/current_position.png',
-          ),
-        )
-      ],
-    );
   }
 }

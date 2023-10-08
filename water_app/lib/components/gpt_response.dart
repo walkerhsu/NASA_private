@@ -43,28 +43,27 @@ class GptResponse extends StatelessWidget {
               snapshot.hasData) {
             List<String> description = snapshot.data as List<String>;
 
-            return 
-            Expanded(
+            return Expanded(
               child: SingleChildScrollView(
-                  child: Column(
+                child: Column(
                   children: [
                     for (int i = 0; i < description.length; i++)
                       SizedBox(
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                          BigText(
-                            text: title[i],
-                            size: 24,
-                          ),
-                          const SizedBox(height: 10),
-                          ExpandedDescription(
-                            description: description,
-                            type: type,
-                            index: i,
-                          ),
-                          const SizedBox(height: 10),
-                        ]),
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              BigText(
+                                text: title[i],
+                                size: 24,
+                              ),
+                              const SizedBox(height: 10),
+                              ExpandedDescription(
+                                description: description,
+                                type: type,
+                                index: i,
+                              ),
+                              const SizedBox(height: 10),
+                            ]),
                       ),
                     const SizedBox(height: 10),
                   ],

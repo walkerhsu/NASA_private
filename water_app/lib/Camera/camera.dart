@@ -78,8 +78,10 @@ class _CameraPageState extends State<CameraPage> {
                       capturedImage,
                       quality: 100,
                     );
-                    currentUser.seenSpecies.add(scientificName);
-                    CloudStorage.uploadUserData(currentUser.email);
+                    if (!currentUser.seenSpecies.contains(scientificName)) {
+                      currentUser.seenSpecies.add(scientificName);
+                      CloudStorage.uploadUserData(currentUser.email);
+                    }
                     Navigator.of(context).pop();
                     Navigator.of(context).pop();
                   } catch (e) {
