@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Authentication/authenticate.dart';
+import 'package:water_app/Components/loading.dart';
 import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
 import 'package:water_app/Pages/menu_book.dart';
@@ -32,9 +33,7 @@ class CheckCurrentPosition extends StatelessWidget {
               currentPosition: currentPosition,
             );
           } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Loading();
           }
         });
   }
@@ -62,9 +61,7 @@ class LoadAllData extends StatelessWidget {
               title: "Blue Vista",
             );
           } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Loading();
           }
         });
   }

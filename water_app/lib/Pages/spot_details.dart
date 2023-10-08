@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:water_app/Components/info_widget.dart';
+import 'package:water_app/Components/info_widgets.dart';
 import 'package:water_app/Components/special_card.dart';
 import 'package:water_app/Components/tags_widget.dart';
 import 'package:water_app/Components/tags_widget_button.dart';
@@ -23,9 +23,6 @@ class SpotDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("INFO");
-    print(AllInfo.allStations[country][index]);
-
     return Scaffold(
         body: Stack(
           children: [
@@ -82,9 +79,9 @@ class SpotDetails extends StatelessWidget {
                             type: "water",
                             waterName: station['waterbody'],
                             distance: CalculateDistance.calculateDistance(
-                                    station['location'], currentPosition)
-                                .toString(),
+                                    station['location'], currentPosition),
                             country: country,
+                            location: station['location'],
                           )
                         : InfoWidget(
                             name: station['station'],
@@ -96,9 +93,9 @@ class SpotDetails extends StatelessWidget {
                             type: "water",
                             waterName: station['river'],
                             distance: CalculateDistance.calculateDistance(
-                                    station['location'], currentPosition)
-                                .toString(),
+                                    station['location'], currentPosition),
                             country: country,
+                            location: station['location'],
                           ))),
           ],
         ),

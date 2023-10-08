@@ -29,7 +29,7 @@ class TagsWidgetButton extends StatelessWidget {
     this.backgroundColor = Colors.white,
     this.icon = Icons.tag_rounded,
     this.iconColor = const Color.fromARGB(255, 0, 128, 128),
-    this.width = 125,
+    this.width = 110,
     this.height = 35,
     required this.station,
     required this.country,
