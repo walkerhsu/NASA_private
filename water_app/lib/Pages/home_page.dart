@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:water_app/Authentication/authenticate.dart';
-import 'package:water_app/Constants/all_info.dart';
 import 'package:water_app/Login/home_screen.dart';
 import 'package:water_app/Pages/map_page.dart';
 import 'package:water_app/Pages/menu_book.dart';
@@ -10,20 +9,79 @@ import 'package:water_app/Components/big_text.dart';
 import 'package:water_app/Components/small_text.dart';
 import 'package:water_app/globals.dart';
 import 'package:water_app/information/map_consts.dart';
+import 'package:water_app/map_location.dart';
+import 'package:water_app/processData/process_book.dart';
 import 'package:water_app/processData/process_city.dart';
+import 'package:water_app/processData/process_species.dart';
+import 'package:water_app/processData/process_stations.dart';
 // import 'package:get/get.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class CheckCurrentPosition extends StatelessWidget {
+  const CheckCurrentPosition({super.key});
   static String id = 'home_page';
-  final String title;
 
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: GetCurrentLocation.handleCurrentPosition(context, "Taiwan"),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            LatLng currentPosition = snapshot.data as LatLng;
+            return LoadAllData(
+              currentPosition: currentPosition,
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+}
+
+class LoadAllData extends StatelessWidget {
+  final LatLng currentPosition;
+  const LoadAllData({
+    super.key,
+    required this.currentPosition,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: Future.wait([
+          ProcessSpecies.processCsv(context),
+          ProcessStations.processCsv(context),
+          ProcessBook.processCsv(context),
+        ]),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return MyHomePage(
+              currentPosition: currentPosition,
+              title: "Blue Vista",
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage(
+      {super.key, required this.title, required this.currentPosition});
+  final String title;
+  final LatLng currentPosition;
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late final String title;
+  late final LatLng currentPosition;
 
   List<String> dataCountries = ["Taiwan", "America", "Canada"];
   String dataCountry = "Taiwan";
@@ -47,7 +105,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       currentUser = value;
     });
     locations = ProcessCities.citiesData;
-    currentWidget = CheckCurrentPosition(country: dataCountry);
+    currentPosition = widget.currentPosition;
+    currentWidget = MapPage(
+        country: dataCountry,
+        refSearchLocation: currentPosition,
+        currentPosition: currentPosition);
   }
 
   List<Map<String, dynamic>> _search(String str) {
@@ -62,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    print(currentWidget);
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.grey[300],
@@ -113,13 +176,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                           ],
                         ),
                         onTap: () {
+                          print(location['coordinate']);
                           setState(() {
                             controller.closeView(location['cityName']);
-                            currentWidget = CheckCurrentPosition(
-                              country: dataCountry,
-                              refSearchLocation:
-                                  location['coordinate'] as LatLng,
-                            );
+                            currentWidget = MapPage(
+                                country: dataCountry,
+                                refSearchLocation:
+                                    location['coordinate'] as LatLng,
+                                currentPosition: currentPosition);
                           });
                         },
                       );
@@ -173,18 +237,18 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     Navigator.pop(context);
                     setState(() {
                       dataCountry = dataCountries[i];
-                      currentWidget = CheckCurrentPosition(
-                          country: dataCountries[i],
-                          refSearchLocation:
-                              MapConstants.myLocation[dataCountries[i]]);
+                      currentWidget = MapPage(
+                        country: dataCountries[i],
+                        currentPosition: currentPosition,
+                      );
                     });
                   }),
             ListTile(
               leading: Icon(Icons.logout, color: Colors.grey[600]),
               title: const SmallText(text: 'Logout', size: 16.0),
               onTap: () async {
+                await Authentication.signOut();
                 if (!mounted) return;
-                Authentication.signOut();
                 Navigator.popUntil(context, ModalRoute.withName(HomeScreen.id));
               },
             ),

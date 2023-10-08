@@ -35,13 +35,10 @@ abstract class ProcessStations {
   static List<Map<String, dynamic>> taiwanStationData = [];
   static List<Map<String, dynamic>> CanadaStationData = [];
   static List<Map<String, dynamic>> AmericaStationData = [];
+  static Map<String, dynamic> currentStation = {};
 
-  static Future<List<Map<String, dynamic>>> processCsv(
-      context, String country) async {
-    if (country == "Taiwan") {
-      if (taiwanStationData.isNotEmpty) {
-        return taiwanStationData;
-      }
+  static Future<void> processCsv(context) async {
+    if (taiwanStationData.isEmpty) {
       var riverDataString = await DefaultAssetBundle.of(context).loadString(
         "assets/data/Taiwan_river_data.csv",
       );
@@ -63,19 +60,17 @@ abstract class ProcessStations {
         stationData["waterbody"] = stationData["river"];
         taiwanStationData.add(stationData);
       }
-      // print(taiwanStationData[1]);
-      return taiwanStationData;
-    } else if (country == "Canada") {
-      if (CanadaStationData.isEmpty) {
-        String CanadaStationsCSV = await CloudStorage.getCanadaStationsCSV();
-        int CANADACOMMONNAMEIDX = 1;
-        int SCIENCIFICNAMEIDX = 2;
-        int WATERBODYIDX = 3;
-        int SARA_STATUS_IDX = 4;
-        int LATIDX = 5;
-        int LNGIDX = 6;
-        int DETAILEDIDX = 7;
-        int RAWIMG = 8;
+    }
+    if (CanadaStationData.isEmpty) {
+      String CanadaStationsCSV = await CloudStorage.getCanadaStationsCSV();
+      int CANADACOMMONNAMEIDX = 1;
+      int SCIENCIFICNAMEIDX = 2;
+      int WATERBODYIDX = 3;
+      int SARA_STATUS_IDX = 4;
+      int LATIDX = 5;
+      int LNGIDX = 6;
+      int DETAILEDIDX = 7;
+      int RAWIMG = 8;
 
         List<List<dynamic>> CanadaStations =
             const CsvToListConverter().convert(CanadaStationsCSV, eol: "\n");
@@ -98,17 +93,13 @@ abstract class ProcessStations {
           CanadaStation["no_bg_image"] = CanadaStations[i][RAWIMG];
           CanadaStation["country"] = "Canada";
 
-          CanadaStationData.add(CanadaStation);
+        CanadaStationData.add(CanadaStation);
 
-          ProcessSpecies.species.add(CanadaStation);
-          ProcessSpecies.CanadaSpecies.add(CanadaStation);
-        }
+        ProcessSpecies.species.add(CanadaStation);
+        ProcessSpecies.CanadaSpecies.add(CanadaStation);
       }
-      return CanadaStationData;
-    } else if (country == "America") {
-      if (AmericaStationData.isNotEmpty) {
-        return AmericaStationData;
-      }
+    }
+    if (AmericaStationData.isEmpty) {
       var AmericaStationDataString =
           await DefaultAssetBundle.of(context).loadString(
         "assets/data/America_river_data.csv",
@@ -129,9 +120,6 @@ abstract class ProcessStations {
         stationData["waterbody"] = stationData["river"];
         AmericaStationData.add(stationData);
       }
-      return AmericaStationData;
-    } else {
-      return [];
     }
   }
 
@@ -145,6 +133,7 @@ abstract class ProcessStations {
               currentPosition, taiwanStationData[a]["location"])
           .compareTo(CalculateDistance.calculateDistance(
               currentPosition, taiwanStationData[b]["location"])));
+      currentStation = taiwanStationData[argsort[0]];
     } else if (country == "Canada") {
       for (int i = 0; i < CanadaStationData.length; i++) {
         argsort.add(i);
@@ -153,6 +142,7 @@ abstract class ProcessStations {
               currentPosition, CanadaStationData[a]["location"])
           .compareTo(CalculateDistance.calculateDistance(
               currentPosition, CanadaStationData[b]["location"])));
+      currentStation = CanadaStationData[argsort[0]];
     } else if (country == "America") {
       for (int i = 0; i < AmericaStationData.length; i++) {
         argsort.add(i);
@@ -161,7 +151,18 @@ abstract class ProcessStations {
               currentPosition, AmericaStationData[a]["location"])
           .compareTo(CalculateDistance.calculateDistance(
               currentPosition, AmericaStationData[b]["location"])));
+      currentStation = AmericaStationData[argsort[0]];
     }
     return argsort;
+  }
+  static List<Map<String, dynamic>> getStationData(String country) {
+    if (country == "Taiwan") {
+      return taiwanStationData;
+    } else if (country == "Canada") {
+      return CanadaStationData;
+    } else if (country == "America") {
+      return AmericaStationData;
+    }
+    return [];
   }
 }

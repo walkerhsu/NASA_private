@@ -24,8 +24,6 @@ class SpeciesDetails extends StatelessWidget {
   int nameToIdx() {
     int index = 0;
     for (int i = 0; i < AllInfo.allSpecies[country].length; i++) {
-      print(speciesName);
-      print(AllInfo.allSpecies[country][i]["scientific_name"]);
       if (AllInfo.allSpecies[country][i]["scientific_name"] == speciesName) {
         index = i;
         return index;
@@ -36,10 +34,7 @@ class SpeciesDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print("index");
-    // print(nameToIdx());
-    print(country);
-    print(currentPosition);
+    Map species = AllInfo.allSpecies[country][nameToIdx()];
     return Scaffold(
         body: Stack(
       children: [
@@ -51,8 +46,7 @@ class SpeciesDetails extends StatelessWidget {
               height: 350,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(
-                      AllInfo.allSpecies[country][nameToIdx()]["image"]),
+                  image: NetworkImage(species["image"]),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -63,12 +57,6 @@ class SpeciesDetails extends StatelessWidget {
           right: 20,
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            // SpecialIcon(
-            //   icon: Icons.arrow_back_ios_rounded,
-            //   backgroundColor: Colors.black.withOpacity(0.5),
-            //   iconColor: Colors.white,
-            //   size: 40,
-            // ),
             IconButton(
               iconSize: 30,
               icon: const Icon(
@@ -93,21 +81,17 @@ class SpeciesDetails extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: InfoWidget(
-                    name: AllInfo.allSpecies[country][nameToIdx()]
-                        ["common_name"],
-                    scientificName: AllInfo.allSpecies[country][nameToIdx()]
-                        ["scientific_name"],
-                    waterName: station["waterbody"],
-                    type: "species",
-                    distance: CalculateDistance.calculateDistance(
-                            currentPosition,
-                            station['location'])
-                        .toString(),
-                    collected: currentUser.seenSpecies
-                        .contains(AllInfo.allSpecies[country][nameToIdx()]
-                            ["scientific_name"])
-                        .toString(),
-                    country: country,
+                  name: species["common_name"],
+                  scientificName: species["scientific_name"],
+                  waterName: station["waterbody"],
+                  type: "species",
+                  distance: CalculateDistance.calculateDistance(
+                          currentPosition, station['location'])
+                      .toString(),
+                  collected: currentUser.seenSpecies
+                      .contains(species["scientific_name"])
+                      .toString(),
+                  country: country,
                 )))
       ],
     ));

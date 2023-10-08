@@ -14,7 +14,7 @@ class TagsWidget extends StatelessWidget {
   static Color defaultColor = const Color.fromARGB(255, 0, 128, 128);
   static Color blueColor = const Color.fromARGB(255, 70, 130, 180);
   static Color brownColor = const Color.fromARGB(255, 149, 69, 53);
-  static Color almondColor = Color.fromARGB(240, 234, 221, 202);
+  static Color almondColor = const Color.fromARGB(240, 234, 221, 202);
 
   const TagsWidget({
     super.key,
